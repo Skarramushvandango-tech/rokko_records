@@ -1,0 +1,68 @@
+
+:root{
+  --bg:#0b0b0d;          /* deep charcoal */
+  --surface:#141317;     /* card bg */
+  --text:#f0eee8;        /* light text (muted cream) */
+  --muted:#bfb8a8;       /* softer cream */
+  --brand:#f09a2a;       /* warm orange */
+  --brand-red:#cf3a36;   /* crimson accent */
+  --brand-blue:#3b5a7a;  /* steel blue accent */
+  --brand-ink:#e8d5b5;   /* inked paper */
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+body{
+  background:
+    url('data:image/svg+xml;base64,CjxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB3aWR0aD0nMTYwJyBoZWlnaHQ9JzE2MCcgdmlld0JveD0nMCAwIDE2MCAxNjAnPgogIDxmaWx0ZXIgaWQ9J24nPgogICAgPGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuOScgbnVtT2N0YXZlcz0nMicgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPgogICAgPGZlQ29sb3JNYXRyaXggdHlwZT0nc2F0dXJhdGUnIHZhbHVlcz0nMCcvPgogICAgPGZlQ29tcG9uZW50VHJhbnNmZXI+CiAgICAgIDxmZUZ1bmNBIHR5cGU9J3RhYmxlJyB0YWJsZVZhbHVlcz0nMCAwLjI1Jy8+CiAgICA8L2ZlQ29tcG9uZW50VHJhbnNmZXI+CiAgPC9maWx0ZXI+CiAgPHJlY3Qgd2lkdGg9JzE2MCcgaGVpZ2h0PScxNjAnIGZpbHRlcj0ndXJsKCNuKScgb3BhY2l0eT0nMC4yMCcvPgo8L3N2Zz4K'),
+    radial-gradient(1200px 800px at 10% -10%, #141317 0%, transparent 50%),
+    radial-gradient(1200px 800px at 120% 10%, #101014 0%, transparent 55%),
+    linear-gradient(180deg,#070708 0%, #0b0b0d 100%);
+  background-blend-mode: multiply, normal, normal, normal;
+  color:var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height:1.55;
+}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:26px 24px 36px}
+
+header{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:4px 0 10px 0; position:sticky; top:0; backdrop-filter: blur(6px); background:rgba(11,11,13,0.7); border-bottom:1px solid rgba(255,255,255,0.06); z-index:10}
+.brand{display:flex; align-items:center; gap:14px;}
+.logo{width:96px;height:96px;border-radius:8px;overflow:hidden;border:2px solid rgba(255,255,255,0.08);box-shadow:0 8px 28px rgba(0,0,0,.55)}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+h1{margin:0;font-size:24px;letter-spacing:1px;text-transform:uppercase}
+.badge{display:inline-block;background:rgba(240,154,42,0.15);color:var(--brand);border:1px solid rgba(240,154,42,0.5);padding:3px 8px;border-radius:999px;font-size:12px;margin-left:8px}
+nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:14px}
+nav a:hover{color:var(--text)}
+
+.angle{height:10px;background:linear-gradient(90deg,var(--brand) 0 40%, var(--brand-red) 40% 70%, var(--brand-blue) 70% 100%); transform:skewY(-2deg); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(0,0,0,0.6)}
+
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;margin-top:18px}
+@media (max-width:980px){ .hero{grid-template-columns:1fr} }
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px; box-shadow:0 14px 40px rgba(0,0,0,.6); position:relative}
+.card::after{content:""; position:absolute; inset:0; border-radius:14px; pointer-events:none; background: repeating-linear-gradient(45deg, transparent 0 6px, rgba(255,255,255,0.02) 6px 12px);}
+
+.hero .blurb p{color:var(--muted); margin:0 0 12px 0}
+.cta a{display:inline-block;padding:10px 14px;margin-right:10px;border-radius:10px;text-decoration:none;font-weight:700}
+.cta .primary{background:var(--brand);color:#111;box-shadow:0 6px 14px rgba(240,154,42,0.35)}
+.cta .ghost{border:1px dashed rgba(255,255,255,0.25); color:var(--text)}
+.cta .ghost:hover{border-style:solid}
+
+.section h2{margin:26px 0 10px 0;text-transform:uppercase;letter-spacing:1px}
+.grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:20px}
+@media (max-width:920px){ .grid{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .grid{grid-template-columns:1fr} }
+
+.artist-card{text-decoration:none;color:var(--text);display:block;position:relative}
+.artist-card img{width:100%;height:240px;object-fit:cover;border-radius:12px;border:2px solid rgba(255,255,255,0.08)}
+.artist-card h3{margin:10px 0 2px 0}
+.artist-card .tags{font-size:13px;color:var(--muted)}
+.artist-card .flag{position:absolute; top:10px; left:-6px; background:var(--brand-red); color:#fff; padding:4px 8px; font-size:12px; transform:skew(-8deg); box-shadow:0 6px 14px rgba(0,0,0,.4)}
+
+.list-inline a{color:var(--text); text-decoration:none; margin-right:10px}
+.list-inline a:hover{color:var(--brand)}
+
+footer{margin:28px 0 16px 0;text-align:center;color:var(--muted);font-size:13px}
+hr{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:14px 0}
