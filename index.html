@@ -2,262 +2,108 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ROKKO! Records</title>
-  <link rel="preload" as="video" href="assets/movies/Intro_movie.mp4" type="video/mp4">
-  <link rel="icon" href="assets/Images/Logo.png">
-  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- CSS -->
+  <link rel="preload" href="./assets/css/style.css" as="style" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Fallback-Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- Fixer Header: anfangs transparent, nach Scroll schwarz -->
-  <header id="siteHeader" class="site-header">
-    <div class="brand-wrap">
-      <a class="brand" href="#home" aria-label="Start">
-        <img src="assets/Images/Logo.png" alt="ROKKO! Records">
-      </a>
-      <!-- Schriftzug neben dem Logo (stacked) -->
-      <div class="headline">
+  <!-- Sticky Header -->
+  <header class="site-header" id="top">
+    <div class="brand">
+      <img class="brand__logo" src="./assets/Images/Logo.png" alt="ROKKO! Logo" />
+      <div class="brand__wordmark">
         <span class="rokko">ROKKO!</span>
         <span class="records">Records</span>
       </div>
     </div>
 
-    <button id="menuToggle" class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="sideMenu">
+    <!-- Burger -->
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
 
-    <!-- Off-Canvas: fährt von rechts ins Bild, mit Luft zur Kante -->
-    <nav id="sideMenu" class="side-menu" aria-hidden="true">
+    <!-- Drawer (kommt von rechts) -->
+    <nav class="drawer" aria-label="Hauptmenü">
       <ul>
-        <li><a class="jump" href="#home">Home</a></li>
-        <li><a class="jump" href="#artists">Artists</a></li>
-        <li><a class="jump" href="#about">About</a></li>
-        <li><a class="jump" href="#news">News</a></li>
-        <li><a class="jump" href="#contact">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#artists">Artists</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO / Video — der Header ist darüber transparent -->
-  <section id="home" class="hero">
-    <!-- unsichtbarer Marker für Scroll-Status -->
-    <div id="heroSentinel" aria-hidden="true"></div>
-
-    <div class="hero-video">
-      <video id="introVideo" playsinline muted autoplay preload="auto">
-        <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
-        Dein Browser unterstützt das Video-Element nicht.
+  <!-- HERO / VIDEO (16:9, responsive, crops mit object-fit:cover) -->
+  <section id="home" class="hero" aria-label="Intro Video">
+    <div class="video-wrap">
+      <video id="introVideo"
+             class="hero-video"
+             playsinline
+             preload="auto"
+             webkit-playsinline
+             poster="./assets/Images/Logo.png">
+        <source src="./assets/movies/Intro_movie.mp4" type="video/mp4" />
       </video>
 
-      <!-- Mute/Unmute ohne Emojis -->
-      <button id="muteToggle" class="mute-btn" aria-label="Ton umschalten">MUTE</button>
-      <div id="tapHint" class="tap-hint" hidden>Tippen für Ton</div>
+      <!-- Mute/Unmute -->
+      <button id="muteToggle" class="mute-btn" aria-label="Ton umschalten" title="Ton an/aus">
+        <span class="icon-sound-on" aria-hidden="true">🔊</span>
+        <span class="icon-sound-off" aria-hidden="true">🔇</span>
+      </button>
+
+      <!-- Hinweis, falls Autoplay mit Ton blockiert -->
+      <div id="tapForSound" class="tap-hint" role="status" aria-live="polite">
+        Tippen für Ton
+      </div>
     </div>
   </section>
 
-  <!-- Artists (Sprunglinks + Sektionen auf EINER Seite) -->
-  <section id="artists" class="section">
-    <div class="container">
+  <!-- SECTIONS – Onepager, auf die das Drawer-Menü springt -->
+  <main>
+    <section id="artists" class="section">
       <h2>Artists</h2>
-      <nav class="artist-nav">
-        <a class="jump" href="#artists-erling">Markus Erling</a>
-        <a class="jump" href="#artists-henri">Henri Bellieu</a>
-        <a class="jump" href="#artists-skank">Skank Schablonski</a>
-        <a class="jump" href="#artists-fleur">Fleur Benuine</a>
-        <a class="jump" href="#artists-skaramush">SkaRamush Vandango</a>
-      </nav>
 
-      <!-- Sektion: Markus Erling -->
-      <article id="artists-erling" class="artist-block">
-        <header class="artist-head">
-          <h3>Markus Erling</h3>
-        </header>
-        <div class="artist-grid">
-          <div class="artist-media">
-            <!-- Platzhalter; später echte Pfade einsetzen -->
-            <!-- <img src="artists/ERLING/Fotos/erling_main.PNG" alt="Markus Erling"> -->
-            <div class="ph"></div>
-          </div>
-          <div class="artist-body">
-            <p>Deutschsprachiger Singer-Songwriter. Neurodivers, textstark, direkt.</p>
-            <div class="release-list">
-              <div class="release">
-                <h4>Endlich schlafen</h4>
-                <!-- Spotify-Embed später hier einsetzen -->
-                <!-- <iframe ...></iframe> -->
-                <div class="ph-line"></div>
-              </div>
-              <div class="release">
-                <h4>Der Tag an dem es regnet</h4>
-                <div class="ph-line"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
+      <!-- Grid mit Links in DEINE Ordner (Groß/Kleinschreibung genau wie bei dir) -->
+      <div class="artists-grid">
+        <a class="artist-card" href="./artists/ERLING/index.html">ERLING</a>
+        <a class="artist-card" href="./artists/HENRI/index.html">HENRI</a>
+        <a class="artist-card" href="./artists/FLEURBENUINE/index.html">FLEURBENUINE</a>
+        <a class="artist-card" href="./artists/SKANK_SCHABLONSKI/index.html">SKANK SCHABLONSKI</a>
+        <a class="artist-card" href="./artists/SKARAMUSH_VANDANGO/index.html">SKARAMUSH VANDANGO</a>
+      </div>
+    </section>
 
-      <!-- Sektion: Henri Bellieu -->
-      <article id="artists-henri" class="artist-block">
-        <header class="artist-head">
-          <h3>Henri Bellieu</h3>
-        </header>
-        <div class="artist-grid">
-          <div class="artist-media"><div class="ph"></div></div>
-          <div class="artist-body">
-            <p>Französische Poesie zwischen Chanson, Blues und Rock.</p>
-            <div class="release-list">
-              <div class="release"><h4>Single A</h4><div class="ph-line"></div></div>
-              <div class="release"><h4>Single B</h4><div class="ph-line"></div></div>
-            </div>
-          </div>
-        </div>
-      </article>
+    <section id="about" class="section">
+      <h2>About us</h2>
+      <p>Independent Label. Rock’n’Roll, Funk &amp; Freshness.</p>
+    </section>
 
-      <!-- Sektion: Skank Schablonski -->
-      <article id="artists-skank" class="artist-block">
-        <header class="artist-head"><h3>Skank Schablonski</h3></header>
-        <div class="artist-grid">
-          <div class="artist-media"><div class="ph"></div></div>
-          <div class="artist-body">
-            <p>Satire, Bass, klare Kante gegen braunen Mief.</p>
-            <div class="release-list">
-              <div class="release"><h4>Kohle raus, der März kommt</h4><div class="ph-line"></div></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Sektion: Fleur Benuine -->
-      <article id="artists-fleur" class="artist-block">
-        <header class="artist-head"><h3>Fleur Benuine</h3></header>
-        <div class="artist-grid">
-          <div class="artist-media"><div class="ph"></div></div>
-          <div class="artist-body">
-            <p>French-House-Vibes: Retro-Charme + treibende Beats.</p>
-            <div class="release-list">
-              <div class="release"><h4>Feux Légère</h4><div class="ph-line"></div></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Sektion: SkaRamush Vandango -->
-      <article id="artists-skaramush" class="artist-block">
-        <header class="artist-head"><h3>SkaRamush Vandango</h3></header>
-        <div class="artist-grid">
-          <div class="artist-media"><div class="ph"></div></div>
-          <div class="artist-body">
-            <p>Label-Boss, Produzent, Multi-Persona – Garage voll Sounds.</p>
-            <div class="release-list">
-              <div class="release"><h4>Single X</h4><div class="ph-line"></div></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About</h2>
-      <p>ROKKO! Records – Indie-Label aus dem Ruhrpott. Sandfarbener Grund, Schwarz-Weiß-Ästhetik, klare Kante. Kein Genre-Korsett, nur Haltung.</p>
-    </div>
-  </section>
-
-  <!-- News -->
-  <section id="news" class="section">
-    <div class="container">
+    <section id="news" class="section">
       <h2>News</h2>
-      <p>Launch. Neue Artists. Releases. Später als Kacheln.</p>
-    </div>
-  </section>
+      <p>Aktuelle Updates &amp; Releases.</p>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container">
+    <section id="contact" class="section">
       <h2>Contact</h2>
-      <p>Kontaktformular oder Mail folgt.</p>
-    </div>
-  </section>
+      <p>Mail: info@rokko-records.example</p>
+    </section>
+  </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> ROKKO! Records</p>
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> ROKKO! Records</p>
   </footer>
 
-  <script>
-    // Jahr
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Off-Canvas rechts
-    const btn = document.getElementById('menuToggle');
-    const menu = document.getElementById('sideMenu');
-    function toggleMenu(open){
-      btn.setAttribute('aria-expanded', String(open));
-      menu.classList.toggle('open', open);
-      menu.setAttribute('aria-hidden', String(!open));
-      document.body.classList.toggle('no-scroll', open);
-    }
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      toggleMenu(!open);
-    });
-    document.querySelectorAll('.jump').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
-
-    // Smooth Scroll mit Header-Offset
-    const HEADER_H = 64;
-    document.querySelectorAll('a.jump[href^="#"]').forEach(link=>{
-      link.addEventListener('click', e=>{
-        const id = link.getAttribute('href');
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        const y = el.getBoundingClientRect().top + window.scrollY - HEADER_H - 8;
-        window.scrollTo({top:y, behavior:'smooth'});
-      });
-    });
-
-    // Header: anfangs transparent, nach Scroll schwarz
-    const header = document.getElementById('siteHeader');
-    const sentinel = document.getElementById('heroSentinel');
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        header.classList.toggle('scrolled', !entry.isIntersecting);
-      });
-    }, {rootMargin: "-64px 0px 0px 0px", threshold: 0});
-    io.observe(sentinel);
-
-    // Video + Mute (Status merken) – ohne Emojis
-    (function(){
-      const video = document.getElementById('introVideo');
-      const muteBtn = document.getElementById('muteToggle');
-      const hint = document.getElementById('tapHint');
-      const KEY = 'rokkoMuted';
-
-      const saved = localStorage.getItem(KEY);
-      if (saved !== null) {
-        video.muted = (saved === 'true');
-      } else {
-        video.muted = true; // Mobile Autoplay-Regel
-        hint.hidden = false;
-        setTimeout(()=>{ hint.hidden = true; }, 2200);
-      }
-      renderLabel();
-
-      muteBtn.addEventListener('click', async ()=>{
-        if (video.paused) { try { await video.play(); } catch(_) {} }
-        video.muted = !video.muted;
-        localStorage.setItem(KEY, String(video.muted));
-        renderLabel();
-      });
-
-      function renderLabel(){
-        muteBtn.textContent = video.muted ? 'UNMUTE' : 'MUTE';
-        muteBtn.setAttribute('aria-label', video.muted ? 'Ton einschalten' : 'Ton stummschalten');
-      }
-    })();
-  </script>
+  <!-- JS -->
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
