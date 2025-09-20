@@ -1,113 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROKKO! Records</title>
-  <link rel="preload" as="video" href="assets/movies/Intro_movie.mp4" type="video/mp4">
-  <link rel="preload" as="image" href="assets/images/Logo.png">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="home">
 
-  <!-- Header / Logo + Burger -->
-  <header class="site-header">
-    <a class="brand" href="/">
-      <img src="assets/images/Logo.png" alt="ROKKO! Records Logo">
+  <!-- Header -->
+  <header id="siteHeader" class="site-header">
+    <a class="brand" href="#home" aria-label="Startseite">
+      <img src="assets/Images/Logo.png" alt="ROKKO! Records Logo">
     </a>
-    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="site-nav">
+    <div class="headline">
+      <span class="rokko">ROKKO!</span>
+      <span class="records">Records</span>
+    </div>
+    <button id="menuToggle" class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="sideMenu">
       <span></span><span></span><span></span>
     </button>
-    <nav id="site-nav" class="drawer" hidden>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/artists/">Artists</a></li>
-        <li><a href="/about/">About us</a></li>
-        <li><a href="/news/">News</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- HERO-VIDEO: responsive + Cover-Zuschnitt -->
-  <section class="hero">
-    <div class="hero-video">
-      <video id="introVideo"
-             playsinline
-             muted
-             autoplay
-             preload="auto"
-             poster="assets/wallpaper/wallpaper.jpg">
-        <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
-        Dein Browser unterstützt das Video-Element nicht.
-      </video>
+  <!-- Side Menu -->
+  <nav id="sideMenu" class="side-menu" aria-hidden="true">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#artists">Artists</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
 
-      <!-- Mute/Unmute -->
-      <button id="muteToggle" class="mute-btn" aria-label="Ton umschalten"></button>
-
-      <!-- kleiner Hinweis beim ersten Besuch -->
-      <div id="tapHint" class="tap-hint" hidden>Tippen für Ton</div>
-    </div>
+  <!-- Intro Video -->
+  <section class="intro-video">
+    <video autoplay muted playsinline id="introVideo">
+      <source src="assets/Movies/intro.mp4" type="video/mp4">
+      Dein Browser unterstützt kein Video.
+    </video>
+    <button id="muteBtn">🔊</button>
   </section>
 
-  <main class="content">
-    <section class="welcome">
-      <h1>Welcome to ROKKO! Records</h1>
-      <p>Independent Label. Rock’n’Roll, Funk & Freshness.</p>
-    </section>
-  </main>
+  <!-- Artists -->
+  <section id="artists" class="artists">
+    <h2>Unsere Artists</h2>
+    <div class="artist">
+      <img src="assets/Artists/Erling/Fotos/erling1.jpg" alt="Markus Erling">
+      <p>Bio von Markus Erling …</p>
+    </div>
+    <!-- weitere Artists folgen -->
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>Über uns</h2>
+    <p>Wir sind ROKKO! Records – und du „noch“ nicht …</p>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="contact" class="contact">
+    <h2>Kontakt</h2>
+    <form>
+      <input type="text" placeholder="Dein Name">
+      <input type="email" placeholder="Deine E-Mail">
+      <textarea placeholder="Nachricht"></textarea>
+      <button type="submit">Absenden</button>
+    </form>
+  </section>
 
   <script>
-    // --- Burger Drawer ---
-    const burger = document.querySelector('.burger');
-    const nav = document.getElementById('site-nav');
-    burger.addEventListener('click', () => {
-      const open = burger.getAttribute('aria-expanded') === 'true';
-      burger.setAttribute('aria-expanded', String(!open));
-      nav.hidden = open;
+    // Menü
+    const menuToggle = document.getElementById("menuToggle");
+    const sideMenu = document.getElementById("sideMenu");
+    menuToggle.addEventListener("click", () => {
+      sideMenu.classList.toggle("open");
     });
 
-    // --- Video + Mute-Status merken ---
-    const video = document.getElementById('introVideo');
-    const btn = document.getElementById('muteToggle');
-    const hint = document.getElementById('tapHint');
-    const STORAGE_KEY = 'rokkoMuted';
-
-    // Initial: aus LocalStorage lesen
-    let saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === null) {
-      // Erster Besuch: Browser verlangt Autoplay muted
-      saved = 'true';
-      localStorage.setItem(STORAGE_KEY, saved);
-      hint.hidden = false; // Hinweis einmal anzeigen
-      setTimeout(()=>{ hint.hidden = true; }, 3000);
-    }
-    const startMuted = (saved === 'true');
-    video.muted = startMuted;
-    updateBtn();
-
-    // iOS-Safari: nach User-Tap Ton erlauben
-    btn.addEventListener('click', () => {
+    // Video Mute Button
+    const video = document.getElementById("introVideo");
+    const muteBtn = document.getElementById("muteBtn");
+    muteBtn.addEventListener("click", () => {
       video.muted = !video.muted;
-      if (!video.muted) {
-        // Versuche Ton zu starten (User-Geste liegt vor)
-        video.play().catch(()=>{});
-      }
-      localStorage.setItem(STORAGE_KEY, String(video.muted));
-      updateBtn();
+      muteBtn.textContent = video.muted ? "🔇" : "🔊";
+      localStorage.setItem("videoMuted", video.muted);
     });
-
-    function updateBtn(){
-      btn.classList.toggle('is-muted', video.muted);
-      btn.setAttribute('aria-label', video.muted ? 'Ton einschalten' : 'Ton stummschalten');
+    if (localStorage.getItem("videoMuted") === "true") {
+      video.muted = true;
+      muteBtn.textContent = "🔇";
     }
-
-    // Sicherstellen, dass das Video immer läuft (einige Browser pausieren Autoplay)
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && video.paused) {
-        video.play().catch(()=>{});
-      }
-    });
   </script>
 </body>
 </html>
