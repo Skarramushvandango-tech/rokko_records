@@ -46,10 +46,9 @@
   <div class="scrim" hidden></div>
 
   <main id="home" class="main">
-
-    <!-- HERO / INTRO-VIDEO -->
+    <!-- HERO / INTRO-VIDEO (immer 16:9, oben unter Header „weg“, unten sichtbar) -->
     <section class="hero" aria-label="Intro">
-      <div class="video-frame">
+      <div class="video-frame tuck-under-header">
         <video id="introVid" playsinline preload="metadata">
           <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
           Dein Browser unterstützt das Video-Element nicht.
@@ -178,12 +177,9 @@
             Motto: Musik muss den Poppes wackeln lassen. Wenn es ihn nicht grinsen
             lässt, ist es schlicht egal.
           </p>
-          <div class="covers">
-            <!-- Noch keine Cover – folgt -->
-          </div>
+          <div class="covers"></div>
         </div>
       </article>
-
     </section>
 
     <!-- ABOUT -->
@@ -206,7 +202,6 @@
       <h2>Contact</h2>
       <p>Kontaktadresse folgt. Bis dahin: Socials der Artists.</p>
     </section>
-
   </main>
 
   <footer class="site-footer">© <span id="year"></span> ROKKO! Records</footer>
@@ -227,7 +222,7 @@
     scrim.addEventListener('click', closeDrawer);
     document.querySelectorAll('.nav-drawer .jump').forEach(a=>a.addEventListener('click', closeDrawer));
 
-    // Smooth Scroll mit Header-Offset
+    // Smooth Scroll (mit Header-Offset)
     const HEADER_H = 72;
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', (e)=>{
