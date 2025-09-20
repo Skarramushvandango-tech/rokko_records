@@ -1,65 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ROKKO! Records</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markus Erling</title>
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="brand">
-      <img src="assets/Images/Logo.png" alt="ROKKO! Records" class="brand-logo" />
-      <h1>ROKKO! Records</h1>
-    </div>
+  <!-- Intro Video -->
+  <div class="intro-video">
+    <video autoplay playsinline muted onended="this.pause();" poster="../../assets/wallpaper/sand-bg.jpg">
+      <source src="../../assets/movies/intro.mp4" type="video/mp4">
+      Dein Browser unterstützt kein HTML5-Video.
+    </video>
+    <img src="../../assets/images/logo.png" alt="ROKKO! Records Logo" class="logo-overlay">
+  </div>
 
-    <nav class="top-nav">
-      <a href="Artists/ERLING/index.html">Markus Erling</a>
-      <a href="Artists/HENRI/index.html">Henri Bellieu</a>
-      <a href="Artists/SKANK_SCHABLONSKI/index.html">Skank Schablonski</a>
-      <a href="Artists/FLEURBENUINE/index.html">Fléur et Beunié</a>
-      <a href="Artists/SKARAMUSH_VANDANGO/index.html">SkaRamush Vandango</a>
-    </nav>
-  </header>
+  <!-- Artist Section -->
+  <main class="artist-page">
+    <h1>Markus Erling</h1>
+    <p class="bio">
+      Markus Erling, das neurodiverse Ausnahmetalent, zieht die Ideen für seine Songs aus dem Leben –
+      aus seinem eigenen Leben. Verlust, Missverständnisse, Leid und Liebe – aus den Augen eines Menschen,
+      der nicht in eine Welt passt, die auf Schein und leere Versprechen gebaut ist.
+    </p>
 
-  <!-- Intro-Film: eine Datei für Mobile & Desktop, ohne Ton -->
-  <section class="hero">
-    <video
-      id="heroVideo"
-      class="hero-video"
-      src="Artists/Movies/intro_movie.MOV"
-      autoplay
-      muted
-      playsinline
-      preload="auto"
-    ></video>
-    <div class="hero-overlay">
-      <h2>Wir sind ROKKO! Records – und Du „noch“ nicht …</h2>
-      <p>Unabhängiges Label. Indie, rebellisch – mit Stil.</p>
-    </div>
-  </section>
+    <!-- Pressefotos -->
+    <section class="photos">
+      <h2>Pressefotos</h2>
+      <img src="../../artists/ERLING/fotos/erling1.jpg" alt="Markus Erling Pressefoto 1">
+      <img src="../../artists/ERLING/fotos/erling2.jpg" alt="Markus Erling Pressefoto 2">
+    </section>
 
-  <main class="container">
-    <section class="intro-copy">
-      <p>
-        ROKKO! ist kein Genre, keine Sprache, keine Farbe – sondern geballte kreative Freiheit,
-        die ins Ohr geht und bleibt. Starte über die Artist-Links oben.
-      </p>
+    <!-- Cover + Player -->
+    <section class="covers">
+      <h2>Releases</h2>
+      <div class="release">
+        <img src="../../artists/ERLING/cover/song1.jpg" alt="Cover Song 1">
+        <p>Songtitel 1</p>
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/DEIN-SPOTIFY-CODE"
+          width="100%" height="80" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+      <div class="release">
+        <img src="../../artists/ERLING/cover/song2.jpg" alt="Cover Song 2">
+        <p>Songtitel 2</p>
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/DEIN-SPOTIFY-CODE"
+          width="100%" height="80" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <small>© 2025 ROKKO! Records</small>
-  </footer>
-
-  <script>
-    // Video nach einem Durchlauf auf dem letzten Frame stehen lassen
-    const v = document.getElementById('heroVideo');
-    v && v.addEventListener('ended', () => {
-      try { v.currentTime = Math.max(0, v.duration - 0.05); } catch(e){}
-      v.pause();
-    });
-  </script>
 </body>
 </html>
