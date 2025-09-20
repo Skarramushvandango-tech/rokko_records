@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROKKO! Records</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <a class="brand" href="/">
+      <img src="assets/Images/Logo.png" alt="ROKKO! Records" />
+    </a>
+    <button class="hamburger" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
+  <!-- Intro -->
+  <section class="intro-wrap">
+    <video id="introVideo" class="intro-video" playsinline autoplay muted preload="auto">
+      <source src="assets/movies/intro_movie.mp4" type="video/mp4" />
+      Dein Browser unterstützt HTML5-Video nicht.
+    </video>
+
+    <button id="muteToggle" class="mute-btn" aria-label="Audio ein-/ausschalten">🔇</button>
+    <div id="unmuteHint" class="unmute-hint" hidden>Tippen für Ton</div>
+  </section>
+
+  <main class="content">
+    <section class="block">
+      <h1>Welcome to ROKKO! Records</h1>
+      <p>Independent Label. Rock’n’Roll, Funk &amp; Freshness.</p>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const video = document.getElementById('introVideo');
+      const btn   = document.getElementById('muteToggle');
+      const hint  = document.getElementById('unmuteHint');
+
+      // gespeicherte Präferenz laden: 'true' (stumm) / 'false' (mit Ton)
+      const saved = localStorage.getItem('introMuted');
+      const wantSound = (saved === null) ? true : (saved === 'false');
+
+      function renderIcon(){
+        btn.textContent = video.muted ? '🔇' : '🔊';
+        btn.setAttribute('aria-label', video.muted ? 'Audio ist aus – einschalten' : 'Audio ist an – ausschalten');
+      }
+
+      // Versuch: direkt mit Sound starten
+      async function tryStart() {
+        try {
+          if (wantSound) video.muted = false;     // Wunsch: mit Ton
+          renderIcon();
+          await video.play();
+          // Wenn wir hier sind, läuft es – ggf. Hint ausblenden
+          hint.hidden = true;
+        } catch (e) {
+          // Autoplay mit Ton wurde geblockt -> stumm starten
+          video.muted = true;
+          renderIcon();
+          try { await video.play(); } catch(_) {}
+          // Hinweis zeigen, dass Antippen Ton aktiviert
+          hint.hidden = false;
+        }
+      }
+
+      // nach Laden starten
+      if (video.readyState >= 2) {
+        tryStart();
+      } else {
+        video.addEventListener('canplay', tryStart, { once:true });
+      }
+
+      // Mute-Button toggeln + speichern
+      btn.addEventListener('click', async () => {
+        // Sicherstellen, dass es spielt
+        if (video.paused) { try { await video.play(); } catch(_) {} }
+        video.muted = !video.muted;
+        localStorage.setItem('introMuted', String(video.muted));
+        renderIcon();
+        hint.hidden = true;
+      });
+
+      // Erstes Nutzer-Tap irgendwo: falls stumm wegen Autoplay, Ton freischalten,
+      // wenn User eigentlich Sound wollte (oder direkt wünscht)
+      const unlock = async () => {
+        if (!hint.hidden || wantSound) {
+          try {
+            video.muted = false;
+            await video.play();
+            localStorage.setItem('introMuted', 'false');
+            renderIcon();
+          } catch(_) {}
+          hint.hidden = true;
+        }
+        document.removeEventListener('click', unlock);
+      };
+      document.addEventListener('click', unlock);
+
+      // Einmal abspielen, dann stehen bleiben
+      video.addEventListener('ended', () => btn.classList.add('ended'));
+    })();
+  </script>
+</body>
+</html>
