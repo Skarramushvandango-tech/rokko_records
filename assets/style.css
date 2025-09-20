@@ -1,67 +1,80 @@
 :root{
-  --sand:#E5D0B5;
-  --ink:#0E0E0E;
-  --muted:#9b958b;
-  --border:#2a2a2a;
-  --card:#141414;
-  --accent:#B36728;
+  --sand:#E5D0B5; --ink:#0E0E0E; --muted:#9b958b;
+  --border:#2a2a2a; --card:#141414; --accent:#B36728;
 }
 
-*{box-sizing:border-box}
+/* Reset/Grundlagen */
+*{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  margin:0;
   font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   color:var(--sand);
   background:var(--ink);
+  /* Wallpaper aktivieren, wenn vorhanden: */
+  background-image:url("assets/wallpaper/background.jpg");
+  background-repeat:no-repeat; background-attachment:fixed;
+  background-position:center; background-size:cover;
 }
+
+.container{width:100%;max-width:1100px;margin:0 auto;padding:24px}
 
 /* Header / Nav */
 .site-header{
   display:flex;flex-direction:column;gap:10px;
   padding:14px 20px;border-bottom:1px solid var(--border);
-  background:#0f0f0fb3;backdrop-filter:saturate(120%) blur(6px);
+  background:#0f0f0fb3; backdrop-filter:saturate(120%) blur(6px);
 }
 .brand{display:flex;align-items:center;gap:10px}
 .brand-logo{height:36px;width:auto}
-.site-header h1{margin:0;font-size:20px;letter-spacing:.02em}
-.top-nav{display:flex;flex-wrap:wrap;gap:10px}
+.site-header h1{font-size:20px;letter-spacing:.02em}
+.top-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .top-nav a{
-  color:var(--sand);text-decoration:none;padding:8px 10px;
-  border:1px solid var(--border);border-radius:10px;
+  color:var(--sand); text-decoration:none; padding:8px 10px;
+  border:1px solid var(--border); border-radius:10px;
 }
 .top-nav a:hover{border-color:var(--accent)}
 
 /* Hero mit Video */
 .hero{position:relative;min-height:42vh;border-bottom:1px solid var(--border)}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000,#000a)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 0%,#000a 100%)}
 .hero-overlay{position:relative;z-index:2;padding:8vw 20px 24px;text-align:center;text-shadow:0 2px 20px #000}
-.hero-overlay h2{margin:0 0 8px;font-size:clamp(22px,3.6vw,36px)}
-.hero-overlay p{margin:0;color:var(--muted)}
+.hero-overlay h2{font-size:clamp(22px,3.6vw,36px);margin-bottom:8px}
+.hero-overlay p{color:var(--muted)}
 
-.container{width:100%;max-width:1100px;margin:0 auto;padding:24px}
+/* Intro-Box */
+.intro-copy p{
+  background:#0f0f0fcc; border:1px solid var(--border); border-radius:10px;
+  padding:16px; backdrop-filter:saturate(120%) blur(6px);
+}
 
-/* Artist-Seiten */
-.artist-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:center}
+/* Artist-Seiten – gemeinsame Regeln */
+.artist-header{
+  padding:16px 20px; border-bottom:1px solid var(--border);
+  display:flex;gap:12px;align-items:center; background:#0f0f0fb3;
+}
 .artist-header a{color:var(--muted);text-decoration:none}
 .artist-header a:hover{color:var(--sand)}
+
 .artist-hero{padding:24px}
-.artist-name{margin:0 0 8px;font-size:clamp(22px,4vw,34px)}
-.artist-bio{color:var(--sand);max-width:70ch}
+.artist-name{font-size:clamp(22px,4vw,34px);margin-bottom:8px}
+.artist-bio{max-width:70ch;color:var(--sand)}
 
-/* Medien untereinander */
+/* Medien untereinander (Long-Scroll) */
 .media-stack{display:flex;flex-direction:column;gap:16px;margin-top:18px}
-.media-stack img{width:100%;height:auto;border-radius:10px;border:1px solid var(--border);background:#111}
+.media-stack img{
+  width:100%; height:auto; display:block; border-radius:10px;
+  border:1px solid var(--border); background:#111;
+}
 
-/* Covers mit Untertitel */
+/* Covers + Untertitel */
 .covers{display:flex;flex-direction:column;gap:16px;margin-top:22px}
 figure.cover{
-  margin:0;padding:12px;border:1px solid var(--border);
-  border-radius:10px;background:var(--card);
+  margin:0; padding:12px; background:#121212cc; border:1px solid var(--border);
+  border-radius:10px; backdrop-filter:saturate(120%) blur(4px);
 }
-figure.cover img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid #00000055}
-figure.cover figcaption{margin-top:10px;color:var(--sand);font-size:.95rem;letter-spacing:.01em}
+figure.cover img{width:100%;height:auto;border-radius:8px;border:1px solid #0006}
+figure.cover figcaption{margin-top:10px;color:var(--sand);font-size:.95rem}
 
 /* Footer */
 .site-footer{padding:22px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
