@@ -1,101 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ROKKO! Records — Label</title>
-  <meta name="description" content="ROKKO! Records — Independent Label. Artists, Releases, Links." />
+  <title>ROKKO! Records</title>
+  <link rel="preload" as="video" href="artists/movies/intro_movie.MOV" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">
-          <img src="assets/logo.png" alt="ROKKO! Records Logo" />
-        </div>
-        <div>
-          <h1>ROKKO! Records <span class="badge">Independent</span></h1>
-          <div class="list-inline" style="font-size:13px;color:var(--muted)">
-            <a href="#artists">Artists</a>·
-            <a href="#releases">Releases</a>·
-            <a href="#links">Kanäle</a>
-          </div>
-        </div>
-      </div>
-      <nav>
+
+  <!-- ===== Hero mit Intro-Video ===== -->
+  <header class="hero" id="top">
+    <video
+      id="heroVideo"
+      class="hero__video"
+      playsinline
+      autoplay
+      muted
+      preload="auto"
+      src="artists/movies/intro_movie.MOV"
+    ></video>
+
+    <div class="hero__scrim"></div>
+
+    <!-- Nav -->
+    <nav class="nav">
+      <a class="nav__brand" href="#top">ROKKO! Records</a>
+      <div class="nav__links">
         <a href="#artists">Artists</a>
-        <a href="#releases">Releases</a>
-        <a href="#links">Links</a>
-      </nav>
-    </header>
-
-    <div class="angle"></div>
-
-    <section class="hero">
-      <div class="card blurb">
-        <h2>Rebellisch, aber mit Stil.</h2>
-        <p>ROKKO! Records ist die Heimat für Projekte von Markus Erling und befreundeten Artists. 
-        Indie-Energie, klare Haltung, keine 08/15-Baukasten-Optik.</p>
-        <div class="cta">
-          <a class="primary" href="#artists">Zu den Artists</a>
-          <a class="ghost" href="#releases">Aktuelle Releases</a>
-        </div>
+        <a href="#news">News</a>
+        <a href="#faq">FAQ</a>
+        <a href="#impressum">Impressum</a>
       </div>
-      <div class="card">
-        <h3>Was dich erwartet</h3>
-        <p class="small">Jede:r Artist bekommt eine eigene Landing-Page unter <code>rockorecords.de/&lt;name&gt;</code>. 
-        Hörproben via YouTube/Spotify, später Direktlinks zu Beatport, Juno & Co.</p>
-        <hr />
-        <p class="small">Kontakt: <a href="mailto:info@rockorecords.de">info@rockorecords.de</a></p>
-      </div>
-    </section>
+    </nav>
 
+    <div class="hero__content">
+      <h1>Wir sind ROKKO! Records – und Du „noch“ nicht …</h1>
+      <p>Independent Label. Rock’n’Roll, Funk & Freshness.</p>
+      <a class="btn" href="#artists">Zu den Artists</a>
+    </div>
+  </header>
+
+  <!-- ===== Inhalt ===== -->
+  <main>
     <section id="artists" class="section">
       <h2>Artists</h2>
-      <div class="grid">
-        <a class="artist-card card" href="artists/erling/" title="Markus Erling">
-          <span class="flag">Neu</span>
-          <img src="assets/artist-placeholder.jpg" alt="Markus Erling" />
+
+      <div class="artist-grid">
+        <article class="card">
           <h3>Markus Erling</h3>
-          <div class="tags">Deutschsprachig · Songwriter</div>
-        </a>
+          <p>Deutsche Singer-Songwriter-Songs.</p>
+          <div class="card__thumb"></div>
+          <div class="card__actions">
+            <a class="btn btn--ghost" href="artists/erling/erling.html">Artist-Seite</a>
+          </div>
+        </article>
 
-        <a class="artist-card card" href="#" title="Fleur &amp; Beunié">
-          <img src="assets/artist-placeholder.jpg" alt="Fleur &amp; Beunié" />
-          <h3>Fleur &amp; Beunié</h3>
-          <div class="tags">French House · Duo</div>
-        </a>
-
-        <a class="artist-card card" href="#" title="Henri Bellieu">
-          <img src="assets/artist-placeholder.jpg" alt="Henri Bellieu" />
+        <article class="card">
           <h3>Henri Bellieu</h3>
-          <div class="tags">Chanson · Noir</div>
-        </a>
+          <p>Chanson / Blues / Rock.</p>
+          <div class="card__thumb"></div>
+          <div class="card__actions">
+            <a class="btn btn--ghost" href="artists/henri_bellieu/index.html">Artist-Seite</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Skank Schablonski</h3>
+          <p>Satire & Bass.</p>
+          <div class="card__thumb"></div>
+          <div class="card__actions">
+            <a class="btn btn--ghost" href="artists/schablonski/index.html">Artist-Seite</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Fléur et Beunié</h3>
+          <p>French-House, Retro-Vibes & Beats.</p>
+          <div class="card__thumb"></div>
+          <div class="card__actions">
+            <a class="btn btn--ghost" href="artists/fleur_et_beunie/index.html">Artist-Seite</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>SkaRamush Vandango</h3>
+          <p>Label-Boss & Mastermind.</p>
+          <div class="card__thumb"></div>
+          <div class="card__actions">
+            <a class="btn btn--ghost" href="artists/vandango/index.html">Artist-Seite</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="releases" class="section">
-      <h2>Releases (Auswahl)</h2>
-      <div class="card">
-        <p class="small">Hier kommen Cover + Kurztext + Links (Spotify, Apple, Beatport, Juno). 
-        Für jeden Release baust du später einfach eine Zeile ein.</p>
-      </div>
+    <section id="news" class="section">
+      <h2>News</h2>
+      <p>Welcome! Wir sind neu am Start. ROKKO! ist kein Genre, keine Sprache, keine Farbe – sondern
+        geballte kreative Freiheit, die ins Ohr geht und nicht mehr raus will.</p>
     </section>
 
-    <section id="links" class="section">
-      <h2>Label-Kanäle</h2>
-      <div class="card list-inline">
-        <a href="#" target="_blank" rel="noopener">YouTube</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">Facebook</a>
-        <a href="#" target="_blank" rel="noopener">TikTok</a>
-      </div>
+    <section id="faq" class="section">
+      <h2>FAQ</h2>
+      <details><summary>Spielt ihr komplette Songs ab?</summary>
+        <p>Auf den Artist-Seiten binden wir die Player unserer Streaming-Partner ein
+           (Spotify, Apple Music, YouTube Music, Deezer). Von dort kannst du alles in voller Länge hören.</p>
+      </details>
+      <details><summary>Wo finde ich die Socials?</summary>
+        <p>Auf jeder Artist-Seite sind Links zu den jeweiligen Social-Profiles.</p>
+      </details>
     </section>
 
-    <footer>
-      &copy; 2025 ROKKO! Records — Alle Rechte vorbehalten.
-    </footer>
-  </div>
+    <section id="impressum" class="section">
+      <h2>Impressum</h2>
+      <p>Platzhalter für Impressums-Angaben (Adresse, Kontakt, Vertretung, USt-ID). </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 ROKKO! Records</p>
+  </footer>
+
+  <!-- ===== Script: Video am Ende stoppen ===== -->
+  <script>
+    const video = document.getElementById('heroVideo');
+    video.addEventListener('ended', () => {
+      video.pause();
+      try { video.currentTime = video.duration; } catch (e) {}
+    });
+  </script>
 </body>
 </html>
