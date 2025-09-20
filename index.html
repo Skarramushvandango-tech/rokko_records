@@ -2,90 +2,112 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ROKKO! Records</title>
+  <link rel="preload" as="video" href="assets/movies/Intro_movie.mp4" type="video/mp4">
+  <link rel="preload" as="image" href="assets/images/Logo.png">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- FIXE TOPBAR -->
-  <header class="topbar">
-    <a href="/" class="brand" aria-label="Startseite">
-      <img src="assets/Images/Logo.png" alt="ROKKO! Records" />
-    </a>
 
-    <!-- Hamburger nur Platzhalter – verlinkst du später -->
-    <button class="hamburger" aria-label="Menü öffnen">
+  <!-- Header / Logo + Burger -->
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="assets/images/Logo.png" alt="ROKKO! Records Logo">
+    </a>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="site-nav">
       <span></span><span></span><span></span>
     </button>
+    <nav id="site-nav" class="drawer" hidden>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/artists/">Artists</a></li>
+        <li><a href="/about/">About us</a></li>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- INTRO-BÜHNE -->
-  <section class="intro-wrap">
-    <video id="introVideo" class="intro-video" playsinline autoplay muted preload="auto" poster="assets/wallpaper/wallpaper.jpg">
-      <source src="assets/movies/intro_movie.mp4" type="video/mp4" />
-      Dein Browser unterstützt HTML5-Video nicht.
-    </video>
+  <!-- HERO-VIDEO: responsive + Cover-Zuschnitt -->
+  <section class="hero">
+    <div class="hero-video">
+      <video id="introVideo"
+             playsinline
+             muted
+             autoplay
+             preload="auto"
+             poster="assets/wallpaper/wallpaper.jpg">
+        <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
+        Dein Browser unterstützt das Video-Element nicht.
+      </video>
 
-    <button id="muteToggle" class="mute-btn" aria-label="Audio ein-/ausschalten">🔇</button>
-    <div id="unmuteHint" class="unmute-hint" hidden>Tippen für Ton</div>
+      <!-- Mute/Unmute -->
+      <button id="muteToggle" class="mute-btn" aria-label="Ton umschalten"></button>
+
+      <!-- kleiner Hinweis beim ersten Besuch -->
+      <div id="tapHint" class="tap-hint" hidden>Tippen für Ton</div>
+    </div>
   </section>
 
-  <!-- CONTENT-DUMMY -->
   <main class="content">
-    <section class="block">
+    <section class="welcome">
       <h1>Welcome to ROKKO! Records</h1>
-      <p>Independent Label. Rock’n’Roll, Funk &amp; Freshness.</p>
+      <p>Independent Label. Rock’n’Roll, Funk & Freshness.</p>
     </section>
   </main>
 
   <script>
-    (function () {
-      const video = document.getElementById('introVideo');
-      const btn   = document.getElementById('muteToggle');
-      const hint  = document.getElementById('unmuteHint');
+    // --- Burger Drawer ---
+    const burger = document.querySelector('.burger');
+    const nav = document.getElementById('site-nav');
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      nav.hidden = open;
+    });
 
-      // Mute-Status aus dem LocalStorage lesen
-      const saved = localStorage.getItem('introMuted');
-      const wantSound = (saved === null) ? true : (saved === 'false');
+    // --- Video + Mute-Status merken ---
+    const video = document.getElementById('introVideo');
+    const btn = document.getElementById('muteToggle');
+    const hint = document.getElementById('tapHint');
+    const STORAGE_KEY = 'rokkoMuted';
 
-      function renderIcon(){
-        btn.textContent = video.muted ? '🔇' : '🔊';
-        btn.setAttribute('aria-label', video.muted ? 'Audio aus – einschalten' : 'Audio an – ausschalten');
+    // Initial: aus LocalStorage lesen
+    let saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === null) {
+      // Erster Besuch: Browser verlangt Autoplay muted
+      saved = 'true';
+      localStorage.setItem(STORAGE_KEY, saved);
+      hint.hidden = false; // Hinweis einmal anzeigen
+      setTimeout(()=>{ hint.hidden = true; }, 3000);
+    }
+    const startMuted = (saved === 'true');
+    video.muted = startMuted;
+    updateBtn();
+
+    // iOS-Safari: nach User-Tap Ton erlauben
+    btn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (!video.muted) {
+        // Versuche Ton zu starten (User-Geste liegt vor)
+        video.play().catch(()=>{});
       }
+      localStorage.setItem(STORAGE_KEY, String(video.muted));
+      updateBtn();
+    });
 
-      async function startPlayback() {
-        try {
-          if (wantSound) video.muted = false;
-          renderIcon();
-          await video.play();
-          hint.hidden = true;
-        } catch (e) {
-          // Autoplay mit Ton blockiert -> stumm starten, Hinweis zeigen
-          video.muted = true;
-          renderIcon();
-          try { await video.play(); } catch(_) {}
-          hint.hidden = false;
-        }
+    function updateBtn(){
+      btn.classList.toggle('is-muted', video.muted);
+      btn.setAttribute('aria-label', video.muted ? 'Ton einschalten' : 'Ton stummschalten');
+    }
+
+    // Sicherstellen, dass das Video immer läuft (einige Browser pausieren Autoplay)
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && video.paused) {
+        video.play().catch(()=>{});
       }
-
-      if (video.readyState >= 2) startPlayback();
-      else video.addEventListener('canplay', startPlayback, { once:true });
-
-      btn.addEventListener('click', async () => {
-        if (video.paused) { try { await video.play(); } catch(_) {} }
-        video.muted = !video.muted;
-        localStorage.setItem('introMuted', String(video.muted));
-        renderIcon();
-        hint.hidden = true;
-      });
-
-      // Sobald das Video zu Ende ist, auf dem letzten Frame stehen bleiben
-      video.addEventListener('ended', () => {
-        video.pause();
-        // Zur letzten Position springen (minimal zurück, damit das Bild sicher gerendert bleibt)
-        if (!isNaN(video.duration)) video.currentTime = video.duration - 0.05;
-      });
-    })();
+    });
   </script>
 </body>
 </html>
