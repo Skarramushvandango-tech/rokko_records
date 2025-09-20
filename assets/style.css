@@ -1,80 +1,76 @@
+/* ===== ROKKO! Records – Basis Theme (an deine Struktur angepasst) ===== */
+
+/* Farben (aus deiner Palette) */
 :root{
-  --sand:#E5D0B5; --ink:#0E0E0E; --muted:#9b958b;
-  --border:#2a2a2a; --card:#141414; --accent:#B36728;
+  --rk-deep: #04151f;   /* tiefer Blau/Anthrazitton (optional) */
+  --rk-red:  #842019;   /* Akzent */
+  --rk-sand: #f5f3bb;   /* Sand (Umrandungen/Highlights) */
+  --rk-amber:#b36728;   /* Amber/Orange */
+  --rk-brown:#342f2f;   /* Dunkelbraun (Header/Drawer) */
+
+  --rk-bg:   #000;      /* Seitenhintergrund */
+  --rk-text: #ffffff;
+  --rk-muted:#d6d6d6;
 }
 
-/* Reset/Grundlagen */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  color:var(--sand);
-  background:var(--ink);
-  /* Wallpaper aktivieren, wenn vorhanden: */
-  background-image:url("assets/wallpaper/background.jpg");
-  background-repeat:no-repeat; background-attachment:fixed;
-  background-position:center; background-size:cover;
+/* Reset/Grundtypografie */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--rk-bg);color:var(--rk-text);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+img{max-width:100%;display:block}
+a{color:#fff;text-decoration:none}
+a:hover{opacity:.85}
+
+/* Header */
+.rk-header{
+  position:fixed; inset:0 0 auto 0; height:64px;
+  background:var(--rk-brown);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 16px; z-index:1000;
+  border-bottom:2px solid var(--rk-sand);
 }
+.rk-logo img{height:40px; width:auto; display:block}
 
-.container{width:100%;max-width:1100px;margin:0 auto;padding:24px}
+/* Burger */
+.rk-burger{background:none;border:0;cursor:pointer;width:44px;height:40px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.rk-burger span{display:block;height:2px;background:#fff;border-radius:2px;transition:.2s}
 
-/* Header / Nav */
-.site-header{
-  display:flex;flex-direction:column;gap:10px;
-  padding:14px 20px;border-bottom:1px solid var(--border);
-  background:#0f0f0fb3; backdrop-filter:saturate(120%) blur(6px);
+/* Drawer */
+.rk-drawer{
+  position:fixed; top:64px; right:16px;
+  width:min(86vw,360px); max-height:calc(100dvh - 80px);
+  background:rgba(52,47,47,.7);
+  border:2px solid var(--rk-sand);
+  border-radius:14px;
+  padding:16px 18px;
+  transform:translateX(calc(100% + 16px));
+  transition:transform .25s ease-in-out;
+  backdrop-filter:saturate(110%) blur(6px);
+  z-index:999;
 }
-.brand{display:flex;align-items:center;gap:10px}
-.brand-logo{height:36px;width:auto}
-.site-header h1{font-size:20px;letter-spacing:.02em}
-.top-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.top-nav a{
-  color:var(--sand); text-decoration:none; padding:8px 10px;
-  border:1px solid var(--border); border-radius:10px;
+.rk-drawer.open{ transform:translateX(0) }
+
+.rk-nav{display:flex;flex-direction:column;gap:10px}
+.rk-nav a{padding:8px 4px;border-radius:8px}
+.rk-nav a:hover{background:rgba(245,243,187,.08)}
+.rk-nav details{border-top:1px solid rgba(245,243,187,.25);padding-top:8px;margin-top:4px}
+.rk-nav summary{cursor:pointer;list-style:none;font-weight:600;margin-bottom:6px}
+.rk-nav summary::-webkit-details-marker{display:none}
+.rk-nav details a{padding-left:10px;font-weight:400}
+
+/* Hero-Video */
+.rk-hero{margin-top:64px}
+.rk-hero-video{
+  width:100vw; height:56.25vw;   /* 16:9 Fläche */
+  max-height:100dvh;
+  object-fit:cover; object-position:center center;
+  display:block; background:#000;
+  outline:2px solid #000; /* verhindert weiße Blitzer am Rand auf iOS */
 }
-.top-nav a:hover{border-color:var(--accent)}
-
-/* Hero mit Video */
-.hero{position:relative;min-height:42vh;border-bottom:1px solid var(--border)}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 0%,#000a 100%)}
-.hero-overlay{position:relative;z-index:2;padding:8vw 20px 24px;text-align:center;text-shadow:0 2px 20px #000}
-.hero-overlay h2{font-size:clamp(22px,3.6vw,36px);margin-bottom:8px}
-.hero-overlay p{color:var(--muted)}
-
-/* Intro-Box */
-.intro-copy p{
-  background:#0f0f0fcc; border:1px solid var(--border); border-radius:10px;
-  padding:16px; backdrop-filter:saturate(120%) blur(6px);
-}
-
-/* Artist-Seiten – gemeinsame Regeln */
-.artist-header{
-  padding:16px 20px; border-bottom:1px solid var(--border);
-  display:flex;gap:12px;align-items:center; background:#0f0f0fb3;
-}
-.artist-header a{color:var(--muted);text-decoration:none}
-.artist-header a:hover{color:var(--sand)}
-
-.artist-hero{padding:24px}
-.artist-name{font-size:clamp(22px,4vw,34px);margin-bottom:8px}
-.artist-bio{max-width:70ch;color:var(--sand)}
-
-/* Medien untereinander (Long-Scroll) */
-.media-stack{display:flex;flex-direction:column;gap:16px;margin-top:18px}
-.media-stack img{
-  width:100%; height:auto; display:block; border-radius:10px;
-  border:1px solid var(--border); background:#111;
-}
-
-/* Covers + Untertitel */
-.covers{display:flex;flex-direction:column;gap:16px;margin-top:22px}
-figure.cover{
-  margin:0; padding:12px; background:#121212cc; border:1px solid var(--border);
-  border-radius:10px; backdrop-filter:saturate(120%) blur(4px);
-}
-figure.cover img{width:100%;height:auto;border-radius:8px;border:1px solid #0006}
-figure.cover figcaption{margin-top:10px;color:var(--sand);font-size:.95rem}
 
 /* Footer */
-.site-footer{padding:22px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
+.rk-footer{padding:24px 16px;color:var(--rk-muted);text-align:center;border-top:1px solid rgba(255,255,255,.08)}
+
+/* Kleinere Geräte – etwas flacherer Hero, falls gewünscht */
+@media (max-width:420px){
+  .rk-hero-video{ height:60vw }
+}
