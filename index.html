@@ -4,106 +4,235 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ROKKO! Records</title>
-
-  <!-- CSS -->
-  <link rel="preload" href="./assets/css/style.css" as="style" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-
-  <!-- Fallback-Font -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
 
-  <!-- Sticky Header -->
-  <header class="site-header" id="top">
+  <!-- Header (schwarz) -->
+  <header class="site-header" role="banner">
     <div class="brand">
-      <img class="brand__logo" src="./assets/Images/Logo.png" alt="ROKKO! Logo" />
-      <div class="brand__wordmark">
+      <img class="logo" src="assets/Images/Logo.png" alt="ROKKO! Records Logo" />
+      <div class="wordmark">
         <span class="rokko">ROKKO!</span>
-        <span class="records">Records</span>
+        <span class="records">RECORDS</span>
       </div>
     </div>
 
-    <!-- Burger -->
-    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+    <nav class="nav-desktop" aria-label="Hauptnavigation">
+      <a href="#home">Home</a>
+      <a href="#artists">Artists</a>
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="drawer-toggle" aria-controls="drawer" aria-expanded="false" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
-
-    <!-- Drawer (kommt von rechts) -->
-    <nav class="drawer" aria-label="Hauptmenü">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#artists">Artists</a></li>
-        <li><a href="#about">About us</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- HERO / VIDEO (16:9, responsive, crops mit object-fit:cover) -->
-  <section id="home" class="hero" aria-label="Intro Video">
-    <div class="video-wrap">
-      <video id="introVideo"
-             class="hero-video"
-             playsinline
-             preload="auto"
-             webkit-playsinline
-             poster="./assets/Images/Logo.png">
-        <source src="./assets/movies/Intro_movie.mp4" type="video/mp4" />
-      </video>
+  <!-- Right-Drawer -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <nav class="nav-drawer">
+      <a href="#home"   class="jump">Home</a>
+      <a href="#artists" class="jump">Artists</a>
+      <a href="#about"  class="jump">About</a>
+      <a href="#news"   class="jump">News</a>
+      <a href="#contact" class="jump">Contact</a>
+    </nav>
+  </aside>
+  <div class="scrim" hidden></div>
 
-      <!-- Mute/Unmute -->
-      <button id="muteToggle" class="mute-btn" aria-label="Ton umschalten" title="Ton an/aus">
-        <span class="icon-sound-on" aria-hidden="true">🔊</span>
-        <span class="icon-sound-off" aria-hidden="true">🔇</span>
-      </button>
+  <main id="home" class="main">
+    <!-- HERO VIDEO -->
+    <section class="hero" aria-label="Intro">
+      <div class="video-frame">
+        <video id="introVid" playsinline preload="metadata">
+          <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
+          Dein Browser unterstützt das Video-Element nicht.
+        </video>
 
-      <!-- Hinweis, falls Autoplay mit Ton blockiert -->
-      <div id="tapForSound" class="tap-hint" role="status" aria-live="polite">
-        Tippen für Ton
-      </div>
-    </div>
-  </section>
+        <!-- Mute-Button ohne Emoji (SVG) -->
+        <button id="muteBtn" class="mute-btn" aria-label="Ton umschalten">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path id="icon-sound-on" d="M3 9v6h4l5 4V5L7 9H3zM16 7a5 5 0 010 10m2-12a7 7 0 010 14" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            <path id="icon-mute-x" d="M18 8l4 4m0-4l-4 4" stroke="#fff" stroke-width="2" stroke-linecap="round" style="display:none"/>
+          </svg>
+        </button>
 
-  <!-- SECTIONS – Onepager, auf die das Drawer-Menü springt -->
-  <main>
-    <section id="artists" class="section">
-      <h2>Artists</h2>
-
-      <!-- Grid mit Links in DEINE Ordner (Groß/Kleinschreibung genau wie bei dir) -->
-      <div class="artists-grid">
-        <a class="artist-card" href="./artists/ERLING/index.html">ERLING</a>
-        <a class="artist-card" href="./artists/HENRI/index.html">HENRI</a>
-        <a class="artist-card" href="./artists/FLEURBENUINE/index.html">FLEURBENUINE</a>
-        <a class="artist-card" href="./artists/SKANK_SCHABLONSKI/index.html">SKANK SCHABLONSKI</a>
-        <a class="artist-card" href="./artists/SKARAMUSH_VANDANGO/index.html">SKARAMUSH VANDANGO</a>
+        <div class="tap-hint" aria-hidden="true">Tippen für Ton</div>
       </div>
     </section>
 
+    <!-- ARTISTS (One-Pager, Scroll-Ziele) -->
+    <section id="artists" class="section">
+      <h2>Artists</h2>
+
+      <!-- ERLING -->
+      <article class="artist">
+        <div class="artist-media">
+          <img src="artists/ERLING/Fotos/erling_main.PNG" alt="Markus Erling" />
+        </div>
+        <div class="artist-info">
+          <h3 id="erling">Markus Erling</h3>
+          <p>Deutschsprachiger Singer-Songwriter. Neurodivers, textstark, direkt – zwischen zarter Melancholie und Kante.</p>
+          <div class="covers">
+            <figure>
+              <img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Endlich schlafen – Cover" />
+              <figcaption>Endlich schlafen</figcaption>
+            </figure>
+            <figure>
+              <img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Der Tag an dem es regnet – Cover" />
+              <figcaption>Der Tag an dem es regnet</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- HENRI -->
+      <article class="artist">
+        <div class="artist-media">
+          <img src="artists/HENRI/Fotos/henri_presse_main.PNG" alt="Henri Bellieu" />
+        </div>
+        <div class="artist-info">
+          <h3 id="henri">Henri Bellieu</h3>
+          <p>Französische Poesie zwischen Chanson, Blues und Rock. Großstadt-Romantik mit Reibung.</p>
+          <div class="covers">
+            <figure>
+              <img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="La Femme – Cover" />
+              <figcaption>La Femme</figcaption>
+            </figure>
+            <figure>
+              <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Petite Colibri – Cover" />
+              <figcaption>Petite Colibri</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- SKANK SCHABLONSKI -->
+      <article class="artist">
+        <div class="artist-media">
+          <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_presse1.PNG" alt="Skank Schablonski" />
+        </div>
+        <div class="artist-info">
+          <h3 id="skank">Skank Schablonski</h3>
+          <p>Satire, Bass, klare Kante gegen braunen Mief. Sound mit Haltung.</p>
+          <div class="covers">
+            <figure>
+              <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Der März – Cover" />
+              <figcaption>Der März</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- FLEURBENUINE -->
+      <article class="artist">
+        <div class="artist-media">
+          <img src="artists/FLEURBENUINE/Fotos/fleur_presse_1.PNG" alt="Fleur Benuine" />
+        </div>
+        <div class="artist-info">
+          <h3 id="fleur">Fleur Benuine</h3>
+          <p>French-House-Vibes: Retro-Charme mit treibenden Beats und Neon-Glanz.</p>
+          <div class="covers">
+            <figure>
+              <img src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Léger (RMX) – Cover" />
+              <figcaption>Léger (RMX)</figcaption>
+            </figure>
+            <figure>
+              <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Léger – Cover" />
+              <figcaption>Léger</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- SKARAMUSH VANDANGO (vorerst nur Foto) -->
+      <article class="artist">
+        <div class="artist-media">
+          <img src="artists/SKARAMUSH_VANDANGO/Fotos/vandango_profil.JPEG" alt="SkaRamush Vandango" />
+        </div>
+        <div class="artist-info">
+          <h3 id="vandango">SkaRamush Vandango</h3>
+          <p>Label-Boss, Produzent, Multi-Persona – Garage voll Sounds. Releases folgen.</p>
+          <div class="covers"></div>
+        </div>
+      </article>
+    </section>
+
     <section id="about" class="section">
-      <h2>About us</h2>
-      <p>Independent Label. Rock’n’Roll, Funk &amp; Freshness.</p>
+      <h2>About</h2>
+      <p>ROKKO! Records – Indie-Label aus dem Ruhrpott. Sandfarbener Grund, Schwarzweiß-Ästhetik, klare Kante. Kein Genre-Korsett, nur Haltung.</p>
     </section>
 
     <section id="news" class="section">
       <h2>News</h2>
-      <p>Aktuelle Updates &amp; Releases.</p>
+      <p>Launch. Neue Artists. Releases. Später als Kacheln.</p>
     </section>
 
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p>Mail: info@rokko-records.example</p>
+      <p>Kontaktformular oder Mail folgt.</p>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> ROKKO! Records</p>
-  </footer>
+  <footer class="site-footer">© ROKKO! Records</footer>
 
-  <!-- JS -->
-  <script src="./assets/js/main.js"></script>
+  <script>
+    /* ===== Drawer ===== */
+    const body = document.body;
+    const drawer = document.getElementById('drawer');
+    const scrim  = document.querySelector('.scrim');
+    const toggle = document.querySelector('.drawer-toggle');
+
+    function closeDrawer(){ body.classList.remove('drawer-open'); drawer.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); scrim.hidden = true; }
+    function openDrawer(){ body.classList.add('drawer-open'); drawer.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); scrim.hidden = false; }
+
+    toggle.addEventListener('click', ()=> body.classList.contains('drawer-open') ? closeDrawer() : openDrawer());
+    scrim.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.nav-drawer .jump').forEach(a=>a.addEventListener('click', closeDrawer));
+
+    /* ===== Smooth scroll (Header-Offset) ===== */
+    const HEADER_H = 72;
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href'); if(!id || id==="#") return;
+        const el = document.querySelector(id); if(!el) return;
+        e.preventDefault();
+        const y = el.getBoundingClientRect().top + scrollY - HEADER_H;
+        scrollTo({top:y, behavior:'smooth'});
+      });
+    });
+
+    /* ===== Video + Mute persist (ohne Emoji) ===== */
+    const vid = document.getElementById('introVid');
+    const muteBtn = document.getElementById('muteBtn');
+    const iconOn = document.getElementById('icon-sound-on');
+    const iconX  = document.getElementById('icon-mute-x');
+    const KEY = 'rr_muted';
+
+    function updateIcon(){
+      const muted = vid.muted;
+      iconOn.style.display = muted ? 'none' : 'block';
+      iconX.style.display  = muted ? 'block' : 'none';
+    }
+    const stored = localStorage.getItem(KEY);
+    vid.muted = stored === 'true';  // default: Sound an (false)
+    updateIcon();
+    vid.play().catch(()=>{}); // Autoplay versuchen
+
+    muteBtn.addEventListener('click', ()=>{
+      vid.muted = !vid.muted;
+      localStorage.setItem(KEY, String(vid.muted));
+      updateIcon();
+      if (vid.paused) vid.play().catch(()=>{});
+    });
+    vid.addEventListener('click', ()=>{
+      vid.muted = !vid.muted;
+      localStorage.setItem(KEY, String(vid.muted));
+      updateIcon();
+    });
+  </script>
 </body>
 </html>
