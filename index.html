@@ -4,130 +4,61 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ROKKO! Records</title>
-  <link rel="preload" as="video" href="artists/movies/intro_movie.MOV" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-
-  <!-- ===== Hero mit Intro-Video ===== -->
-  <header class="hero" id="top">
-    <video
-      id="heroVideo"
-      class="hero__video"
-      playsinline
-      autoplay
-      muted
-      preload="auto"
-      src="artists/movies/intro_movie.MOV"
-    ></video>
-
-    <div class="hero__scrim"></div>
-
-    <!-- Nav -->
-    <nav class="nav">
-      <a class="nav__brand" href="#top">ROKKO! Records</a>
-      <div class="nav__links">
-        <a href="#artists">Artists</a>
-        <a href="#news">News</a>
-        <a href="#faq">FAQ</a>
-        <a href="#impressum">Impressum</a>
-      </div>
-    </nav>
-
-    <div class="hero__content">
-      <h1>Wir sind ROKKO! Records – und Du „noch“ nicht …</h1>
-      <p>Independent Label. Rock’n’Roll, Funk & Freshness.</p>
-      <a class="btn" href="#artists">Zu den Artists</a>
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/Images/Logo.png" alt="ROKKO! Records" class="brand-logo" />
+      <h1>ROKKO! Records</h1>
     </div>
+
+    <nav class="top-nav">
+      <a href="artists/erling/index.html">Markus Erling</a>
+      <a href="artists/henri_bellieu/index.html">Henri Bellieu</a>
+      <a href="artists/schablonski/index.html">Skank Schablonski</a>
+      <a href="artists/fleur_et_beunie/index.html">Fléur et Beunié</a>
+      <a href="artists/vandango/index.html">SkaRamush Vandango</a>
+    </nav>
   </header>
 
-  <!-- ===== Inhalt ===== -->
-  <main>
-    <section id="artists" class="section">
-      <h2>Artists</h2>
+  <!-- Intro-Film: ohne Ton, Autoplay, kein Loop (dein Clip hat am Ende eine längere Standzeit) -->
+  <section class="hero">
+    <video
+      class="hero-video"
+      src="artists/movies/intro_movie.MOV"
+      autoplay
+      muted
+      playsinline
+    ></video>
 
-      <div class="artist-grid">
-        <article class="card">
-          <h3>Markus Erling</h3>
-          <p>Deutsche Singer-Songwriter-Songs.</p>
-          <div class="card__thumb"></div>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="artists/erling/erling.html">Artist-Seite</a>
-          </div>
-        </article>
+    <div class="hero-overlay">
+      <h2>Indie Label. Rock’n’Roll, Funk & Freshness.</h2>
+      <p>Musik, die bleibt.</p>
+    </div>
+  </section>
 
-        <article class="card">
-          <h3>Henri Bellieu</h3>
-          <p>Chanson / Blues / Rock.</p>
-          <div class="card__thumb"></div>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="artists/henri_bellieu/index.html">Artist-Seite</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Skank Schablonski</h3>
-          <p>Satire & Bass.</p>
-          <div class="card__thumb"></div>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="artists/schablonski/index.html">Artist-Seite</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Fléur et Beunié</h3>
-          <p>French-House, Retro-Vibes & Beats.</p>
-          <div class="card__thumb"></div>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="artists/fleur_et_beunie/index.html">Artist-Seite</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>SkaRamush Vandango</h3>
-          <p>Label-Boss & Mastermind.</p>
-          <div class="card__thumb"></div>
-          <div class="card__actions">
-            <a class="btn btn--ghost" href="artists/vandango/index.html">Artist-Seite</a>
-          </div>
-        </article>
-      </div>
+  <main class="container">
+    <section class="intro-copy">
+      <h3>Wir sind ROKKO! Records – und Du „noch“ nicht …</h3>
+      <p>
+        Unabhängiges Label aus dem Ruhrpott mit Artists von Chanson bis Satire-Bass.
+        Kein Fame-Jagen – wir bringen Songs auf deine Ohren. Scroll oben durch die Artists
+        oder starte direkt über die Navigation.
+      </p>
     </section>
 
-    <section id="news" class="section">
-      <h2>News</h2>
-      <p>Welcome! Wir sind neu am Start. ROKKO! ist kein Genre, keine Sprache, keine Farbe – sondern
-        geballte kreative Freiheit, die ins Ohr geht und nicht mehr raus will.</p>
-    </section>
-
-    <section id="faq" class="section">
-      <h2>FAQ</h2>
-      <details><summary>Spielt ihr komplette Songs ab?</summary>
-        <p>Auf den Artist-Seiten binden wir die Player unserer Streaming-Partner ein
-           (Spotify, Apple Music, YouTube Music, Deezer). Von dort kannst du alles in voller Länge hören.</p>
-      </details>
-      <details><summary>Wo finde ich die Socials?</summary>
-        <p>Auf jeder Artist-Seite sind Links zu den jeweiligen Social-Profiles.</p>
-      </details>
-    </section>
-
-    <section id="impressum" class="section">
-      <h2>Impressum</h2>
-      <p>Platzhalter für Impressums-Angaben (Adresse, Kontakt, Vertretung, USt-ID). </p>
+    <section class="grid-links">
+      <a class="card-link" href="artists/erling/index.html"><span>Markus Erling</span></a>
+      <a class="card-link" href="artists/henri_bellieu/index.html"><span>Henri Bellieu</span></a>
+      <a class="card-link" href="artists/schablonski/index.html"><span>Skank Schablonski</span></a>
+      <a class="card-link" href="artists/fleur_et_beunie/index.html"><span>Fléur et Beunié</span></a>
+      <a class="card-link" href="artists/vandango/index.html"><span>SkaRamush Vandango</span></a>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© 2025 ROKKO! Records</p>
+  <footer class="site-footer">
+    <small>© 2025 ROKKO! Records</small>
   </footer>
-
-  <!-- ===== Script: Video am Ende stoppen ===== -->
-  <script>
-    const video = document.getElementById('heroVideo');
-    video.addEventListener('ended', () => {
-      video.pause();
-      try { video.currentTime = video.duration; } catch (e) {}
-    });
-  </script>
 </body>
 </html>
