@@ -2,58 +2,89 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ROKKO! Records</title>
-  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Webfont (sauber, systemnah) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
 
-  <!-- Header / Navigation -->
-  <header class="site-header">
-    <div class="brand">
-      <img src="assets/Images/Logo.png" alt="ROKKO! Records" class="brand-logo" />
-      <h1>ROKKO! Records</h1>
-    </div>
-    <nav class="top-nav">
-      <a href="Artists/ERLING/index.html">Markus Erling</a>
-      <a href="Artists/HENRI/index.html">Henri Bellieu</a>
-      <a href="Artists/SKANK_SCHABLONSKI/index.html">Skank Schablonski</a>
-      <a href="Artists/FLEURBENUINE/index.html">Fléur et Beunié</a>
-      <a href="Artists/SKARAMUSH_VANDANGO/index.html">SkaRamush Vandango</a>
-    </nav>
+  <!-- Header / Topbar -->
+  <header class="rk-header">
+    <a class="rk-logo" href="/" aria-label="ROKKO! Records">
+      <img src="/assets/Images/Logo.png" alt="ROKKO! Records Logo">
+    </a>
+
+    <button class="rk-burger" id="rkBurger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="rkDrawer">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <!-- Hero: Intro-Video (läuft einmal, bleibt stehen) -->
-  <section class="hero">
-    <video id="heroVideo"
-           class="hero-video"
-           src="Artists/Movies/intro_movie.MOV"
-           autoplay muted playsinline preload="auto"></video>
-    <div class="hero-overlay">
-      <h2>Wir sind ROKKO! Records – und Du „noch“ nicht …</h2>
-      <p>Indie, rebellisch – mit Stil.</p>
-    </div>
-  </section>
+  <!-- Drawer / Offcanvas -->
+  <aside class="rk-drawer" id="rkDrawer" aria-hidden="true">
+    <nav class="rk-nav">
+      <a href="/">Home</a>
+      <details>
+        <summary>Artists</summary>
+        <!-- Trage hier deine Artists ein (nur Beispiele) -->
+        <a href="/artists/erling/index.html">Markus Erling</a>
+        <a href="/artists/henri_bellieu/index.html">Henri Bellieu</a>
+        <a href="/artists/schablonski/index.html">Skank Schablonski</a>
+        <a href="/artists/fleuretbunie/index.html">Fléur et Beunié</a>
+        <a href="/artists/vandango/index.html">SkaRamush Vandango</a>
+      </details>
+      <a href="/news/index.html">News</a>
+      <a href="/about/index.html">About us</a>
+      <a href="/contact/index.html">Contact</a>
+    </nav>
+  </aside>
 
-  <main class="container">
-    <section class="intro-copy">
-      <p>
-        ROKKO! ist kein Genre, keine Farbe, keine Sprache – sondern kreative Freiheit,
-        die ins Ohr geht und bleibt. Starte über die Artist-Links oben.
-      </p>
+  <!-- Hero: Intro-Video -->
+  <main>
+    <section class="rk-hero">
+      <video
+        class="rk-hero-video"
+        id="introVideo"
+        playsinline
+        autoplay
+        muted
+        preload="auto"
+        poster="/assets/wallpaper/background.png">
+        <source src="/artists/movies/intro_movie.MOV" type="video/quicktime">
+        <!-- Optional: zusätzlicher MP4-Export für mehr Browser -->
+        <!-- <source src="/artists/movies/intro_movie.mp4" type="video/mp4"> -->
+      </video>
     </section>
+
+    <!-- Hier kannst du später weitere Sektionen anhängen (Teaser, Footer etc.) -->
   </main>
 
-  <footer class="site-footer">
-    <small>© 2025 ROKKO! Records</small>
+  <footer class="rk-footer">
+    <p>© <span id="y"></span> ROKKO! Records</p>
   </footer>
 
   <script>
-    // Video am Ende auf letztem Frame pausieren
-    const v = document.getElementById('heroVideo');
-    if (v) v.addEventListener('ended', () => {
-      try { v.currentTime = Math.max(0, v.duration - 0.05); } catch(e){}
+    // Jahr
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Drawer
+    const burger = document.getElementById('rkBurger');
+    const drawer = document.getElementById('rkDrawer');
+    burger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    // Video einmal abspielen, am Ende stehen bleiben (Frame bleibt sichtbar)
+    const v = document.getElementById('introVideo');
+    v.addEventListener('ended', () => {
       v.pause();
+      v.currentTime = v.duration; // am letzten Frame „stehen“
     });
   </script>
 </body>
