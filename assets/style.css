@@ -1,76 +1,102 @@
-/* ===== ROKKO! Records – Basis Theme (an deine Struktur angepasst) ===== */
-
-/* Farben (aus deiner Palette) */
+/* ===== Farbpalette (aus deiner Vorgabe) ===== */
 :root{
-  --rk-deep: #04151f;   /* tiefer Blau/Anthrazitton (optional) */
-  --rk-red:  #842019;   /* Akzent */
-  --rk-sand: #f5f3bb;   /* Sand (Umrandungen/Highlights) */
-  --rk-amber:#b36728;   /* Amber/Orange */
-  --rk-brown:#342f2f;   /* Dunkelbraun (Header/Drawer) */
+  --rk-deep: #04151F;   /* sehr dunkles Blau/Schwarz */
+  --rk-red:  #842019;   /* Rotbraun */
+  --rk-sand: #F5F3BB;   /* Sand */
+  --rk-amber:#B36728;   /* Amber/Braun-Orange */
+  --rk-brown:#342F2F;   /* Dunkles Braun (Header/Drawer) */
 
-  --rk-bg:   #000;      /* Seitenhintergrund */
-  --rk-text: #ffffff;
-  --rk-muted:#d6d6d6;
+  --rk-text: #F5F3BB;   /* Standard helle Schrift auf dunkel */
+  --rk-link: #F5F3BB;
+  --rk-link-hover: #ffffff;
+  --rk-radius: 14px;
+  --rk-drawer-alpha: 0.70; /* 30% transparent = 0.70 sichtbar */
 }
 
-/* Reset/Grundtypografie */
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--rk-bg);color:var(--rk-text);font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
-img{max-width:100%;display:block}
-a{color:#fff;text-decoration:none}
-a:hover{opacity:.85}
+html,body{height:100%}
+body.theme-rokko{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color:var(--rk-text);
+  background:#000; /* Bühne schwarz */
+}
 
-/* Header */
-.rk-header{
-  position:fixed; inset:0 0 auto 0; height:64px;
-  background:var(--rk-brown);
+/* Header wie Vorlage, aber mit Logo */
+.site-header{
+  position:sticky; top:0; z-index:1000;
   display:flex; align-items:center; justify-content:space-between;
-  padding:0 16px; z-index:1000;
-  border-bottom:2px solid var(--rk-sand);
+  padding:14px 18px;
+  background: var(--rk-brown);
+  border-bottom: 3px solid var(--rk-amber);
 }
-.rk-logo img{height:40px; width:auto; display:block}
+.brand{display:inline-flex; align-items:center; gap:10px; text-decoration:none}
+.brand-logo{height:36px; width:auto; display:block}
 
-/* Burger */
-.rk-burger{background:none;border:0;cursor:pointer;width:44px;height:40px;display:flex;flex-direction:column;justify-content:center;gap:6px}
-.rk-burger span{display:block;height:2px;background:#fff;border-radius:2px;transition:.2s}
+/* Hamburger */
+.hamburger{
+  width:44px; height:36px; background:transparent; border:0; padding:0; cursor:pointer;
+  display:grid; place-items:center;
+}
+.hamburger span{
+  display:block; width:28px; height:2px; background:var(--rk-sand); margin:4px 0; transition:.2s;
+}
 
-/* Drawer */
-.rk-drawer{
-  position:fixed; top:64px; right:16px;
-  width:min(86vw,360px); max-height:calc(100dvh - 80px);
-  background:rgba(52,47,47,.7);
+/* Drawer (slide-in, 30% transparent, abgerundet, sandfarbener Rahmen) */
+.drawer{
+  position:fixed; top:70px; right:12px; width:min(86vw, 320px);
+  background: color-mix(in srgb, var(--rk-brown) calc(var(--rk-drawer-alpha)*100%), transparent);
+  backdrop-filter: blur(6px);
   border:2px solid var(--rk-sand);
-  border-radius:14px;
-  padding:16px 18px;
-  transform:translateX(calc(100% + 16px));
-  transition:transform .25s ease-in-out;
-  backdrop-filter:saturate(110%) blur(6px);
-  z-index:999;
+  border-radius: var(--rk-radius);
+  transform: translateX(110%);
+  transition: transform .25s ease;
+  padding:14px 10px;
+  z-index:1200;
 }
-.rk-drawer.open{ transform:translateX(0) }
-
-.rk-nav{display:flex;flex-direction:column;gap:10px}
-.rk-nav a{padding:8px 4px;border-radius:8px}
-.rk-nav a:hover{background:rgba(245,243,187,.08)}
-.rk-nav details{border-top:1px solid rgba(245,243,187,.25);padding-top:8px;margin-top:4px}
-.rk-nav summary{cursor:pointer;list-style:none;font-weight:600;margin-bottom:6px}
-.rk-nav summary::-webkit-details-marker{display:none}
-.rk-nav details a{padding-left:10px;font-weight:400}
-
-/* Hero-Video */
-.rk-hero{margin-top:64px}
-.rk-hero-video{
-  width:100vw; height:56.25vw;   /* 16:9 Fläche */
-  max-height:100dvh;
-  object-fit:cover; object-position:center center;
-  display:block; background:#000;
-  outline:2px solid #000; /* verhindert weiße Blitzer am Rand auf iOS */
+.drawer.open{ transform: translateX(0); }
+.drawer-list{list-style:none; margin:0; padding:6px 8px}
+.drawer-list li{margin:10px 4px}
+.drawer-list a{
+  color:var(--rk-sand); text-decoration:none; font-size:18px; letter-spacing:.5px;
 }
+.drawer-list a:hover{color:#fff}
+.drawer-scrim{
+  position:fixed; inset:0; background:rgba(0,0,0,.25); backdrop-filter: blur(2px);
+  z-index:1100;
+}
+
+/* Hero-Video füllt die Breite; Höhe wie Mixtape-Header */
+.hero{position:relative; width:100%; background:var(--rk-brown)}
+.hero-video{
+  display:block; width:100%; height:calc(100svh - 70px); /* volle Höhe unter dem Header */
+  object-fit:cover; /* füllt seitlich voll, oben/unten ggf. beschnitten */
+  background: var(--rk-brown);
+}
+
+/* Artists wie Kacheln untereinander (mobil) / zwei-spaltig (breiter) */
+.artists-grid{
+  padding:28px 16px 60px;
+  display:grid; gap:18px;
+  grid-template-columns: 1fr;
+  background:#000;
+}
+@media (min-width: 720px){
+  .artists-grid{ grid-template-columns: repeat(2, 1fr); padding:36px 28px 80px; }
+}
+.artist-card{
+  display:block; background:#111; border:2px solid #222; border-radius:10px; overflow:hidden;
+  text-decoration:none; color:var(--rk-text);
+}
+.artist-card img{ width:100%; height:52svh; object-fit:cover; display:block; }
+.artist-card h3{ margin:12px 14px 16px; font-weight:600; }
 
 /* Footer */
-.rk-footer{padding:24px 16px;color:var(--rk-muted);text-align:center;border-top:1px solid rgba(255,255,255,.08)}
-
-/* Kleinere Geräte – etwas flacherer Hero, falls gewünscht */
-@media (max-width:420px){
-  .rk-hero-video{ height:60vw }
+.site-footer{
+  border-top:3px solid var(--rk-amber);
+  background:#000; color:#9f9f9f; text-align:center; padding:26px 12px;
 }
+
+/* Links */
+a{color:var(--rk-link)}
+a:hover{color:var(--rk-link-hover)}
