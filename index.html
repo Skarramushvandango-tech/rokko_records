@@ -7,58 +7,54 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
+
+  <!-- Header / Navigation -->
   <header class="site-header">
     <div class="brand">
       <img src="assets/Images/Logo.png" alt="ROKKO! Records" class="brand-logo" />
       <h1>ROKKO! Records</h1>
     </div>
-
     <nav class="top-nav">
-      <a href="artists/erling/index.html">Markus Erling</a>
-      <a href="artists/henri_bellieu/index.html">Henri Bellieu</a>
-      <a href="artists/schablonski/index.html">Skank Schablonski</a>
-      <a href="artists/fleur_et_beunie/index.html">Fléur et Beunié</a>
-      <a href="artists/vandango/index.html">SkaRamush Vandango</a>
+      <a href="Artists/ERLING/index.html">Markus Erling</a>
+      <a href="Artists/HENRI/index.html">Henri Bellieu</a>
+      <a href="Artists/SKANK_SCHABLONSKI/index.html">Skank Schablonski</a>
+      <a href="Artists/FLEURBENUINE/index.html">Fléur et Beunié</a>
+      <a href="Artists/SKARAMUSH_VANDANGO/index.html">SkaRamush Vandango</a>
     </nav>
   </header>
 
-  <!-- Intro-Film: ohne Ton, Autoplay, kein Loop (dein Clip hat am Ende eine längere Standzeit) -->
+  <!-- Hero: Intro-Video (läuft einmal, bleibt stehen) -->
   <section class="hero">
-    <video
-      class="hero-video"
-      src="artists/movies/intro_movie.MOV"
-      autoplay
-      muted
-      playsinline
-    ></video>
-
+    <video id="heroVideo"
+           class="hero-video"
+           src="Artists/Movies/intro_movie.MOV"
+           autoplay muted playsinline preload="auto"></video>
     <div class="hero-overlay">
-      <h2>Indie Label. Rock’n’Roll, Funk & Freshness.</h2>
-      <p>Musik, die bleibt.</p>
+      <h2>Wir sind ROKKO! Records – und Du „noch“ nicht …</h2>
+      <p>Indie, rebellisch – mit Stil.</p>
     </div>
   </section>
 
   <main class="container">
     <section class="intro-copy">
-      <h3>Wir sind ROKKO! Records – und Du „noch“ nicht …</h3>
       <p>
-        Unabhängiges Label aus dem Ruhrpott mit Artists von Chanson bis Satire-Bass.
-        Kein Fame-Jagen – wir bringen Songs auf deine Ohren. Scroll oben durch die Artists
-        oder starte direkt über die Navigation.
+        ROKKO! ist kein Genre, keine Farbe, keine Sprache – sondern kreative Freiheit,
+        die ins Ohr geht und bleibt. Starte über die Artist-Links oben.
       </p>
-    </section>
-
-    <section class="grid-links">
-      <a class="card-link" href="artists/erling/index.html"><span>Markus Erling</span></a>
-      <a class="card-link" href="artists/henri_bellieu/index.html"><span>Henri Bellieu</span></a>
-      <a class="card-link" href="artists/schablonski/index.html"><span>Skank Schablonski</span></a>
-      <a class="card-link" href="artists/fleur_et_beunie/index.html"><span>Fléur et Beunié</span></a>
-      <a class="card-link" href="artists/vandango/index.html"><span>SkaRamush Vandango</span></a>
     </section>
   </main>
 
   <footer class="site-footer">
     <small>© 2025 ROKKO! Records</small>
   </footer>
+
+  <script>
+    // Video am Ende auf letztem Frame pausieren
+    const v = document.getElementById('heroVideo');
+    if (v) v.addEventListener('ended', () => {
+      try { v.currentTime = Math.max(0, v.duration - 0.05); } catch(e){}
+      v.pause();
+    });
+  </script>
 </body>
 </html>
