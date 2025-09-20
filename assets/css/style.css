@@ -1,1 +1,62 @@
+:root{
+  /* Palette */
+  --navy:#04151F; --red:#842019; --sand:#F5F3BB; --orange:#B36728; --brown:#342F2F;
 
+  --bg:#000;        /* Seitenhintergrund */
+  --text:#EEE;      /* Standardtext */
+  --line:#F5F3BB;   /* Akzent / Linien */
+}
+
+*{ box-sizing:border-box; }
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans","Liberation Sans",sans-serif;
+  line-height:1.5;
+}
+
+/* Topbar */
+.topbar{
+  position:fixed; inset:0 0 auto 0; height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 16px;
+  background:rgba(52,47,47,.85); /* 342F2F */
+  border-bottom:2px solid var(--line);
+  backdrop-filter:blur(6px);
+  z-index:30;
+}
+.topbar .brand img{ height:40px; width:auto; display:block; }
+.hamburger{ width:44px; height:44px; display:grid; place-items:center;
+  background:transparent; border:1px solid rgba(245,243,187,.5); border-radius:12px; }
+.hamburger span{ display:block; width:18px; height:2px; background:var(--sand); margin:2px 0; }
+
+/* Intro */
+.intro-wrap{ position:relative; width:100%; margin-top:64px; overflow:hidden; background:var(--navy); }
+.intro-video{ display:block; width:100%; height:calc(100vh - 64px); object-fit:cover; object-position:center; }
+
+/* Mute Button */
+.mute-btn{
+  position:absolute; right:16px; bottom:16px; width:48px; height:48px;
+  display:grid; place-items:center; font-size:22px;
+  color:var(--sand); background:rgba(52,47,47,.7);
+  border:1px solid rgba(245,243,187,.7); border-radius:12px;
+  cursor:pointer; z-index:5; transition:transform .15s ease,background .15s ease;
+}
+.mute-btn:hover{ transform:scale(1.06); }
+.mute-btn.ended{ opacity:.7; }
+
+/* Unmute-Hinweis */
+.unmute-hint{
+  position:absolute; left:50%; bottom:16px; transform:translateX(-50%);
+  background:rgba(4,21,31,.75); color:var(--sand); padding:10px 14px;
+  border:1px solid rgba(245,243,187,.7); border-radius:12px; z-index:4;
+  font-size:14px;
+}
+
+/* Content */
+.content{ max-width:1100px; margin:32px auto 96px; padding:0 16px; }
+.block{ padding:24px 0; border-top:1px solid rgba(245,243,187,.12); }
+.block h1{ margin:0 0 8px; font-size:clamp(28px,4.5vw,40px); color:var(--sand); }
+.block p{ margin:0; color:#cfcfcf; }
