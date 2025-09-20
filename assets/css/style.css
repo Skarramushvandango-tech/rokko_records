@@ -1,99 +1,134 @@
-/* ------- Farben (deine Palette) ------- */
-/* Sand: #F5F3BB | Rotbraun: #842019 | Ocker: #B36728 | Dunkelblau: #04151F | Braun: #342F2F */
+/* ---------- Basisfarben (deine Palette) ---------- */
 :root{
-  --sand:     #F5F3BB;
-  --brown:    #342F2F;
-  --redbrown: #842019;
-  --ocker:    #B36728;
-  --ink:      #04151F;
-
-  --topbar-h: 64px;
+  --sand: #F5F3BB;
+  --rust: #842019;
+  --amber: #B36728;
+  --charcoal: #342F2F;
+  --deepblue: #04151F;
+  --text: #ffffff;
 }
 
-/* Reset kurz & knackig */
+/* ---------- Reset/Typo ---------- */
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html,body{ margin:0; padding:0; }
 body{
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background: var(--sand);
-  color:#111;
-  line-height:1.45;
+  color: var(--charcoal);
+  line-height: 1.5;
 }
 
-/* ------- Topbar ------- */
-.topbar{
-  position: sticky; /* bleibt oben, nimmt aber Platz ein (kein Überschneiden auf iOS) */
-  top:0; z-index:50;
-  height:var(--topbar-h);
-  background: var(--brown);
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 0 14px;
-  border-bottom: 3px solid var(--ocker);
+/* ---------- Header ---------- */
+.site-header{
+  position: sticky;
+  top:0;
+  z-index: 50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:10px 16px;
+  background: var(--charcoal);
+}
+.site-header .brand img{
+  height:40px; width:auto; display:block;
 }
 
-.brand img{
-  height: 40px; /* kleines Logo, nicht riesig */
-  width:auto; display:block;
+/* Burger */
+.burger{
+  width:42px; height:34px; padding:6px 8px;
+  background: transparent; border:1px solid rgba(255,255,255,.2);
+  border-radius:8px; cursor:pointer;
+}
+.burger span{
+  display:block; height:2px; background:#fff; margin:5px 0;
 }
 
-.hamburger{
-  width:44px; height:36px; background:transparent; border:0; padding:6px;
-  display:grid; gap:5px; align-items:center; cursor:pointer;
+/* Drawer-Navi */
+.drawer{
+  position: fixed; right:12px; top:60px;
+  width:min(320px, 80vw);
+  background: color-mix(in srgb, var(--charcoal) 90%, transparent);
+  border:2px solid var(--sand);
+  border-radius:14px;
+  padding:14px 18px;
+  backdrop-filter: blur(4px);
+  z-index: 60;
 }
-.hamburger span{
-  display:block; height:2px; background:#fff; border-radius:2px;
+.drawer ul{ list-style:none; margin:0; padding:0; }
+.drawer li{ margin:10px 0; }
+.drawer a{
+  color:#fff; text-decoration:none; font-weight:500;
 }
 
-/* ------- Intro-Bühne ------- */
-.intro-wrap{
+/* ---------- HERO-VIDEO ---------- */
+.hero{
+  background: var(--sand);
+}
+
+/* Video-Wrapper hält die Bühnenhöhe.
+   Desktop: exakt 16:9; Mobile: ~65vh */
+.hero-video{
   position: relative;
-  width:100%;
-  /* Höhe responsiv clamped:
-     - Phone hochkant: ~55vh (max 520px)
-     - Größere Screens: bis zu 78vh, aber nie höher als viewport minus Topbar */
-  height: clamp(320px, 55vh, 520px);
-  overflow:hidden;
-  background: #000; /* falls Video kurz schwarz ist */
+  width: 100%;
+  aspect-ratio: 16 / 9;          /* moderne Browser */
+  overflow: hidden;
 }
-
-/* auf größeren Screens die Bühne großzügiger */
-@media (min-width: 900px){
-  .intro-wrap{
-    height: min(78vh, calc(100vh - var(--topbar-h)));
+@supports not (aspect-ratio: 16/9){
+  .hero-video::before{         /* Fallback: 56.25% Padding */
+    content:"";
+    display:block;
+    padding-top:56.25%;
+  }
+  .hero-video > *{
+    position:absolute; inset:0;
   }
 }
 
-.intro-video{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  display:block;
-  object-fit: cover;        /* keine Balken */
-  object-position: center;  /* Mitte -> Logo bleibt zentral */
-  background:#000;
+/* Mobile: etwas flacher, dafür breiter Zuschnitt */
+@media (max-width: 768px){
+  .hero-video{
+    aspect-ratio: auto;
+    height: 65vh;
+    max-height: 820px;
+  }
 }
 
-/* Mute-Button */
+/* Das Video selbst füllt den Wrapper und wird sauber zugeschnitten */
+.hero-video video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* zuschneiden statt verzerren */
+  object-position: 50% 50%;  /* Logo zentriert */
+  display: block;
+  background: #000;
+}
+
+/* Mute/Unmute Button */
 .mute-btn{
-  position:absolute; right:12px; bottom:12px; z-index:2;
-  font-size:18px; line-height:1;
-  padding:8px 10px;
-  background: rgba(52,47,47,.75);
-  border:1px solid rgba(245,243,187,.6);
-  color:#fff; border-radius:10px; cursor:pointer;
-  backdrop-filter: blur(2px);
+  position:absolute; right:14px; bottom:14px;
+  width:40px; height:40px; border:0; border-radius:50%;
+  background: rgba(0,0,0,.55);
+  cursor:pointer;
+}
+.mute-btn::before{
+  content:"🔊"; display:block; font-size:20px; line-height:40px; text-align:center; color:#fff;
+}
+.mute-btn.is-muted::before{ content:"🔇"; }
+
+/* kleiner Hinweispill */
+.tap-hint{
+  position:absolute; left:12px; bottom:16px;
+  padding:6px 10px; border-radius:999px;
+  background: rgba(0,0,0,.55); color:#fff; font-size:12px;
 }
 
-/* „Tippen für Ton“-Hinweis (nur wenn Autoplay mit Ton blockiert) */
-.unmute-hint{
-  position:absolute; left:12px; bottom:12px; z-index:2;
-  padding:8px 10px; font-size:14px;
-  color:#fff; background: rgba(0,0,0,.5);
-  border:1px solid rgba(255,255,255,.35); border-radius:8px;
-}
+/* ---------- Inhalt ---------- */
+.content{ padding: 32px 16px 80px; }
+.welcome h1{ margin:0 0 8px; color: var(--charcoal); }
+.welcome p{ margin:0; color:#222; }
 
-/* ------- Inhalt (nur Dummy) ------- */
-.content{ padding: 28px 16px 64px; }
-.block{ max-width:1100px; margin:0 auto; }
-h1{ margin:.2em 0 .4em; font-size:clamp(24px, 3.6vw, 42px); }
-p{ margin:.5em 0 0; font-size:clamp(14px, 1.7vw, 18px); }
+/* ---------- Sonstiges ---------- */
+img{ max-width:100%; height:auto; display:block; }
