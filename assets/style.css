@@ -1,82 +1,67 @@
-/* Basis: sandige Grundfarbe + dunkler Kontrast, serifenlos (system fonts) */
 :root{
   --sand:#E5D0B5;
   --ink:#0E0E0E;
-  --accent:#F04C3E;
-  --accent-2:#2E5AFF;
-  --card:#1a1a1a;
-  --muted:#8b857b;
+  --muted:#9b958b;
+  --border:#2a2a2a;
+  --card:#141414;
+  --accent:#B36728;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
-  font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   color:var(--sand);
   background:var(--ink);
-  /* Wenn du das Wallpaper nutzen willst, leg es unter /wallpaper/background.PNG ab */
-  /* background-image:url("../wallpaper/background.PNG"); */
-  /* background-size:cover; background-attachment:fixed; background-position:center; */
 }
+
+/* Header / Nav */
+.site-header{
+  display:flex;flex-direction:column;gap:10px;
+  padding:14px 20px;border-bottom:1px solid var(--border);
+  background:#0f0f0fb3;backdrop-filter:saturate(120%) blur(6px);
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{height:36px;width:auto}
+.site-header h1{margin:0;font-size:20px;letter-spacing:.02em}
+.top-nav{display:flex;flex-wrap:wrap;gap:10px}
+.top-nav a{
+  color:var(--sand);text-decoration:none;padding:8px 10px;
+  border:1px solid var(--border);border-radius:10px;
+}
+.top-nav a:hover{border-color:var(--accent)}
+
+/* Hero mit Video */
+.hero{position:relative;min-height:42vh;border-bottom:1px solid var(--border)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000,#000a)}
+.hero-overlay{position:relative;z-index:2;padding:8vw 20px 24px;text-align:center;text-shadow:0 2px 20px #000}
+.hero-overlay h2{margin:0 0 8px;font-size:clamp(22px,3.6vw,36px)}
+.hero-overlay p{margin:0;color:var(--muted)}
 
 .container{width:100%;max-width:1100px;margin:0 auto;padding:24px}
 
-/* Header / Nav */
-.site-header{display:flex;flex-direction:column;gap:12px;padding:16px 24px;border-bottom:1px solid #2a2a2a;background:#0f0f0fA6;backdrop-filter:saturate(120%) blur(6px)}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-logo{height:36px;width:auto}
-.site-header h1{margin:0;font-size:20px;letter-spacing:.03em}
-
-.top-nav{display:flex;flex-wrap:wrap;gap:10px}
-.top-nav a{
-  color:var(--sand); text-decoration:none; padding:8px 10px; border:1px solid #2a2a2a; border-radius:8px;
-}
-.top-nav a:hover{background:#222}
-
-/* Hero mit Video */
-.hero{position:relative;min-height:42vh;border-bottom:1px solid #2a2a2a}
-.hero-video{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
-  /* kein loop gesetzt; dein Clip bleibt am Ende stehen */
-}
-.hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, #00000080 0%, #000000D0 100%);}
-
-.hero-overlay{
-  position:relative; z-index:2; padding:8vw 24px 24px; text-align:center;
-}
-.hero-overlay h2{margin:0 0 10px; font-size:clamp(22px,3.8vw,36px)}
-.hero-overlay p{margin:0;color:var(--muted)}
-
-/* Intro-Text */
-.intro-copy h3{margin:.2em 0 .4em;font-size:clamp(18px,3vw,24px)}
-.intro-copy p{color:var(--sand)}
-
-/* Link-Kacheln */
-.grid-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
-.card-link{
-  display:flex;align-items:center;justify-content:center;min-height:84px;
-  background:var(--card); border:1px solid #2a2a2a;border-radius:10px;text-decoration:none; color:var(--sand);
-}
-.card-link:hover{border-color:var(--accent)}
-
 /* Artist-Seiten */
-.artist-header{padding:18px 24px;border-bottom:1px solid #2a2a2a;display:flex;gap:12px;align-items:center}
+.artist-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:center}
 .artist-header a{color:var(--muted);text-decoration:none}
 .artist-header a:hover{color:var(--sand)}
-
 .artist-hero{padding:24px}
 .artist-name{margin:0 0 8px;font-size:clamp(22px,4vw,34px)}
 .artist-bio{color:var(--sand);max-width:70ch}
 
+/* Medien untereinander */
 .media-stack{display:flex;flex-direction:column;gap:16px;margin-top:18px}
-.media-stack img{width:100%;height:auto;border-radius:10px;border:1px solid #2a2a2a;background:#111}
+.media-stack img{width:100%;height:auto;border-radius:10px;border:1px solid var(--border);background:#111}
 
-.covers{display:flex;flex-direction:column;gap:14px;margin-top:22px}
-.cover-item{border:1px solid #2a2a2a;border-radius:10px;padding:12px;background:#121212}
-.cover-item h4{margin:0 0 8px}
-.play-row{display:flex;gap:8px;flex-wrap:wrap}
-.play-row a{padding:8px 10px;border:1px solid #2a2a2a;border-radius:8px;text-decoration:none;color:var(--sand)}
-.play-row a:hover{border-color:var(--accent-2)}
+/* Covers mit Untertitel */
+.covers{display:flex;flex-direction:column;gap:16px;margin-top:22px}
+figure.cover{
+  margin:0;padding:12px;border:1px solid var(--border);
+  border-radius:10px;background:var(--card);
+}
+figure.cover img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid #00000055}
+figure.cover figcaption{margin-top:10px;color:var(--sand);font-size:.95rem;letter-spacing:.01em}
 
-.site-footer{padding:24px;text-align:center;color:var(--muted);border-top:1px solid #2a2a2a}
+/* Footer */
+.site-footer{padding:22px;text-align:center;color:var(--muted);border-top:1px solid var(--border)}
