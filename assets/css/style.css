@@ -1,134 +1,142 @@
-/* ---------- Basisfarben (deine Palette) ---------- */
-:root{
-  --sand: #F5F3BB;
-  --rust: #842019;
-  --amber: #B36728;
-  --charcoal: #342F2F;
-  --deepblue: #04151F;
-  --text: #ffffff;
+:root {
+  --black: #000000;
+  --sand: #f5f3bb;
+  --blue: #342f2f; /* kannst du später tauschen */
 }
 
-/* ---------- Reset/Typo ---------- */
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
-body{
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: var(--sand);
-  color: var(--charcoal);
-  line-height: 1.5;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ---------- Header ---------- */
-.site-header{
-  position: sticky;
-  top:0;
-  z-index: 50;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:10px 16px;
-  background: var(--charcoal);
-}
-.site-header .brand img{
-  height:40px; width:auto; display:block;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--black);
+  color: var(--sand);
 }
 
-/* Burger */
-.burger{
-  width:42px; height:34px; padding:6px 8px;
-  background: transparent; border:1px solid rgba(255,255,255,.2);
-  border-radius:8px; cursor:pointer;
-}
-.burger span{
-  display:block; height:2px; background:#fff; margin:5px 0;
-}
-
-/* Drawer-Navi */
-.drawer{
-  position: fixed; right:12px; top:60px;
-  width:min(320px, 80vw);
-  background: color-mix(in srgb, var(--charcoal) 90%, transparent);
-  border:2px solid var(--sand);
-  border-radius:14px;
-  padding:14px 18px;
-  backdrop-filter: blur(4px);
-  z-index: 60;
-}
-.drawer ul{ list-style:none; margin:0; padding:0; }
-.drawer li{ margin:10px 0; }
-.drawer a{
-  color:#fff; text-decoration:none; font-weight:500;
-}
-
-/* ---------- HERO-VIDEO ---------- */
-.hero{
-  background: var(--sand);
-}
-
-/* Video-Wrapper hält die Bühnenhöhe.
-   Desktop: exakt 16:9; Mobile: ~65vh */
-.hero-video{
-  position: relative;
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  aspect-ratio: 16 / 9;          /* moderne Browser */
-  overflow: hidden;
-}
-@supports not (aspect-ratio: 16/9){
-  .hero-video::before{         /* Fallback: 56.25% Padding */
-    content:"";
-    display:block;
-    padding-top:56.25%;
-  }
-  .hero-video > *{
-    position:absolute; inset:0;
-  }
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  z-index: 1000;
 }
 
-/* Mobile: etwas flacher, dafür breiter Zuschnitt */
-@media (max-width: 768px){
-  .hero-video{
-    aspect-ratio: auto;
-    height: 65vh;
-    max-height: 820px;
-  }
+.site-header img {
+  height: 40px;
 }
 
-/* Das Video selbst füllt den Wrapper und wird sauber zugeschnitten */
-.hero-video video{
-  position: absolute;
-  inset: 0;
-  width: 100%;
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  line-height: 1.1;
+}
+.headline .rokko {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.headline .records {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--sand);
+}
+.headline.inline {
+  flex-direction: row;
+  gap: 6px;
+}
+
+/* Hamburger */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--sand);
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
   height: 100%;
-  object-fit: cover;         /* zuschneiden statt verzerren */
-  object-position: 50% 50%;  /* Logo zentriert */
+  background: rgba(0,0,0,0.9);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+.side-menu.open { right: 0; }
+.side-menu ul { list-style: none; }
+.side-menu li { margin: 15px 0; }
+.side-menu a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Intro Video */
+.intro-video {
+  position: relative;
+  margin-top: 60px; /* Platz für Header */
+}
+.intro-video video {
+  width: 100%;
+  height: auto;
   display: block;
-  background: #000;
+}
+#muteBtn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-/* Mute/Unmute Button */
-.mute-btn{
-  position:absolute; right:14px; bottom:14px;
-  width:40px; height:40px; border:0; border-radius:50%;
-  background: rgba(0,0,0,.55);
-  cursor:pointer;
+/* Sections */
+section {
+  padding: 60px 20px;
 }
-.mute-btn::before{
-  content:"🔊"; display:block; font-size:20px; line-height:40px; text-align:center; color:#fff;
+h2 { margin-bottom: 20px; }
+.artist img { max-width: 100%; margin-bottom: 10px; }
+
+/* Kontakt */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.mute-btn.is-muted::before{ content:"🔇"; }
-
-/* kleiner Hinweispill */
-.tap-hint{
-  position:absolute; left:12px; bottom:16px;
-  padding:6px 10px; border-radius:999px;
-  background: rgba(0,0,0,.55); color:#fff; font-size:12px;
+input, textarea {
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: #fff;
 }
-
-/* ---------- Inhalt ---------- */
-.content{ padding: 32px 16px 80px; }
-.welcome h1{ margin:0 0 8px; color: var(--charcoal); }
-.welcome p{ margin:0; color:#222; }
-
-/* ---------- Sonstiges ---------- */
-img{ max-width:100%; height:auto; display:block; }
+button {
+  padding: 10px;
+  background: var(--sand);
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
