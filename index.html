@@ -1,1 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROKKO! Records</title>
+  <link rel="preload" as="image" href="assets/Images/Logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="theme-sand">
 
+  <!-- Header / Nav wie beim Mixtape-Template -->
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="assets/Images/Logo.png" alt="ROKKO! Records" class="brand-logo">
+    </a>
+
+    <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="offcanvas">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Offcanvas Menü -->
+    <nav id="offcanvas" class="offcanvas" aria-hidden="true">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#artists">Artists</a></li>
+        <li><a href="/about.html">About us</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero wie Vorlage – nur statt Bild dein Intro-Video -->
+  <section class="hero">
+    <div class="hero-media">
+      <!-- Für den Test kannst du .MOV nutzen; langfristig besser MP4/WebM exportieren -->
+      <video id="introVideo"
+             class="hero-video"
+             playsinline
+             autoplay
+             muted
+             preload="auto">
+        <source src="assets/movies/intro_movie.MOV" type="video/quicktime">
+        <!-- Fallback-Text -->
+        Dein Browser kann das Video nicht abspielen.
+      </video>
+      <!-- dunkler Overlay wie im Template -->
+      <div class="hero-vignette"></div>
+    </div>
+  </section>
+
+  <!-- Artists-Teaser (nur Struktur – Inhalte kommen aus den Artists-Seiten) -->
+  <main id="artists" class="content">
+    <h2 class="section-title">Artists</h2>
+
+    <div class="artist-grid">
+      <a class="artist-card" href="/artists/ERLING/index.html">
+        <div class="card-title">Markus Erling</div>
+      </a>
+      <a class="artist-card" href="/artists/HENRI/index.html">
+        <div class="card-title">Henri Bellieu</div>
+      </a>
+      <a class="artist-card" href="/artists/SKANK_SCHABLONSKI/index.html">
+        <div class="card-title">Skank Schablonski</div>
+      </a>
+      <a class="artist-card" href="/artists/FLEURBENUINE/index.html">
+        <div class="card-title">Fleur Benuine</div>
+      </a>
+      <a class="artist-card" href="/artists/SKARAMUSH_VANDANGO/index.html">
+        <div class="card-title">Skaramush Vandango</div>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 ROKKO! Records</p>
+  </footer>
+
+  <script>
+    // Offcanvas toggling
+    const burger = document.querySelector('.hamburger');
+    const panel  = document.getElementById('offcanvas');
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      panel.classList.toggle('open', !open);
+      panel.setAttribute('aria-hidden', String(open));
+      document.body.classList.toggle('no-scroll', !open);
+    });
+
+    // Video nur einmal abspielen und dann stehen lassen (wie besprochen)
+    const vid = document.getElementById('introVideo');
+    if (vid) {
+      vid.addEventListener('ended', () => {
+        // bleibt auf dem letzten Frame stehen
+        vid.pause();
+      });
+      // Cover fill: bei Resize die Höhe anpassen (16:9 + mobile)
+      const fit = () => {
+        // nichts nötig: CSS object-fit:cover erledigt den Job
+      };
+      window.addEventListener('resize', fit);
+    }
+  </script>
+</body>
+</html>
