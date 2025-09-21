@@ -31,7 +31,7 @@
     </nav>
   </header>
 
-  <!-- Intro-Video full-width (38vh) + Sound-Button unten rechts -->
+  <!-- Intro-Video oben (läuft im Loop), Sound-Toggle unten rechts -->
   <section class="hero">
     <video id="introVideo" class="hero__video" autoplay muted loop playsinline
            src="assets/movies/Intro_movie.mp4"></video>
@@ -51,7 +51,7 @@
       </div>
     </section>
 
-    <!-- Separator 1 -->
+    <!-- Separator 1 (Wallpaper_one) -->
     <div class="separator">
       <img src="assets/wallpaper/Wallpaper_one.PNG" alt="ROKKO Wallpaper One"/>
     </div>
@@ -111,9 +111,9 @@
       </div>
     </section>
 
-    <!-- Separator 2 -->
+    <!-- Separator 2 (Wallpaper_two) -->
     <div class="separator separator--thin">
-      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper"/>
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Two"/>
     </div>
 
     <!-- ERLING -->
@@ -208,7 +208,7 @@
 
     <!-- Separator 4 -->
     <div class="separator separator--thin">
-      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper"/>
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Two"/>
     </div>
 
     <!-- SKANK -->
@@ -254,7 +254,7 @@
 
     <!-- Separator 6 -->
     <div class="separator separator--thin">
-      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper"/>
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Two"/>
     </div>
 
     <!-- Kontakt -->
@@ -294,17 +294,25 @@
       });
     }
 
-    // Sound-Toggle
+    // Sound-Toggle (merkt sich Zustand pro Session)
     const v = document.getElementById('introVideo');
     const btn = document.getElementById('soundBtn');
-    const update = () => { btn.textContent = v.muted ? 'Ton: Aus' : 'Ton: An'; };
+    const KEY = 'rokko_sound_on';
+    const setBtn = () => { btn.textContent = v.muted ? 'Ton: Aus' : 'Ton: An'; };
+
     if (v && btn){
+      // gespeicherten Zustand anwenden
+      try {
+        const on = sessionStorage.getItem(KEY) === '1';
+        v.muted = !on;
+      } catch(_) {}
+      setBtn();
+
       btn.addEventListener('click', () => {
         v.muted = !v.muted;
-        if (v.paused) v.play().finally(update); else update();
+        try { sessionStorage.setItem(KEY, v.muted ? '0' : '1'); } catch(_){}
+        if (v.paused) v.play().finally(setBtn); else setBtn();
       });
-      v.addEventListener('play', update);
-      update();
     }
   </script>
 </body>
