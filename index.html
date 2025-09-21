@@ -1,231 +1,262 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ROKKO Records</title>
-
-  <!-- Assets -->
-  <link rel="preload" as="video" href="assets/movies/Intro_movie.mp4" type="video/mp4">
-  <link rel="preload" as="image" href="assets/Images/Logo.png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-  <!-- Fixer Header -->
-  <header class="site-header" id="top">
+  <!-- Header -->
+  <header class="site-header">
     <div class="brand">
-      <img class="brand__logo" src="assets/Images/Logo.png" alt="ROKKO Logo">
-      <div class="brand__wordmark">
-        <span class="brand__rokko">ROKKO</span>
-        <span class="brand__records">RECORDS</span>
+      <img src="assets/Images/Logo.png" alt="ROKKO Logo" class="brand__logo" />
+      <div class="brand__title">
+        <span class="brand__top">ROKKO</span>
+        <span class="brand__bottom">RECORDS</span>
       </div>
     </div>
-
-    <button class="hamburger" aria-label="Menü öffnen" aria-controls="drawer" aria-expanded="false">
+    <button class="burger" aria-label="Menü" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-
-    <nav id="drawer" class="drawer" aria-hidden="true">
-      <ul>
-        <li><a href="#erling">Erling</a></li>
-        <li><a href="#fleur">Fleurbenuine</a></li>
-        <li><a href="#henri">Henri</a></li>
-        <li><a href="#skank">Skank Schablonski</a></li>
-        <li><a href="#vandango">Skaramush Vandango</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
+    <nav class="menu">
+      <a href="#about">Wir sind ROKKO</a>
+      <a href="#henri">Henri Bellieu</a>
+      <a href="#erling">Markus Erling</a>
+      <a href="#fleur">Fleur et Beunié</a>
+      <a href="#skank">Skank Schablonski</a>
+      <a href="#skaramush">SkaRamush Vandango</a>
     </nav>
-    <div class="drawer__scrim"></div>
   </header>
 
-  <!-- Intro-Video -->
-  <section class="intro">
-    <div class="video-frame">
-      <video id="heroVideo" playsinline preload="auto" autoplay muted src="assets/movies/Intro_movie.mp4"></video>
+  <!-- Intro/Hero Video -->
+  <section class="hero">
+    <video id="introVideo" class="hero__video" autoplay muted loop playsinline
+           src="assets/movies/Intro_movie.mp4"></video>
 
-      <button id="muteBtn" class="mute-btn" aria-label="Ton umschalten" title="Ton umschalten">SOUND</button>
-      <div id="tapHint" class="tap-hint" hidden>Tippen für Ton</div>
+    <!-- zentraler Sound-Toggle -->
+    <button id="soundBtn" class="sound-btn" aria-label="Sound umschalten">
+      ▶︎ Sound einschalten
+    </button>
+  </section>
+
+  <main>
+
+    <!-- ABOUT / Wir sind ROKKO -->
+    <section id="about" class="card">
+      <h2 class="card__title">Wir sind ROKKO! Records — und Du „noch“ nicht …</h2>
+      <div class="card__text">
+        <p>Tach, wir sind die Neuen in der Szene. Und wir sind ein bisschen anders, das ist aber auch gut so. Wir jagen nicht den Fame und sonnen uns auch nicht im Applaus. Wir haben kein Genre, wir engen uns nicht ein. Die Songs und Artists sind jeglicher Couleur und eines ist sicher!</p>
+        <ul>
+          <li>Es wird auf keinen Fall langweilig.</li>
+        </ul>
+        <p>ROKKOS! Herz schlägt im Ruhrpott, doch die Musik reicht weiter. Rokko ist kein Genre, keine Sprache oder Farbe. ROKKO! ist geballte kreative Freiheit, die ins Ohr geht und von dort nicht mehr wegzubekommen ist.</p>
+        <p>Also kloppt Euch den Schmalz aus den Ohren, hier kommt der Honig …</p>
+      </div>
+    </section>
+
+    <!-- Separator 1 -->
+    <div class="separator">
+      <img src="assets/wallpaper/Wallpaper_one.PNG" alt="" />
     </div>
-  </section>
 
-  <!-- Intro-Text -->
-  <section class="intro-text">
-    <h1>Wir sind ROKKO! Records<br><small>– und Du „noch“ nicht …</small></h1>
-    <p>
-      Tach, wir sind die Neuen in der Szene. Und wir sind ein bisschen anders, das ist aber auch gut so.
-      Wir jagen nicht den Fame und sonnen uns auch nicht im Applaus. Wir haben kein Genre, wir engen uns nicht ein.
-      Die Songs und Artists sind jeglicher Couleur – und eines ist sicher:
-    </p>
-    <ul>
-      <li>Es wird auf keinen Fall langweilig.</li>
-    </ul>
-    <p>
-      ROKKOS Herz schlägt im Ruhrpott, doch die Musik reicht weiter. Rokko ist kein Genre, keine Sprache oder Farbe.
-      ROKKO! ist geballte kreative Freiheit, die ins Ohr geht und von dort nicht mehr wegzubekommen ist.
-    </p>
-    <p>
-      Also kloppt Euch den Schmalz aus den Ohren, hier kommt der Honig …
-    </p>
-  </section>
+    <!-- 1) HENRI -->
+    <section id="henri" class="card artist">
+      <img class="artist__photo"
+           src="artists/HENRI/Fotos/henri_main.PNG"
+           alt="Henri Bellieu" />
 
-  <!-- Artists Intro -->
-  <section class="artists-intro">
-    <h2>Unsere Artists</h2>
-    <p>Hier stellen wir euch die Musikerinnen und Musiker vor, die ROKKO Records prägen.</p>
-  </section>
-
-  <main class="content">
-
-    <!-- ERLING -->
-    <section id="erling" class="artist card">
-      <div class="artist__media">
-        <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling">
+      <div class="artist__bio">
+        <p><strong>Henri Bellieu</strong> – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: durchfroren, die Straßen von Paris entlangwandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic. Am Piano saß Henri, mit rauchiger Stimme und Melodien, die den Raum zum Leuchten brachten. Eine Nacht voller Rotwein, Gespräche über Liebe, Leid und das Leben – und aus dieser Begegnung wuchs eine Freundschaft, die bis heute trägt.</p>
+        <p>Mit <em>Petit Colibri</em> singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat. Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
       </div>
-      <p class="artist__bio">
-        Markus Erling mischt Rock’n’Roll mit modernem Drive – kantig, direkt, mit Herzblut.
-      </p>
-      <div class="artist__covers">
-        <!-- Coverbilder einfügen -->
+
+      <!-- Player (Cover oben, Tracks darunter) -->
+      <div class="player">
+        <img class="player__cover"
+             src="artists/HENRI/Cover/henri_la_femme.PNG"
+             alt="Henri – La Femme" />
+        <ol class="player__tracks">
+          <li>
+            <span>La Femme (Main)</span>
+            <audio controls preload="none">
+              <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a" type="audio/mp4" />
+            </audio>
+          </li>
+          <li>
+            <span>La Femme (V_deux)</span>
+            <audio controls preload="none">
+              <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" type="audio/mp4" />
+            </audio>
+          </li>
+        </ol>
+
+        <div class="streaming">
+          <a class="btn-stream" href="#"><img src="assets/music_streaming/spotify.PNG" alt="" /> Listen on Spotify</a>
+          <a class="btn-stream" href="#"><img src="assets/music_streaming/applemusic.PNG" alt="" /> Listen on Apple Music</a>
+        </div>
+      </div>
+
+      <!-- zweites Cover sichtbar -->
+      <div class="covers">
+        <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Henri – petite colibri" />
       </div>
     </section>
 
-    <!-- Separator -->
-    <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/wallpaper_one.png" alt="Wallpaper 1">
-    </section>
+    <!-- Separator 2 -->
+    <div class="separator">
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="" />
+    </div>
 
-    <!-- FLEURBENUINE -->
-    <section id="fleur" class="artist card">
-      <div class="artist__media">
-        <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleurbenuine">
+    <!-- 2) ERLING -->
+    <section id="erling" class="card artist">
+      <img class="artist__photo"
+           src="artists/ERLING/Foto/erling_main.PNG"
+           alt="Markus Erling" />
+
+      <div class="artist__bio">
+        <p><strong>Texte sind für Markus Erling mehr als Worte</strong> – sie sind ein Ventil. Markus zieht seine Songs direkt aus dem eigenen Leben: Verlust, Missverständnisse, Schmerz und Liebe, gesehen durch die Augen eines Menschen, der nie so recht in eine Welt passt, die auf Schein und leeren Versprechen ruht.</p>
+        <p>Seine neurodiverse Wahrnehmung brachte ihn irgendwann an einen Punkt der Stille. Ein Rückzug, fast wie ins Exil, weg von Rollen und Erwartungen, die nie zu ihm passten. Dort, zwischen Alleinsein und Neufindung, begann er, sich Schicht für Schicht freizulegen. Und aus diesem Prozess wuchsen die Worte, die schon lange in ihm lagen, hinein in Musik.</p>
+        <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und es ist klar, dass aus seiner Schublade noch vieles ans Licht kommen wird.</p>
       </div>
-      <p class="artist__bio">
-        Neo-Soul, warme Harmonien, lässige Grooves – Musik, die sanft anschiebt und hängen bleibt.
-      </p>
-      <div class="artist__covers"></div>
-    </section>
 
-    <!-- Separator -->
-    <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/wallpaper_two.png" alt="Wallpaper 2">
-    </section>
+      <div class="player">
+        <img class="player__cover"
+             src="artists/ERLING/Cover/erling_regen_cover.PNG"
+             alt="Erling – Regen" />
+        <ol class="player__tracks">
+          <li>
+            <span>Endlich Schlafen</span>
+            <audio controls preload="none">
+              <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_endlich%20schlafen.m4a" type="audio/mp4" />
+            </audio>
+          </li>
+          <li>
+            <span>Schlafen (MonoToni Rmx)</span>
+            <audio controls preload="none">
+              <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_%20schlafen%20MonoToni%20Rmx.m4a" type="audio/mp4" />
+            </audio>
+          </li>
+        </ol>
 
-    <!-- HENRI -->
-    <section id="henri" class="artist card">
-      <div class="artist__media">
-        <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri">
+        <div class="streaming">
+          <a class="btn-stream" href="#"><img src="assets/music_streaming/spotify.PNG" alt="" /> Listen on Spotify</a>
+          <a class="btn-stream" href="#"><img src="assets/music_streaming/applemusic.PNG" alt="" /> Listen on Apple Music</a>
+        </div>
       </div>
-      <p class="artist__bio">
-        Minimalismus mit Kante: reduzierte Beats, klare Melodien, maximaler Wiedererkennungswert.
-      </p>
-      <div class="artist__covers"></div>
-    </section>
 
-    <!-- Separator -->
-    <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/wallpaper_one.png" alt="Wallpaper 1">
-    </section>
-
-    <!-- SKANK SCHABLONSKI -->
-    <section id="skank" class="artist card">
-      <div class="artist__media">
-        <img class="artist__photo" src="artists/schablonski/fotos/skank_main.PNG" alt="Skank Schablonski">
+      <!-- YouTube -->
+      <div class="youtube">
+        <div class="youtube__wrap">
+          <iframe
+            src="https://www.youtube.com/embed/Rh53YVgsfJ4?rel=0&modestbranding=1&playsinline=1"
+            title="Markus Erling – Video" allow="autoplay; encrypted-media"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
       </div>
-      <p class="artist__bio">
-        Reggae-Attitüde trifft Punk-Energie – roh, verspielt, direkt.
-      </p>
-      <div class="artist__covers"></div>
-    </section>
 
-    <!-- Separator -->
-    <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/wallpaper_two.png" alt="Wallpaper 2">
-    </section>
-
-    <!-- SKARAMUSH VANDANGO -->
-    <section id="vandango" class="artist card">
-      <div class="artist__media">
-        <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skank_main.PNG" alt="Skaramush Vandango">
+      <div class="covers">
+        <img src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Erling – Endlich Schlafen" />
       </div>
-      <p class="artist__bio">
-        Funk &amp; Freshness – dreckige Basslines, knackige Drums, große Hooks.
-      </p>
-      <div class="artist__covers"></div>
     </section>
 
-    <!-- Kontakt -->
-    <section id="contact" class="contact">
-      <h2>Kontakt</h2>
-      <p>Booking &amp; Anfragen: <a href="mailto:hello@rokko.records">hello@rokko.records</a></p>
+    <!-- Separator 3 -->
+    <div class="separator">
+      <img src="assets/wallpaper/Wallpaper_one.PNG" alt="" />
+    </div>
+
+    <!-- 3) FLEURBENUINE -->
+    <section id="fleur" class="card artist">
+      <img class="artist__photo"
+           src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG"
+           alt="Fleur et Beunié" />
+
+      <div class="artist__bio">
+        <p><strong>Fleur &amp; Beunié</strong> – Jet-Set-Liebespaar aus Marseille. Eine Geschichte, fast wie in einem Film.</p>
+        <p>Fleur, Mitte zwanzig, smart, talentiert und wunderschön, stammt aus einem kultivierten Elternhaus. Doch der Weg ins Familiengeschäft war für sie keine wirkliche Option. Es zog sie in die Club-Szene, wo sie an ihrer Gesangskarriere feilte und ihre ersten kleinen Erfolge als Sängerin erlebte.</p>
+        <p>Bernier, Anfang dreißig, gutaussehend, charismatisch und voller Talent, hatte genug vom goldenen Käfig. Bentley gegen Tonstudio, Glanz gegen Leidenschaft. Ein Schluck Whisky, ein rauchiger Gesang und ein Blick genügten – Boom. Er suchte eine Stimme und fand in Fleur die große Liebe.</p>
+        <p>Mit <em>Feu Léger</em> – inklusive der gefeierten FIVRA-Remixe – haben Fleur &amp; Beunié ihren Sound geprägt: jung, sexy und voller Energie, getragen von französischem Esprit und verwurzelt in der europäischen Underground-Club-Szene.</p>
+      </div>
+
+      <div class="covers">
+        <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Fleur – Léger" />
+        <img src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Fleur – Léger (RMX)" />
+      </div>
     </section>
+
+    <!-- Separator 4 -->
+    <div class="separator">
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="" />
+    </div>
+
+    <!-- 4) SKANK SCHABLONSKI -->
+    <section id="skank" class="card artist">
+      <img class="artist__photo"
+           src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG"
+           alt="Skank Schablonski" />
+
+      <div class="artist__bio">
+        <p><strong>Skank Schablonski</strong> – der Assi aus Iserlohn. Vatta kloppte Kohle unner Tage und Mudda Annegret schnitt inne Nachbarschaft die Haare. Er wuchs auf, als typisches Blach vonne Achtziger, mit Zwille, Zwetschgenbaum und Schrebergarten.</p>
+        <p>Denn Skank, dat is nich einfach nur’n Typ, ne. Skank, dat is ’ne Marke, Junge. Mit seine Ruhrpott-Kotterschnauze, kloppta dir seine lyrisch-satirischen Backpfeifen so heftig umme Ohren, datte denks der Aschermittwoch fällt auf nen Donnerstag.</p>
+        <p>Seine aktuelle Singel „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum steppen und dat Establishment zum weinen. Skank weiß ganz genau, wo der Frosch die Locken hat…</p>
+      </div>
+
+      <div class="covers">
+        <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Schablonski – März" />
+      </div>
+    </section>
+
+    <!-- Separator 5 -->
+    <div class="separator">
+      <img src="assets/wallpaper/Wallpaper_one.PNG" alt="" />
+    </div>
+
+    <!-- 5) SKARAMUSH VANDANGO -->
+    <section id="skaramush" class="card artist">
+      <img class="artist__photo"
+           src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG"
+           alt="SkaRamush Vandango" />
+
+      <div class="artist__bio">
+        <p><strong>SkaRamush Vandango</strong> ist kein gewöhnlicher Künstler – er ist das kreative Rückgrat von ROKKO! Records, Label-Chef und Mastermind hinter sämtlichen Produktionen. Alles, was hier entsteht, trägt seine Handschrift: geschrieben, programmiert, produziert. Denn seine Liebe zur Musik kennt keine Grenzen – weder Genre noch Persönlichkeit halten ihn auf.</p>
+        <p>Hochgewachsen im Ruhrpott, mit goldener Stimme, großer Klappe und einem Hang zu starken Texten, folgt er nur einer Maxime: <em>Musik muss den Poppes zum Wackeln bringen.</em> Und wenn er selbst bei seinen Tracks nicht grinst, gilt: Was er nicht gut findet, ist schlichtweg scheiße.</p>
+        <p>Im weisen Alter angekommen, wirkt SkaRamush gelassen und doch voller Energie. Seine neurodiverse Perspektive lässt ihn fern vom Rampenlicht bleiben – lieber zieht er im Schatten die Fäden. In seiner kreativen Garage warten Fleur et Beunié, Henri Bellieu, Skank Schablonski und viele mehr, die durch seine Ideen Gestalt annehmen.</p>
+      </div>
+
+      <div class="covers">
+        <img src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="Vandango – Fire" />
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> ROKKO Records</p>
+  <footer class="footer">
+    © ROKKO Records
   </footer>
 
   <script>
-    // Jahr
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Drawer
-    const hamburger = document.querySelector('.hamburger');
-    const drawer = document.getElementById('drawer');
-    const scrim = document.querySelector('.drawer__scrim');
-    function closeDrawer(){ drawer.classList.remove('open'); document.body.classList.remove('lock'); hamburger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); }
-    function openDrawer(){ drawer.classList.add('open'); document.body.classList.add('lock'); hamburger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); }
-    hamburger.addEventListener('click', ()=> drawer.classList.contains('open') ? closeDrawer() : openDrawer());
-    scrim.addEventListener('click', closeDrawer);
-    drawer.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        const id=a.getAttribute('href');
-        document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
-        closeDrawer();
-      });
+    // Burger-Menü
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.menu');
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('menu--open');
     });
 
-    // Video / Mute Persistenz
-    const video = document.getElementById('heroVideo');
-    const muteBtn = document.getElementById('muteBtn');
-    const tapHint = document.getElementById('tapHint');
-
-    function sizeVideoFrame(){
-      const frame=document.querySelector('.video-frame');
-      const wide=window.matchMedia('(min-width:960px)').matches;
-      frame.style.setProperty('--vh', wide ? '38vh' : '46vh');
-    }
-    sizeVideoFrame();
-    window.addEventListener('resize', sizeVideoFrame);
-
-    function renderMuteLabel(){
-      muteBtn.textContent = video.muted ? 'SOUND' : 'MUTE';
-    }
-
-    const persisted = localStorage.getItem('rokko_video_muted');
-    if(persisted==='false'){ video.muted=false; }
-    renderMuteLabel();
-
-    if(persisted==='false'){
-      video.play().catch(()=>{ tapHint.hidden=false; });
-    }else{
-      tapHint.hidden=false;
-    }
-
-    tapHint.addEventListener('click', ()=>{
-      video.muted=false; renderMuteLabel();
-      localStorage.setItem('rokko_video_muted','false');
-      video.play().catch(()=>{});
-      tapHint.hidden=true;
+    // zentraler Sound-Toggle fürs Intro-Video
+    const v = document.getElementById('introVideo');
+    const btn = document.getElementById('soundBtn');
+    const setLabel = () => {
+      btn.textContent = v.muted ? '▶︎ Sound einschalten' : '⏸︎ Stumm schalten';
+    };
+    btn.addEventListener('click', () => {
+      v.muted = !v.muted;
+      if (v.paused) { v.play().finally(setLabel); } else { setLabel(); }
     });
-
-    muteBtn.addEventListener('click', ()=>{
-      video.muted=!video.muted;
-      localStorage.setItem('rokko_video_muted', String(video.muted));
-      renderMuteLabel();
-      if(video.paused){ video.play().catch(()=>{}); }
-    });
+    v.addEventListener('play', setLabel);
   </script>
 </body>
 </html>
