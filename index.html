@@ -5,17 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ROKKO Records</title>
 
-  <!-- Assets exakt nach deiner Struktur -->
+  <!-- Assets -->
   <link rel="preload" as="video" href="assets/movies/Intro_movie.mp4" type="video/mp4">
   <link rel="preload" as="image" href="assets/Images/Logo.png">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    /* Fallback für --vh */
-    .video-frame {
-      --vh: 38vh;
-      height: var(--vh);
-    }
-  </style>
 </head>
 <body>
 
@@ -43,44 +36,67 @@
         <li><a href="#contact">Kontakt</a></li>
       </ul>
     </nav>
-    <!-- Scrim direkt hinter der Drawer-Navigation -->
     <div class="drawer__scrim"></div>
   </header>
 
   <!-- Intro-Video -->
   <section class="intro">
     <div class="video-frame">
-      <video id="heroVideo" playsinline preload="auto" loop autoplay muted src="assets/movies/Intro_movie.mp4"></video>
+      <video id="heroVideo" playsinline preload="auto" autoplay muted src="assets/movies/Intro_movie.mp4"></video>
 
-      <!-- Mute/Unmute -->
       <button id="muteBtn" class="mute-btn" aria-label="Ton umschalten" title="Ton umschalten">SOUND</button>
-
       <div id="tapHint" class="tap-hint" hidden>Tippen für Ton</div>
     </div>
+  </section>
+
+  <!-- Intro-Text -->
+  <section class="intro-text">
+    <h1>Wir sind ROKKO! Records<br><small>– und Du „noch“ nicht …</small></h1>
+    <p>
+      Tach, wir sind die Neuen in der Szene. Und wir sind ein bisschen anders, das ist aber auch gut so.
+      Wir jagen nicht den Fame und sonnen uns auch nicht im Applaus. Wir haben kein Genre, wir engen uns nicht ein.
+      Die Songs und Artists sind jeglicher Couleur – und eines ist sicher:
+    </p>
+    <ul>
+      <li>Es wird auf keinen Fall langweilig.</li>
+    </ul>
+    <p>
+      ROKKOS Herz schlägt im Ruhrpott, doch die Musik reicht weiter. Rokko ist kein Genre, keine Sprache oder Farbe.
+      ROKKO! ist geballte kreative Freiheit, die ins Ohr geht und von dort nicht mehr wegzubekommen ist.
+    </p>
+    <p>
+      Also kloppt Euch den Schmalz aus den Ohren, hier kommt der Honig …
+    </p>
+  </section>
+
+  <!-- Artists Intro -->
+  <section class="artists-intro">
+    <h2>Unsere Artists</h2>
+    <p>Hier stellen wir euch die Musikerinnen und Musiker vor, die ROKKO Records prägen.</p>
   </section>
 
   <main class="content">
 
     <!-- ERLING -->
     <section id="erling" class="artist card">
-      <h2 class="artist__name">Markus Erling</h2>
       <div class="artist__media">
         <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling">
       </div>
       <p class="artist__bio">
         Markus Erling mischt Rock’n’Roll mit modernem Drive – kantig, direkt, mit Herzblut.
       </p>
-      <div class="artist__covers"></div>
+      <div class="artist__covers">
+        <!-- Coverbilder einfügen -->
+      </div>
     </section>
 
-    <!-- Separator 1 -->
+    <!-- Separator -->
     <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/Wallpaper_one.PNG" alt="Wallpaper 1">
+      <img class="separator__img" src="assets/wallpaper/wallpaper_one.png" alt="Wallpaper 1">
     </section>
 
     <!-- FLEURBENUINE -->
     <section id="fleur" class="artist card">
-      <h2 class="artist__name">Fleurbenuine</h2>
       <div class="artist__media">
         <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleurbenuine">
       </div>
@@ -90,14 +106,13 @@
       <div class="artist__covers"></div>
     </section>
 
-    <!-- Separator 2 -->
+    <!-- Separator -->
     <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper 2">
+      <img class="separator__img" src="assets/wallpaper/wallpaper_two.png" alt="Wallpaper 2">
     </section>
 
     <!-- HENRI -->
     <section id="henri" class="artist card">
-      <h2 class="artist__name">Henri</h2>
       <div class="artist__media">
         <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri">
       </div>
@@ -107,16 +122,15 @@
       <div class="artist__covers"></div>
     </section>
 
-    <!-- Separator 1 -->
+    <!-- Separator -->
     <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/Wallpaper_one.PNG" alt="Wallpaper 1">
+      <img class="separator__img" src="assets/wallpaper/wallpaper_one.png" alt="Wallpaper 1">
     </section>
 
     <!-- SKANK SCHABLONSKI -->
     <section id="skank" class="artist card">
-      <h2 class="artist__name">Skank Schablonski</h2>
       <div class="artist__media">
-        <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski">
+        <img class="artist__photo" src="artists/schablonski/fotos/skank_main.PNG" alt="Skank Schablonski">
       </div>
       <p class="artist__bio">
         Reggae-Attitüde trifft Punk-Energie – roh, verspielt, direkt.
@@ -124,14 +138,13 @@
       <div class="artist__covers"></div>
     </section>
 
-    <!-- Separator 2 -->
+    <!-- Separator -->
     <section class="separator">
-      <img class="separator__img" src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper 2">
+      <img class="separator__img" src="assets/wallpaper/wallpaper_two.png" alt="Wallpaper 2">
     </section>
 
     <!-- SKARAMUSH VANDANGO -->
     <section id="vandango" class="artist card">
-      <h2 class="artist__name">Skaramush Vandango</h2>
       <div class="artist__media">
         <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skank_main.PNG" alt="Skaramush Vandango">
       </div>
@@ -178,7 +191,6 @@
     const muteBtn = document.getElementById('muteBtn');
     const tapHint = document.getElementById('tapHint');
 
-    // Höhe je nach Viewport (Desktop ~⅓, Mobile ~½)
     function sizeVideoFrame(){
       const frame=document.querySelector('.video-frame');
       const wide=window.matchMedia('(min-width:960px)').matches;
