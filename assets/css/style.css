@@ -1,115 +1,99 @@
 :root{
   --bg: #0f0f10;
-  --fg: #eaeaea;
-  --card: #242424;           /* dunkelgraue Karten */
-  --card-border: #2e2e2e;
-  --accent: #000;            /* Header schwarz */
-  --maxw: 860px;             /* einheitliche Breite für Fotos & Divider */
-  --radius-lg: 22px;
-  --radius-md: 14px;
-  --shadow: 0 12px 32px rgba(0,0,0,.35);
+  --fg: #eeeeee;
+  --card:#242424;
+  --card-b:#2c2c2c;
+  --maxw: 860px;         /* einheitliche Breite für Portraits & Divider */
+  --rad-lg: 22px;
+  --rad-md: 14px;
+  --shadow: 0 10px 28px rgba(0,0,0,.35);
 }
 
-* { box-sizing: border-box; }
-html,body{ height:100%;}
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0; background:var(--bg); color:var(--fg);
-  font: 400 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font: 400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 }
 
-/* ---------- Header ---------- */
+/* Header */
 .site-header{
-  position: sticky; top:0; z-index:1000;
-  background: var(--accent);
-  border-bottom: 1px solid #111;
+  position:sticky; top:0; z-index:1000;
   display:flex; align-items:center; justify-content:space-between;
-  padding:10px 16px;
+  padding:10px 14px; background:#000; border-bottom:1px solid #151515;
 }
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:#fff}
+.brand__logo{height:56px; width:auto}
+.brand__text{line-height:1; letter-spacing:.12em}
+.brand__text .light{opacity:.9; font-weight:700; font-size:12px}
 
-.brand{display:flex; align-items:center; gap:12px;}
-.brand__logo{height:56px; width:auto;}
-.brand__text{display:flex; flex-direction:column; line-height:1; letter-spacing:.12em;}
-.brand__line1{font-weight:800; font-size:22px;}
-.brand__line2{font-weight:700; font-size:14px; opacity:.9;}
-
-/* Hamburger */
-.hamburger{background:none; border:0; cursor:pointer; padding:8px 6px;}
-.hamburger span{display:block; width:26px; height:2px; background:#fff; margin:6px 0;}
-
-/* Slide-out menu (from right) */
-.sidemenu{
-  position: fixed; right:-280px; top:0; height:100vh; width:260px;
-  background:#111; border-left:1px solid #1c1c1c; padding:84px 18px 18px;
-  display:flex; flex-direction:column; gap:14px; transition:right .28s ease;
-  box-shadow: -18px 0 40px rgba(0,0,0,.45);
+/* Hamburger + Drawer */
+.hamburger{background:none; border:0; cursor:pointer; padding:8px}
+.hamburger span{display:block; width:26px; height:2px; background:#fff; margin:5px 0}
+.drawer{
+  position:fixed; top:0; right:-280px; width:260px; height:100vh;
+  background:#111; padding:88px 16px 16px; transition:right .28s ease;
+  box-shadow:-18px 0 40px rgba(0,0,0,.45); display:flex; flex-direction:column; gap:10px;
 }
-.sidemenu.open{ right:0; }
-.sidemenu a{ color:#fff; text-decoration:none; padding:10px 12px; border-radius:10px; background:#1b1b1b; }
+.drawer.open{ right:0 }
+.drawer a{ display:block; padding:10px 12px; background:#1a1a1a; border-radius:10px; color:#fff; text-decoration:none }
+.scrim{ position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:999 }
+.drawer.open + .scrim{ display:block }
+.scrim[hidden]{ display:none !important }
 
-/* ---------- Intro Video ---------- */
-.video-wrap{ background:#000; }
-.video-aspect{                /* 16:9 Rahmen */
-  position:relative; max-width:var(--maxw); margin:0 auto;
-  aspect-ratio: 16 / 9;
+/* Hero Video */
+.hero{ background:#000 }
+.video-aspect{
+  position:relative; margin:0 auto; max-width:var(--maxw); aspect-ratio:16/9;
 }
 .hero-video{
   position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover;
+  object-fit:cover; /* Animation bleibt, füllt den Rahmen */
 }
 .mute-btn{
-  position:absolute; right:12px; bottom:12px;
+  position:absolute; right:10px; bottom:10px; z-index:10;
   background:rgba(0,0,0,.55); color:#fff; border:1px solid #444;
   border-radius:12px; padding:8px 10px; cursor:pointer; font-size:18px;
 }
 
-/* ---------- Inhalt ---------- */
-.content{ padding:28px 16px 60px; }
+/* Inhalt */
+.artists{ padding:28px 16px 64px }
 
-/* Artist-Karten (immer gleich, dunkelgrau) */
+/* Artist-Karten */
 .artist-card{
-  background: var(--card);
-  border:1px solid var(--card-border);
-  border-radius: var(--radius-lg);
-  max-width: var(--maxw);
-  margin: 28px auto;
-  padding: 22px 20px;
-  box-shadow: var(--shadow);
+  background:var(--card);
+  border:1px solid var(--card-b);
+  border-radius:var(--rad-lg);
+  max-width:var(--maxw);
+  margin:26px auto;
+  padding:22px 18px;
+  box-shadow:var(--shadow);
   text-align:center;
 }
-.artist-name{ margin:14px 0 6px; font-size:26px; letter-spacing:.02em; }
-.artist-bio{ margin:0 auto 10px; max-width:680px; opacity:.9; }
+.artist-name{ margin:12px 0 6px; font-size:26px; letter-spacing:.02em }
+.artist-bio{ margin:0 auto 10px; max-width:680px; opacity:.92 }
 
-/* Portraits: nichts zuschneiden! */
+/* Portraits: NICHT beschneiden */
 .artist-photo{
-  display:block; width:100%; height:auto;    /* Portraits bleiben ganz */
-  border-radius: var(--radius-md);
+  display:block; width:100%; height:auto;         /* contain-Effekt: voller Inhalt */
+  border-radius:var(--rad-md); background:#000;    /* schwarzer Rand = sauberer Rahmen wenn Seitenränder entstehen */
 }
 
 /* Cover-Galerie */
-.covers{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:10px; }
+.covers{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:10px }
 .covers img{
-  width: min(46%, 280px);
-  border-radius: var(--radius-md);
-  border:1px solid #333;
+  width:min(46%, 280px); height:auto;
+  border-radius:var(--rad-md); border:1px solid #333; box-shadow:0 6px 18px rgba(0,0,0,.25)
 }
 
-/* Divider Wallpaper (zwischen Artists, gleiche Breite) */
+/* Divider (Wallpaper als Trenner in gleicher Breite) */
 .divider{
-  display:block; width:100%; max-width: var(--maxw);
-  margin: 24px auto 8px;
-  border-radius: 50px;               /* abgerundet wie gewünscht */
-  border:1px solid var(--card-border);
-  box-shadow: var(--shadow);
+  display:block; width:100%; max-width:var(--maxw);
+  margin:24px auto 4px;
+  border-radius:50px; border:1px solid var(--card-b);
+  box-shadow:var(--shadow);
 }
 
-/* Kleinkram */
-@media (min-width: 1000px){
-  .brand__logo{height:64px;}
-  .brand__line1{font-size:26px;}
-  .brand__line2{font-size:15px;}
-  .content{ padding-top:34px; }
-  .video-aspect{ max-width: var(--maxw); }
-}
-
-/* Fokus/Accessibilty */
-a:focus, button:focus{ outline:2px solid #888; outline-offset:2px; }
+/* Footer */
+.footer{ text-align:center; padding:28px 10px; opacity:.75 }
