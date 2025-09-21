@@ -5,64 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ROKKO Records</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <style>
-    :root{
-      --navy:#04151F;      /* Header + Außenrahmen */
-      --sand:#F5F3BB;      /* Seitenhintergrund (gedämpft) */
-      --deep:#303A2B;      /* Kartenfläche */
-      --accent:#3E6B68;    /* innerer Rahmen */
-      --radius:16px; --inner-radius:12px; --card-w:min(780px,92vw);
-      --border-outer:1px solid var(--navy); --border-inner:1px solid var(--accent);
-    }
-    *{box-sizing:border-box} html,body{margin:0;padding:0} img{display:block;max-width:100%;height:auto}
-    body{background:var(--sand);color:#111;font:400 16px/1.6 ui-sans-serif,system-ui,Arial}
-    .site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.25)}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand__logo{width:52px;height:auto}
-    .brand__title{line-height:1}
-    .brand__top{display:block;font:700 22px/1.05 system-ui}
-    .brand__bottom{display:block;font:700 14px/1.05 system-ui;letter-spacing:1.8px}
-    .burger{background:transparent;border:0;display:grid;gap:4px;padding:8px;cursor:pointer}
-    .burger span{width:26px;height:2px;background:#fff;border-radius:2px}
-    .menu{position:fixed;right:14px;top:64px;background:rgba(4,21,31,.92);border:1px solid #11212a;border-radius:14px;padding:10px 0;display:none;min-width:240px;backdrop-filter:blur(6px)}
-    .menu--open{display:block}
-    .menu a{display:block;color:#eaf0f3;text-decoration:none;padding:12px 16px;font:500 14px system-ui}
-    .menu a:hover{background:#132630}
-    main{display:grid;place-items:center;gap:34px;padding:22px 0}
-    .hero{width:var(--card-w);height:38vh;min-height:240px;margin:0 auto;position:relative;border-radius:var(--radius);overflow:hidden;border:var(--border-outer);box-shadow:0 8px 20px rgba(0,0,0,.25)}
-    .hero__video{width:100%;height:100%;object-fit:cover}
-    .sound-btn{position:absolute;right:10px;bottom:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(4,21,31,.72);color:#fff;font-weight:700;letter-spacing:.2px;backdrop-filter:blur(4px);cursor:pointer}
-    .card{width:var(--card-w);background:var(--deep);color:#f3f3f3;border-radius:var(--radius);padding:18px;box-shadow:0 8px 20px rgba(0,0,0,.25);border:var(--border-outer)}
-    .section-title{margin:2px 0 12px;font:800 22px/1.2 system-ui;letter-spacing:.3px}
-    .subcard{border:var(--border-inner);border-radius:var(--inner-radius);padding:14px;background:rgba(0,0,0,.12);display:grid;gap:12px}
-    .artist{display:grid;gap:16px}
-    .artist__photo{width:100%;border-radius:12px;background:#222;object-fit:contain}
-    .artist__bio p{margin:0 0 8px}
-    .separator{width:var(--card-w);margin:6px auto -2px auto}
-    .separator img{width:100%;border-radius:var(--radius);object-fit:cover;height:auto;box-shadow:0 6px 14px rgba(0,0,0,.18);border:var(--border-outer)}
-    .separator--thin img{height:160px;object-fit:cover}
-    .release{display:grid;gap:10px}
-    .player__cover{width:100%;border-radius:12px;border:var(--border-inner);background:#222}
-    .player__tracks{list-style:decimal inside;margin:0;padding:0;display:grid;gap:10px}
-    .player__tracks li{display:grid;gap:6px}
-    .player__tracks span{font-weight:700;color:#F7F7F7}
-    audio{width:100%}
-    .covers{display:flex;flex-wrap:wrap;gap:10px}
-    .covers img{width:calc(50% - 5px);min-width:200px;border-radius:10px;background:#222;object-fit:contain;border:var(--border-inner)}
-    .streaming{display:flex;gap:10px;flex-wrap:wrap}
-    .btn-stream{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:#0f1920;color:#fff;text-decoration:none;font-weight:700;font-size:14px;border:1px solid #11212a}
-    .btn-stream img{width:20px;height:20px}
-    .youtube__wrap{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000;border:var(--border-inner)}
-    .youtube__wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .contact__form{display:grid;gap:12px}
-    .field{display:grid;gap:6px}
-    .field label{font-weight:700}
-    .field input,.field textarea{border-radius:10px;border:1px solid #274357;background:#0f1920;color:#eaf0f3;padding:10px 12px}
-    .btn-send{justify-self:start;padding:10px 16px;border-radius:999px;border:1px solid #274357;background:#122233;color:#a7c4d8;font-weight:800;cursor:not-allowed;opacity:.7}
-    .contact__hint{margin:0;color:#cfd7dd;font-size:.9rem}
-    .footer{color:#2c2c2c;font:500 13px/1.6 system-ui;text-align:center;padding:30px 0 50px}
-    @media (max-width:480px){.brand__top{font-size:19px}.brand__bottom{font-size:13px}}
-  </style>
 </head>
 <body>
 
@@ -89,10 +31,10 @@
     </nav>
   </header>
 
-  <!-- Intro/Hero -->
+  <!-- Intro-Video full-width (38vh) + Sound-Button unten rechts -->
   <section class="hero">
-    <video id="introVideo" class="hero__video" autoplay muted loop playsinline src="assets/movies/Intro_movie.mp4"></video>
-    <!-- fester Sound-Button unten rechts -->
+    <video id="introVideo" class="hero__video" autoplay muted loop playsinline
+           src="assets/movies/Intro_movie.mp4"></video>
     <button id="soundBtn" class="sound-btn" aria-label="Sound umschalten">Ton: Aus</button>
   </section>
 
@@ -109,7 +51,7 @@
       </div>
     </section>
 
-    <!-- Separator 1: Logo -->
+    <!-- Separator 1 -->
     <div class="separator">
       <img src="assets/wallpaper/Wallpaper_one.PNG" alt="ROKKO Wallpaper One"/>
     </div>
@@ -117,6 +59,7 @@
     <!-- HENRI -->
     <section id="henri" class="card artist">
       <h2 class="section-title">Henri Bellieu</h2>
+
       <div class="subcard">
         <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu"/>
         <div class="artist__bio">
@@ -124,7 +67,9 @@
           <p>Mit <em>Petit Colibri</em> singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat. Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
         </div>
       </div>
+
       <div class="subcard">
+        <!-- Release: La Femme -->
         <div class="release">
           <img class="player__cover" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Henri – La Femme"/>
           <ol class="player__tracks">
@@ -147,6 +92,7 @@
           </div>
         </div>
 
+        <!-- Release: petite colibri -->
         <div class="release">
           <img class="player__cover" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Henri – petite colibri"/>
           <ol class="player__tracks">
@@ -165,7 +111,7 @@
       </div>
     </section>
 
-    <!-- Separator 2: Dünn -->
+    <!-- Separator 2 -->
     <div class="separator separator--thin">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper"/>
     </div>
@@ -173,6 +119,7 @@
     <!-- ERLING -->
     <section id="erling" class="card artist">
       <h2 class="section-title">Markus Erling</h2>
+
       <div class="subcard">
         <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling"/>
         <div class="artist__bio">
@@ -181,7 +128,9 @@
           <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und es ist klar, dass aus seiner Schublade noch vieles ans Licht kommen wird.</p>
         </div>
       </div>
+
       <div class="subcard">
+        <!-- Release: Endlich Schlafen -->
         <div class="release">
           <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Erling – Endlich Schlafen"/>
           <ol class="player__tracks">
@@ -204,6 +153,7 @@
           </div>
         </div>
 
+        <!-- Release: Der Tag an dem es regnet -->
         <div class="release">
           <img class="player__cover" src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Erling – Der Tag an dem es regnet"/>
           <ol class="player__tracks">
@@ -232,7 +182,7 @@
       </div>
     </section>
 
-    <!-- Separator 3: Logo -->
+    <!-- Separator 3 -->
     <div class="separator">
       <img src="assets/wallpaper/Wallpaper_one.PNG" alt="ROKKO Wallpaper One"/>
     </div>
@@ -240,12 +190,14 @@
     <!-- FLEUR -->
     <section id="fleur" class="card artist">
       <h2 class="section-title">Fleur et Beunié</h2>
+
       <div class="subcard">
         <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié"/>
         <div class="artist__bio">
-          <p><strong>Fleur &amp; Beunié</strong> – Jet-Set-Liebespaar aus Marseille … mit <em>Feu Léger</em> &amp; FIVRA-Remixen: jung, sexy, energiegeladen, französischer Esprit, verwurzelt in der europäischen Underground-Club-Szene.</p>
+          <p><strong>Fleur &amp; Beunié</strong> – Jet-Set-Liebespaar aus Marseille. <em>Feu Léger</em> und die FIVRA-Remixe: jung, sexy, energiegeladen; französischer Esprit, verwurzelt in der europäischen Underground-Club-Szene.</p>
         </div>
       </div>
+
       <div class="subcard">
         <div class="covers">
           <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Fleur – Léger"/>
@@ -254,7 +206,7 @@
       </div>
     </section>
 
-    <!-- Separator 4: Dünn -->
+    <!-- Separator 4 -->
     <div class="separator separator--thin">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper"/>
     </div>
@@ -262,12 +214,14 @@
     <!-- SKANK -->
     <section id="skank" class="card artist">
       <h2 class="section-title">Skank Schablonski</h2>
+
       <div class="subcard">
         <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski"/>
         <div class="artist__bio">
-          <p><strong>Skank Schablonski</strong> – Ruhrpott-Schnauze, satirische Backpfeifen, „Kohle raus, jetzt kommt Merz“ … Haltung mit Humor.</p>
+          <p><strong>Skank Schablonski</strong> – Ruhrpott-Schnauze mit Haltung. Satirische Backpfeifen, „Kohle raus, jetzt kommt Merz“ – Humor, der bewegt.</p>
         </div>
       </div>
+
       <div class="subcard">
         <div class="covers">
           <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Schablonski – März"/>
@@ -275,7 +229,7 @@
       </div>
     </section>
 
-    <!-- Separator 5: Logo -->
+    <!-- Separator 5 -->
     <div class="separator">
       <img src="assets/wallpaper/Wallpaper_one.PNG" alt="ROKKO Wallpaper One"/>
     </div>
@@ -283,12 +237,14 @@
     <!-- SKARAMUSH -->
     <section id="skaramush" class="card artist">
       <h2 class="section-title">SkaRamush Vandango</h2>
+
       <div class="subcard">
         <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango"/>
         <div class="artist__bio">
-          <p><strong>SkaRamush Vandango</strong> – Label-Chef & Mastermind. „Musik muss den Poppes zum Wackeln bringen.“ Produziert das ganze Universum bei ROKKO.</p>
+          <p><strong>SkaRamush Vandango</strong> – Label-Chef &amp; Mastermind. Alles entsteht aus einer Hand: geschrieben, programmiert, produziert. Maxime: Musik muss den Poppes zum Wackeln bringen.</p>
         </div>
       </div>
+
       <div class="subcard">
         <div class="covers">
           <img src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="Vandango – Fire"/>
@@ -296,12 +252,12 @@
       </div>
     </section>
 
-    <!-- Separator 6: Dünn -->
+    <!-- Separator 6 -->
     <div class="separator separator--thin">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper"/>
     </div>
 
-    <!-- Kontakt / Kommentar -->
+    <!-- Kontakt -->
     <section id="contact" class="card contact">
       <h2 class="section-title">Schreib uns</h2>
       <form class="contact__form" onsubmit="event.preventDefault();">
@@ -327,24 +283,29 @@
   <footer class="footer">© ROKKO Records</footer>
 
   <script>
-    // Drawer
+    // Burger -> Drawer rechts
     const burger = document.querySelector('.burger');
     const menu = document.getElementById('menu');
-    burger.addEventListener('click', () => {
-      const open = burger.getAttribute('aria-expanded') === 'true';
-      burger.setAttribute('aria-expanded', String(!open));
-      menu.classList.toggle('menu--open');
-    });
+    if(burger && menu){
+      burger.addEventListener('click', () => {
+        const open = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!open));
+        menu.classList.toggle('menu--open');
+      });
+    }
 
-    // Sound-Toggle unten rechts (kein zentrales Overlay)
+    // Sound-Toggle
     const v = document.getElementById('introVideo');
     const btn = document.getElementById('soundBtn');
     const update = () => { btn.textContent = v.muted ? 'Ton: Aus' : 'Ton: An'; };
-    btn.addEventListener('click', () => {
-      v.muted = !v.muted;
-      if (v.paused) v.play().finally(update); else update();
-    });
-    v.addEventListener('play', update);
+    if (v && btn){
+      btn.addEventListener('click', () => {
+        v.muted = !v.muted;
+        if (v.paused) v.play().finally(update); else update();
+      });
+      v.addEventListener('play', update);
+      update();
+    }
   </script>
 </body>
 </html>
