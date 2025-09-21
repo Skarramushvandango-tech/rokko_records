@@ -127,7 +127,9 @@ body.lock {
 }
 .video-frame {
   width: 100%;
-  height: var(--vh, 38vh);
+  /* Fallback + Steuerung per JS */
+  --vh: 38vh;
+  height: var(--vh);
   position: relative;
   overflow: hidden;
   background-color: #000;
