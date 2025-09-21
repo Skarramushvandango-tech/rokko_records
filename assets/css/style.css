@@ -1,6 +1,6 @@
 :root{
   --navy:#04151F;           /* Header + innere Rahmen (dunkelblau) */
-  --sand:#F5F3BB;           /* Seitenhintergrund + Text auf navy */
+  --sand:#F5F3BB;           /* Seitenhintergrund + Text */
   --deep:#303A2B;           /* Kartenfläche */
   --accent:#3E6B68;         /* äußerer Rahmen (grün) */
   --radius:16px;
@@ -47,7 +47,7 @@ body{
   z-index:60;max-height:min(70vh,520px);overflow:auto;
 }
 .menu--open{display:block}
-.menu a{display:block;color:#eaf0f3;text-decoration:none;padding:12px 16px;font:600 14px system-ui}
+.menu a{display:block;color:var(--sand);text-decoration:none;padding:12px 16px;font:600 14px system-ui}
 .menu a:hover{background:#132630}
 
 /* Fokus sichtbar (A11y) */
@@ -55,7 +55,7 @@ body{
 .menu a:focus-visible,
 .sound-btn:focus-visible,
 .btn-send:focus-visible{
-  outline:2px solid #fff;outline-offset:2px
+  outline:2px solid var(--sand);outline-offset:2px
 }
 
 /* ===== Hero / Intro-Video ===== */
@@ -72,7 +72,7 @@ body{
 .sound-btn{
   position:absolute;right:12px;bottom:12px;
   padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);
-  background:rgba(4,21,31,.72);color:#fff;font-weight:800;letter-spacing:.2px;
+  background:rgba(4,21,31,.72);color:var(--sand);font-weight:800;letter-spacing:.2px;
   backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
   cursor:pointer
 }
@@ -82,22 +82,20 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
 
 /* ===== Karten & Rahmen ===== */
 .card{
-  width:var(--card-w);background:var(--deep);color:#f3f3f3;
+  width:var(--card-w);background:var(--deep);color:var(--sand);
   border-radius:var(--radius);padding:18px;box-shadow:0 8px 20px rgba(0,0,0,.25);
   border:var(--border-outer);
 }
-.section-title{margin:2px 0 12px;font:900 22px/1.2 system-ui;letter-spacing:.3px}
+.section-title{margin:2px 0 12px;font:900 22px/1.2 system-ui;letter-spacing:.3px;color:var(--sand)}
 
-/* ===== INNERER RAHMEN (Subcards) – exakt Header-Blau ===== */
+/* ===== Subcards ===== */
 .subcard{
   padding:14px;display:grid;gap:12px;
-  background:var(--navy)!important;            /* dunkelblau wie Header */
-  color:var(--sand);                            /* Typo in Sand */
-  border:1px solid var(--navy)!important;       /* Rahmen = identisch zum Header */
+  background:var(--navy)!important;
+  color:var(--sand);
+  border:1px solid var(--navy)!important;
   border-radius:var(--inner-radius);
 }
-
-/* Rahmen um Medien innerhalb der Subcard – Header-Blau */
 .subcard .artist__photo,
 .subcard .player__cover,
 .subcard .covers img,
@@ -105,17 +103,23 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
   border:1px solid var(--navy)!important;
   border-radius:var(--inner-radius);
 }
-
-/* Typo in Subcards konsistent sandfarben */
-.subcard .section-title,
 .subcard p,
 .subcard li,
 .subcard em,
 .subcard strong,
-.player__tracks span{ color:var(--sand) }
+.player__tracks span{color:var(--sand)}
 
 .artist{display:grid;gap:16px}
 .artist__photo{width:100%;border-radius:12px;background:#222;object-fit:contain}
+
+/* ===== Subtitle (Musik) ===== */
+.section-subtitle{
+  margin:14px 0 10px;
+  font:800 18px/1.3 system-ui;
+  color:var(--sand);
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
 
 /* ===== Separatoren / Wallpaper ===== */
 .separator{width:var(--card-w);margin:6px auto;position:relative}
@@ -123,27 +127,23 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
   width:100%;border-radius:var(--radius);
   box-shadow:0 6px 14px rgba(0,0,0,.18);border:var(--border-outer)
 }
-/* logolose Trenner: schlank + cover (beschneidet, damit vollflächig) */
 .separator--thin img,
 .separator--label img{
   height:var(--wallpaper-thin);
   object-fit:cover;
 }
-/* Logo-Wallpaper: vollständig sichtbar, nicht abgeschnitten */
 .separator--logo img{
   width:100%;
   height:auto !important;
   object-fit:contain;
-  background:#000;          /* optionaler Hintergrund hinter dem Logo */
+  background:#000;
   border-radius:var(--radius);
 }
-
-/* Text-Overlay für Trenner mit Label */
 .separator--label{margin-top:18px;margin-bottom:8px}
 .separator__label{
   position:absolute;inset:0;display:grid;place-items:center;
   font:900 clamp(24px,6vw,48px)/1.1 system-ui;
-  color:#fff;text-transform:uppercase;letter-spacing:2px;
+  color:var(--sand);text-transform:uppercase;letter-spacing:2px;
   text-shadow:0 3px 12px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.9);
   pointer-events:none;
 }
@@ -157,7 +157,7 @@ audio{width:100%}
 .covers{display:flex;flex-wrap:wrap;gap:10px}
 .covers img{width:calc(50% - 5px);min-width:200px;border-radius:10px;background:#222;object-fit:contain}
 
-/* ===== YouTube responsiv ===== */
+/* ===== YouTube ===== */
 .youtube__wrap{
   position:relative;width:100%;
   aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000
@@ -167,15 +167,14 @@ audio{width:100%}
 /* ===== Kontakt ===== */
 .contact__form{display:grid;gap:12px}
 .field{display:grid;gap:6px}
-.field label{font-weight:800}
+.field label{font-weight:800;color:var(--sand)}
 .field input,.field textarea{
-  border-radius:10px;border:1px solid #274357;background:#0f1920;color:#eaf0f3;padding:10px 12px
+  border-radius:10px;border:1px solid #274357;background:#0f1920;color:var(--sand);padding:10px 12px
 }
 .btn-send{
   justify-self:start;padding:10px 16px;border-radius:999px;border:1px solid #274357;
-  background:#122233;color:#a7c4d8;font-weight:900;opacity:.7;cursor:not-allowed
+  background:#122233;color:var(--sand);font-weight:900;opacity:.7;cursor:not-allowed
 }
-/* echte Disabled/Active-States */
 .btn-send[disabled]{opacity:.7;cursor:not-allowed}
 .btn-send:not([disabled]){opacity:1;cursor:pointer}
 .btn-send:not([disabled]):hover{filter:brightness(1.08)}
@@ -188,16 +187,12 @@ audio{width:100%}
   .hero__video{animation:none;transition:none}
 }
 
-/* ===== Handy quer: Seite max. 60% Breite =====
-   Auf Mobile-Landscape nutzen Cards nur 60% der Breite,
-   damit der Text nicht erschlägt. */
+/* ===== Responsive ===== */
 @media (max-width: 900px) and (orientation: landscape){
   :root{ --card-w: min(780px, 60vw); }
   .hero{ height:32vh; }
   .menu{ top:56px; }
 }
-
-/* ===== Kleinere Screens Portrait ===== */
 @media (max-width:480px){
   .brand__top{font-size:19px}
   .brand__bottom{font-size:13px}
