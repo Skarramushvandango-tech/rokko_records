@@ -1,250 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ROKKO! Records</title>
-  <link rel="icon" href="assets/Images/Logo.png" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <meta name="color-scheme" content="dark light" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROKKO! Records</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- Fixer Header -->
-  <header class="site-header" role="banner">
-    <div class="brand">
-      <img class="logo" src="assets/Images/Logo.png" alt="ROKKO! Records Logo" />
-      <div class="wordmark">
-        <span class="rokko">ROKKO</span>
-        <span class="records">RECORDS</span>
-      </div>
-    </div>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="assets/Images/Logo.png" alt="Rokko Logo" class="logo">
+            <div class="logo-text">
+                <h1>ROKKO</h1>
+                <h2>RECORDS</h2>
+            </div>
+        </div>
+        <nav>
+            <button class="menu-toggle">&#9776;</button>
+            <ul class="menu">
+                <li><a href="#erling">Markus Erling</a></li>
+                <li><a href="#henri">Henri</a></li>
+                <li><a href="#fleur">Fleur et Beunié</a></li>
+                <li><a href="#skank">Skank Schablonski</a></li>
+                <li><a href="#vandango">Skarramush Vandango</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <nav class="nav-desktop" aria-label="Hauptnavigation">
-      <a href="#home">Home</a>
-      <a href="#artists">Artists</a>
-      <a href="#about">About</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Hamburger-Button mit drei Balken -->
-    <button class="drawer-toggle" id="menuToggle" aria-controls="drawerNav" aria-expanded="false" aria-label="Menü öffnen">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <!-- Drawer rechts -->
-  <nav id="drawerNav" class="drawer" aria-hidden="true">
-    <a class="jump" href="#home">Home</a>
-    <a class="jump" href="#artists">Artists</a>
-    <a class="jump" href="#about">About</a>
-    <a class="jump" href="#news">News</a>
-    <a class="jump" href="#contact">Contact</a>
-  </nav>
-  <div class="scrim" hidden></div>
-
-  <main id="home" class="main">
-
-    <!-- HERO / INTRO-VIDEO (16:9 Banner, Desktop ~38vh, oben unter Header) -->
-    <section class="hero" aria-label="Intro">
-      <div class="video-frame tuck-under-header">
-        <video id="introVid" autoplay muted playsinline preload="metadata">
-          <!-- Genau dieser Pfad/Name (großes M in Movies) -->
-          <source src="assets/Movies/Intro_movie.mp4" type="video/mp4" />
-          Dein Browser unterstützt das Video-Element nicht.
+    <!-- Intro Video -->
+    <section class="video-section">
+        <video autoplay muted loop playsinline>
+            <source src="assets/movies/Intro_movie.mp4" type="video/mp4">
+            Dein Browser unterstützt keine Videos.
         </video>
-      </div>
     </section>
 
-    <!-- ARTISTS -->
-    <section id="artists" class="section">
-      <h2>Artists</h2>
+    <!-- Artists -->
+    <main>
+        <!-- Markus Erling -->
+        <section id="erling" class="artist">
+            <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling">
+            <h2>Markus Erling</h2>
+            <p>Markus Ehrling hat seine Texte lange unter Verschluss gehalten [...]</p>
+            <div class="covers">
+                <img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Cover Endlich Schlafen">
+                <img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Cover Der Tag an dem es regnet">
+            </div>
+        </section>
 
-      <!-- ERLING (Sandfarben, Bild leicht gezoomt) -->
-      <article class="artist alt-a artist--erling">
-        <div class="artist-media">
-          <img src="artists/ERLING/Fotos/erling_main.PNG" alt="Markus Erling" />
-        </div>
-        <div class="artist-info">
-          <h3>Markus Erling</h3>
-          <p>
-            Neurodiverser Songwriter aus dem Ruhrpott. Nach seiner Autismus-Diagnose hat er sich zurückgezogen,
-            Altes losgelassen und Texte, die jahrelang in der Schublade lagen, endlich in Musik verwandelt.
-            Er schreibt und singt ausschließlich deutschsprachige Songs – direkt, verletzlich, ohne Glitzer.
-            Neben seinen eigenen Releases produziert und textet er für weitere Artists bei ROKKO! Records.
-          </p>
-          <div class="covers">
-            <figure>
-              <img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Endlich schlafen – Cover" />
-              <figcaption>Endlich schlafen</figcaption>
-            </figure>
-            <figure>
-              <img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Der Tag an dem es regnet – Cover" />
-              <figcaption>Der Tag an dem es regnet</figcaption>
-            </figure>
-          </div>
-        </div>
-      </article>
+        <img src="assets/wallpaper/Wallpaper_one.PNG" alt="divider" class="divider">
 
-      <!-- HENRI (Dunkelgrau) -->
-      <article class="artist alt-b">
-        <div class="artist-media">
-          <img src="artists/HENRI/Fotos/henri_presse_main.PNG" alt="Henri Bellieu" />
-        </div>
-        <div class="artist-info">
-          <h3>Henri Bellieu</h3>
-          <p>
-            Französischer Poet zwischen Chanson, Blues und Rock. Klare Bilder, große Gefühle –
-            Liebe, Sehnsucht, Vergänglichkeit – ohne Kitsch. Musik wie ein abendlicher Blick
-            aus dem Café auf die Straße: lebendig, echt, unmittelbar.
-          </p>
-          <div class="covers">
-            <figure>
-              <img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="La Femme – Cover" />
-              <figcaption>La Femme</figcaption>
-            </figure>
-            <figure>
-              <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Petite Colibri – Cover" />
-              <figcaption>Petite Colibri</figcaption>
-            </figure>
-          </div>
-        </div>
-      </article>
+        <!-- Henri -->
+        <section id="henri" class="artist">
+            <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri">
+            <h2>Henri</h2>
+            <p>Henri Bellieu, der französische Chanson-Poet [...]</p>
+            <div class="covers">
+                <img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Henri La Femme">
+                <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Henri Petit Colibri">
+            </div>
+        </section>
 
-      <!-- SKANK SCHABLONSKI (Sandfarben) -->
-      <article class="artist alt-a">
-        <div class="artist-media">
-          <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_presse1.PNG" alt="Skank Schablonski" />
-        </div>
-        <div class="artist-info">
-          <h3>Skank Schablonski</h3>
-          <p>
-            Krawall mit Köpfchen: Humor, Haltung, ein Bass der schiebt. Geboren im Ruhrpott,
-            veredelt mit Ironie. Seine Satire macht die Hüfte locker und den Kopf klar –
-            klare Ansage gegen braunen Mief.
-          </p>
-          <div class="covers">
-            <figure>
-              <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Kohle raus, der März kommt – Cover" />
-              <figcaption>Kohle raus, der März kommt</figcaption>
-            </figure>
-          </div>
-        </div>
-      </article>
+        <img src="assets/wallpaper/Wallpaper_two.PNG" alt="divider" class="divider">
 
-      <!-- FLEUR BENUINE (Dunkelgrau) -->
-      <article class="artist alt-b">
-        <div class="artist-media">
-          <img src="artists/FLEURBENUINE/Fotos/fleur_presse_1.PNG" alt="Fleur Benuine" />
-        </div>
-        <div class="artist-info">
-          <h3>Fleur Benuine</h3>
-          <p>
-            French-House aus Paris: Retro-Charme trifft treibende Club-Energy.
-            Originale und Remixe, die Playlists und Floors anwerfen – elegant, catchy,
-            mit Augenzwinkern.
-          </p>
-          <div class="covers">
-            <figure>
-              <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Feux Légère – Cover" />
-              <figcaption>Feux Légère</figcaption>
-            </figure>
-            <figure>
-              <img src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Feux Légère (Remixes) – Cover" />
-              <figcaption>Feux Légère (Remixes)</figcaption>
-            </figure>
-          </div>
-        </div>
-      </article>
+        <!-- Fleur et Beunié -->
+        <section id="fleur" class="artist">
+            <img src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié">
+            <h2>Fleur et Beunié</h2>
+            <p>Das französische House-Duo mit dem unverwechselbaren NeoPop-Sound [...]</p>
+            <div class="covers">
+                <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Fleur Léger">
+                <img src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Fleur Léger Remix">
+            </div>
+        </section>
 
-      <!-- SKARAMUSH VANDANGO (Sandfarben) -->
-      <article class="artist alt-a">
-        <div class="artist-media">
-          <img src="artists/SKARAMUSH_VANDANGO/Fotos/vandango_profil.JPEG" alt="SkaRamush Vandango" />
-        </div>
-        <div class="artist-info">
-          <h3>SkaRamush Vandango</h3>
-          <p>
-            Label-Boss, Produzent, Mastermind hinter dem ROKKO!-Kosmos. Multi-Persona
-            mit goldener Stimme, großem Maul und noch größerer Liebe zu starken Texten.
-            Motto: Musik muss den Poppes wackeln lassen. Wenn es ihn nicht grinsen
-            lässt, ist es schlicht egal.
-          </p>
-          <div class="covers"></div>
-        </div>
-      </article>
-    </section>
+        <img src="assets/wallpaper/Wallpaper_one.PNG" alt="divider" class="divider">
 
-    <!-- ABOUT -->
-    <section id="about" class="section copy">
-      <h2>About</h2>
-      <p>
-        ROKKO! Records – Indie-Label mit Herz im Ruhrpott. Sandfarbener Grund, Schwarz-Weiß-Look,
-        klare Kante. Kein Genre-Korsett: Wir veröffentlichen, was kickt und echt ist.
-      </p>
-    </section>
+        <!-- Skank Schablonski -->
+        <section id="skank" class="artist">
+            <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski">
+            <h2>Skank Schablonski</h2>
+            <p>Skank Schablonski mischt Ska, Punk und Graffiti-Ästhetik [...]</p>
+            <div class="covers">
+                <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="März Cover">
+            </div>
+        </section>
 
-    <!-- NEWS -->
-    <section id="news" class="section copy">
-      <h2>News</h2>
-      <p>Launch & erste Releases. Mehr folgt.</p>
-    </section>
+        <img src="assets/wallpaper/Wallpaper_two.PNG" alt="divider" class="divider">
 
-    <!-- CONTACT -->
-    <section id="contact" class="section copy">
-      <h2>Contact</h2>
-      <p>Kontaktadresse folgt. Bis dahin: Socials der Artists.</p>
-    </section>
-  </main>
+        <!-- Skarramush Vandango -->
+        <section id="vandango" class="artist">
+            <img src="artists/SKARAMUSH_VANDANGO/Fotos/skank_main.PNG" alt="Skarramush Vandango">
+            <h2>Skarramush Vandango</h2>
+            <p>Der kreative Kopf mit Techno-Industrial-Einflüssen [...]</p>
+        </section>
+    </main>
 
-  <footer class="site-footer">
-    © <span id="year"></span> ROKKO! Records
-  </footer>
-
-  <!-- Minimal JS -->
-  <script>
-    // Jahr
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Drawer
-    const body = document.body;
-    const drawer = document.getElementById('drawerNav');
-    const scrim  = document.querySelector('.scrim');
-    const toggle = document.getElementById('menuToggle');
-
-    function closeDrawer(){
-      body.classList.remove('drawer-open');
-      drawer.setAttribute('aria-hidden','true');
-      toggle.setAttribute('aria-expanded','false');
-      scrim.hidden = true;
-    }
-    function openDrawer(){
-      body.classList.add('drawer-open');
-      drawer.setAttribute('aria-hidden','false');
-      toggle.setAttribute('aria-expanded','true');
-      scrim.hidden = false;
-    }
-
-    toggle.addEventListener('click', ()=> body.classList.contains('drawer-open') ? closeDrawer() : openDrawer());
-    scrim.addEventListener('click', closeDrawer);
-    document.querySelectorAll('.drawer .jump').forEach(a=>a.addEventListener('click', closeDrawer));
-
-    // Smooth Scroll mit Header-Offset
-    const HEADER_H = 76;
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const id = a.getAttribute('href'); if(!id || id==="#") return;
-        const el = document.querySelector(id); if(!el) return;
-        e.preventDefault();
-        const y = el.getBoundingClientRect().top + scrollY - HEADER_H;
-        scrollTo({top:y, behavior:'smooth'});
-      });
-    });
-
-    // Video (Autoplay via muted + playsinline)
-    const vid = document.getElementById('introVid');
-    vid && vid.play && vid.play().catch(()=>{ /* Autoplay kann geblockt sein */ });
-  </script>
 </body>
 </html>
