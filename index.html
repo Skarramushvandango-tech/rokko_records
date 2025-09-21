@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
@@ -8,152 +8,150 @@
 </head>
 <body>
 
-  <!-- FIXED HEADER -->
+  <!-- Fixer Header -->
   <header class="site-header">
-    <div class="brand">
-      <img class="brand__logo" src="assets/Images/Logo.png" alt="ROKKO Logo" />
-      <div class="brand__text">
-        <span class="brand__line1">ROKKO</span>
-        <span class="brand__line2">RECORDS</span>
-      </div>
-    </div>
+    <a href="#top" class="brand">
+      <img class="brand__logo" src="assets/Images/Logo.png" alt="ROKKO! Logo" />
+      <span class="brand__text">
+        <strong>ROKKO</strong><br><span class="light">RECORDS</span>
+      </span>
+    </a>
 
     <button id="menuBtn" class="hamburger" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
 
-    <nav id="sideMenu" class="sidemenu" aria-hidden="true">
-      <a href="#erling">Markus Erling</a>
-      <a href="#henri">Henri</a>
-      <a href="#fleur">Fleurbenui­ne</a>
-      <a href="#skank">Skank Schablonski</a>
-      <a href="#vandango">Skarramush Vandango</a>
+    <nav id="drawer" class="drawer" aria-hidden="true">
+      <a class="jump" href="#erling">Markus Erling</a>
+      <a class="jump" href="#henri">Henri</a>
+      <a class="jump" href="#fleur">Fleur Benuine</a>
+      <a class="jump" href="#skank">Skank Schablonski</a>
+      <a class="jump" href="#vandango">SkaRamush Vandango</a>
     </nav>
+    <div id="scrim" class="scrim" hidden></div>
   </header>
 
-  <!-- INTRO VIDEO (16:9, responsiv, spielt; Mute-Status wird gemerkt) -->
-  <section class="video-wrap">
-    <div class="video-aspect">
-      <video id="introVideo" class="hero-video" playsinline loop autoplay muted>
-        <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
-        Dein Browser unterstützt das Video nicht.
-      </video>
-      <button id="muteToggle" class="mute-btn" aria-label="Ton umschalten">🔊</button>
-    </div>
-  </section>
+  <main id="top">
 
-  <main class="content">
-
-    <!-- ========== ERLING ========== -->
-    <section id="erling" class="artist-card">
-      <img class="artist-photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" />
-      <h2 class="artist-name">Markus Erling</h2>
-      <p class="artist-bio">
-        (Bio-Text hier einsetzen)
-      </p>
-      <div class="covers">
-        <img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Endlich Schlafen" />
-        <img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Der Tag an dem es regnet" />
+    <!-- HERO: Video (16:9 Banner, spielt, muted für Autoplay) -->
+    <section class="hero">
+      <div class="video-aspect">
+        <video id="introVideo" class="hero-video" playsinline autoplay muted loop preload="metadata">
+          <source src="assets/Movies/Intro_movie.mp4" type="video/mp4" />
+          Dein Browser unterstützt das Video-Element nicht.
+        </video>
+        <button id="muteBtn" class="mute-btn" aria-label="Ton umschalten" title="Ton umschalten">🔇</button>
       </div>
     </section>
 
-    <img class="divider" src="assets/wallpaper/Wallpaper_one.PNG" alt="Divider 1" />
+    <section id="artists" class="artists">
 
-    <!-- ========== HENRI ========== -->
-    <section id="henri" class="artist-card">
-      <img class="artist-photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri" />
-      <h2 class="artist-name">Henri</h2>
-      <p class="artist-bio">
-        (Bio-Text hier einsetzen)
-      </p>
-      <div class="covers">
-        <img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="La Femme" />
-        <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Petite Colibri" />
-      </div>
+      <!-- ERLING -->
+      <article id="erling" class="artist-card">
+        <img class="artist-photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling – Pressefoto">
+        <h2 class="artist-name">Markus Erling</h2>
+        <p class="artist-bio">
+          Neurodiverser Songwriter aus dem Ruhrpott. Schreibt und singt ausschließlich deutschsprachig.
+          Nach seiner Autismus-Diagnose hat er Altes losgelassen und Texte, die jahrelang lagen, endlich in Musik verwandelt.
+          Neben eigenen Releases produziert und textet er für weitere Artists bei ROKKO! Records.
+        </p>
+        <div class="covers">
+          <img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Endlich schlafen – Cover">
+          <img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Der Tag an dem es regnet – Cover">
+        </div>
+      </article>
+
+      <img class="divider" src="assets/wallpaper/Wallpaper_one.PNG" alt="Divider 1">
+
+      <!-- HENRI -->
+      <article id="henri" class="artist-card">
+        <img class="artist-photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri – Pressefoto">
+        <h2 class="artist-name">Henri</h2>
+        <p class="artist-bio">
+          Französische Anmut zwischen Chanson, Blues und Rock – klare Bilder, große Gefühle, ohne Kitsch.
+        </p>
+        <div class="covers">
+          <img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="La Femme – Cover">
+          <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Petite Colibri – Cover">
+        </div>
+      </article>
+
+      <img class="divider" src="assets/wallpaper/Wallpaper_two.PNG" alt="Divider 2">
+
+      <!-- FLEUR BENUINE -->
+      <article id="fleur" class="artist-card">
+        <img class="artist-photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur Benuine – Pressefoto">
+        <h2 class="artist-name">Fleur Benuine</h2>
+        <p class="artist-bio">
+          French-House aus Paris: Retro-Charme trifft treibende Club-Energy – elegante Originale und kraftvolle Remixe.
+        </p>
+        <div class="covers">
+          <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Feux Légère – Cover">
+          <img src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Feux Légère (Remixes) – Cover">
+        </div>
+      </article>
+
+      <img class="divider" src="assets/wallpaper/Wallpaper_one.PNG" alt="Divider 1">
+
+      <!-- SKANK SCHABLONSKI -->
+      <article id="skank" class="artist-card">
+        <img class="artist-photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski – Pressefoto">
+        <h2 class="artist-name">Skank Schablonski</h2>
+        <p class="artist-bio">
+          Krawall mit Köpfchen: Humor, Haltung, Bass – Satire, die die Hüfte locker macht und den Kopf klar.
+        </p>
+        <div class="covers">
+          <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Kohle raus, der März kommt – Cover">
+        </div>
+      </article>
+
+      <img class="divider" src="assets/wallpaper/Wallpaper_two.PNG" alt="Divider 2">
+
+      <!-- SKARAMUSH VANDANGO -->
+      <article id="vandango" class="artist-card">
+        <img class="artist-photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skank_main.PNG" alt="SkaRamush Vandango – Pressefoto">
+        <h2 class="artist-name">SkaRamush Vandango</h2>
+        <p class="artist-bio">
+          Label-Boss und Produzent. Multi-Persona, starke Texte, Sound zwischen Retro-Synth, Funk-Kante und Film-Vibes.
+        </p>
+        <div class="covers"><!-- später --></div>
+      </article>
+
     </section>
 
-    <img class="divider" src="assets/wallpaper/Wallpaper_two.PNG" alt="Divider 2" />
-
-    <!-- ========== FLEURBENUINE ========== -->
-    <section id="fleur" class="artist-card">
-      <img class="artist-photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleurbenui­ne" />
-      <h2 class="artist-name">Fleurbenui­ne</h2>
-      <p class="artist-bio">
-        (Bio-Text hier einsetzen)
-      </p>
-      <div class="covers">
-        <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Léger" />
-        <img src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Léger RMX" />
-      </div>
-    </section>
-
-    <img class="divider" src="assets/wallpaper/Wallpaper_one.PNG" alt="Divider 1" />
-
-    <!-- ========== SKANK SCHABLONSKI ========== -->
-    <section id="skank" class="artist-card">
-      <img class="artist-photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" />
-      <h2 class="artist-name">Skank Schablonski</h2>
-      <p class="artist-bio">
-        (Bio-Text hier einsetzen)
-      </p>
-      <div class="covers">
-        <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="März" />
-      </div>
-    </section>
-
-    <img class="divider" src="assets/wallpaper/Wallpaper_two.PNG" alt="Divider 2" />
-
-    <!-- ========== SKARRAMUSH VANDANGO ========== -->
-    <section id="vandango" class="artist-card">
-      <img class="artist-photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skank_main.PNG" alt="Skarramush Vandango" />
-      <h2 class="artist-name">Skarramush Vandango</h2>
-      <p class="artist-bio">
-        (Bio-Text hier einsetzen)
-      </p>
-    </section>
-
+    <footer class="footer">© <span id="year"></span> ROKKO! Records</footer>
   </main>
 
-  <!-- JS: Menü, Video-Autoplay mit Sound/Memory -->
   <script>
-    // Slide-out Menu (rechts)
+    // Jahr
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Drawer
+    const body = document.body;
+    const drawer = document.getElementById('drawer');
+    const scrim  = document.getElementById('scrim');
     const menuBtn = document.getElementById('menuBtn');
-    const sideMenu = document.getElementById('sideMenu');
-    menuBtn.addEventListener('click', () => {
-      const open = sideMenu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      sideMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
-    });
-    sideMenu.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', ()=> sideMenu.classList.remove('open'));
-    });
+    function openDrawer(){ drawer.classList.add('open'); scrim.hidden=false; menuBtn.setAttribute('aria-expanded','true'); }
+    function closeDrawer(){ drawer.classList.remove('open'); scrim.hidden=true; menuBtn.setAttribute('aria-expanded','false'); }
+    menuBtn.addEventListener('click', ()=> drawer.classList.contains('open')?closeDrawer():openDrawer());
+    scrim.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer .jump').forEach(a=>a.addEventListener('click', closeDrawer));
 
-    // Video + Mute-Toggle mit localStorage
+    // Video + Mute-Memory
     const video = document.getElementById('introVideo');
-    const muteBtn = document.getElementById('muteToggle');
-    const KEY = 'rokko_video_muted';
-
-    // Merken/Setzen
-    const stored = localStorage.getItem(KEY);
-    if (stored === 'false') video.muted = false;  // User wollte Ton
-    else video.muted = true;                      // Default: muted (für Autoplay)
-
-    // Icon initialisieren
-    function updateIcon(){ muteBtn.textContent = video.muted ? '🔇' : '🔊'; }
-    updateIcon();
-
-    // Autoplay robust starten
-    const start = () => video.play().catch(()=>{/* Mobile blockt Ton – bleibt muted */});
-    document.addEventListener('visibilitychange', ()=> { if (!document.hidden) start(); });
-    start();
-
-    // Toggle
+    const muteBtn = document.getElementById('muteBtn');
+    const KEY='rokko_muted';
+    const saved = localStorage.getItem(KEY);
+    video.muted = saved === null ? true : (saved === 'true');
+    const setIcon = ()=> muteBtn.textContent = video.muted ? '🔇' : '🔊';
+    setIcon();
+    const tryPlay = ()=> video && video.play && video.play().catch(()=>{});
+    tryPlay();
     muteBtn.addEventListener('click', ()=>{
       video.muted = !video.muted;
       localStorage.setItem(KEY, String(video.muted));
-      updateIcon();
-      // Wenn jetzt unmuted, erneut play versuchen
-      if (!video.muted) start();
+      setIcon();
+      tryPlay();
     });
   </script>
 </body>
