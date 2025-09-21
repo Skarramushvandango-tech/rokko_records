@@ -1,5 +1,3 @@
-Hier ist die komplette index.html noch einmal – pur, sauber, kopierbar:
-
 <!doctype html>
 <html lang="de">
 <head>
@@ -11,6 +9,13 @@ Hier ist die komplette index.html noch einmal – pur, sauber, kopierbar:
   <link rel="preload" as="video" href="assets/movies/Intro_movie.mp4" type="video/mp4">
   <link rel="preload" as="image" href="assets/Images/Logo.png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Fallback für --vh */
+    .video-frame {
+      --vh: 38vh;
+      height: var(--vh);
+    }
+  </style>
 </head>
 <body>
 
@@ -38,6 +43,7 @@ Hier ist die komplette index.html noch einmal – pur, sauber, kopierbar:
         <li><a href="#contact">Kontakt</a></li>
       </ul>
     </nav>
+    <!-- Scrim direkt hinter der Drawer-Navigation -->
     <div class="drawer__scrim"></div>
   </header>
 
@@ -46,7 +52,7 @@ Hier ist die komplette index.html noch einmal – pur, sauber, kopierbar:
     <div class="video-frame">
       <video id="heroVideo" playsinline preload="auto" loop autoplay muted src="assets/movies/Intro_movie.mp4"></video>
 
-      <!-- Mute/Unmute (ohne Emojis) -->
+      <!-- Mute/Unmute -->
       <button id="muteBtn" class="mute-btn" aria-label="Ton umschalten" title="Ton umschalten">SOUND</button>
 
       <div id="tapHint" class="tap-hint" hidden>Tippen für Ton</div>
@@ -181,7 +187,9 @@ Hier ist die komplette index.html noch einmal – pur, sauber, kopierbar:
     sizeVideoFrame();
     window.addEventListener('resize', sizeVideoFrame);
 
-    function renderMuteLabel(){ muteBtn.textContent = video.muted ? 'MUTE' : 'SOUND'; }
+    function renderMuteLabel(){
+      muteBtn.textContent = video.muted ? 'SOUND' : 'MUTE';
+    }
 
     const persisted = localStorage.getItem('rokko_video_muted');
     if(persisted==='false'){ video.muted=false; }
