@@ -7,7 +7,7 @@
 
 html, body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f5f3bb; /* Sandfarben */
+  background-color: #f5f3bb;
   color: #111;
   line-height: 1.5;
 }
@@ -23,7 +23,7 @@ body.lock {
   left: 0;
   right: 0;
   height: 70px;
-  background-color: #000; /* Schwarz */
+  background-color: #000;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -123,11 +123,10 @@ body.lock {
 
 /* Intro Video */
 .intro {
-  margin-top: 70px; /* Header-Höhe */
+  margin-top: 70px;
 }
 .video-frame {
   width: 100%;
-  /* Fallback + Steuerung per JS */
   --vh: 38vh;
   height: var(--vh);
   position: relative;
@@ -163,21 +162,51 @@ body.lock {
   font-size: 14px;
 }
 
+/* Intro Text */
+.intro-text {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.intro-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.intro-text h1 small {
+  font-size: 1rem;
+  font-weight: normal;
+}
+.intro-text ul {
+  list-style: disc;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+/* Artists Intro */
+.artists-intro {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.artists-intro h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
 /* Artist Cards */
 .content {
   padding: 2rem 1rem;
 }
 .artist.card {
-  background-color: #2e2e2e; /* Dunkelgrauer Block */
+  background-color: #2e2e2e;
   color: #fff;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 40px;
   text-align: center;
-}
-.artist__name {
-  font-size: 24px;
-  margin-bottom: 15px;
 }
 .artist__media {
   margin-bottom: 15px;
@@ -189,9 +218,15 @@ body.lock {
 }
 .artist__bio {
   font-size: 15px;
+  margin-bottom: 15px;
+}
+.artist__covers img {
+  max-width: 150px;
+  margin: 0.5rem;
+  border-radius: 6px;
 }
 
-/* Separator Wallpaper */
+/* Separator */
 .separator {
   margin: 30px auto;
   text-align: center;
