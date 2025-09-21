@@ -33,7 +33,6 @@
     </nav>
   </header>
 
-  <!-- (CSS bringt eine .visually-hidden-Utility) -->
   <h1 class="visually-hidden">ROKKO Records</h1>
 
   <!-- Intro-Video -->
@@ -72,6 +71,7 @@
           <p>Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
         </div>
       </div>
+      <h3 class="section-subtitle">Musik</h3>
       <div class="subcard">
         <div class="release">
           <img class="player__cover" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Henri – La Femme" loading="lazy"/>
@@ -116,9 +116,10 @@
           <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und es ist klar, dass aus seiner Schublade noch vieles ans Licht kommen wird.</p>
         </div>
       </div>
+      <h3 class="section-subtitle">Musik</h3>
       <div class="subcard">
         <div class="release">
-          <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Erling – Endlich Schlafen" loading="lazy"/>
+          <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Erling – Endlich Schlafen" loading="lazy"/>
           <ol class="player__tracks">
             <li><span>Endlich Schlafen</span>
               <audio controls preload="none">
@@ -168,6 +169,7 @@
           <p>Mit Feu Léger – inklusive der gefeierten FIVRA-Remixe – haben Fleur &amp; Beunié ihren Sound geprägt: jung, sexy und voller Energie, getragen von französischem Esprit und verwurzelt in der europäischen Underground-Club-Szene.</p>
         </div>
       </div>
+      <h3 class="section-subtitle">Musik</h3>
       <div class="subcard">
         <div class="covers">
           <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Fleur – Léger" loading="lazy"/>
@@ -186,6 +188,7 @@
           <p>Seine aktuelle Singel „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum steppen und dat Establishment zum weinen. Skank weiß ganz genau, wo der Frosch die Locken hat…</p>
         </div>
       </div>
+      <h3 class="section-subtitle">Musik</h3>
       <div class="subcard">
         <div class="covers">
           <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Schablonski – März" loading="lazy"/>
@@ -204,6 +207,7 @@
           <p>Im weisen Alter angekommen, wirkt SkaRamush gelassen und doch voller Energie. Seine neurodiverse Perspektive lässt ihn fern vom Rampenlicht bleiben – lieber zieht er im Schatten die Fäden. In seiner kreativen Garage warten Fleur et Beunié, Henri Bellieu, Skank Schablonski und viele mehr, die durch seine Ideen Gestalt annehmen.</p>
         </div>
       </div>
+      <h3 class="section-subtitle">Musik</h3>
       <div class="subcard">
         <div class="covers">
           <img src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="Vandango – Fire" loading="lazy"/>
@@ -241,25 +245,9 @@
 
   <footer class="footer">© ROKKO Records</footer>
 
-  <!-- Mini-JS -->
   <script>
     // Burger-Menü
     const burger = document.querySelector('.burger');
     const menu   = document.getElementById('menu');
     burger?.addEventListener('click', () => {
-      const open = menu.classList.toggle('menu--open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    // Sound-Toggle
-    const video = document.getElementById('introVideo');
-    const soundBtn = document.getElementById('soundBtn');
-    soundBtn?.addEventListener('click', () => {
-      video.muted = !video.muted;
-      if (video.paused) { video.play().catch(()=>{}); }
-      soundBtn.textContent = 'Ton: ' + (video.muted ? 'Aus' : 'An');
-      soundBtn.setAttribute('aria-pressed', video.muted ? 'false' : 'true');
-    });
-  </script>
-</body>
-</html>
+      const open =
