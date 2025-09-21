@@ -1,12 +1,14 @@
 :root{
-  --navy:#04151F;      /* Header + innenliegende Subcards (dunkles Blau) */
-  --sand:#F5F3BB;      /* Seitenhintergrund (gedämpftes Sand) */
-  --deep:#303A2B;      /* Kartenfläche (dunkelgrau/grünlich) */
-  --accent:#3E6B68;    /* äußerer Rahmen (grün) */
-  --radius:16px; --inner-radius:12px; --card-w:min(780px,92vw);
-  /* Rahmenfarben: außen grün, innen navy */
+  --navy:#04151F;      /* Header + innere Rahmen */
+  --sand:#F5F3BB;      /* Seitenhintergrund */
+  --deep:#303A2B;      /* Kartenfläche */
+  --accent:#3E6B68;    /* äußerer Rahmen */
+  --radius:16px; 
+  --inner-radius:12px; 
+  --card-w:min(780px,92vw);
   --border-outer:1px solid var(--accent);
   --border-inner:1px solid var(--navy);
+  --wallpaper-thin:160px;
 }
 
 *{box-sizing:border-box}
@@ -68,21 +70,28 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
   border:var(--border-outer);
 }
 .section-title{margin:2px 0 12px;font:900 22px/1.2 system-ui;letter-spacing:.3px}
+
+/* Innerer Rahmen jetzt knallhart Navy */
 .subcard{
-  border:var(--border-inner);border-radius:var(--inner-radius);
+  border:1px solid #04151F !important;
+  border-radius:var(--inner-radius);
   padding:14px;background:rgba(0,0,0,.12);display:grid;gap:12px
 }
 
 .artist{display:grid;gap:16px}
 .artist__photo{width:100%;border-radius:12px;background:#222;object-fit:contain}
 
-/* Separatoren (zeigen Wallpaper) */
+/* Separatoren (Wallpaper) */
 .separator{width:var(--card-w);margin:6px auto -2px auto;position:relative}
 .separator img{
-  width:100%;border-radius:var(--radius);object-fit:cover;height:auto;
+  width:100%;border-radius:var(--radius);
   box-shadow:0 6px 14px rgba(0,0,0,.18);border:var(--border-outer)
 }
-.separator--thin img{height:160px;object-fit:cover}
+.separator--thin img,
+.separator--label img{
+  height:var(--wallpaper-thin);
+  object-fit:cover;
+}
 
 /* Text-Overlay für Separatoren */
 .separator--label{margin-top:18px;margin-bottom:8px}
@@ -96,13 +105,13 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
 
 /* Player/Cover */
 .release{display:grid;gap:10px}
-.player__cover{width:100%;border-radius:12px;border:var(--border-inner);background:#222}
+.player__cover{width:100%;border-radius:12px;border:1px solid #04151F;background:#222}
 .player__tracks{list-style:decimal inside;margin:0;padding:0;display:grid;gap:10px}
 .player__tracks li{display:grid;gap:6px}
 .player__tracks span{font-weight:800;color:#F7F7F7}
 audio{width:100%}
 .covers{display:flex;flex-wrap:wrap;gap:10px}
-.covers img{width:calc(50% - 5px);min-width:200px;border-radius:10px;background:#222;object-fit:contain;border:var(--border-inner)}
+.covers img{width:calc(50% - 5px);min-width:200px;border-radius:10px;background:#222;object-fit:contain;border:1px solid #04151F}
 
 /* Streaming-Buttons */
 .streaming{display:flex;gap:10px;flex-wrap:wrap}
@@ -110,7 +119,7 @@ audio{width:100%}
 .btn-stream img{width:20px;height:20px}
 
 /* YouTube */
-.youtube__wrap{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000;border:var(--border-inner)}
+.youtube__wrap{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000;border:1px solid #04151F}
 .youtube__wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* Kontakt */
