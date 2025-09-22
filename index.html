@@ -11,17 +11,16 @@
   <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="brand">
-      <img src="assets/Images/Logo.png" alt="ROKKO! Records Logo" class="brand__logo" decoding="async">
+      <img src="assets/Images/Logo.png" alt="ROKKO Records Logo" class="brand__logo">
       <div class="brand__title">
         <span class="brand__top">ROKKO!</span>
         <span class="brand__bottom">Records</span>
       </div>
     </div>
-
-    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-menu">
+    <button class="burger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu" id="primary-menu">
+    <nav class="menu">
       <a href="#about">Wir sind Rokko</a>
       <a href="#artists">Artists</a>
       <a href="#contact">Kontakt</a>
@@ -30,11 +29,11 @@
 
   <!-- ===== HERO VIDEO ===== -->
   <section class="hero">
-    <video autoplay muted loop playsinline class="hero__video" id="heroVideo" poster="assets/wallpaper/Wallpaper_two.PNG">
+    <video autoplay muted loop playsinline class="hero__video" id="heroVideo">
       <source src="assets/movies/Intro_movie.mp4" type="video/mp4">
       Dein Browser unterstützt kein HTML5-Video.
     </video>
-    <button class="sound-btn" id="soundToggle" aria-pressed="false" aria-controls="heroVideo" title="Ton umschalten">🔊</button>
+    <button class="sound-btn" id="soundToggle">🔊</button>
   </section>
 
   <!-- ===== ABOUT / WIR SIND ROKKO ===== -->
@@ -58,14 +57,15 @@
 
     <!-- ===== ARTISTS ===== -->
     <section class="artists" id="artists">
+
       <!-- === HENRI BELLIEU === -->
       <article class="card artist" id="henri">
         <h2 class="artist-name">Henri Bellieu</h2>
-        <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo" loading="lazy" decoding="async">
+        <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo">
 
         <!-- Bio -->
         <div class="subcard bio">
-          <div class="bio-preview" id="bio-henri-preview">
+          <div class="bio-preview">
             Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen 
             in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn …
             <a href="#" class="bio-more-inline" data-target="bio-henri" aria-controls="bio-henri" aria-expanded="false"> … Text erweitern</a>
@@ -80,39 +80,35 @@
         <!-- Songs -->
         <div class="subcard music">
           <h3 class="section-subtitle">Aktuelle Songs</h3>
-
-          <button class="release teaser" data-target="panel-henri-lafemme" aria-controls="panel-henri-lafemme" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Cover: La Femme – Henri Bellieu" loading="lazy" decoding="async">
+          <div class="release teaser" data-target="panel-henri-lafemme" role="button" tabindex="0">
+            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="">
             <div class="teaser__meta">
               <div class="teaser__artist">Henri Bellieu</div>
               <div class="teaser__song">La Femme</div>
             </div>
-          </button>
+          </div>
           <div id="panel-henri-lafemme" class="panel release-content" hidden>
-            <audio controls preload="none" aria-label="Henri Bellieu – La Femme (Main)">
+            <audio controls preload="auto">
               <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a" type="audio/mp4">
             </audio>
-            <audio controls preload="none" aria-label="Henri Bellieu – La Femme (V deux)">
+            <audio controls preload="auto">
               <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" type="audio/mp4">
             </audio>
           </div>
 
-          <button class="release teaser" data-target="panel-henri-colibri" aria-controls="panel-henri-colibri" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Cover: Petit Colibri – Henri Bellieu" loading="lazy" decoding="async">
+          <div class="release teaser" data-target="panel-henri-colibri" role="button" tabindex="0">
+            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="">
             <div class="teaser__meta">
               <div class="teaser__artist">Henri Bellieu</div>
               <div class="teaser__song">Petit Colibri</div>
             </div>
-          </button>
+          </div>
           <div id="panel-henri-colibri" class="panel release-content" hidden>
-            <audio controls preload="none" aria-label="Henri Bellieu – Petit Colibri (Main)">
+            <audio controls preload="auto">
               <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Main.m4a" type="audio/mp4">
             </audio>
-            <audio controls preload="none" aria-label="Henri Bellieu – Petit Colibri (Ennio Mix)">
+            <audio controls preload="auto">
               <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Ennio_Mix.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Henri Bellieu – Petit Colibri (Nocturne Mix)">
-              <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Nocturne%20Mix.m4a" type="audio/mp4">
             </audio>
           </div>
         </div>
@@ -121,11 +117,11 @@
       <!-- === FLEUR ET BEUNIÉ === -->
       <article class="card artist" id="fleur">
         <h2 class="artist-name">Fleur et Beunié</h2>
-        <img src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" class="artist-photo" loading="lazy" decoding="async">
+        <img src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" class="artist-photo">
 
         <!-- Bio -->
         <div class="subcard bio">
-          <div class="bio-preview" id="bio-fleur-preview">
+          <div class="bio-preview">
             Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille, 
             irgendwo zwischen Clubnächten und Glanzlichtern …
             <a href="#" class="bio-more-inline" data-target="bio-fleur" aria-controls="bio-fleur" aria-expanded="false"> … Text erweitern</a>
@@ -139,29 +135,19 @@
         <!-- Songs -->
         <div class="subcard music">
           <h3 class="section-subtitle">Aktuelle Songs</h3>
-
-          <button class="release teaser" data-target="panel-fleur-leger" aria-controls="panel-fleur-leger" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Cover: Feu Léger – Fleur et Beunié" loading="lazy" decoding="async">
+          <div class="release teaser" data-target="panel-fleur-leger" role="button" tabindex="0">
+            <img class="teaser__thumb" src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="">
             <div class="teaser__meta">
               <div class="teaser__artist">Fleur et Beunié</div>
               <div class="teaser__song">Feu Léger</div>
             </div>
-          </button>
+          </div>
           <div id="panel-fleur-leger" class="panel release-content" hidden>
-            <audio controls preload="none" aria-label="Fleur et Beunié – Feu Léger (Main)">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_Main.m4a" type="audio/mp4">
+            <audio controls preload="auto">
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger_Main.m4a" type="audio/mp4">
             </audio>
-            <audio controls preload="none" aria-label="Fleur et Beunié – Feu Léger (House RMX)">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_House_RMX.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Fleur et Beunié – Feu Léger (Sundown RMX)">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_Sundown_RMX.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Fleur et Beunié – Feu Léger (Club Mix)">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_ClubMix.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Fleur et Beunié – Feu Léger (French Classic Mix)">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_FrenchClassicMix.m4a" type="audio/mp4">
+            <audio controls preload="auto">
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger_RMX.m4a" type="audio/mp4">
             </audio>
           </div>
         </div>
@@ -170,14 +156,14 @@
       <!-- === MARKUS ERLING === -->
       <article class="card artist" id="erling">
         <h2 class="artist-name">Markus Erling</h2>
-        <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" class="artist-photo" loading="lazy" decoding="async">
+        <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" class="artist-photo">
 
         <!-- Bio -->
         <div class="subcard bio">
-          <div class="bio-preview" id="bio-erling-preview">
+          <div class="bio-preview">
             Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine
             Songs direkt aus dem eigenen Leben … 
-            <a href="#" class="bio-more-inline" data-target="bio-erling" aria-controls="bio-erling" aria-expanded="false"> … Text erweitern</a>
+            <a href="#" class="bio-more-inline" data-target="bio-erling"> … Text erweitern</a>
           </div>
           <div id="bio-erling" class="bio-full" hidden>
             Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent 
@@ -190,36 +176,19 @@
           <h3 class="section-subtitle">Aktuelle Songs</h3>
 
           <!-- Endlich Schlafen -->
-          <button class="release teaser" data-target="panel-erling-schlafen" aria-controls="panel-erling-schlafen" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Cover: Endlich Schlafen – Markus Erling" loading="lazy" decoding="async">
+          <div class="release teaser" data-target="panel-erling-schlafen">
+            <img class="teaser__thumb" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="">
             <div class="teaser__meta">
               <div class="teaser__artist">Markus Erling</div>
               <div class="teaser__song">Endlich Schlafen</div>
             </div>
-          </button>
+          </div>
           <div id="panel-erling-schlafen" class="panel release-content" hidden>
             <a href="artists/ERLING/Cover/erling_endlich_schlafen.PNG" target="_blank" rel="noopener">
-              <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Cover Endlich Schlafen" loading="lazy" decoding="async">
+              <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Cover Endlich Schlafen">
             </a>
-            <audio controls preload="none" aria-label="Markus Erling – Endlich Schlafen (Main)">
+            <audio controls preload="auto">
               <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_endlich%20schlafen.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Markus Erling – Endlich Schlafen (MonoToni RMX)">
-              <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_%20schlafen%20MonoToni%20Rmx.m4a" type="audio/mp4">
-            </audio>
-          </div>
-
-          <!-- Der Tag an dem es regnet -->
-          <button class="release teaser" data-target="panel-erling-regen" aria-controls="panel-erling-regen" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Cover: Der Tag an dem es regnet – Markus Erling" loading="lazy" decoding="async">
-            <div class="teaser__meta">
-              <div class="teaser__artist">Markus Erling</div>
-              <div class="teaser__song">Der Tag an dem es regnet</div>
-            </div>
-          </button>
-          <div id="panel-erling-regen" class="panel release-content" hidden>
-            <audio controls preload="none" aria-label="Markus Erling – Der Tag an dem es regnet (Main)">
-              <source src="artists/ERLING/MP3_ERLING/regen/Erling_Der_Tag_an_dem_es_regnet.m4a" type="audio/mp4">
             </audio>
           </div>
         </div>
@@ -228,13 +197,13 @@
       <!-- === SKANK SCHABLONSKI === -->
       <article class="card artist" id="skank">
         <h2 class="artist-name">Skank Schablonski</h2>
-        <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" class="artist-photo" loading="lazy" decoding="async">
+        <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" class="artist-photo">
 
         <!-- Bio -->
         <div class="subcard bio">
-          <div class="bio-preview" id="bio-skank-preview">
+          <div class="bio-preview">
             Skank Schablonski – der Assi aus Iserlohn … 
-            <a href="#" class="bio-more-inline" data-target="bio-skank" aria-controls="bio-skank" aria-expanded="false"> … Text erweitern</a>
+            <a href="#" class="bio-more-inline" data-target="bio-skank"> … Text erweitern</a>
           </div>
           <div id="bio-skank" class="bio-full" hidden>
             Seine aktuelle Single „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum Steppen …
@@ -245,13 +214,13 @@
       <!-- === SKARAMUSH VANDANGO === -->
       <article class="card artist" id="skaramush">
         <h2 class="artist-name">SkaRamush Vandango</h2>
-        <img src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" class="artist-photo" loading="lazy" decoding="async">
+        <img src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" class="artist-photo">
 
         <!-- Bio -->
         <div class="subcard bio">
-          <div class="bio-preview" id="bio-skaramush-preview">
-            SkaRamush Vandango – Label-Chef &amp; Mastermind … 
-            <a href="#" class="bio-more-inline" data-target="bio-skaramush" aria-controls="bio-skaramush" aria-expanded="false"> … Text erweitern</a>
+          <div class="bio-preview">
+            SkaRamush Vandango – Label-Chef & Mastermind … 
+            <a href="#" class="bio-more-inline" data-target="bio-skaramush"> … Text erweitern</a>
           </div>
           <div id="bio-skaramush" class="bio-full" hidden>
             Alles, was hier entsteht, trägt seine Handschrift – geschrieben, programmiert, produziert …
@@ -263,7 +232,7 @@
 
     <!-- ===== KOMMENTAR ===== -->
     <div class="separator separator--thin separator--label">
-      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Kommentar" loading="lazy" decoding="async">
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Kommentar">
       <span class="separator__label">KOMMENTAR</span>
     </div>
 
@@ -274,11 +243,11 @@
         <form class="contact__form" onsubmit="event.preventDefault();">
           <div class="field">
             <label for="c-name">Name</label>
-            <input id="c-name" type="text" placeholder="Dein Name" autocomplete="name">
+            <input id="c-name" type="text" placeholder="Dein Name">
           </div>
           <div class="field">
             <label for="c-mail">E-Mail</label>
-            <input id="c-mail" type="email" placeholder="dein@mail.de" autocomplete="email" inputmode="email">
+            <input id="c-mail" type="email" placeholder="dein@mail.de">
           </div>
           <div class="field">
             <label for="c-msg">Kommentar</label>
@@ -290,15 +259,12 @@
     </section>
   </main>
 
-  <footer class="footer">© <span id="year"></span> ROKKO! Records</footer>
+  <footer class="footer">© ROKKO Records</footer>
 
   <!-- ===== Inline Script ===== -->
   <script>
-    // Helpers
-    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-
     // Nur ein Audio gleichzeitig
-    const audios = $$('audio');
+    const audios = document.querySelectorAll('audio');
     function pauseOthers(except){ audios.forEach(a=>{ if(a!==except) a.pause(); }); }
     audios.forEach(a=> a.addEventListener('play', ()=>pauseOthers(a)));
 
@@ -307,62 +273,34 @@
     const soundBtn=document.getElementById('soundToggle');
     if(video && soundBtn){
       soundBtn.addEventListener('click', ()=>{
-        const toMute = !video.muted;
-        video.muted = toMute;
-        soundBtn.setAttribute('aria-pressed', String(!toMute));
-        soundBtn.textContent = toMute ? '🔇' : '🔊';
-        if(!toMute) pauseOthers();
-        if (video.paused) { video.play().catch(()=>{}); }
+        video.muted=!video.muted;
+        soundBtn.textContent=video.muted?'Ton: Aus':'Ton: An';
+        if(!video.muted) pauseOthers();
       });
     }
 
     // Bio expandieren
-    $$('.bio-more-inline').forEach(link=>{
+    document.querySelectorAll('.bio-more-inline').forEach(link=>{
       const id=link.dataset.target;
       const panel=document.getElementById(id);
       if(panel){
         link.addEventListener('click',e=>{
           e.preventDefault();
           panel.hidden=false;
-          link.setAttribute('aria-expanded','true');
           link.style.display='none';
-          (panel.querySelector('a,button,input,textarea,select')||panel).focus?.();
         });
       }
     });
 
-    // Teaser Panels (Buttons + ESC)
-    const panels = $$('.panel');
-    function closeAllPanels(){ panels.forEach(p=>p.hidden=true); $$('.teaser').forEach(t=>t.setAttribute('aria-expanded','false')); }
-    function openPanel(btn, panel){
-      closeAllPanels();
-      if(panel){ panel.hidden=false; btn.setAttribute('aria-expanded','true'); panel.scrollIntoView({block:'nearest', behavior:'smooth'}); }
-    }
-    $$('.teaser').forEach(btn=>{
-      const id=btn.dataset.target;
+    // Teaser Panels
+    document.querySelectorAll('.teaser').forEach(teaser=>{
+      const id=teaser.dataset.target;
       const panel=document.getElementById(id);
-      btn.addEventListener('click',()=> openPanel(btn,panel));
-      btn.addEventListener('keydown',(e)=>{
-        if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPanel(btn,panel); }
-        if(e.key==='Escape'){ closeAllPanels(); btn.focus(); }
+      teaser.addEventListener('click',()=>{
+        document.querySelectorAll('.panel').forEach(p=>p.hidden=true);
+        if(panel) panel.hidden=false;
       });
     });
-    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeAllPanels(); });
-
-    // Burger-Menü
-    const burger=document.querySelector('.burger');
-    const menu=document.getElementById('primary-menu');
-    if(burger && menu){
-      const toggle=()=>{
-        const exp = burger.getAttribute('aria-expanded')==='true';
-        burger.setAttribute('aria-expanded', String(!exp));
-        menu.classList.toggle('is-open', !exp);
-      };
-      burger.addEventListener('click', toggle);
-    }
-
-    // Footer Jahr
-    const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
