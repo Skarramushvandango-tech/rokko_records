@@ -1,402 +1,376 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ROKKO Records</title>
-  <meta name="description" content="ROKKO! Records – Label aus dem Ruhrpott. Releases und Artists." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROKKO! Records</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
-
-  <!-- Header -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="brand">
-      <img src="assets/Images/Logo.png" alt="ROKKO Logo" class="brand__logo" />
+      <img src="assets/Images/Logo.png" alt="ROKKO Records Logo" class="brand__logo">
       <div class="brand__title">
-        <span class="brand__top">ROKKO</span>
-        <span class="brand__bottom">RECORDS</span>
+        <span class="brand__top">ROKKO!</span>
+        <span class="brand__bottom">Records</span>
       </div>
     </div>
-    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu">
+    <button class="burger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu" id="menu" aria-label="Hauptnavigation">
-      <a href="#about">Wir sind ROKKO</a>
-      <a href="#henri">Henri Bellieu</a>
-      <a href="#erling">Markus Erling</a>
-      <a href="#fleur">Fleur et Beunié</a>
-      <a href="#skank">Skank Schablonski</a>
-      <a href="#skaramush">SkaRamush Vandango</a>
+    <nav class="menu">
+      <a href="#about">Wir sind Rokko</a>
+      <a href="#artists">Artists</a>
       <a href="#contact">Kontakt</a>
     </nav>
   </header>
 
-  <!-- Intro-Video -->
+  <!-- ===== HERO VIDEO ===== -->
   <section class="hero">
-    <video id="introVideo" class="hero__video" autoplay muted loop playsinline
-           src="assets/movies/Intro_movie.mp4"></video>
-    <button id="soundBtn" class="sound-btn" aria-pressed="false" aria-label="Ton umschalten">Ton: Aus</button>
+    <video autoplay muted loop playsinline class="hero__video" id="heroVideo">
+      <source src="assets/movies/Intro_movie.mp4" type="video/mp4">
+      Dein Browser unterstützt kein HTML5-Video.
+    </video>
+    <button class="sound-btn" id="soundToggle">🔊</button>
   </section>
 
+  <!-- ===== ABOUT / WIR SIND ROKKO ===== -->
   <main>
-
-    <!-- ABOUT (mit blauem Innenrahmen) -->
-    <section id="about" class="card">
-      <h2 class="section-title">Wir sind ROKKO! Records — und Du „noch“ nicht …</h2>
+    <article class="card" id="about">
+      <h2 class="section-title">Wir sind ROKKO!</h2>
       <div class="subcard">
-        <div class="card__text">
-          <p>Tach, wir sind die Neuen in der Szene. Und wir sind ein bisschen anders, das ist aber auch gut so. Wir jagen nicht den Fame und sonnen uns auch nicht im Applaus. Wir haben kein Genre, wir engen uns nicht ein. Die Songs und Artists sind jeglicher Couleur und eines ist sicher!</p>
-          <ul><li>Es wird auf keinen Fall langweilig.</li></ul>
-          <p>ROKKOS! Herz schlägt im Ruhrpott, doch die Musik reicht weiter. Rokko ist kein Genre, keine Sprache oder Farbe. ROKKO! ist geballte kreative Freiheit, die ins Ohr geht und von dort nicht mehr wegzubekommen ist.</p>
-          <p>Also kloppt Euch den Schmalz aus den Ohren, hier kommt der Honig …</p>
-        </div>
+        <p>
+          Tach, wir sind die Neuen in der Szene. Und wir sind ein bisschen anders, 
+          das ist aber auch gut so. Wir jagen nicht den Fame und sonnen uns auch 
+          nicht im Applaus. Wir haben kein Genre, wir engen uns nicht ein. Die Songs 
+          und Artists sind jeglicher Couleur – und eines ist sicher:<br><br>
+          Es wird auf keinen Fall langweilig.<br><br>
+          ROKKOS Herz schlägt im Ruhrpott, doch die Musik reicht weiter. Rokko ist 
+          kein Genre, keine Sprache oder Farbe. ROKKO! ist geballte kreative Freiheit, 
+          die ins Ohr geht und von dort nicht mehr wegzubekommen ist.<br><br>
+          Also kloppt Euch den Schmalz aus den Ohren, hier kommt der Honig …
+        </p>
       </div>
-    </section>
+    </article>
 
-    <!-- Label: ARTISTS -->
-    <div class="separator separator--thin separator--label">
-      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Artists"/>
-      <span class="separator__label">ARTISTS</span>
-    </div>
+    <!-- ===== ARTISTS ===== -->
+    <section class="artists" id="artists">
 
-    <!-- HENRI -->
-    <section id="henri" class="card artist">
-      <div class="subcard">
-        <!-- Foto -->
-        <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" />
+      <!-- === HENRI BELLIEU === -->
+      <article class="card artist" id="henri">
+        <h2 class="artist-name">Henri Bellieu</h2>
+        <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo">
 
-        <!-- STECKBRIEF -->
-        <h3 class="section-kicker">Steckbrief</h3>
-        <div class="artist__bio bio-preview">
-          <p>Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: durchfroren, die Straßen von Paris entlangwandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic.</p>
-          <p>Am Piano saß Henri, mit rauchiger Stimme und Melodien, die den Raum zum Leuchten brachten. Eine Nacht voller Rotwein, Gespräche über Liebe, Leid und das Leben – und aus dieser Begegnung wuchs eine Freundschaft, die bis heute trägt.</p>
-          <a href="#" class="bio-more" data-target="bio-henri" aria-controls="bio-henri" aria-expanded="false">… Text erweitern</a>
-        </div>
-        <div id="bio-henri" class="artist__bio bio-full" hidden>
-          <p>Mit Petit Colibri singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat.</p>
-          <p>Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
-        </div>
-
-        <!-- SONGS -->
-        <h3 class="section-kicker">Aktuelle Songs</h3>
-
-        <!-- Teaser: La Femme -->
-        <div class="teaser" data-target="panel-henri-lafemme" role="button" tabindex="0" aria-controls="panel-henri-lafemme" aria-expanded="false">
-          <img class="teaser__thumb" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="">
-          <div class="teaser__meta">
-            <div class="teaser__title">Henri Bellieu — La Femme</div>
-            <div class="teaser__note">Main · V_deux</div>
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Henri Bellieu ist ein französischer Chansonnier mit einem Hang zu
+            dunklen Pianobars und verrauchten Nächten. Seine Lieder erzählen
+            von Liebe, Verlust und dem ewigen Tanz zwischen Hoffnung und
+            Melancholie …
+            <span class="expand-bio">Text erweitern</span>
+          </div>
+          <div class="bio-full hidden">
+            Henri Bellieu ist ein französischer Chansonnier mit einem Hang zu
+            dunklen Pianobars und verrauchten Nächten. Seine Lieder erzählen
+            von Liebe, Verlust und dem ewigen Tanz zwischen Hoffnung und
+            Melancholie. <br><br>
+            Inspiriert von großen Poeten, singt Henri mit einer rauen Stimme,
+            die mitten ins Herz trifft – immer ehrlich, immer kompromisslos.
           </div>
         </div>
-        <div id="panel-henri-lafemme" class="panel" hidden>
+
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
           <div class="release">
-            <img class="player__cover" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Henri – La Femme" />
-            <ol class="player__tracks">
-              <li>
-                <span class="tracktitle">La Femme</span>
-                <audio controls preload="auto">
-                  <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">La Femme <small>V_deux</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" type="audio/mp4" />
-                </audio>
-              </li>
-            </ol>
+            <img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Cover La Femme" class="cover-thumb">
+            <div class="release-info">
+              <p class="artist-line">Henri Bellieu</p>
+              <p class="song-line">La Femme</p>
+            </div>
           </div>
-        </div>
+          <div class="release-content hidden">
+            <audio controls>
+              <source src="artists/HENRI/MP3_HENRI/La_Femme.m4a" type="audio/mp4">
+              Dein Browser unterstützt kein Audio.
+            </audio>
+          </div>
 
-        <!-- Teaser: petite colibri -->
-        <div class="teaser" data-target="panel-henri-petite" role="button" tabindex="0" aria-controls="panel-henri-petite" aria-expanded="false">
-          <img class="teaser__thumb" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="">
-          <div class="teaser__meta">
-            <div class="teaser__title">Henri Bellieu — petite colibri</div>
-            <div class="teaser__note">Main · Ennio Mix · Nocturne Mix</div>
-          </div>
-        </div>
-        <div id="panel-henri-petite" class="panel" hidden>
           <div class="release">
-            <img class="player__cover" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Henri – petite colibri" />
-            <ol class="player__tracks">
-              <li>
-                <span class="tracktitle">petite colibri</span>
-                <audio controls preload="auto">
-                  <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Main.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">petite colibri <small>Ennio Mix</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Ennio_Mix.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">petite colibri <small>Nocturne Mix</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Nocturne%20Mix.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-            </ol>
+            <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Cover Petit Colibri" class="cover-thumb">
+            <div class="release-info">
+              <p class="artist-line">Henri Bellieu</p>
+              <p class="song-line">Petit Colibri</p>
+            </div>
+          </div>
+          <div class="release-content hidden">
+            <audio controls>
+              <source src="artists/HENRI/MP3_HENRI/Petit_Colibri.m4a" type="audio/mp4">
+              Dein Browser unterstützt kein Audio.
+            </audio>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- ERLING -->
-    <section id="erling" class="card artist">
-      <div class="subcard">
-        <!-- Foto -->
-        <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" />
+      <!-- === FLEUR ET BEUNIÉ === -->
+      <article class="card artist" id="fleur">
+        <h2 class="artist-name">Fleur et Beunié</h2>
+        <img src="artists/FLEURBENUINE/Fotos/fleurbenuie_main.PNG" alt="Fleur et Beunié" class="artist-photo">
 
-        <!-- STECKBRIEF -->
-        <h3 class="section-kicker">Steckbrief</h3>
-        <div class="artist__bio bio-preview">
-          <p>Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine Songs direkt aus dem eigenen Leben: Verlust, Missverständnisse, Schmerz und Liebe, gesehen durch die Augen eines Menschen, der nie so recht in eine Welt passt.</p>
-          <p>Seine neurodiverse Wahrnehmung führte zu einem Rückzug – weg von Rollen, die nie passten. Dort legte er sich Schicht um Schicht frei.</p>
-          <a href="#" class="bio-more" data-target="bio-erling" aria-controls="bio-erling" aria-expanded="false">… Text erweitern</a>
-        </div>
-        <div id="bio-erling" class="artist__bio bio-full" hidden>
-          <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und da kommt noch einiges.</p>
-        </div>
-
-        <!-- SONGS -->
-        <h3 class="section-kicker">Aktuelle Songs</h3>
-
-        <!-- Teaser: Endlich Schlafen -->
-        <div class="teaser" data-target="panel-erling-schlafen" role="button" tabindex="0" aria-controls="panel-erling-schlafen" aria-expanded="false">
-          <img class="teaser__thumb" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="">
-          <div class="teaser__meta">
-            <div class="teaser__title">Markus Erling — Endlich Schlafen</div>
-            <div class="teaser__note">Main · MonoToni Rmx</div>
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Fleur et Beunié stehen für French House und Tek-House mit einem
+            modernen Pariser Flair. Neonfarben, clubbige Vibes und die perfekte
+            Symbiose aus Groove und Style …
+            <span class="expand-bio">Text erweitern</span>
+          </div>
+          <div class="bio-full hidden">
+            Fleur et Beunié stehen für French House und Tek-House mit einem
+            modernen Pariser Flair. Neonfarben, clubbige Vibes und die perfekte
+            Symbiose aus Groove und Style.<br><br>
+            Zwischen Underground-Clubs und Rooftop-Partys liefern sie Soundtracks
+            für Nächte, die niemals enden – energetisch, verspielt und immer am
+            Puls der Zeit.
           </div>
         </div>
-        <div id="panel-erling-schlafen" class="panel" hidden>
+
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
+
           <div class="release">
-            <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Erling – Endlich Schlafen" />
+            <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Cover Feu Léger" class="cover-thumb">
+            <div class="release-info">
+              <p class="artist-line">Fleur et Beunié</p>
+              <p class="song-line">Feu Léger</p>
+            </div>
+          </div>
+          <div class="release-content hidden">
+            <audio controls>
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(Original).m4a" type="audio/mp4">
+            </audio>
+            <audio controls>
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger_(HouseMix).m4a" type="audio/mp4">
+            </audio>
+            <audio controls>
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(SundownMix).m4a" type="audio/mp4">
+            </audio>
+            <audio controls>
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(ClubMix).m4a" type="audio/mp4">
+            </audio>
+            <audio controls>
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(FrenchClassicMix).m4a" type="audio/mp4">
+            </audio>
+          </div>
+        </div>
+      </article>
+
+      <!-- === MARKUS ERLING === -->
+      <article class="card artist" id="erling">
+        <h2 class="artist-name">Markus Erling</h2>
+        <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" class="artist-photo">
+
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine
+            Songs direkt aus dem eigenen Leben: Verlust, Missverständnisse, Schmerz und Liebe,
+            gesehen durch die Augen eines Menschen, der nie so recht in eine Welt passt …
+            <a href="#" class="bio-more-inline" data-target="bio-erling" aria-controls="bio-erling" aria-expanded="false"> … Text erweitern</a>
+          </div>
+          <div id="bio-erling" class="bio-full" hidden>
+            Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists
+            bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und da kommt noch einiges.
+          </div>
+        </div>
+
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
+
+          <!-- Teaser: Endlich Schlafen -->
+          <div class="release teaser" data-target="panel-erling-schlafen" role="button" tabindex="0" aria-controls="panel-erling-schlafen" aria-expanded="false">
+            <img src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="" class="cover-thumb teaser__thumb">
+            <div class="release-info teaser__meta">
+              <p class="artist-line teaser__artist">Markus Erling</p>
+              <p class="song-line teaser__song">Endlich Schlafen</p>
+            </div>
+          </div>
+          <div id="panel-erling-schlafen" class="release-content panel" hidden>
+            <a href="artists/ERLING/Cover/erling_endlich_schlafen.PNG" target="_blank" rel="noopener">
+              <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Erling – Endlich Schlafen" loading="lazy">
+            </a>
             <ol class="player__tracks">
               <li>
                 <span class="tracktitle">Endlich Schlafen</span>
                 <audio controls preload="auto">
-                  <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_endlich%20schlafen.m4a" type="audio/mp4" />
+                  <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_endlich%20schlafen.m4a" type="audio/mp4">
                 </audio>
               </li>
               <li>
                 <span class="tracktitle">Endlich Schlafen <small>MonoToni Rmx</small></span>
                 <audio controls preload="auto">
-                  <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_%20schlafen%20MonoToni%20Rmx.m4a" type="audio/mp4" />
+                  <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_%20schlafen%20MonoToni%20Rmx.m4a" type="audio/mp4">
                 </audio>
               </li>
             </ol>
           </div>
-        </div>
 
-        <!-- Teaser: Regen -->
-        <div class="teaser" data-target="panel-erling-regen" role="button" tabindex="0" aria-controls="panel-erling-regen" aria-expanded="false">
-          <img class="teaser__thumb" src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="">
-          <div class="teaser__meta">
-            <div class="teaser__title">Markus Erling — Der Tag an dem es regnet</div>
-            <div class="teaser__note">Main</div>
+          <!-- Teaser: Der Tag an dem es regnet -->
+          <div class="release teaser" data-target="panel-erling-regen" role="button" tabindex="0" aria-controls="panel-erling-regen" aria-expanded="false">
+            <img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="" class="cover-thumb teaser__thumb">
+            <div class="release-info teaser__meta">
+              <p class="artist-line teaser__artist">Markus Erling</p>
+              <p class="song-line teaser__song">Der Tag an dem es regnet</p>
+            </div>
           </div>
-        </div>
-        <div id="panel-erling-regen" class="panel" hidden>
-          <div class="release">
-            <img class="player__cover" src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Erling – Der Tag an dem es regnet" />
+          <div id="panel-erling-regen" class="release-content panel" hidden>
+            <img class="player__cover" src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Erling – Der Tag an dem es regnet" loading="lazy">
             <ol class="player__tracks">
               <li>
                 <span class="tracktitle">Der Tag an dem es regnet</span>
                 <audio controls preload="auto">
-                  <source src="artists/ERLING/MP3_ERLING/regen/Erling_Der_Tag_an_dem_es_regnet.m4a" type="audio/mp4" />
+                  <source src="artists/ERLING/MP3_ERLING/regen/Erling_Der_Tag_an_dem_es_regnet.m4a" type="audio/mp4">
                 </audio>
               </li>
             </ol>
           </div>
         </div>
 
-        <!-- YouTube -->
-        <div class="youtube">
+        <!-- YouTube (am Ende) -->
+        <div class="subcard">
           <div class="youtube__wrap">
             <iframe src="https://www.youtube.com/embed/Rh53YVgsfJ4?rel=0&modestbranding=1&playsinline=1"
-                    title="Markus Erling – Video" allow="autoplay; encrypted-media"
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              title="Markus Erling – Video" allow="autoplay; encrypted-media" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- Logo-Wallpaper -->
-    <div class="separator separator--logo">
-      <img src="assets/wallpaper/Wallpaper_logi.PNG" alt="ROKKO Wallpaper Logo" />
-    </div>
+      <!-- === SKANK SCHABLONSKI === -->
+      <article class="card artist" id="skank">
+        <h2 class="artist-name">Skank Schablonski</h2>
+        <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" class="artist-photo">
 
-    <!-- FLEUR -->
-    <section id="fleur" class="card artist">
-      <div class="subcard">
-        <!-- Foto -->
-        <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" />
-
-        <!-- STECKBRIEF -->
-        <h3 class="section-kicker">Steckbrief</h3>
-        <div class="artist__bio bio-preview">
-          <p>Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille. Eine Geschichte, fast wie in einem Film. Fleur, Mitte zwanzig, smart, talentiert und wunderschön …</p>
-          <a href="#" class="bio-more" data-target="bio-fleur" aria-controls="bio-fleur" aria-expanded="false">… Text erweitern</a>
-        </div>
-        <div id="bio-fleur" class="artist__bio bio-full" hidden>
-          <p>Bernier, Anfang dreißig, gutaussehend, charismatisch und voller Talent, hatte genug vom goldenen Käfig. Bentley gegen Tonstudio, Glanz gegen Leidenschaft. Ein Schluck Whisky, ein rauchiger Gesang und ein Blick genügten – Boom. Er suchte eine Stimme und fand in Fleur die große Liebe.</p>
-          <p>Mit Feu Léger – inklusive der gefeierten FIVRA-Remixe – haben Fleur &amp; Beunié ihren Sound geprägt: jung, sexy und voller Energie, getragen von französischem Esprit und verwurzelt in der europäischen Underground-Club-Szene.</p>
-        </div>
-
-        <!-- SONGS -->
-        <h3 class="section-kicker">Aktuelle Songs</h3>
-        <div class="teaser" data-target="panel-fleur-leger" role="button" tabindex="0" aria-controls="panel-fleur-leger" aria-expanded="false">
-          <img class="teaser__thumb" src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="">
-          <div class="teaser__meta">
-            <div class="teaser__title">Fleur et Beunié — Feu Léger</div>
-            <div class="teaser__note">Main · House RMX · Sundown RMX · Fivra Mixe</div>
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Skank Schablonski – Assi aus Iserlohn mit Ruhrpott-Kotterschnauze. Lyrisch-satirische Backpfeifen,
+            die sitzen …
+            <a href="#" class="bio-more-inline" data-target="bio-skank" aria-controls="bio-skank" aria-expanded="false"> … Text erweitern</a>
+          </div>
+          <div id="bio-skank" class="bio-full" hidden>
+            „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum Steppen und das Establishment zum Weinen.
+            Skank weiß, wo der Frosch die Locken hat…
           </div>
         </div>
-        <div id="panel-fleur-leger" class="panel" hidden>
-          <div class="release">
-            <img class="player__cover" src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Fleur – Léger Remixes" />
-            <ol class="player__tracks">
-              <li>
-                <span class="tracktitle">Feu Léger</span>
-                <audio controls preload="auto">
-                  <source src="artists/FLEURBENUINE/MP3_FLEUR/leger/Fleur_et_Beunie_Feu_Leger_Main.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">Feu Léger <small>House RMX</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/FLEURBENUINE/MP3_FLEUR/leger/Fleur_et_Beunie_Feu_Leger_House_RMX.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">Feu Léger <small>Sundown RMX</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/FLEURBENUINE/MP3_FLEUR/leger/Fleur_et_Beunie_Feu_Leger_Sundown_RMX.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">Feu Léger <small>Fivra Electro Swing</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/FLEURBENUINE/MP3_FLEUR/leger/Fleur_et_Beunie_Feu_Leger_Fivra_Electro_Swing.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">Feu Léger <small>Fivra Club Mix</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/FLEURBENUINE/MP3_FLEUR/leger/Fleur_et_Beunie_Feu_Leger_Fivra_Club_Mix.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              <li>
-                <span class="tracktitle">Feu Léger <small>Fivra French Classic</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/FLEURBENUINE/MP3_FLEUR/leger/Fleur_et_Beunie_Feu_Leger_Fivra_French_Classic.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SKANK -->
-    <section id="skank" class="card artist">
-      <div class="subcard">
-        <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" />
-        <h3 class="section-kicker">Steckbrief</h3>
-        <div class="artist__bio">
-          <p>Skank Schablonski – Ruhrpott-Schnauze mit Haltung …</p>
-        </div>
-        <h3 class="section-kicker">Aktuelle Songs</h3>
-        <div class="teaser" data-target="panel-skank-kohle" role="button" tabindex="0" aria-controls="panel-skank-kohle" aria-expanded="false">
-          <img class="teaser__thumb" src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="">
-          <div class="teaser__meta">
-            <div class="teaser__title">Skank Schablonski — Kohle raus der Merz kommt</div>
-            <div class="teaser__note">Main · RMX</div>
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
+
+          <!-- Teaser: Kohle raus der Merz kommt -->
+          <div class="release teaser" data-target="panel-skank-kohle" role="button" tabindex="0" aria-controls="panel-skank-kohle" aria-expanded="false">
+            <img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="" class="cover-thumb teaser__thumb">
+            <div class="release-info teaser__meta">
+              <p class="artist-line teaser__artist">Skank Schablonski</p>
+              <p class="song-line teaser__song">Kohle raus der Merz kommt</p>
+            </div>
           </div>
-        </div>
-        <div id="panel-skank-kohle" class="panel" hidden>
-          <div class="release">
-            <img class="player__cover" src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Skank – März" />
+          <div id="panel-skank-kohle" class="release-content panel" hidden>
+            <img class="player__cover" src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Schablonski – Kohle raus der Merz kommt" loading="lazy">
             <ol class="player__tracks">
               <li>
                 <span class="tracktitle">Kohle raus der Merz kommt</span>
                 <audio controls preload="auto">
-                  <source src="artists/SKANK_SCHABLONSKI/MP3_SKANK/kohle/Skank_Kohle_raus_Main.m4a" type="audio/mp4" />
+                  <source src="artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_Main.m4a" type="audio/mp4">
                 </audio>
               </li>
               <li>
                 <span class="tracktitle">Kohle raus der Merz kommt <small>RMX</small></span>
                 <audio controls preload="auto">
-                  <source src="artists/SKANK_SCHABLONSKI/MP3_SKANK/kohle/Skank_Kohle_raus_RMX.m4a" type="audio/mp4" />
+                  <source src="artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_RMX.m4a" type="audio/mp4">
                 </audio>
               </li>
             </ol>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- SKARAMUSH -->
-    <section id="skaramush" class="card artist">
-      <div class="subcard">
-        <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" />
-        <h3 class="section-kicker">Steckbrief</h3>
-        <div class="artist__bio">
-          <p>SkaRamush Vandango – Label-Chef &amp; Mastermind …</p>
-        </div>
-        <h3 class="section-kicker">Aktuelle Songs</h3>
-        <div class="teaser" data-target="panel-vandango-fire" role="button" tabindex="0" aria-controls="panel-vandango-fire" aria-expanded="false">
-          <img class="teaser__thumb" src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="">
-          <div class="teaser__meta">
-            <div class="teaser__title">SkaRamush Vandango — Set the World on Fire</div>
-            <div class="teaser__note">Main · RMX</div>
+      <!-- === SKARAMUSH VANDANGO === -->
+      <article class="card artist" id="skaramush">
+        <h2 class="artist-name">SkaRamush Vandango</h2>
+        <img src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" class="artist-photo">
+
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            SkaRamush Vandango – kreatives Rückgrat von ROKKO! Records. Schreiben, programmieren, produzieren –
+            alles aus einer Hand …
+            <a href="#" class="bio-more-inline" data-target="bio-skaramush" aria-controls="bio-skaramush" aria-expanded="false"> … Text erweitern</a>
+          </div>
+          <div id="bio-skaramush" class="bio-full" hidden>
+            Maxime: Musik muss den Poppes zum Wackeln bringen. Lieber im Schatten die Fäden ziehen – mit Fleur,
+            Henri, Skank &amp; Co.
           </div>
         </div>
-        <div id="panel-vandango-fire" class="panel" hidden>
-          <div class="release">
-            <img class="player__cover" src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="Vandango – Fire" />
+
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
+
+          <!-- Teaser: Set the World on Fire -->
+          <div class="release teaser" data-target="panel-skaramush-fire" role="button" tabindex="0" aria-controls="panel-skaramush-fire" aria-expanded="false">
+            <img src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="" class="cover-thumb teaser__thumb">
+            <div class="release-info teaser__meta">
+              <p class="artist-line teaser__artist">SkaRamush Vandango</p>
+              <p class="song-line teaser__song">Set the World on Fire</p>
+            </div>
+          </div>
+          <div id="panel-skaramush-fire" class="release-content panel" hidden>
+            <img class="player__cover" src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="Vandango – Set the World on Fire" loading="lazy">
             <ol class="player__tracks">
               <li>
                 <span class="tracktitle">Set the World on Fire</span>
                 <audio controls preload="auto">
-                  <source src="artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/fire/Set_the_World_on_Fire_Main.m4a" type="audio/mp4" />
+                  <source src="artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/Set_fire/SkaRamush_Vandango_Set_the_World_on_fire_Original_Mix_.m4a" type="audio/mp4">
                 </audio>
               </li>
               <li>
                 <span class="tracktitle">Set the World on Fire <small>RMX</small></span>
                 <audio controls preload="auto">
-                  <source src="artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/fire/Set_the_World_on_Fire_RMX.m4a" type="audio/mp4" />
+                  <source src="artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/Set_fire/SkaRamush_Vandango_Set_the_World_on_fire.m4a" type="audio/mp4">
                 </audio>
               </li>
             </ol>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- KOMMENTAR -->
+    </section> <!-- /artists -->
+
+    <!-- ===== KOMMENTAR ===== -->
     <div class="separator separator--thin separator--label">
-      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Kommentar" />
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Kommentar">
       <span class="separator__label">KOMMENTAR</span>
     </div>
 
-    <!-- KONTAKT -->
+    <!-- ===== KONTAKT ===== -->
     <section id="contact" class="card contact">
       <h2 class="section-title">Schreib uns</h2>
       <div class="subcard">
         <form class="contact__form" onsubmit="event.preventDefault();">
           <div class="field">
             <label for="c-name">Name</label>
-            <input id="c-name" type="text" placeholder="Dein Name" />
+            <input id="c-name" type="text" placeholder="Dein Name">
           </div>
           <div class="field">
             <label for="c-mail">E-Mail</label>
-            <input id="c-mail" type="email" placeholder="dein@mail.de" />
+            <input id="c-mail" type="email" placeholder="dein@mail.de">
           </div>
           <div class="field">
             <label for="c-msg">Kommentar</label>
@@ -411,68 +385,90 @@
 
   <footer class="footer">© ROKKO Records</footer>
 
-  <!-- Scripts -->
+  <!-- ===== Inline Scripts ===== -->
   <script>
-    // Burger-Menü
-    const burger = document.querySelector('.burger');
-    const menu = document.getElementById('menu');
-    burger.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('menu--open');
-      burger.setAttribute('aria-expanded', isOpen);
-    });
+    (function(){
+      // Burger-Menü
+      const burger = document.querySelector('.burger');
+      const menu   = document.querySelector('.menu');
+      if (burger && menu){
+        burger.addEventListener('click', ()=>{
+          menu.classList.toggle('menu--open');
+          burger.setAttribute('aria-expanded', menu.classList.contains('menu--open'));
+        });
+      }
 
-    // Teaser/Panel Toggle
-    document.querySelectorAll('.teaser').forEach(teaser => {
-      teaser.addEventListener('click', () => {
-        const targetId = teaser.dataset.target;
-        const panel = document.getElementById(targetId);
-        const expanded = teaser.getAttribute('aria-expanded') === 'true';
-
-        // alles schließen
-        document.querySelectorAll('.panel').forEach(p => p.setAttribute('hidden',''));
-        document.querySelectorAll('.teaser').forEach(t => t.setAttribute('aria-expanded','false'));
-
-        if (!expanded) {
-          panel.removeAttribute('hidden');
-          teaser.setAttribute('aria-expanded','true');
-        }
-      });
-    });
-
-    // Bio erweitern
-    document.querySelectorAll('.bio-more').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.dataset.target;
-        const panel = document.getElementById(targetId);
-        const expanded = link.getAttribute('aria-expanded') === 'true';
-        if (expanded) {
-          panel.setAttribute('hidden','');
-          link.setAttribute('aria-expanded','false');
-        } else {
+      // „… Text erweitern“ (Inline am Satzende)
+      document.querySelectorAll('.bio-more-inline').forEach(link=>{
+        const id = link.getAttribute('data-target');
+        const panel = document.getElementById(id);
+        if(!panel) return;
+        link.addEventListener('click', (e)=>{
+          e.preventDefault();
           panel.removeAttribute('hidden');
           link.setAttribute('aria-expanded','true');
-        }
+          // Link ausblenden, wenn offen:
+          link.style.display = 'none';
+          setTimeout(()=>panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 120);
+        });
       });
-    });
 
-    // Nur ein Audio/Video gleichzeitig
-    const audios = document.querySelectorAll('audio');
-    const videos = document.querySelectorAll('video');
-    function stopAllMedia(except) {
-      audios.forEach(a => { if(a!==except){ a.pause(); a.currentTime=0; } });
-      videos.forEach(v => { if(v!==except){ v.pause(); v.currentTime=0; } });
-    }
-    audios.forEach(a => a.addEventListener('play',()=>stopAllMedia(a)));
-    videos.forEach(v => v.addEventListener('play',()=>stopAllMedia(v)));
+      // Teaser-Reihen: öffnen/schließen
+      document.querySelectorAll('.teaser').forEach(row=>{
+        const targetId = row.getAttribute('data-target');
+        const panel = document.getElementById(targetId);
+        if(!panel) return;
 
-    // Video Sound-Button
-    const video = document.getElementById('introVideo');
-    const soundBtn = document.getElementById('soundBtn');
-    soundBtn.addEventListener('click',()=>{
-      video.muted = !video.muted;
-      soundBtn.textContent = video.muted ? 'Ton: Aus' : 'Ton: An';
-    });
+        function toggle(){
+          const open = !panel.hasAttribute('hidden');
+          // alle schließen
+          document.querySelectorAll('.panel').forEach(p=>p.setAttribute('hidden',''));
+          document.querySelectorAll('.teaser').forEach(t=>t.setAttribute('aria-expanded','false'));
+          if (open) return; // bereits offen -> wird nur geschlossen
+          panel.removeAttribute('hidden');
+          row.setAttribute('aria-expanded','true');
+          setTimeout(()=>panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 120);
+        }
+        row.addEventListener('click', toggle);
+        row.addEventListener('keydown', e=>{
+          if (e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }
+        });
+      });
+
+      // Nur ein Audio zur Zeit
+      const audios = Array.from(document.querySelectorAll('audio'));
+      function pauseAllAudios(except=null){
+        audios.forEach(a=>{ if(a!==except && !a.paused){ try{a.pause();}catch(_){}}});
+      }
+      audios.forEach(a=>{
+        try{ a.preload = 'auto'; }catch(_){}
+        a.addEventListener('play', ()=> pauseAllAudios(a));
+      });
+
+      // Video-Sound-Toggle (Hero)
+      const heroVideo = document.getElementById('heroVideo') || document.getElementById('introVideo');
+      const soundBtn  = document.getElementById('soundToggle') || document.getElementById('soundBtn');
+      function updateSoundBtn(){
+        if(!soundBtn || !heroVideo) return;
+        soundBtn.textContent = heroVideo.muted ? 'Ton: Aus' : 'Ton: An';
+        soundBtn.setAttribute('aria-pressed', (!heroVideo.muted).toString());
+      }
+      if (heroVideo && soundBtn){
+        updateSoundBtn();
+        soundBtn.addEventListener('click', ()=>{
+          heroVideo.muted = !heroVideo.muted;
+          if (heroVideo.paused){ heroVideo.play().catch(()=>{}); }
+          if (!heroVideo.muted){ pauseAllAudios(); } // Video-Ton an -> Audios stoppen
+          updateSoundBtn();
+        });
+        heroVideo.addEventListener('click', ()=> soundBtn.click());
+      }
+
+      // (Optional) Platzhalter für künftige Dropdowns:
+      // - Social Media Links
+      // - Streaming & Downloads
+      // Später je Artist analog zu den Song-Panels einbauen.
+    })();
   </script>
 
 </body>
