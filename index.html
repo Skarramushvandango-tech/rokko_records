@@ -21,7 +21,7 @@
     <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu" id="menu">
+    <nav class="menu" id="menu" aria-label="Hauptnavigation">
       <a href="#about">Wir sind ROKKO</a>
       <a href="#henri">Henri Bellieu</a>
       <a href="#erling">Markus Erling</a>
@@ -36,7 +36,7 @@
   <section class="hero">
     <video id="introVideo" class="hero__video" autoplay muted loop playsinline
            src="assets/movies/Intro_movie.mp4"></video>
-    <button id="soundBtn" class="sound-btn" aria-label="Sound umschalten">Ton: Aus</button>
+    <button id="soundBtn" class="sound-btn" aria-pressed="false" aria-label="Ton umschalten">Ton: Aus</button>
   </section>
 
   <main>
@@ -61,20 +61,24 @@
     <!-- HENRI -->
     <section id="henri" class="card artist">
       <div class="subcard">
-        <!-- Foto immer sichtbar -->
+        <!-- Foto bleibt sichtbar -->
         <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" />
 
-        <!-- ===== Steckbrief ===== -->
+        <!-- ===== Bio: Kurzvorschau + Volltext per Button ===== -->
         <h3 class="section-kicker">Steckbrief</h3>
-        <button class="dropbtn" data-target="bio-henri" aria-controls="bio-henri" aria-expanded="false">
-          Henri Bellieu – Steckbrief öffnen
+
+        <div class="artist__bio bio-preview">
+          <p>Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: durchfroren, die Straßen von Paris entlangwandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic.</p>
+          <p>Am Piano saß Henri, mit rauchiger Stimme und Melodien, die den Raum zum Leuchten brachten. Eine Nacht voller Rotwein, Gespräche über Liebe, Leid und das Leben – und aus dieser Begegnung wuchs eine Freundschaft, die bis heute trägt.</p>
+        </div>
+
+        <button class="dropbtn bio-toggle" data-target="bio-henri" aria-controls="bio-henri" aria-expanded="false">
+          Bio erweitern
         </button>
-        <div id="bio-henri" class="panel" hidden>
-          <div class="artist__bio">
-            <p>Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: durchfroren, die Straßen von Paris entlangwandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic. Am Piano saß Henri, mit rauchiger Stimme und Melodien, die den Raum zum Leuchten brachten. Eine Nacht voller Rotwein, Gespräche über Liebe, Leid und das Leben – und aus dieser Begegnung wuchs eine Freundschaft, die bis heute trägt.</p>
-            <p>Mit Petit Colibri singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat.</p>
-            <p>Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
-          </div>
+
+        <div id="bio-henri" class="artist__bio bio-full" hidden>
+          <p>Mit Petit Colibri singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat.</p>
+          <p>Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
         </div>
 
         <!-- ===== Aktuelle Songs ===== -->
@@ -139,20 +143,23 @@
     <!-- ERLING -->
     <section id="erling" class="card artist">
       <div class="subcard">
-        <!-- Foto immer sichtbar -->
+        <!-- Foto -->
         <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" />
 
-        <!-- ===== Steckbrief ===== -->
+        <!-- Bio Preview + Volltext -->
         <h3 class="section-kicker">Steckbrief</h3>
-        <button class="dropbtn" data-target="bio-erling" aria-controls="bio-erling" aria-expanded="false">
-          Markus Erling – Steckbrief öffnen
+
+        <div class="artist__bio bio-preview">
+          <p>Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine Songs direkt aus dem eigenen Leben: Verlust, Missverständnisse, Schmerz und Liebe, gesehen durch die Augen eines Menschen, der nie so recht in eine Welt passt.</p>
+          <p>Seine neurodiverse Wahrnehmung führte zu einem Rückzug – weg von Rollen, die nie passten. Dort legte er sich Schicht für Schicht frei, und daraus wurden Songs.</p>
+        </div>
+
+        <button class="dropbtn bio-toggle" data-target="bio-erling" aria-controls="bio-erling" aria-expanded="false">
+          Bio erweitern
         </button>
-        <div id="bio-erling" class="panel" hidden>
-          <div class="artist__bio">
-            <p>Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine Songs direkt aus dem eigenen Leben: Verlust, Missverständnisse, Schmerz und Liebe, gesehen durch die Augen eines Menschen, der nie so recht in eine Welt passt, die auf Schein und leeren Versprechen ruht.</p>
-            <p>Seine neurodiverse Wahrnehmung brachte ihn irgendwann an einen Punkt der Stille. Ein Rückzug, fast wie ins Exil, weg von Rollen und Erwartungen, die nie zu ihm passten. Dort, zwischen Alleinsein und Neufindung, begann er, sich Schicht für Schicht freizulegen. Und aus diesem Prozess wuchsen die Worte, die schon lange in ihm lagen, hinein in Musik.</p>
-            <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und es ist klar, dass aus seiner Schublade noch vieles ans Licht kommen wird.</p>
-          </div>
+
+        <div id="bio-erling" class="artist__bio bio-full" hidden>
+          <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und es ist klar, dass aus seiner Schublade noch vieles ans Licht kommen wird.</p>
         </div>
 
         <!-- ===== Aktuelle Songs ===== -->
@@ -196,19 +203,25 @@
                   <source src="artists/ERLING/MP3_ERLING/regen/Erling_Der_Tag_an_dem_es_regnet.m4a" type="audio/mp4" />
                 </audio>
               </li>
-              <!-- Falls es hier eine zweite Version gibt, kannst du sie so ergänzen:
-              <li>
-                <span class="tracktitle">Der Tag an dem es regnet <small>V2</small></span>
-                <audio controls preload="auto">
-                  <source src="artists/ERLING/MP3_ERLING/regen/Erling_Der_Tag_an_dem_es_regnet_V2.m4a" type="audio/mp4" />
-                </audio>
-              </li>
-              -->
             </ol>
+          </div>
+        </div>
+
+        <!-- YouTube -->
+        <div class="youtube">
+          <div class="youtube__wrap">
+            <iframe src="https://www.youtube.com/embed/Rh53YVgsfJ4?rel=0&modestbranding=1&playsinline=1"
+                    title="Markus Erling – Video" allow="autoplay; encrypted-media"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Logo-Wallpaper -->
+    <div class="separator separator--logo">
+      <img src="assets/wallpaper/Wallpaper_logi.PNG" alt="ROKKO Wallpaper Logo" />
+    </div>
 
     <!-- FLEUR ET BEUNIÉ -->
     <section id="fleur" class="card artist">
@@ -216,21 +229,20 @@
         <!-- Foto -->
         <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" />
 
-        <!-- ===== Steckbrief ===== -->
+        <!-- Bio Preview + Volltext -->
         <h3 class="section-kicker">Steckbrief</h3>
-        <button class="dropbtn" data-target="bio-fleur" aria-controls="bio-fleur" aria-expanded="false">
-          Fleur et Beunié – Steckbrief öffnen
+        <div class="artist__bio bio-preview">
+          <p>Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille. Eine Geschichte wie im Film: Sie zieht es in die Clubs, er tauscht Bentley gegen Tonstudio.</p>
+          <p>Ein Schluck Whisky, rauchiger Gesang, ein Blick – Boom. Er suchte eine Stimme und fand die Liebe.</p>
+        </div>
+        <button class="dropbtn bio-toggle" data-target="bio-fleur" aria-controls="bio-fleur" aria-expanded="false">
+          Bio erweitern
         </button>
-        <div id="bio-fleur" class="panel" hidden>
-          <div class="artist__bio">
-            <p>Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille. Eine Geschichte, fast wie in einem Film.</p>
-            <p>Fleur, Mitte zwanzig, smart, talentiert und wunderschön, stammt aus einem kultivierten Elternhaus. Doch der Weg ins Familiengeschäft war für sie keine wirkliche Option. Es zog sie in die Club-Szene, wo sie an ihrer Gesangskarriere feilte und ihre ersten kleinen Erfolge als Sängerin erlebte.</p>
-            <p>Bernier, Anfang dreißig, gutaussehend, charismatisch und voller Talent, hatte genug vom goldenen Käfig. Bentley gegen Tonstudio, Glanz gegen Leidenschaft. Ein Schluck Whisky, ein rauchiger Gesang und ein Blick genügten – Boom. Er suchte eine Stimme und fand in Fleur die große Liebe.</p>
-            <p>Mit Feu Léger – inklusive der gefeierten FIVRA-Remixe – haben Fleur &amp; Beunié ihren Sound geprägt: jung, sexy und voller Energie, getragen von französischem Esprit und verwurzelt in der europäischen Underground-Club-Szene.</p>
-          </div>
+        <div id="bio-fleur" class="artist__bio bio-full" hidden>
+          <p>Mit „Feu Léger“ – samt gefeierter FIVRA-Remixe – prägen sie ihren Sound: jung, sexy, französischer Esprit mit Wurzeln in der europäischen Underground-Club-Szene.</p>
         </div>
 
-        <!-- ===== Aktuelle Songs ===== -->
+        <!-- Aktuelle Songs: eine Maxi mit allen Remixen -->
         <h3 class="section-kicker">Aktuelle Songs</h3>
         <button class="dropbtn" data-target="panel-fleur-leger" aria-controls="panel-fleur-leger" aria-expanded="false">
           Fleur et Beunié — Feu Léger
@@ -281,26 +293,22 @@
       </div>
     </section>
 
-    <!-- SKANK SCHABLONSKI -->
+    <!-- SKANK -->
     <section id="skank" class="card artist">
       <div class="subcard">
-        <!-- Foto -->
         <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" />
 
-        <!-- ===== Steckbrief ===== -->
         <h3 class="section-kicker">Steckbrief</h3>
-        <button class="dropbtn" data-target="bio-skank" aria-controls="bio-skank" aria-expanded="false">
-          Skank Schablonski – Steckbrief öffnen
+        <div class="artist__bio bio-preview">
+          <p>Skank Schablonski – Assi aus Iserlohn mit Ruhrpott-Kotterschnauze. Lyrisch-satirische Backpfeifen, die sitzen.</p>
+        </div>
+        <button class="dropbtn bio-toggle" data-target="bio-skank" aria-controls="bio-skank" aria-expanded="false">
+          Bio erweitern
         </button>
-        <div id="bio-skank" class="panel" hidden>
-          <div class="artist__bio">
-            <p>Skank Schablonski – der Assi aus Iserlohn. Vatta kloppte Kohle unner Tage und Mudda Annegret schnitt inne Nachbarschaft die Haare. Er wuchs auf, als typisches Blach vonne Achtziger, mit Zwille, Zwetschgenbaum und Schrebergarten.</p>
-            <p>Denn Skank, dat is nich einfach nur’n Typ, ne. Skank, dat is ’ne Marke, Junge. Mit seine Ruhrpott-Kotterschnauze, kloppta dir seine lyrisch-satirischen Backpfeifen so heftig umme Ohren, datte denks der Aschermittwoch fällt auf nen Donnerstag.</p>
-            <p>Seine aktuelle Single „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum Steppen und dat Establishment zum Weinen. Skank weiß ganz genau, wo der Frosch die Locken hat…</p>
-          </div>
+        <div id="bio-skank" class="artist__bio bio-full" hidden>
+          <p>„Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum Steppen und das Establishment zum Weinen. Skank weiß, wo der Frosch die Locken hat…</p>
         </div>
 
-        <!-- ===== Aktuelle Songs ===== -->
         <h3 class="section-kicker">Aktuelle Songs</h3>
         <button class="dropbtn" data-target="panel-skank-kohle" aria-controls="panel-skank-kohle" aria-expanded="false">
           Skank Schablonski — Kohle raus der Merz kommt
@@ -312,13 +320,13 @@
               <li>
                 <span class="tracktitle">Kohle raus der Merz kommt</span>
                 <audio controls preload="auto">
-                  <source src="artists/SKANK_SCHABLONSKI/MP3_SKANK/kohle/Skank_Schablonski_Kohle_raus_der_Merz_kommt_Main.m4a" type="audio/mp4" />
+                  <source src="artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_Main.m4a" type="audio/mp4" />
                 </audio>
               </li>
               <li>
                 <span class="tracktitle">Kohle raus der Merz kommt <small>RMX</small></span>
                 <audio controls preload="auto">
-                  <source src="artists/SKANK_SCHABLONSKI/MP3_SKANK/kohle/Skank_Schablonski_Kohle_raus_der_Merz_kommt_RMX.m4a" type="audio/mp4" />
+                  <source src="artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_RMX.m4a" type="audio/mp4" />
                 </audio>
               </li>
             </ol>
@@ -330,23 +338,19 @@
     <!-- SKARAMUSH VANDANGO -->
     <section id="skaramush" class="card artist">
       <div class="subcard">
-        <!-- Foto -->
         <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" />
 
-        <!-- ===== Steckbrief ===== -->
         <h3 class="section-kicker">Steckbrief</h3>
-        <button class="dropbtn" data-target="bio-skaramush" aria-controls="bio-skaramush" aria-expanded="false">
-          SkaRamush Vandango – Steckbrief öffnen
+        <div class="artist__bio bio-preview">
+          <p>SkaRamush Vandango – kreatives Rückgrat von ROKKO! Records. Schreiben, programmieren, produzieren – alles aus einer Hand.</p>
+        </div>
+        <button class="dropbtn bio-toggle" data-target="bio-skaramush" aria-controls="bio-skaramush" aria-expanded="false">
+          Bio erweitern
         </button>
-        <div id="bio-skaramush" class="panel" hidden>
-          <div class="artist__bio">
-            <p>SkaRamush Vandango ist kein gewöhnlicher Künstler – er ist das kreative Rückgrat von ROKKO! Records, Label-Chef und Mastermind hinter sämtlichen Produktionen. Alles, was hier entsteht, trägt seine Handschrift: geschrieben, programmiert, produziert. Denn seine Liebe zur Musik kennt keine Grenzen – weder Genre noch Persönlichkeit halten ihn auf.</p>
-            <p>Hochgewachsen im Ruhrpott, mit goldener Stimme, großer Klappe und einem Hang zu starken Texten, folgt er nur einer Maxime: Musik muss den Poppes zum Wackeln bringen.</p>
-            <p>Und wenn er selbst bei seinen Tracks nicht grinst, gilt: Was er nicht gut findet, ist schlichtweg scheiße. Im weisen Alter angekommen, wirkt SkaRamush gelassen und doch voller Energie. Seine neurodiverse Perspektive lässt ihn fern vom Rampenlicht bleiben – lieber zieht er im Schatten die Fäden. In seiner kreativen Garage warten Fleur et Beunié, Henri Bellieu, Skank Schablonski und viele mehr, die durch seine Ideen Gestalt annehmen.</p>
-          </div>
+        <div id="bio-skaramush" class="artist__bio bio-full" hidden>
+          <p>Maxime: Musik muss den Poppes zum Wackeln bringen. Lieber im Schatten die Fäden ziehen – mit Fleur, Henri, Skank &amp; Co.</p>
         </div>
 
-        <!-- ===== Aktuelle Songs ===== -->
         <h3 class="section-kicker">Aktuelle Songs</h3>
         <button class="dropbtn" data-target="panel-skaramush-fire" aria-controls="panel-skaramush-fire" aria-expanded="false">
           SkaRamush Vandango — Set the World on Fire
@@ -403,51 +407,80 @@
 
   <footer class="footer">© ROKKO Records</footer>
 
-  <!-- Scripts -->
+  <!-- Inline JS: Menü, Dropdowns, Bio-Expand, Media-Handling -->
   <script>
-    // Burger-Menü
-    const burger = document.querySelector('.burger');
-    const menu = document.getElementById('menu');
-    burger.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('menu--open');
-      burger.setAttribute('aria-expanded', isOpen);
-    });
+    (function(){
+      const burger   = document.querySelector('.burger');
+      const menu     = document.getElementById('menu');
+      const video    = document.getElementById('introVideo');
+      const soundBtn = document.getElementById('soundBtn');
 
-    // Dropdowns
-    document.querySelectorAll('.dropbtn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const panel = document.getElementById(btn.dataset.target);
-        const isOpen = !panel.hasAttribute('hidden');
-        document.querySelectorAll('.panel').forEach(p => p.setAttribute('hidden',''));
-        document.querySelectorAll('.dropbtn').forEach(b => b.setAttribute('aria-expanded','false'));
-        if (!isOpen) {
-          panel.removeAttribute('hidden');
-          btn.setAttribute('aria-expanded','true');
-        }
+      // Burger-Menü
+      if (burger && menu){
+        burger.addEventListener('click', ()=>{
+          const open = menu.classList.toggle('menu--open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      // Panels (Songs)
+      document.querySelectorAll('.dropbtn:not(.bio-toggle)').forEach(btn=>{
+        const id = btn.getAttribute('data-target');
+        const panel = document.getElementById(id);
+        if(!panel) return;
+        btn.addEventListener('click', ()=>{
+          const willOpen = panel.hasAttribute('hidden');
+          panel.toggleAttribute('hidden');
+          btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+          if (willOpen) setTimeout(()=>panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 120);
+        });
       });
-    });
 
-    // Nur ein Audio/Video gleichzeitig
-    const audios = document.querySelectorAll('audio');
-    const videos = document.querySelectorAll('video');
-    function stopAllMedia(except){
-      audios.forEach(a => { if(a!==except){ a.pause(); a.currentTime=0; } });
-      videos.forEach(v => { if(v!==except){ v.pause(); v.currentTime=0; } });
-    }
-    audios.forEach(a => {
-      a.addEventListener('play',()=>stopAllMedia(a));
-    });
-    videos.forEach(v => {
-      v.addEventListener('play',()=>stopAllMedia(v));
-    });
+      // Bio-Vorschau auf-/zuklappen
+      document.querySelectorAll('.bio-toggle').forEach(btn=>{
+        const panel = document.getElementById(btn.dataset.target);
+        if(!panel) return;
+        btn.addEventListener('click', ()=>{
+          const willOpen = panel.hasAttribute('hidden');
+          panel.toggleAttribute('hidden');
+          btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+          btn.textContent = willOpen ? 'Bio reduzieren' : 'Bio erweitern';
+          if (willOpen) setTimeout(()=>panel.scrollIntoView({behavior:'smooth', block:'nearest'}), 120);
+        });
+      });
 
-    // Video Sound-Button
-    const video = document.getElementById('introVideo');
-    const soundBtn = document.getElementById('soundBtn');
-    soundBtn.addEventListener('click',()=>{
-      video.muted = !video.muted;
-      soundBtn.textContent = video.muted ? 'Ton: Aus' : 'Ton: An';
-    });
+      // Media: nur ein Audio/Video gleichzeitig
+      const audios = Array.from(document.querySelectorAll('audio'));
+      const videos = Array.from(document.querySelectorAll('video'));
+      function pauseAllMedia(except=null){
+        audios.forEach(a=>{ if(a!==except && !a.paused){ try{a.pause();}catch(e){} }});
+        // Video stoppen wir nicht komplett (läuft als Loop), aber stumm schalten wir, wenn Audio spielt
+      }
+      audios.forEach(a=>{
+        try{ a.preload = 'auto'; }catch(e){}
+        a.addEventListener('play', ()=>{
+          pauseAllMedia(a);
+          if (video && !video.muted){ video.muted = true; updateVideoBtn(); }
+        });
+      });
+
+      // Video-Sound-Button
+      function updateVideoBtn(){
+        if (!soundBtn || !video) return;
+        soundBtn.textContent = 'Ton: ' + (video.muted ? 'Aus' : 'An');
+        soundBtn.setAttribute('aria-pressed', (!video.muted).toString());
+      }
+      if (soundBtn && video){
+        updateVideoBtn();
+        soundBtn.addEventListener('click', ()=>{
+          video.muted = !video.muted;
+          if (video.paused){ video.play().catch(()=>{}); }
+          if (!video.muted){ pauseAllMedia(); } // Video-Sound an -> Audios pausieren
+          updateVideoBtn();
+        });
+        video.addEventListener('click', ()=> soundBtn.click());
+      }
+    })();
   </script>
 
 </body>
