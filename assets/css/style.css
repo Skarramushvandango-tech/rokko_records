@@ -1,139 +1,36 @@
 :root{
-  /* Farben */
-  --navy:#04151F;           /* innerer Rahmen / Fokus / Header */
-  --sand:#F5F3BB;           /* Seitenhintergrund + heller Text */
-  --deep:#303A2B;           /* Kartenfläche (dunkel-grünlich, bleibt Fläche) */
-  --accent:#B36728;         /* äußerer Rahmen (Braun) */
-
-  /* Maße */
+  --navy:#04151F;           /* Header + innere Rahmen */
+  --sand:#F5F3BB;           /* Seitenhintergrund */
+  --deep:#303A2B;           /* Kartenfläche */
+  --navy:#04151F;         /* äußerer Rahmen (Rostorange) */
   --radius:16px;
   --inner-radius:12px;
   --card-w:min(780px,92vw);
+  --border-outer:1px solid var(--accent);
   --wallpaper-thin:160px;
 }
 
-/* ===== Global ===== */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 img{display:block;max-width:100%;height:auto}
-:focus,:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
-*{-webkit-tap-highlight-color:rgba(0,0,0,0)}
-a,a:visited,a:hover,a:active{color:inherit;text-decoration:none}
 
 body{background:var(--sand);color:#111;font:400 16px/1.6 system-ui,Arial}
 
-/* ===== Header ===== */
-.site-header{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 18px;background:var(--navy);color:var(--sand);
-  box-shadow:0 4px 14px rgba(0,0,0,.25);
-}
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:12px 18px;background:var(--navy);color:var(--sand);box-shadow:0 4px 14px rgba(0,0,0,.25);}
 .brand{display:flex;align-items:center;gap:12px}
 .brand__logo{width:52px}
 .brand__top{font:800 22px/1.05 system-ui}
 .brand__bottom{font:800 14px/1.05 system-ui;letter-spacing:1.8px}
 .burger{background:none;border:0;display:grid;gap:4px;padding:8px;cursor:pointer}
 .burger span{width:26px;height:2px;background:var(--sand)}
-.menu{
-  position:fixed;right:14px;top:64px;background:rgba(4,21,31,.92);
-  border:1px solid #11212a;border-radius:14px;padding:10px 0;display:none;min-width:240px;
-  backdrop-filter:blur(6px)
-}
+.menu{position:fixed;right:14px;top:64px;background:rgba(4,21,31,.92);
+  border:1px solid #11212a;border-radius:14px;padding:10px 0;display:none;min-width:240px;backdrop-filter:blur(6px)}
 .menu--open{display:block}
 .menu a{display:block;color:#eaf0f3;text-decoration:none;padding:12px 16px;font:600 14px system-ui}
 .menu a:hover{background:#132630}
 
-/* ===== Hero ===== */
+/* Hero */
 .hero{width:100vw;height:38vh;min-height:240px;position:relative;overflow:hidden;background:#000}
-.hero__video{width:100%;height:100%;object-fit:cover}
-
-/* Sound-Pille (statt Emoji) */
-.sound-pill{
-  position:absolute;right:12px;bottom:12px;
-  background:rgba(4,21,31,.6);color:var(--sand);
-  border:1px solid rgba(245,243,187,.2);
-  padding:8px 12px;border-radius:9999px;
-  font:600 14px/1 system-ui;cursor:pointer;
-  backdrop-filter:blur(4px)
-}
-.sound-pill:focus{outline:2px solid var(--navy);outline-offset:2px}
-
-/* ===== Karten – außen Braun, innen Blau (sichtbar) ===== */
-.card{
-  background:var(--deep);
-  border:2px solid var(--accent, #B36728) !important;   /* ERZWINGT BRAUN außen */
-  box-shadow: inset 0 0 0 3px var(--navy, #04151F) !important;  /* ERZWINGT BLAU innen */
-  border-radius:var(--radius);
-  padding:20px;margin:40px auto;max-width:var(--card-w);
-  color:#fff;
-}
-
-/* Innenflächen ohne extra Rahmen */
-.subcard{
-  background:rgba(0,0,0,.2);
-  border-radius:var(--inner-radius);
-  padding:14px;margin-top:12px;
-}
-
-/* ===== Artist-Foto – 65%/70%, außen Braun + innen Blau ===== */
-.artist-photo{
-  width:65%;max-width:100%;height:auto;
-  margin:0 auto 12px auto;
-  border-radius:var(--inner-radius);
-  border:2px solid var(--accent, #B36728) !important;          /* außen Braun */
-  box-shadow: inset 0 0 0 3px var(--navy, #04151F) !important; /* innen Blau  */
-}
-@media (max-width:768px){ .artist-photo{width:70%} }
-
-/* Artist-Namen über Bildern verstecken – sicherheitshalber hart */
-.artist-name{ display:none !important; }
-
-/* ===== Bio ===== */
-.bio-head{font-weight:800;color:var(--sand);margin-right:6px}
-.bio .bio-preview{color:var(--sand)}
-.bio .bio-preview a{color:var(--sand);text-decoration:underline}
-.bio .bio-preview a:visited,.bio .bio-preview a:hover,.bio .bio-preview a:active{color:var(--sand)} /* bleibt sandfarben */
-
-/* ===== Song-Buttons (volle Breite) ===== */
-.teaser{
-  -webkit-appearance:none;appearance:none;
-  display:flex;width:100%;align-items:center;gap:12px;
-  margin-top:12px;padding:10px 12px;
-  border:2px solid var(--accent, #B36728) !important;  /* außen Braun */
-  border-radius:var(--inner-radius);
-  background:rgba(255,255,255,.03);text-align:left;cursor:pointer;
-}
-.teaser:focus{outline:2px solid var(--navy);outline-offset:2px}
-.teaser__thumb{
-  width:72px;height:72px;object-fit:cover;
-  border:2px solid var(--accent, #B36728) !important;
-  border-radius:8px;
-}
-.teaser__meta{display:flex;flex-direction:column;align-items:flex-start}
-.teaser__artist{color:#d9dfd6;font-weight:600;font-size:14px;line-height:1.1}
-.teaser__song{color:#fff;font-weight:800;font-size:16px;line-height:1.1}
-
-/* Panel unter dem Button */
-.panel{
-  margin-top:10px;padding:10px;
-  border:2px solid var(--accent, #B36728) !important;
-  border-radius:var(--inner-radius);
-  background:rgba(0,0,0,.25);
-}
-
-/* Separator-Bild und Formularfelder bekommen auch Braun außen */
-.separator{margin:48px auto;text-align:center}
-.separator img{max-width:100%;height:auto;border:2px solid var(--accent, #B36728) !important;border-radius:var(--radius)}
-.separator__label{display:block;margin-top:6px;font-weight:700;color:#222}
-
-.contact__form{display:flex;flex-direction:column;gap:14px}
-.field label{display:block;margin-bottom:4px;color:#eee}
-.field input,.field textarea{
-  width:100%;padding:8px 10px;background:#111;color:#fff;
-  border:2px solid var(--accent, #B36728) !important;border-radius:8px;
-}
-.btn-send{background:var(--accent);color:#fff;border:0;padding:12px;border-radius:8px;cursor:not-allowed;font-weight:600}
-
-/* Footer */
-.footer{ text-align:center;padding:16px;border-top:2px solid var(--accent, #B36728) !important;margin-top:40px;color:#ccc;font-size:14px }
+.hero__video{
