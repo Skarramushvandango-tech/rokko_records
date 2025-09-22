@@ -1,35 +1,26 @@
-/* =========================
-   ROKKO Records – Global CSS
-   ========================= */
 :root{
-  --navy:#04151F;           /* Blau: Header + Innenrahmen + Teaser-Background */
-  --sand:#F5F3BB;           /* Sand: Textfarbe + allgemeiner Kontrast */
-  --deep:#303A2B;           /* Kartenfläche (dunkles Grau) */
-  --accent:#3E6B68;         /* Grün: Außenrahmen + Akzente */
+  --navy:#04151F;           /* Header + innere Rahmen */
+  --sand:#F5F3BB;           /* Seitenhintergrund */
+  --deep:#303A2B;           /* Kartenfläche */
+  --accent:#B36728;         /* äußerer Rahmen (neu: Rostorange) */
   --radius:16px;
   --inner-radius:12px;
-  --card-w:min(780px,92vw);
+  --card-w:min(780px,92vw); /* Standardbreite */
   --border-outer:1px solid var(--accent);
-  --wallpaper-thin:160px;
+  --wallpaper-thin:160px;   /* Höhe für schlanke Trenner */
 }
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 img{display:block;max-width:100%;height:auto}
-button{font:inherit}
 
-/* =========================
-   Grundtypografie
-   ========================= */
 body{
   background:var(--sand);
   color:#111;
-  font:400 16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  font:400 16px/1.6 ui-sans-serif,system-ui,Arial;
 }
 
-/* =========================
-   Header / Navigation
-   ========================= */
+/* ===== Header ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
@@ -39,220 +30,134 @@ body{
 .brand{display:flex;align-items:center;gap:12px}
 .brand__logo{width:52px;height:auto}
 .brand__title{line-height:1}
-.brand__top{display:block;font:800 22px/1.05 system-ui;color:var(--sand)}
-.brand__bottom{display:block;font:800 14px/1.05 system-ui;letter-spacing:1.8px;color:var(--sand)}
-
+.brand__top{display:block;font:800 22px/1.05 system-ui}
+.brand__bottom{display:block;font:800 14px/1.05 system-ui;letter-spacing:1.8px}
 .burger{background:transparent;border:0;display:grid;gap:4px;padding:8px;cursor:pointer}
 .burger span{width:26px;height:2px;background:var(--sand);border-radius:2px}
-
 .menu{
   position:fixed;right:14px;top:64px;background:rgba(4,21,31,.92);
   border:1px solid #11212a;border-radius:14px;padding:10px 0;display:none;min-width:240px;
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  z-index:60;max-height:min(70vh,520px);overflow:auto;
+  backdrop-filter:blur(6px)
 }
 .menu--open{display:block}
-.menu a{display:block;color:var(--sand);text-decoration:none;padding:12px 16px;font:600 14px system-ui}
+.menu a{display:block;color:#eaf0f3;text-decoration:none;padding:12px 16px;font:600 14px system-ui}
 .menu a:hover{background:#132630}
 
-/* sichtbarerer Tastaturfokus */
-.burger:focus-visible,
-.menu a:focus-visible,
-.sound-btn:focus-visible,
-.btn-send:focus-visible,
-.teaser:focus-visible,
-.bio-more:focus-visible{
-  outline:2px solid var(--sand);
-  outline-offset:2px;
-  border-radius:8px;
-}
-
-/* =========================
-   Hero / Intro-Video
-   ========================= */
+/* ===== Hero / Intro-Video ===== */
 .hero{
-  width:100dvw;max-width:100%;
+  width:100vw;max-width:100vw;
   margin-left:50%;transform:translateX(-50%);
   height:38vh;min-height:240px;
   position:relative;overflow:hidden;background:#000;
 }
-@supports not (width:100dvw){ .hero{width:100vw} }
 .hero__video{width:100%;height:100%;object-fit:cover}
 .sound-btn{
   position:absolute;right:12px;bottom:12px;
   padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);
-  background:rgba(4,21,31,.72);color:var(--sand);font-weight:800;letter-spacing:.2px;
-  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);cursor:pointer
+  background:rgba(4,21,31,.72);color:#fff;font-weight:800;letter-spacing:.2px;backdrop-filter:blur(4px);
+  cursor:pointer
 }
 
-/* =========================
-   Layout / Cards
-   ========================= */
+/* ===== Main Layout ===== */
 main{display:grid;place-items:center;gap:34px;padding:22px 0}
 
+/* ===== Karten & Rahmen ===== */
 .card{
-  width:var(--card-w);
-  background:var(--deep);
-  color:var(--sand);
-  border-radius:var(--radius);
-  padding:18px;
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
-  border:var(--border-outer); /* grüner Außenrahmen */
+  width:var(--card-w);background:var(--deep);color:var(--sand);
+  border-radius:var(--radius);padding:18px;box-shadow:0 8px 20px rgba(0,0,0,.25);
+  border:var(--border-outer);
 }
-.section-title{
-  margin:2px 0 12px;
-  font:900 22px/1.2 system-ui;
-  letter-spacing:.3px;
-  color:var(--sand);
-}
+.section-title{margin:2px 0 12px;font:900 22px/1.2 system-ui;letter-spacing:.3px;color:var(--sand)}
 
-/* =========================
-   Subcard (blauer Innenrahmen)
-   ========================= */
-.subcard{
-  padding:14px;display:grid;gap:14px;
-  background:var(--navy);color:var(--sand);
-  border:1px solid var(--navy);border-radius:var(--inner-radius);
-}
-.artist{display:grid;gap:16px}
-.artist__photo{width:100%;border-radius:12px;background:#222;object-fit:contain}
+/* Innere Rahmen – kompromisslos Header-Blau */
+.subcard,
 .subcard .artist__photo,
 .subcard .player__cover,
-.subcard .youtube__wrap{border:1px solid var(--navy);border-radius:var(--inner-radius)}
-
-/* =========================
-   Steckbrief / Bio
-   ========================= */
-.section-kicker{
-  margin:6px 0 8px;
-  font:800 18px/1.3 system-ui;
-  color:var(--sand);
-  letter-spacing:.5px;
-  text-transform:uppercase;
+.subcard .covers img,
+.subcard .youtube__wrap{
+  border:1px solid var(--navy) !important;
+  border-radius:var(--inner-radius);
+}
+.subcard{
+  padding:14px;background:rgba(0,0,0,.12);
+  display:grid;gap:12px
 }
 
-.bio-preview{display:grid;gap:8px}
-.bio-full{display:grid;gap:8px;margin-top:6px}
-.bio-full[hidden]{display:none}
+.artist{display:grid;gap:16px}
+.artist__photo{width:100%;border-radius:12px;background:#222;object-fit:contain}
 
-.bio-more{
-  display:inline-block;
-  margin-top:6px;
-  color:var(--sand);
-  text-decoration:underline;
-  text-underline-offset:2px;
-}
-.bio-more:hover{opacity:.9}
-
-/* =========================
-   Song-Teaser-Reihen (anstelle von Buttons)
-   ========================= */
-.teaser{
-  display:flex;align-items:center;gap:12px;
-  width:100%;
-  background:transparent; /* liegt auf blauem Subcard-Hintergrund */
-  color:var(--sand);
-  padding:12px 10px;
-  border-radius:10px;
-  cursor:pointer;
-  user-select:none;
-  border:1px solid transparent;
-  transition:background-color .12s ease, transform .06s ease, border-color .12s ease;
-}
-.teaser:hover{background:rgba(255,255,255,.04);transform:translateY(-1px);border-color:rgba(62,107,104,.4)}
-.teaser[aria-expanded="true"]{background:rgba(255,255,255,.06);border-color:var(--accent)}
-
-.teaser__thumb{
-  width:56px;height:56px;flex:0 0 56px;
-  border-radius:8px;object-fit:cover;background:#000;
-  border:1px solid var(--accent);
-}
-.teaser__meta{display:grid;gap:2px;min-width:0}
-.teaser__title{font:800 15px/1.2 system-ui;color:var(--sand);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.teaser__note{font:600 12px/1.3 system-ui;opacity:.9;color:var(--sand)}
-
-/* Ein-/Ausklapp-Panels für Tracks */
-.panel[hidden]{display:none}
-.panel{margin:8px 0 14px}
-
-/* =========================
-   Releases / Player / Abstände
-   ========================= */
-.release{display:grid;gap:12px}
-.release + .release{margin-top:28px}
-.player__cover{width:100%;border-radius:12px;background:#222;object-fit:contain}
-.player__tracks{list-style:decimal inside;margin:0;padding:0;display:grid;gap:12px}
-.player__tracks li{display:grid;gap:6px}
-.tracktitle{font-weight:800;color:var(--sand)}
-.tracktitle small{font-weight:700;font-size:.9em;opacity:.95}
-audio{width:100%}
-
-/* =========================
-   YouTube
-   ========================= */
-.youtube__wrap{
-  position:relative;width:100%;
-  aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000
-}
-.youtube__wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-
-/* =========================
-   Separatoren / Wallpaper
-   ========================= */
+/* ===== Separatoren / Wallpaper ===== */
 .separator{width:var(--card-w);margin:6px auto;position:relative}
 .separator img{
   width:100%;border-radius:var(--radius);
   box-shadow:0 6px 14px rgba(0,0,0,.18);border:var(--border-outer)
 }
-.separator--thin img,.separator--label img{height:var(--wallpaper-thin);object-fit:cover}
-.separator--logo img{width:100%;height:auto !important;object-fit:contain;background:#000;border-radius:var(--radius)}
+.separator--thin img,
+.separator--label img{
+  height:var(--wallpaper-thin);
+  object-fit:cover;
+}
+.separator--logo img{
+  width:100%;height:auto !important;
+  object-fit:contain;background:#000;border-radius:var(--radius);
+}
 .separator--label{margin-top:18px;margin-bottom:8px}
 .separator__label{
   position:absolute;inset:0;display:grid;place-items:center;
   font:900 clamp(24px,6vw,48px)/1.1 system-ui;
-  color:var(--sand);text-transform:uppercase;letter-spacing:2px;
-  text-shadow:0 3px 12px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.9);
+  color:#fff;text-transform:uppercase;letter-spacing:2px;
+  text-shadow:0 3px 12px rgba(0,0,0,.55),0 1px 2px rgba(0,0,0,.9);
   pointer-events:none;
 }
 
-/* =========================
-   Kontakt
-   ========================= */
+/* ===== Player / Cover ===== */
+.release{display:grid;gap:24px} /* Abstand zwischen Releases erhöht */
+.release-preview{
+  display:flex;align-items:center;gap:14px;
+  padding:10px;border:1px solid var(--navy);border-radius:var(--inner-radius);
+  background:rgba(4,21,31,.35);cursor:pointer;transition:.3s;
+}
+.release-preview:hover{background:rgba(4,21,31,.55)}
+.release-preview img{width:60px;height:60px;object-fit:cover;border-radius:8px}
+.release-preview div{display:grid}
+.release-preview strong{color:var(--sand);font:700 15px/1.2 system-ui}
+.release-preview span{color:var(--sand);font:600 13px/1.3 system-ui}
+
+.player__cover{width:100%;border-radius:12px;background:#222;object-fit:contain}
+.player__tracks{list-style:decimal inside;margin:0;padding:0;display:grid;gap:10px}
+.player__tracks li{display:grid;gap:6px}
+.player__tracks span{font-weight:800;color:var(--sand)}
+audio{width:100%}
+.covers{display:flex;flex-wrap:wrap;gap:10px}
+.covers img{width:calc(50% - 5px);min-width:200px;border-radius:10px;background:#222;object-fit:contain}
+
+/* ===== Bio ===== */
+.bio-text{color:var(--sand);font:400 15px/1.6 system-ui}
+.bio-more{color:var(--sand);font:600 14px/1.6 system-ui;cursor:pointer}
+
+/* ===== Kontakt ===== */
 .contact__form{display:grid;gap:12px}
 .field{display:grid;gap:6px}
-.field label{font-weight:800;color:var(--sand)}
+.field label{font-weight:800}
 .field input,.field textarea{
-  border-radius:10px;border:1px solid #274357;background:#0f1920;color:var(--sand);padding:10px 12px
+  border-radius:10px;border:1px solid #274357;background:#0f1920;color:#eaf0f3;padding:10px 12px
 }
 .btn-send{
   justify-self:start;padding:10px 16px;border-radius:999px;border:1px solid #274357;
-  background:#122233;color:var(--sand);font-weight:900;opacity:.7;cursor:not-allowed
+  background:#122233;color:#a7c4d8;font-weight:900;opacity:.7;cursor:not-allowed
 }
+.contact__hint{margin:0;color:#cfd7dd;font-size:.9rem}
 
-/* =========================
-   Footer
-   ========================= */
+/* ===== Footer ===== */
 .footer{color:#2c2c2c;font:600 13px/1.6 system-ui;text-align:center;padding:30px 0 50px}
 
-/* =========================
-   Motion / Accessibility
-   ========================= */
-@media (prefers-reduced-motion: reduce){
-  .hero__video{animation:none;transition:none}
-  .teaser{transition:none}
-}
-
-/* =========================
-   Responsive
-   ========================= */
-@media (max-width: 900px) and (orientation: landscape){
-  :root{ --card-w: min(780px, 60vw); }
-  .hero{ height:32vh; }
-  .menu{ top:56px; }
+/* ===== Responsive ===== */
+@media (max-width:900px) and (orientation:landscape){
+  :root{--card-w:min(780px,60vw)}
+  .hero{height:32vh}
+  .menu{top:56px}
 }
 @media (max-width:480px){
   .brand__top{font-size:19px}
   .brand__bottom{font-size:13px}
-  .teaser__thumb{width:50px;height:50px;flex-basis:50px}
-  .teaser__title{font-size:14px}
 }
