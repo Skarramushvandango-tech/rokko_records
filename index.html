@@ -5,10 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ROKKO! Records</title>
 
-  <!-- Stylesheet mit Cache-Buster (holt sicher die neueste CSS) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=7" />
+  <!-- Hotfix: Erzwingt Farben & Rahmen -->
+  <style>
+    :root{
+      --accent:#B36728 !important; /* außen Braun */
+      --navy:#04151F !important;   /* innen Blau */
+    }
+    .card,
+    .artist-photo,
+    .teaser,
+    .panel,
+    .separator img,
+    .field input, .field textarea {
+      border:2px solid #B36728 !important;           /* außen Braun */
+      box-shadow: inset 0 0 0 3px #04151F !important;/* innen Blau */
+      border-radius: 12px;
+    }
+    .artist-name{display:none !important;} /* keine Titel über Fotos */
+  </style>
 
-  <!-- Optionales Skript (falls vorhanden) -->
+  <!-- Stylesheet mit Cache-Buster -->
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
+
+  <!-- Optionales Skript -->
   <script defer src="assets/js/main.js"></script>
 </head>
 <body>
@@ -37,14 +56,12 @@
       <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
       Dein Browser unterstützt kein HTML5-Video.
     </video>
-
-    <!-- Text-Pille (kein Emoji) -->
     <button class="sound-pill" id="soundToggle" aria-controls="heroVideo" aria-pressed="false">
       Ton: Aus
     </button>
   </section>
 
-  <!-- ===== ABOUT / WIR SIND ROKKO ===== -->
+  <!-- ===== ABOUT ===== -->
   <main>
     <article class="card" id="about">
       <h2 class="section-title">Wir sind ROKKO!</h2>
@@ -65,136 +82,46 @@
 
     <!-- ===== ARTISTS ===== -->
     <section class="artists" id="artists">
-
-      <!-- === HENRI BELLIEU === -->
       <article class="card artist" id="henri">
         <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo" />
-
-        <!-- Bio (aus assets/data/bios.html) -->
         <div class="subcard bio" data-bio="henri">
           <div class="bio-preview"></div>
           <div class="bio-full" hidden></div>
         </div>
-
-        <!-- Songs -->
-        <div class="subcard music">
-          <h3 class="section-title">Aktuelle Songs</h3>
-
-          <button class="release teaser" data-target="panel-henri-lafemme" aria-controls="panel-henri-lafemme" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Cover: La Femme – Henri Bellieu">
-            <div class="teaser__meta">
-              <div class="teaser__artist">Henri Bellieu</div>
-              <div class="teaser__song">La Femme</div>
-            </div>
-          </button>
-          <div id="panel-henri-lafemme" class="panel release-content" hidden>
-            <audio controls preload="none" aria-label="Henri Bellieu – La Femme (Main)">
-              <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Henri Bellieu – La Femme (V deux)">
-              <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" type="audio/mp4">
-            </audio>
-          </div>
-
-          <button class="release teaser" data-target="panel-henri-colibri" aria-controls="panel-henri-colibri" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Cover: Petit Colibri – Henri Bellieu">
-            <div class="teaser__meta">
-              <div class="teaser__artist">Henri Bellieu</div>
-              <div class="teaser__song">Petit Colibri</div>
-            </div>
-          </button>
-          <div id="panel-henri-colibri" class="panel release-content" hidden>
-            <audio controls preload="none" aria-label="Henri Bellieu – Petit Colibri (Main)">
-              <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Main.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Henri Bellieu – Petit Colibri (Ennio Mix)">
-              <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Ennio_Mix.m4a" type="audio/mp4">
-            </audio>
-          </div>
-        </div>
       </article>
 
-      <!-- === FLEUR ET BEUNIÉ === -->
       <article class="card artist" id="fleur">
         <img src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" class="artist-photo" />
-
         <div class="subcard bio" data-bio="fleur">
           <div class="bio-preview"></div>
           <div class="bio-full" hidden></div>
         </div>
-
-        <div class="subcard music">
-          <h3 class="section-title">Aktuelle Songs</h3>
-
-          <button class="release teaser" data-target="panel-fleur-leger" aria-controls="panel-fleur-leger" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Cover: Feu Léger – Fleur et Beunié">
-            <div class="teaser__meta">
-              <div class="teaser__artist">Fleur et Beunié</div>
-              <div class="teaser__song">Feu Léger</div>
-            </div>
-          </button>
-          <div id="panel-fleur-leger" class="panel release-content" hidden>
-            <audio controls preload="none" aria-label="Fleur et Beunié – Feu Léger (Main)">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_Main.m4a" type="audio/mp4">
-            </audio>
-            <audio controls preload="none" aria-label="Fleur et Beunié – Feu Léger (RMX)">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_RMX.m4a" type="audio/mp4">
-            </audio>
-          </div>
-        </div>
       </article>
 
-      <!-- === MARKUS ERLING === -->
       <article class="card artist" id="erling">
         <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" class="artist-photo" />
-
         <div class="subcard bio" data-bio="erling">
           <div class="bio-preview"></div>
           <div class="bio-full" hidden></div>
         </div>
-
-        <div class="subcard music">
-          <h3 class="section-title">Aktuelle Songs</h3>
-
-          <button class="release teaser" data-target="panel-erling-schlafen" aria-controls="panel-erling-schlafen" aria-expanded="false">
-            <img class="teaser__thumb" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Cover: Endlich Schlafen – Markus Erling">
-            <div class="teaser__meta">
-              <div class="teaser__artist">Markus Erling</div>
-              <div class="teaser__song">Endlich Schlafen</div>
-            </div>
-          </button>
-          <div id="panel-erling-schlafen" class="panel release-content" hidden>
-            <a href="artists/ERLING/Cover/erling_endlich_schlafen.PNG" target="_blank" rel="noopener">
-              <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Cover Endlich Schlafen">
-            </a>
-            <audio controls preload="none" aria-label="Markus Erling – Endlich Schlafen (Main)">
-              <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_endlich%20schlafen.m4a" type="audio/mp4">
-            </audio>
-          </div>
-        </div>
       </article>
 
-      <!-- === SKANK SCHABLONSKI === -->
       <article class="card artist" id="skank">
         <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" class="artist-photo" />
-
         <div class="subcard bio" data-bio="skank">
           <div class="bio-preview"></div>
           <div class="bio-full" hidden></div>
         </div>
       </article>
 
-      <!-- === SKARAMUSH VANDANGO === -->
       <article class="card artist" id="skaramush">
         <img src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" class="artist-photo" />
-
         <div class="subcard bio" data-bio="skaramush">
           <div class="bio-preview"></div>
           <div class="bio-full" hidden></div>
         </div>
       </article>
-
-    </section> <!-- /artists -->
+    </section>
 
     <!-- ===== KOMMENTAR ===== -->
     <div class="separator separator--thin separator--label">
@@ -227,92 +154,63 @@
 
   <footer class="footer">© ROKKO Records</footer>
 
-  <!-- ===== Inline Script ===== -->
+  <!-- ===== Scripts ===== -->
   <script>
-    // Utils
     const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 
-    // Burger-Menü
-    (()=>{
-      const btn=document.querySelector('.burger');
-      const menu=document.getElementById('mainmenu');
+    // Burger
+    (()=>{const btn=document.querySelector('.burger');const menu=document.getElementById('mainmenu');
       if(!btn||!menu) return;
       btn.addEventListener('click', ()=>{
-        const open = menu.classList.toggle('menu--open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        const open=menu.classList.toggle('menu--open');
+        btn.setAttribute('aria-expanded', open ? 'true':'false');
       });
     })();
 
     // Nur ein Audio gleichzeitig
     const audios=$$('audio');
-    function pauseOthers(except){ audios.forEach(a=>{ if(a!==except) a.pause(); }); }
+    function pauseOthers(except){audios.forEach(a=>{if(a!==except)a.pause();});}
     audios.forEach(a=> a.addEventListener('play', ()=>pauseOthers(a)));
 
     // Video-Sound-Pille
     const video=document.getElementById('heroVideo');
     const soundBtn=document.getElementById('soundToggle');
     if(video && soundBtn){
-      const updateLabel=()=> soundBtn.textContent = video.muted ? 'Ton: Aus' : 'Ton: An';
+      const updateLabel=()=> soundBtn.textContent=video.muted?'Ton: Aus':'Ton: An';
       updateLabel();
       soundBtn.addEventListener('click', ()=>{
         video.muted=!video.muted;
         updateLabel();
-        soundBtn.setAttribute('aria-pressed', String(!video.muted));
         if(!video.muted) pauseOthers();
-        if(video.paused){ video.play().catch(()=>{}); }
+        if(video.paused){video.play().catch(()=>{});}
       });
     }
 
-    // Bios aus einer Datei laden
+    // Bios laden
     (async ()=>{
       try{
-        const res = await fetch('assets/data/bios.html?v=7', {cache:'no-store'});
-        const html = await res.text();
-        const doc  = new DOMParser().parseFromString(html, 'text/html');
-
+        const res=await fetch('assets/data/bios.html?v=8',{cache:'no-store'});
+        const html=await res.text();
+        const doc=new DOMParser().parseFromString(html,'text/html');
         document.querySelectorAll('.bio[data-bio]').forEach(block=>{
-          const key = block.getAttribute('data-bio');
-          const src = doc.querySelector(`article[data-bio="${key}"]`);
-          if(!src) return;
-
-          const paras = Array.from(src.querySelectorAll('p'));
-          const previewText = paras[0]?.innerHTML?.trim() || '';
-          const fullHTML    = paras.slice(1).map(p=>p.outerHTML).join('') || '';
-
-          const previewEl = block.querySelector('.bio-preview');
-          const fullEl    = block.querySelector('.bio-full');
-
-          // Headline „Biografie:“ + Vorschau + Link (Link bleibt visuell sandfarben)
-          if(previewEl){
-            previewEl.innerHTML = `<strong class="bio-head">Biografie:</strong> ${previewText} <a href="#" class="bio-more-inline" aria-expanded="false">… zum Weiterlesen bitte ausklappen</a>`;
-          }
-          if(fullEl){ fullEl.innerHTML = fullHTML; }
-
-          const link = block.querySelector('.bio-more-inline');
-          if(link){
-            link.addEventListener('click', e=>{
-              e.preventDefault();
-              fullEl.hidden=false;
-              link.style.display='none';
-            });
-          }
+          const key=block.getAttribute('data-bio');
+          const src=doc.querySelector(`article[data-bio="${key}"]`);
+          if(!src)return;
+          const paras=Array.from(src.querySelectorAll('p'));
+          const preview=paras[0]?.innerHTML||'';
+          const full=paras.slice(1).map(p=>p.outerHTML).join('');
+          block.querySelector('.bio-preview').innerHTML =
+            `<strong>Biografie:</strong> ${preview} <a href="#" class="bio-more-inline">… Weiterlesen</a>`;
+          block.querySelector('.bio-full').innerHTML=full;
+          const link=block.querySelector('.bio-more-inline');
+          if(link){link.addEventListener('click',e=>{
+            e.preventDefault();
+            block.querySelector('.bio-full').hidden=false;
+            link.style.display='none';
+          });}
         });
-      }catch(e){ console.error('Bios konnten nicht geladen werden:', e); }
+      }catch(e){console.error(e);}
     })();
-
-    // Teaser Panels: nur eins offen
-    const panels=$$('.panel');
-    function closePanels(){ panels.forEach(p=>p.hidden=true); $$('.teaser').forEach(t=>t.setAttribute('aria-expanded','false')); }
-    function openPanel(btn,panel){ closePanels(); if(panel){ panel.hidden=false; btn.setAttribute('aria-expanded','true'); } }
-    $$('.teaser').forEach(btn=>{
-      const id=btn.dataset.target; const panel=document.getElementById(id);
-      btn.addEventListener('click', ()=>openPanel(btn,panel));
-      btn.addEventListener('keydown', e=>{
-        if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPanel(btn,panel); }
-        if(e.key==='Escape'){ closePanels(); btn.focus(); }
-      });
-    });
-    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePanels(); });
   </script>
 </body>
 </html>
