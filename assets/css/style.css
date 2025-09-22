@@ -2,22 +2,25 @@
    ROKKO Records – Global CSS
    ========================= */
 :root{
-  --navy:#04151F;           /* Header + innere Rahmen + Button-Hintergrund */
+  --navy:#04151F;           /* Header + innerer Rahmen + Button-Hintergrund (blau) */
   --sand:#F5F3BB;           /* Seitenhintergrund + Standardtext */
-  --deep:#303A2B;           /* Kartenfläche */
-  --accent:#3E6B68;         /* äußerer Rahmen (grün) + Button-Text */
+  --deep:#303A2B;           /* Kartenfläche (dunkles Grau) */
+  --accent:#3E6B68;         /* äußerer Rahmen + Button-Text (grün) */
   --radius:16px;
   --inner-radius:12px;
   --card-w:min(780px,92vw); /* Standardbreite */
   --border-outer:1px solid var(--accent);
-  --wallpaper-thin:160px;   /* Höhe schlanke Trenner */
+  --wallpaper-thin:160px;   /* Höhe für schlanke Trenner */
 }
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 img{display:block;max-width:100%;height:auto}
+button{font:inherit}
 
-/* Grundtypografie */
+/* =========================
+   Grundtypografie
+   ========================= */
 body{
   background:var(--sand);
   color:#111;
@@ -25,7 +28,7 @@ body{
 }
 
 /* =========================
-   Header / Nav
+   Header / Navigation
    ========================= */
 .site-header{
   position:sticky;top:0;z-index:50;
@@ -52,17 +55,19 @@ body{
 .menu a{display:block;color:var(--sand);text-decoration:none;padding:12px 16px;font:600 14px system-ui}
 .menu a:hover{background:#132630}
 
-/* Fokus sichtbar */
+/* Sichtbarer Tastaturfokus */
 .burger:focus-visible,
 .menu a:focus-visible,
 .sound-btn:focus-visible,
 .dropbtn:focus-visible,
 .btn-send:focus-visible{
-  outline:2px solid var(--sand);outline-offset:2px
+  outline:2px solid var(--sand);
+  outline-offset:2px;
+  border-radius:8px;
 }
 
 /* =========================
-   Hero / Video
+   Hero / Intro-Video
    ========================= */
 .hero{
   width:100dvw;max-width:100%;
@@ -83,38 +88,52 @@ body{
 }
 
 /* =========================
-   Main Layout / Cards
+   Main / Kartenlayout
    ========================= */
 main{display:grid;place-items:center;gap:34px;padding:22px 0}
 
 .card{
-  width:var(--card-w);background:var(--deep);color:var(--sand);
-  border-radius:var(--radius);padding:18px;box-shadow:0 8px 20px rgba(0,0,0,.25);
-  border:var(--border-outer);
+  width:var(--card-w);
+  background:var(--deep);
+  color:var(--sand);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  border:var(--border-outer);           /* grüner Außenrahmen */
 }
-.section-title{margin:2px 0 12px;font:900 22px/1.2 system-ui;letter-spacing:.3px;color:var(--sand)}
+.section-title{
+  margin:2px 0 12px;
+  font:900 22px/1.2 system-ui;
+  letter-spacing:.3px;
+  color:var(--sand);
+}
 
-/* Subcards = innerer Rahmen dunkelblau */
+/* =========================
+   Subcard = blauer Innenrahmen
+   ========================= */
 .subcard{
-  padding:14px;display:grid;gap:12px;
-  background:var(--navy)!important;color:var(--sand);
-  border:1px solid var(--navy)!important;border-radius:var(--inner-radius);
+  padding:14px;display:grid;gap:14px;
+  background:var(--navy)!important;
+  color:var(--sand);
+  border:1px solid var(--navy)!important;  /* blauer Innenrahmen */
+  border-radius:var(--inner-radius);
 }
+.artist{display:grid;gap:16px}
+.artist__photo{width:100%;border-radius:12px;background:#222;object-fit:contain}
+
 .subcard .artist__photo,
 .subcard .player__cover,
 .subcard .covers img,
 .subcard .youtube__wrap{
-  border:1px solid var(--navy)!important;border-radius:var(--inner-radius);
+  border:1px solid var(--navy)!important;
+  border-radius:var(--inner-radius);
 }
 
-.artist{display:grid;gap:16px}
-.artist__photo{width:100%;border-radius:12px;background:#222;object-fit:contain}
-
 /* =========================
-   Abschnitt-Kicker („Steckbrief“, „Aktuelle Songs“)
+   Sektion-Kicker („Steckbrief“, „Aktuelle Songs“)
    ========================= */
 .section-kicker{
-  margin:14px 0 10px;
+  margin:6px 0 8px;
   font:800 18px/1.3 system-ui;
   color:var(--sand);
   letter-spacing:.5px;
@@ -122,7 +141,7 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
 }
 
 /* =========================
-   Dropdown-Buttons (groß) – Blau mit grüner Schrift
+   Dropdown-Buttons (groß) – BLAU mit GRÜNER Schrift
    ========================= */
 .dropbtn{
   width:100%;
@@ -130,31 +149,27 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
   padding:16px 18px;
   border-radius:12px;
   border:1px solid var(--accent);
-  background:var(--navy);
-  color:var(--accent);
+  background:var(--navy);     /* blau */
+  color:var(--accent);        /* grün */
   font:800 16px/1.2 system-ui;
   letter-spacing:.2px;
   cursor:pointer;
   transition:transform .06s ease, box-shadow .12s ease, background-color .12s ease, color .12s ease;
-  margin:6px 0 10px;
+  margin:4px 0 10px;
 }
 .dropbtn:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.18)}
 .dropbtn[aria-expanded="true"]{box-shadow:inset 0 0 0 1px var(--accent)}
-/* optionales Caret */
-.dropbtn::after{
-  content:"▾"; font-size:14px; line-height:1;
-}
+.dropbtn::after{content:"▾"; font-size:14px; line-height:1}
 .dropbtn[aria-expanded="true"]::after{content:"▴"}
 
-/* Panels (ein-/ausklappbar) */
 .panel[hidden]{display:none}
-.panel{margin:4px 0 14px}
+.panel{margin:2px 0 12px}
 
 /* =========================
-   Releases / Player
+   Releases / Player / Abstände
    ========================= */
-.release{display:grid;gap:10px}
-.release + .release{margin-top:26px} /* Abstand zwischen Maxis */
+.release{display:grid;gap:12px}
+.release + .release{margin-top:28px} /* deutlicher Abstand zwischen Maxis */
 .player__cover{width:100%;border-radius:12px;background:#222;object-fit:contain}
 
 .player__tracks{
@@ -165,6 +180,15 @@ main{display:grid;place-items:center;gap:34px;padding:22px 0}
 .tracktitle{font-weight:800;color:var(--sand)}
 .tracktitle small{font-weight:700;font-size:.9em;opacity:.95}
 audio{width:100%}
+
+/* =========================
+   YouTube
+   ========================= */
+.youtube__wrap{
+  position:relative;width:100%;
+  aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000
+}
+.youtube__wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* =========================
    Separatoren / Wallpaper
@@ -182,7 +206,6 @@ audio{width:100%}
   object-fit:contain;
   background:#000;border-radius:var(--radius);
 }
-
 .separator--label{margin-top:18px;margin-bottom:8px}
 .separator__label{
   position:absolute;inset:0;display:grid;place-items:center;
@@ -191,15 +214,6 @@ audio{width:100%}
   text-shadow:0 3px 12px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.9);
   pointer-events:none;
 }
-
-/* =========================
-   YouTube Embed
-   ========================= */
-.youtube__wrap{
-  position:relative;width:100%;
-  aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000
-}
-.youtube__wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* =========================
    Kontakt
@@ -215,8 +229,6 @@ audio{width:100%}
   background:#122233;color:var(--sand);font-weight:900;opacity:.7;cursor:not-allowed
 }
 .btn-send[disabled]{opacity:.7;cursor:not-allowed}
-.btn-send:not([disabled]){opacity:1;cursor:pointer}
-.btn-send:not([disabled]):hover{filter:brightness(1.08)}
 
 /* =========================
    Footer
@@ -224,11 +236,11 @@ audio{width:100%}
 .footer{color:#2c2c2c;font:600 13px/1.6 system-ui;text-align:center;padding:30px 0 50px}
 
 /* =========================
-   Motion / Accessibility
+   Barrierefreiheit / Motion
    ========================= */
 @media (prefers-reduced-motion: reduce){
-  .hero__video{animation:none;transition:none}
   .dropbtn{transition:none}
+  .hero__video{animation:none;transition:none}
 }
 
 /* =========================
