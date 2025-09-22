@@ -2,7 +2,7 @@
   --navy:#04151F;           /* Header + innere Rahmen */
   --sand:#F5F3BB;           /* Textfarbe & Seitenhintergrund */
   --deep:#303A2B;           /* Kartenfläche */
-  --accent:#B36728;         /* äußerer Rahmen (Rostorange) */
+  --accent:#483D03;         /* äußerer Rahmen (Rostorange) */
   --radius:16px;
   --inner-radius:12px;
   --card-w:min(780px,92vw); /* Standardbreite */
