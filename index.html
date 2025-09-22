@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROKKO! Records</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Cache-Bust erzwingt Laden der aktuellen CSS -->
+  <link rel="stylesheet" href="assets/css/style.css?v=2025-09-22-1">
   <script defer src="assets/js/main.js"></script>
 </head>
 <body>
@@ -54,15 +55,14 @@
         </p>
       </div>
     </article>
-   <!-- ===== ARTISTS ===== -->
-    <section class="artists" id="artists">
 
+    <!-- ===== ARTISTS ===== -->
+    <section class="artists" id="artists">
       <!-- === HENRI BELLIEU === -->
       <article class="card artist" id="henri">
         <h2 class="artist-name">Henri Bellieu</h2>
         <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo">
-
-        <!-- Bio -->
+       <!-- Bio -->
         <div class="subcard bio">
           <div class="bio-preview">
             Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen 
@@ -143,20 +143,20 @@
           </div>
           <div id="panel-fleur-leger" class="panel release-content" hidden>
             <audio controls preload="auto">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger_Main.m4a" type="audio/mp4">
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_Main.m4a" type="audio/mp4">
             </audio>
             <audio controls preload="auto">
-              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger_RMX.m4a" type="audio/mp4">
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger/Feu_Leger_RMX.m4a" type="audio/mp4">
             </audio>
           </div>
         </div>
       </article>
-     <!-- === MARKUS ERLING === -->
+
+      <!-- === MARKUS ERLING === -->
       <article class="card artist" id="erling">
         <h2 class="artist-name">Markus Erling</h2>
         <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" class="artist-photo">
-
-        <!-- Bio -->
+       <!-- Bio -->
         <div class="subcard bio">
           <div class="bio-preview">
             Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine
@@ -226,8 +226,9 @@
         </div>
       </article>
 
-    </section> <!-- /artists →
-   <!-- ===== KOMMENTAR ===== -->
+    </section> <!-- /artists -->
+
+    <!-- ===== KOMMENTAR ===== -->
     <div class="separator separator--thin separator--label">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Kommentar">
       <span class="separator__label">KOMMENTAR</span>
@@ -301,40 +302,3 @@
   </script>
 </body>
 </html>
-:root{
-  --navy:#04151F;           /* Header + innere Rahmen */
-  --sand:#F5F3BB;           /* Seitenhintergrund */
-  --deep:#303A2B;           /* Kartenfläche */
-  --accent:#B36728;         /* äußerer Rahmen (Rostorange) */
-  --radius:16px;
-  --inner-radius:12px;
-  --card-w:min(780px,92vw);
-  --border-outer:1px solid var(--accent);
-  --wallpaper-thin:160px;
-}
-
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-img{display:block;max-width:100%;height:auto}
-
-body{background:var(--sand);color:#111;font:400 16px/1.6 system-ui,Arial}
-
-/* Header */
-.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:12px 18px;background:var(--navy);color:var(--sand);box-shadow:0 4px 14px rgba(0,0,0,.25);}
-.brand{display:flex;align-items:center;gap:12px}
-.brand__logo{width:52px}
-.brand__top{font:800 22px/1.05 system-ui}
-.brand__bottom{font:800 14px/1.05 system-ui;letter-spacing:1.8px}
-.burger{background:none;border:0;display:grid;gap:4px;padding:8px;cursor:pointer}
-.burger span{width:26px;height:2px;background:var(--sand)}
-.menu{position:fixed;right:14px;top:64px;background:rgba(4,21,31,.92);
-  border:1px solid #11212a;border-radius:14px;padding:10px 0;display:none;min-width:240px;backdrop-filter:blur(6px)}
-.menu--open{display:block}
-.menu a{display:block;color:#eaf0f3;text-decoration:none;padding:12px 16px;font:600 14px system-ui}
-.menu a:hover{background:#132630}
-
-/* Hero */
-.hero{width:100vw;height:38vh;min-height:240px;position:relative;overflow:hidden;background:#000}
-.hero__video{
-
