@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROKKO! Records</title>
-
-  <!-- Hotfix: Erzwingt Farben & Rahmen -->
-  <style>
-    :root{
-      --accent:#B36728 !important; /* außen Braun */
-      --navy:#04151F !important;   /* innen Blau */
-    }
-    .card,
-    .artist-photo,
-    .teaser,
-    .panel,
-    .separator img,
-    .field input, .field textarea {
-      border:2px solid #B36728 !important;           /* außen Braun */
-      box-shadow: inset 0 0 0 3px #04151F !important;/* innen Blau */
-      border-radius: 12px;
-    }
-    .artist-name{display:none !important;} /* keine Titel über Fotos */
-  </style>
-
-  <!-- Stylesheet mit Cache-Buster -->
-  <link rel="stylesheet" href="assets/css/style.css?v=8">
-
-  <!-- Optionales Skript -->
+  <link rel="stylesheet" href="assets/css/style.css">
   <script defer src="assets/js/main.js"></script>
 </head>
 <body>
   <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="brand">
-      <img src="assets/Images/Logo.png" alt="ROKKO Records Logo" class="brand__logo" />
+      <img src="assets/Images/Logo.png" alt="ROKKO Records Logo" class="brand__logo">
       <div class="brand__title">
         <span class="brand__top">ROKKO!</span>
         <span class="brand__bottom">Records</span>
       </div>
     </div>
-    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainmenu">
+    <button class="burger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu" id="mainmenu">
+    <nav class="menu">
       <a href="#about">Wir sind Rokko</a>
       <a href="#artists">Artists</a>
       <a href="#contact">Kontakt</a>
@@ -53,15 +30,13 @@
   <!-- ===== HERO VIDEO ===== -->
   <section class="hero">
     <video autoplay muted loop playsinline class="hero__video" id="heroVideo">
-      <source src="assets/movies/Intro_movie.mp4" type="video/mp4" />
+      <source src="assets/movies/Intro_movie.mp4" type="video/mp4">
       Dein Browser unterstützt kein HTML5-Video.
     </video>
-    <button class="sound-pill" id="soundToggle" aria-controls="heroVideo" aria-pressed="false">
-      Ton: Aus
-    </button>
+    <button class="sound-btn" id="soundToggle">🔊</button>
   </section>
 
-  <!-- ===== ABOUT ===== -->
+  <!-- ===== ABOUT / WIR SIND ROKKO ===== -->
   <main>
     <article class="card" id="about">
       <h2 class="section-title">Wir sind ROKKO!</h2>
@@ -79,51 +54,180 @@
         </p>
       </div>
     </article>
-
-    <!-- ===== ARTISTS ===== -->
+   <!-- ===== ARTISTS ===== -->
     <section class="artists" id="artists">
+
+      <!-- === HENRI BELLIEU === -->
       <article class="card artist" id="henri">
-        <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo" />
-        <div class="subcard bio" data-bio="henri">
-          <div class="bio-preview"></div>
-          <div class="bio-full" hidden></div>
+        <h2 class="artist-name">Henri Bellieu</h2>
+        <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo">
+
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen 
+            in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn …
+            <a href="#" class="bio-more-inline" data-target="bio-henri" aria-controls="bio-henri" aria-expanded="false"> … Text erweitern</a>
+          </div>
+          <div id="bio-henri" class="bio-full" hidden>
+            Mit Petit Colibri singt Henri von einer Frau, die längst aus seinem Leben 
+            verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner 
+            Songs trägt diese Ehrlichkeit …
+          </div>
+        </div>
+
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
+          <div class="release teaser" data-target="panel-henri-lafemme" role="button" tabindex="0">
+            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="">
+            <div class="teaser__meta">
+              <div class="teaser__artist">Henri Bellieu</div>
+              <div class="teaser__song">La Femme</div>
+            </div>
+          </div>
+          <div id="panel-henri-lafemme" class="panel release-content" hidden>
+            <audio controls preload="auto">
+              <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a" type="audio/mp4">
+            </audio>
+            <audio controls preload="auto">
+              <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" type="audio/mp4">
+            </audio>
+          </div>
+
+          <div class="release teaser" data-target="panel-henri-colibri" role="button" tabindex="0">
+            <img class="teaser__thumb" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="">
+            <div class="teaser__meta">
+              <div class="teaser__artist">Henri Bellieu</div>
+              <div class="teaser__song">Petit Colibri</div>
+            </div>
+          </div>
+          <div id="panel-henri-colibri" class="panel release-content" hidden>
+            <audio controls preload="auto">
+              <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Main.m4a" type="audio/mp4">
+            </audio>
+            <audio controls preload="auto">
+              <source src="artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite%20Colibri_Ennio_Mix.m4a" type="audio/mp4">
+            </audio>
+          </div>
         </div>
       </article>
 
+      <!-- === FLEUR ET BEUNIÉ === -->
       <article class="card artist" id="fleur">
-        <img src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" class="artist-photo" />
-        <div class="subcard bio" data-bio="fleur">
-          <div class="bio-preview"></div>
-          <div class="bio-full" hidden></div>
+        <h2 class="artist-name">Fleur et Beunié</h2>
+        <img src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" class="artist-photo">
+
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille, 
+            irgendwo zwischen Clubnächten und Glanzlichtern …
+            <a href="#" class="bio-more-inline" data-target="bio-fleur" aria-controls="bio-fleur" aria-expanded="false"> … Text erweitern</a>
+          </div>
+          <div id="bio-fleur" class="bio-full" hidden>
+            Mit Feu Léger – inklusive gefeierter Remixe – haben Fleur &amp; Beunié 
+            ihren Sound geprägt: jung, sexy, voller Energie, getragen von französischem Esprit.
+          </div>
+        </div>
+
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
+          <div class="release teaser" data-target="panel-fleur-leger" role="button" tabindex="0">
+            <img class="teaser__thumb" src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="">
+            <div class="teaser__meta">
+              <div class="teaser__artist">Fleur et Beunié</div>
+              <div class="teaser__song">Feu Léger</div>
+            </div>
+          </div>
+          <div id="panel-fleur-leger" class="panel release-content" hidden>
+            <audio controls preload="auto">
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger_Main.m4a" type="audio/mp4">
+            </audio>
+            <audio controls preload="auto">
+              <source src="artists/FLEURBENUINE/MP3_FLEUR/Feu_Leger_RMX.m4a" type="audio/mp4">
+            </audio>
+          </div>
         </div>
       </article>
-
+     <!-- === MARKUS ERLING === -->
       <article class="card artist" id="erling">
-        <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" class="artist-photo" />
-        <div class="subcard bio" data-bio="erling">
-          <div class="bio-preview"></div>
-          <div class="bio-full" hidden></div>
+        <h2 class="artist-name">Markus Erling</h2>
+        <img src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" class="artist-photo">
+
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine
+            Songs direkt aus dem eigenen Leben … 
+            <a href="#" class="bio-more-inline" data-target="bio-erling"> … Text erweitern</a>
+          </div>
+          <div id="bio-erling" class="bio-full" hidden>
+            Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent 
+            der Artists bei ROKKO! Records …
+          </div>
+        </div>
+
+        <!-- Songs -->
+        <div class="subcard music">
+          <h3 class="section-subtitle">Aktuelle Songs</h3>
+
+          <!-- Endlich Schlafen -->
+          <div class="release teaser" data-target="panel-erling-schlafen">
+            <img class="teaser__thumb" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="">
+            <div class="teaser__meta">
+              <div class="teaser__artist">Markus Erling</div>
+              <div class="teaser__song">Endlich Schlafen</div>
+            </div>
+          </div>
+          <div id="panel-erling-schlafen" class="panel release-content" hidden>
+            <a href="artists/ERLING/Cover/erling_endlich_schlafen.PNG" target="_blank" rel="noopener">
+              <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Cover Endlich Schlafen">
+            </a>
+            <audio controls preload="auto">
+              <source src="artists/ERLING/MP3_ERLING/schlafen/Erling_endlich%20schlafen.m4a" type="audio/mp4">
+            </audio>
+          </div>
         </div>
       </article>
 
+      <!-- === SKANK SCHABLONSKI === -->
       <article class="card artist" id="skank">
-        <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" class="artist-photo" />
-        <div class="subcard bio" data-bio="skank">
-          <div class="bio-preview"></div>
-          <div class="bio-full" hidden></div>
+        <h2 class="artist-name">Skank Schablonski</h2>
+        <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" class="artist-photo">
+
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            Skank Schablonski – der Assi aus Iserlohn … 
+            <a href="#" class="bio-more-inline" data-target="bio-skank"> … Text erweitern</a>
+          </div>
+          <div id="bio-skank" class="bio-full" hidden>
+            Seine aktuelle Single „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum Steppen …
+          </div>
         </div>
       </article>
 
+      <!-- === SKARAMUSH VANDANGO === -->
       <article class="card artist" id="skaramush">
-        <img src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" class="artist-photo" />
-        <div class="subcard bio" data-bio="skaramush">
-          <div class="bio-preview"></div>
-          <div class="bio-full" hidden></div>
+        <h2 class="artist-name">SkaRamush Vandango</h2>
+        <img src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" class="artist-photo">
+
+        <!-- Bio -->
+        <div class="subcard bio">
+          <div class="bio-preview">
+            SkaRamush Vandango – Label-Chef & Mastermind … 
+            <a href="#" class="bio-more-inline" data-target="bio-skaramush"> … Text erweitern</a>
+          </div>
+          <div id="bio-skaramush" class="bio-full" hidden>
+            Alles, was hier entsteht, trägt seine Handschrift – geschrieben, programmiert, produziert …
+          </div>
         </div>
       </article>
-    </section>
 
-    <!-- ===== KOMMENTAR ===== -->
+    </section> <!-- /artists →
+   <!-- ===== KOMMENTAR ===== -->
     <div class="separator separator--thin separator--label">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Kommentar">
       <span class="separator__label">KOMMENTAR</span>
@@ -154,63 +258,46 @@
 
   <footer class="footer">© ROKKO Records</footer>
 
-  <!-- ===== Scripts ===== -->
+  <!-- ===== Inline Script ===== -->
   <script>
-    const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
-
-    // Burger
-    (()=>{const btn=document.querySelector('.burger');const menu=document.getElementById('mainmenu');
-      if(!btn||!menu) return;
-      btn.addEventListener('click', ()=>{
-        const open=menu.classList.toggle('menu--open');
-        btn.setAttribute('aria-expanded', open ? 'true':'false');
-      });
-    })();
-
     // Nur ein Audio gleichzeitig
-    const audios=$$('audio');
-    function pauseOthers(except){audios.forEach(a=>{if(a!==except)a.pause();});}
+    const audios = document.querySelectorAll('audio');
+    function pauseOthers(except){ audios.forEach(a=>{ if(a!==except) a.pause(); }); }
     audios.forEach(a=> a.addEventListener('play', ()=>pauseOthers(a)));
 
-    // Video-Sound-Pille
+    // Video-Sound-Button
     const video=document.getElementById('heroVideo');
     const soundBtn=document.getElementById('soundToggle');
     if(video && soundBtn){
-      const updateLabel=()=> soundBtn.textContent=video.muted?'Ton: Aus':'Ton: An';
-      updateLabel();
       soundBtn.addEventListener('click', ()=>{
         video.muted=!video.muted;
-        updateLabel();
+        soundBtn.textContent=video.muted?'Ton: Aus':'Ton: An';
         if(!video.muted) pauseOthers();
-        if(video.paused){video.play().catch(()=>{});}
       });
     }
 
-    // Bios laden
-    (async ()=>{
-      try{
-        const res=await fetch('assets/data/bios.html?v=8',{cache:'no-store'});
-        const html=await res.text();
-        const doc=new DOMParser().parseFromString(html,'text/html');
-        document.querySelectorAll('.bio[data-bio]').forEach(block=>{
-          const key=block.getAttribute('data-bio');
-          const src=doc.querySelector(`article[data-bio="${key}"]`);
-          if(!src)return;
-          const paras=Array.from(src.querySelectorAll('p'));
-          const preview=paras[0]?.innerHTML||'';
-          const full=paras.slice(1).map(p=>p.outerHTML).join('');
-          block.querySelector('.bio-preview').innerHTML =
-            `<strong>Biografie:</strong> ${preview} <a href="#" class="bio-more-inline">… Weiterlesen</a>`;
-          block.querySelector('.bio-full').innerHTML=full;
-          const link=block.querySelector('.bio-more-inline');
-          if(link){link.addEventListener('click',e=>{
-            e.preventDefault();
-            block.querySelector('.bio-full').hidden=false;
-            link.style.display='none';
-          });}
+    // Bio expandieren
+    document.querySelectorAll('.bio-more-inline').forEach(link=>{
+      const id=link.dataset.target;
+      const panel=document.getElementById(id);
+      if(panel){
+        link.addEventListener('click',e=>{
+          e.preventDefault();
+          panel.hidden=false;
+          link.style.display='none';
         });
-      }catch(e){console.error(e);}
-    })();
+      }
+    });
+
+    // Teaser Panels
+    document.querySelectorAll('.teaser').forEach(teaser=>{
+      const id=teaser.dataset.target;
+      const panel=document.getElementById(id);
+      teaser.addEventListener('click',()=>{
+        document.querySelectorAll('.panel').forEach(p=>p.hidden=true);
+        if(panel) panel.hidden=false;
+      });
+    });
   </script>
 </body>
 </html>
