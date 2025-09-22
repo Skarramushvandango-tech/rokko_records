@@ -34,8 +34,6 @@
     </nav>
   </header>
 
-  <h1 class="visually-hidden">ROKKO Records</h1>
-
   <!-- Intro-Video -->
   <section class="hero">
     <video id="introVideo" class="hero__video" autoplay muted loop playsinline
@@ -64,22 +62,30 @@
 
     <!-- HENRI -->
     <section id="henri" class="card artist">
-      <div class="subcard">
-        <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" />
-        <div class="artist__bio">
-          <p>Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: durchfroren, die Straßen von Paris entlangwandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic. Am Piano saß Henri, mit rauchiger Stimme und Melodien, die den Raum zum Leuchten brachten. Eine Nacht voller Rotwein, Gespräche über Liebe, Leid und das Leben – und aus dieser Begegnung wuchs eine Freundschaft, die bis heute trägt.</p>
-          <p>Mit Petit Colibri singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat.</p>
-          <p>Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
+      <!-- ===== Steckbrief ===== -->
+      <h3 class="section-kicker">Steckbrief</h3>
+      <button class="dropbtn" data-target="bio-henri" aria-controls="bio-henri" aria-expanded="false">
+        Henri Bellieu – Steckbrief öffnen
+      </button>
+      <div id="bio-henri" class="panel" hidden>
+        <div class="subcard">
+          <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" />
+          <div class="artist__bio">
+            <p>Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: durchfroren, die Straßen von Paris entlangwandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic. Am Piano saß Henri, mit rauchiger Stimme und Melodien, die den Raum zum Leuchten brachten. Eine Nacht voller Rotwein, Gespräche über Liebe, Leid und das Leben – und aus dieser Begegnung wuchs eine Freundschaft, die bis heute trägt.</p>
+            <p>Mit Petit Colibri singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat.</p>
+            <p>Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.</p>
+          </div>
         </div>
       </div>
 
-      <h3 class="music-sep">Musik</h3>
+      <!-- ===== Aktuelle Songs ===== -->
+      <h3 class="section-kicker">Aktuelle Songs</h3>
 
-      <!-- Dropdown: La Femme -->
-      <button class="music-toggle" data-target="panel-henri-lafemme" aria-expanded="false" aria-controls="panel-henri-lafemme">
+      <!-- La Femme -->
+      <button class="dropbtn" data-target="panel-henri-lafemme" aria-controls="panel-henri-lafemme" aria-expanded="false">
         Henri Bellieu — La Femme
       </button>
-      <div id="panel-henri-lafemme" class="music-panel" hidden>
+      <div id="panel-henri-lafemme" class="panel" hidden>
         <div class="subcard">
           <div class="release">
             <img class="player__cover" src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Henri – La Femme" />
@@ -101,11 +107,11 @@
         </div>
       </div>
 
-      <!-- Dropdown: petite colibri -->
-      <button class="music-toggle" data-target="panel-henri-petite" aria-expanded="false" aria-controls="panel-henri-petite">
+      <!-- petite colibri -->
+      <button class="dropbtn" data-target="panel-henri-petite" aria-controls="panel-henri-petite" aria-expanded="false">
         Henri Bellieu — petite colibri
       </button>
-      <div id="panel-henri-petite" class="music-panel" hidden>
+      <div id="panel-henri-petite" class="panel" hidden>
         <div class="subcard">
           <div class="release">
             <img class="player__cover" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Henri – petite colibri" />
@@ -136,25 +142,33 @@
 
     <!-- ERLING -->
     <section id="erling" class="card artist">
-      <div class="subcard">
-        <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" />
-        <div class="artist__bio">
-          <p>Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine Songs direkt aus dem eigenen Leben: Verlust, Missverständnisse, Schmerz und Liebe, gesehen durch die Augen eines Menschen, der nie so recht in eine Welt passt, die auf Schein und leeren Versprechen ruht.</p>
-          <p>Seine neurodiverse Wahrnehmung brachte ihn irgendwann an einen Punkt der Stille. Ein Rückzug, fast wie ins Exil, weg von Rollen und Erwartungen, die nie zu ihm passten. Dort, zwischen Alleinsein und Neufindung, begann er, sich Schicht für Schicht freizulegen. Und aus diesem Prozess wuchsen die Worte, die schon lange in ihm lagen, hinein in Musik.</p>
-          <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und es ist klar, dass aus seiner Schublade noch vieles ans Licht kommen wird.</p>
+      <!-- ===== Steckbrief ===== -->
+      <h3 class="section-kicker">Steckbrief</h3>
+      <button class="dropbtn" data-target="bio-erling" aria-controls="bio-erling" aria-expanded="false">
+        Markus Erling – Steckbrief öffnen
+      </button>
+      <div id="bio-erling" class="panel" hidden>
+        <div class="subcard">
+          <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling" />
+          <div class="artist__bio">
+            <p>Texte sind für ihn mehr als Worte – sie sind ein Ventil. Markus Erling zieht seine Songs direkt aus dem eigenen Leben: Verlust, Missverständnisse, Schmerz und Liebe, gesehen durch die Augen eines Menschen, der nie so recht in eine Welt passt, die auf Schein und leeren Versprechen ruht.</p>
+            <p>Seine neurodiverse Wahrnehmung brachte ihn irgendwann an einen Punkt der Stille. Ein Rückzug, fast wie ins Exil, weg von Rollen und Erwartungen, die nie zu ihm passten. Dort, zwischen Alleinsein und Neufindung, begann er, sich Schicht für Schicht freizulegen. Und aus diesem Prozess wuchsen die Worte, die schon lange in ihm lagen, hinein in Musik.</p>
+            <p>Heute ist er nicht nur Stimme seiner eigenen Songs, sondern auch Produzent der Artists bei ROKKO! records. Mit jedem Track öffnet er neue Räume – und es ist klar, dass aus seiner Schublade noch vieles ans Licht kommen wird.</p>
+          </div>
         </div>
       </div>
 
-      <h3 class="music-sep">Musik</h3>
+      <!-- ===== Aktuelle Songs ===== -->
+      <h3 class="section-kicker">Aktuelle Songs</h3>
 
-      <!-- Dropdown: Endlich Schlafen -->
-      <button class="music-toggle" data-target="panel-erling-schlafen" aria-expanded="false" aria-controls="panel-erling-schlafen">
+      <!-- Endlich Schlafen -->
+      <button class="dropbtn" data-target="panel-erling-schlafen" aria-controls="panel-erling-schlafen" aria-expanded="false">
         Markus Erling — Endlich Schlafen
       </button>
-      <div id="panel-erling-schlafen" class="music-panel" hidden>
+      <div id="panel-erling-schlafen" class="panel" hidden>
         <div class="subcard">
           <div class="release">
-            <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen.PNG" alt="Erling – Endlich Schlafen" />
+            <img class="player__cover" src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Erling – Endlich Schlafen" />
             <ol class="player__tracks">
               <li>
                 <span class="tracktitle">Endlich Schlafen</span>
@@ -173,11 +187,11 @@
         </div>
       </div>
 
-      <!-- Dropdown: Der Tag an dem es regnet -->
-      <button class="music-toggle" data-target="panel-erling-regen" aria-expanded="false" aria-controls="panel-erling-regen">
+      <!-- Der Tag an dem es regnet -->
+      <button class="dropbtn" data-target="panel-erling-regen" aria-controls="panel-erling-regen" aria-expanded="false">
         Markus Erling — Der Tag an dem es regnet
       </button>
-      <div id="panel-erling-regen" class="music-panel" hidden>
+      <div id="panel-erling-regen" class="panel" hidden>
         <div class="subcard">
           <div class="release">
             <img class="player__cover" src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Erling – Der Tag an dem es regnet" />
@@ -185,13 +199,13 @@
               <li>
                 <span class="tracktitle">Der Tag an dem es regnet</span>
                 <audio controls preload="auto">
-                  <source src="artists/ERLING/MP3_ERLING/regen/Erling_Der_Tag_an_dem_es_regnet.m4a" type="audio/mp4" />
+                  <source src="artists/ERLING/MP3_ERLING/tagregnet/Markus_Erling_Tag_an_dem_es_regnet_Main.m4a" type="audio/mp4" />
                 </audio>
               </li>
               <li>
                 <span class="tracktitle">Der Tag an dem es regnet <small>V2</small></span>
                 <audio controls preload="auto">
-                  <source src="artists/ERLING/MP3_ERLING/regen/Erling_Der_Tag_an_dem_es_regnet_V2.m4a" type="audio/mp4" />
+                  <source src="artists/ERLING/MP3_ERLING/tagregnet/Markus_Erling_Tag%20an%20dem%20es%20regnet%20V2.m4a" type="audio/mp4" />
                 </audio>
               </li>
             </ol>
@@ -218,25 +232,34 @@
 
     <!-- FLEUR -->
     <section id="fleur" class="card artist">
-      <div class="subcard">
-        <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" />
-        <div class="artist__bio">
-          <p>Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille. Eine Geschichte, fast wie in einem Film.</p>
-          <p>Fleur, Mitte zwanzig, smart, talentiert und wunderschön, stammt aus einem kultivierten Elternhaus. Doch der Weg ins Familiengeschäft war für sie keine wirkliche Option. Es zog sie in die Club-Szene, wo sie an ihrer Gesangskarriere feilte und ihre ersten kleinen Erfolge als Sängerin erlebte.</p>
-          <p>Bernier, Anfang dreißig, gutaussehend, charismatisch und voller Talent, hatte genug vom goldenen Käfig. Bentley gegen Tonstudio, Glanz gegen Leidenschaft. Ein Schluck Whisky, ein rauchiger Gesang und ein Blick genügten – Boom. Er suchte eine Stimme und fand in Fleur die große Liebe.</p>
-          <p>Mit Feu Léger – inklusive der gefeierten FIVRA-Remixe – haben Fleur &amp; Beunié ihren Sound geprägt: jung, sexy und voller Energie, getragen von französischem Esprit und verwurzelt in der europäischen Underground-Club-Szene.</p>
+      <!-- ===== Steckbrief ===== -->
+      <h3 class="section-kicker">Steckbrief</h3>
+      <button class="dropbtn" data-target="bio-fleur" aria-controls="bio-fleur" aria-expanded="false">
+        Fleur et Beunié – Steckbrief öffnen
+      </button>
+      <div id="bio-fleur" class="panel" hidden>
+        <div class="subcard">
+          <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié" />
+          <div class="artist__bio">
+            <p>Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille. Eine Geschichte, fast wie in einem Film.</p>
+            <p>Fleur, Mitte zwanzig, smart, talentiert und wunderschön, stammt aus einem kultivierten Elternhaus. Doch der Weg ins Familiengeschäft war für sie keine wirkliche Option. Es zog sie in die Club-Szene, wo sie an ihrer Gesangskarriere feilte und ihre ersten kleinen Erfolge als Sängerin erlebte.</p>
+            <p>Bernier, Anfang dreißig, gutaussehend, charismatisch und voller Talent, hatte genug vom goldenen Käfig. Bentley gegen Tonstudio, Glanz gegen Leidenschaft. Ein Schluck Whisky, ein rauchiger Gesang und ein Blick genügten – Boom. Er suchte eine Stimme und fand in Fleur die große Liebe.</p>
+            <p>Mit Feu Léger – inklusive der gefeierten FIVRA-Remixe – haben Fleur &amp; Beunié ihren Sound geprägt: jung, sexy und voller Energie, getragen von französischem Esprit und verwurzelt in der europäischen Underground-Club-Szene.</p>
+          </div>
         </div>
       </div>
 
-      <h3 class="music-sep">Musik</h3>
+      <!-- ===== Aktuelle Songs ===== -->
+      <h3 class="section-kicker">Aktuelle Songs</h3>
 
-      <!-- Dropdown: Feu Léger (Single) -->
-      <button class="music-toggle" data-target="panel-fleur-single" aria-expanded="false" aria-controls="panel-fleur-single">
+      <!-- Eine Maxi: Feu Léger (Main + Remixe) -->
+      <button class="dropbtn" data-target="panel-fleur" aria-controls="panel-fleur" aria-expanded="false">
         Fleur et Beunié — Feu Léger
       </button>
-      <div id="panel-fleur-single" class="music-panel" hidden>
+      <div id="panel-fleur" class="panel" hidden>
         <div class="subcard">
           <div class="release">
+            <!-- Wenn du nur EIN Cover nutzen willst, nimm das Single-Cover -->
             <img class="player__cover" src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Fleur – Feu Léger" />
             <ol class="player__tracks">
               <li>
@@ -257,20 +280,6 @@
                   <source src="artists/FLEURBENUINE/MP3_FLEUR/FeuLeger/Feu_Leger_Sundown_Mix.m4a" type="audio/mp4" />
                 </audio>
               </li>
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dropdown: Feu Léger (FIVRA Remixe) -->
-      <button class="music-toggle" data-target="panel-fleur-remixe" aria-expanded="false" aria-controls="panel-fleur-remixe">
-        Fleur et Beunié — Feu Léger (FIVRA Remixe)
-      </button>
-      <div id="panel-fleur-remixe" class="music-panel" hidden>
-        <div class="subcard">
-          <div class="release">
-            <img class="player__cover" src="artists/FLEURBENUINE/Cover/fleur_cover_leger_rmx.PNG" alt="Fleur – Feu Léger (Remixe)" />
-            <ol class="player__tracks">
               <li>
                 <span class="tracktitle">Feu Léger <small>Fivra Electro Swing Mix</small></span>
                 <audio controls preload="auto">
@@ -295,24 +304,38 @@
       </div>
     </section>
 
+    <!-- LOGO (optional, wenn du es zwischen Fleur und Skank behalten willst)
+    <div class="separator separator--logo">
+      <img src="assets/wallpaper/Wallpaper_logi.PNG" alt="ROKKO Wallpaper Logo" />
+    </div>
+    -->
+
     <!-- SKANK -->
     <section id="skank" class="card artist">
-      <div class="subcard">
-        <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" />
-        <div class="artist__bio">
-          <p>Skank Schablonski – der Assi aus Iserlohn. Vatta kloppte Kohle unner Tage und Mudda Annegret schnitt inne Nachbarschaft die Haare. Er wuchs auf, als typisches Blach vonne Achtziger, mit Zwille, Zwetschgenbaum und Schrebergarten.</p>
-          <p>Denn Skank, dat is nich einfach nur’n Typ, ne. Skank, dat is ’ne Marke, Junge. Mit seine Ruhrpott-Kotterschnauze, kloppta dir seine lyrisch-satirischen Backpfeifen so heftig umme Ohren, datte denks der Aschermittwoch fällt auf nen Donnerstag.</p>
-          <p>Seine aktuelle Single „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum Steppen und dat Establishment zum Weinen. Skank weiß ganz genau, wo der Frosch die Locken hat…</p>
+      <!-- ===== Steckbrief ===== -->
+      <h3 class="section-kicker">Steckbrief</h3>
+      <button class="dropbtn" data-target="bio-skank" aria-controls="bio-skank" aria-expanded="false">
+        Skank Schablonski – Steckbrief öffnen
+      </button>
+      <div id="bio-skank" class="panel" hidden>
+        <div class="subcard">
+          <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" />
+          <div class="artist__bio">
+            <p>Skank Schablonski – der Assi aus Iserlohn. Vatta kloppte Kohle unner Tage und Mudda Annegret schnitt inne Nachbarschaft die Haare. Er wuchs auf, als typisches Blach vonne Achtziger, mit Zwille, Zwetschgenbaum und Schrebergarten.</p>
+            <p>Denn Skank, dat is nich einfach nur’n Typ, ne. Skank, dat is ’ne Marke, Junge. Mit seine Ruhrpott-Kotterschnauze, kloppta dir seine lyrisch-satirischen Backpfeifen so heftig umme Ohren, datte denks der Aschermittwoch fällt auf nen Donnerstag.</p>
+            <p>Seine aktuelle Single „Kohle raus, jetzt kommt Merz“ bringt den Pöbel zum Steppen und dat Establishment zum Weinen. Skank weiß ganz genau, wo der Frosch die Locken hat…</p>
+          </div>
         </div>
       </div>
 
-      <h3 class="music-sep">Musik</h3>
+      <!-- ===== Aktuelle Songs ===== -->
+      <h3 class="section-kicker">Aktuelle Songs</h3>
 
-      <!-- Dropdown: Kohle raus der Merz kommt -->
-      <button class="music-toggle" data-target="panel-skank" aria-expanded="false" aria-controls="panel-skank">
+      <!-- Kohle raus der Merz kommt -->
+      <button class="dropbtn" data-target="panel-skank" aria-controls="panel-skank" aria-expanded="false">
         Skank Schablonski — Kohle raus der Merz kommt
       </button>
-      <div id="panel-skank" class="music-panel" hidden>
+      <div id="panel-skank" class="panel" hidden>
         <div class="subcard">
           <div class="release">
             <img class="player__cover" src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Schablonski – März" />
@@ -337,22 +360,30 @@
 
     <!-- SKARAMUSH -->
     <section id="skaramush" class="card artist">
-      <div class="subcard">
-        <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" />
-        <div class="artist__bio">
-          <p>SkaRamush Vandango ist kein gewöhnlicher Künstler – er ist das kreative Rückgrat von ROKKO! Records, Label-Chef und Mastermind hinter sämtlichen Produktionen. Alles, was hier entsteht, trägt seine Handschrift: geschrieben, programmiert, produziert. Denn seine Liebe zur Musik kennt keine Grenzen – weder Genre noch Persönlichkeit halten ihn auf.</p>
-          <p>Hochgewachsen im Ruhrpott, mit goldener Stimme, großer Klappe und einem Hang zu starken Texten, folgt er nur einer Maxime: Musik muss den Poppes zum Wackeln bringen.</p>
-          <p>Und wenn er selbst bei seinen Tracks nicht grinst, gilt: Was er nicht gut findet, ist schlichtweg scheiße. Im weisen Alter angekommen, wirkt SkaRamush gelassen und doch voller Energie. Seine neurodiverse Perspektive lässt ihn fern vom Rampenlicht bleiben – lieber zieht er im Schatten die Fäden. In seiner kreativen Garage warten Fleur et Beunié, Henri Bellieu, Skank Schablonski und viele mehr, die durch seine Ideen Gestalt annehmen.</p>
+      <!-- ===== Steckbrief ===== -->
+      <h3 class="section-kicker">Steckbrief</h3>
+      <button class="dropbtn" data-target="bio-skaramush" aria-controls="bio-skaramush" aria-expanded="false">
+        SkaRamush Vandango – Steckbrief öffnen
+      </button>
+      <div id="bio-skaramush" class="panel" hidden>
+        <div class="subcard">
+          <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango" />
+          <div class="artist__bio">
+            <p>SkaRamush Vandango ist kein gewöhnlicher Künstler – er ist das kreative Rückgrat von ROKKO! Records, Label-Chef und Mastermind hinter sämtlichen Produktionen. Alles, was hier entsteht, trägt seine Handschrift: geschrieben, programmiert, produziert. Denn seine Liebe zur Musik kennt keine Grenzen – weder Genre noch Persönlichkeit halten ihn auf.</p>
+            <p>Hochgewachsen im Ruhrpott, mit goldener Stimme, großer Klappe und einem Hang zu starken Texten, folgt er nur einer Maxime: Musik muss den Poppes zum Wackeln bringen.</p>
+            <p>Und wenn er selbst bei seinen Tracks nicht grinst, gilt: Was er nicht gut findet, ist schlichtweg scheiße. Im weisen Alter angekommen, wirkt SkaRamush gelassen und doch voller Energie. Seine neurodiverse Perspektive lässt ihn fern vom Rampenlicht bleiben – lieber zieht er im Schatten die Fäden. In seiner kreativen Garage warten Fleur et Beunié, Henri Bellieu, Skank Schablonski und viele mehr, die durch seine Ideen Gestalt annehmen.</p>
+          </div>
         </div>
       </div>
 
-      <h3 class="music-sep">Musik</h3>
+      <!-- ===== Aktuelle Songs ===== -->
+      <h3 class="section-kicker">Aktuelle Songs</h3>
 
-      <!-- Dropdown: Set the World on Fire -->
-      <button class="music-toggle" data-target="panel-skaramush" aria-expanded="false" aria-controls="panel-skaramush">
+      <!-- Set the World on Fire -->
+      <button class="dropbtn" data-target="panel-skaramush" aria-controls="panel-skaramush" aria-expanded="false">
         SkaRamush Vandango — Set the World on Fire
       </button>
-      <div id="panel-skaramush" class="music-panel" hidden>
+      <div id="panel-skaramush" class="panel" hidden>
         <div class="subcard">
           <div class="release">
             <img class="player__cover" src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="Vandango – Fire" />
@@ -405,65 +436,77 @@
 
   <footer class="footer">© ROKKO Records</footer>
 
-  <!-- Inline JS: Burger, Video/Audio-Handling, Dropdowns -->
+  <!-- ===== Inline JS: Menü, Dropdowns, Video/Audio-Mutual-Stop ===== -->
   <script>
-    (function(){
-      // ===== Elemente =====
-      const burger   = document.querySelector('.burger');
-      const menu     = document.getElementById('menu');
-      const video    = document.getElementById('introVideo');
-      const soundBtn = document.getElementById('soundBtn');
+  (function(){
+    const burger   = document.querySelector('.burger');
+    const menu     = document.getElementById('menu');
+    const video    = document.getElementById('introVideo');
+    const soundBtn = document.getElementById('soundBtn');
 
-      // ===== Menü (Burger) =====
-      burger && menu && burger.addEventListener('click', () => {
+    // Burger-Menü
+    if (burger && menu){
+      burger.addEventListener('click', ()=>{
         const open = menu.classList.toggle('menu--open');
         burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+    }
 
-      // ===== Audio Utils =====
-      function pauseAllAudios(except=null){
-        document.querySelectorAll('audio').forEach(a=>{
-          try{ if(a!==except && !a.paused) a.pause(); }catch(e){}
-        });
-      }
+    // Alle Audios außer "exceptEl" pausieren
+    function pauseAllAudios(exceptEl=null){
+      document.querySelectorAll('audio').forEach(a=>{
+        try{ if(a!==exceptEl && !a.paused) a.pause(); }catch(e){}
+      });
+    }
 
-      // ===== Video-Sound Toggle =====
-      function updateVideoBtn(){
-        if (!soundBtn || !video) return;
-        soundBtn.textContent = 'Ton: ' + (video.muted ? 'Aus' : 'An');
-        soundBtn.setAttribute('aria-pressed', (!video.muted).toString());
-      }
-      soundBtn && video && soundBtn.addEventListener('click', ()=>{
+    // Video-Sound Button
+    function updateVideoBtn(){
+      if(!soundBtn || !video) return;
+      soundBtn.textContent = 'Ton: ' + (video.muted ? 'Aus' : 'An');
+      soundBtn.setAttribute('aria-pressed', (!video.muted).toString());
+    }
+    if (soundBtn && video){
+      soundBtn.addEventListener('click', ()=>{
         video.muted = !video.muted;
-        if (video.paused) { video.play().catch(()=>{}); }
-        if (!video.muted) pauseAllAudios(); // Video-Sound an -> alle Audios aus
+        if (video.paused) video.play().catch(()=>{});
+        if (!video.muted) pauseAllAudios(); // Video-Sound an -> Audios aus
         updateVideoBtn();
       });
-      video && video.addEventListener('click', ()=> soundBtn && soundBtn.click());
+      // Klick aufs Video toggelt Ton
+      video.addEventListener('click', ()=> soundBtn.click());
       updateVideoBtn();
+    }
 
-      // ===== Nur ein Audio gleichzeitig + schneller Start =====
-      const audios = Array.from(document.querySelectorAll('audio'));
-      audios.forEach(a=>{ try{ a.preload='auto'; }catch(e){} });
-      audios.forEach(a=>{
-        a.addEventListener('play', ()=>{
-          pauseAllAudios(a);
-          if (video && !video.muted){ video.muted = true; updateVideoBtn(); }
-        });
+    // Schneller Start + „nur eins gleichzeitig“
+    const audios = Array.from(document.querySelectorAll('audio'));
+    audios.forEach(a=>{ try{ a.preload = 'auto'; }catch(e){} });
+    audios.forEach(a=>{
+      a.addEventListener('play', ()=>{
+        pauseAllAudios(a);
+        // Wenn Audio spielt, Video stumm
+        if (video && !video.muted){ video.muted = true; updateVideoBtn(); }
       });
+    });
 
-      // ===== Musik-Dropdowns =====
-      document.querySelectorAll('.music-toggle').forEach(btn=>{
-        const id = btn.getAttribute('data-target');
-        const panel = document.getElementById(id);
-        if(!panel) return;
-        btn.addEventListener('click', ()=>{
-          const willOpen = panel.hasAttribute('hidden');
-          panel.toggleAttribute('hidden');
-          btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-        });
+    // Dropdown-Panels (Bio + Songs)
+    document.querySelectorAll('.dropbtn').forEach(btn=>{
+      const id = btn.getAttribute('data-target');
+      const panel = document.getElementById(id);
+      if(!panel) return;
+      btn.addEventListener('click', ()=>{
+        const willOpen = panel.hasAttribute('hidden');
+        panel.toggleAttribute('hidden');
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        if (willOpen){
+          // optional smooth scroll
+          setTimeout(()=>panel.scrollIntoView({behavior:'smooth', block:'center'}), 120);
+        }
       });
-    })();
+    });
+
+    // Sicherheit: beim Verlassen alles pausieren
+    window.addEventListener('pagehide', ()=> pauseAllAudios());
+  })();
   </script>
 </body>
 </html>
