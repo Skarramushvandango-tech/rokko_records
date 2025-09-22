@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ROKKO! Records</title>
 
-  <!-- Stylesheet mit Cache-Buster -->
-  <link rel="stylesheet" href="assets/css/style.css?v=7">
+  <!-- Stylesheet mit Cache-Buster (holt sicher die neueste CSS) -->
+  <link rel="stylesheet" href="assets/css/style.css?v=7" />
 
-  <!-- Falls später JavaScript genutzt wird -->
+  <!-- Optionales Skript (falls vorhanden) -->
   <script defer src="assets/js/main.js"></script>
 </head>
 <body>
@@ -21,10 +21,10 @@
         <span class="brand__bottom">Records</span>
       </div>
     </div>
-    <button class="burger" aria-label="Menü öffnen">
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainmenu">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu">
+    <nav class="menu" id="mainmenu">
       <a href="#about">Wir sind Rokko</a>
       <a href="#artists">Artists</a>
       <a href="#contact">Kontakt</a>
@@ -70,11 +70,9 @@
       <article class="card artist" id="henri">
         <img src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu" class="artist-photo" />
 
-        <!-- Bio wird geladen (assets/data/bios.html) -->
+        <!-- Bio (aus assets/data/bios.html) -->
         <div class="subcard bio" data-bio="henri">
-          <div class="bio-preview">
-            <!-- „Biografie:“ + Vorschau + Link wird via JS eingefügt -->
-          </div>
+          <div class="bio-preview"></div>
           <div class="bio-full" hidden></div>
         </div>
 
@@ -97,7 +95,8 @@
               <source src="artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" type="audio/mp4">
             </audio>
           </div>
-         <button class="release teaser" data-target="panel-henri-colibri" aria-controls="panel-henri-colibri" aria-expanded="false">
+
+          <button class="release teaser" data-target="panel-henri-colibri" aria-controls="panel-henri-colibri" aria-expanded="false">
             <img class="teaser__thumb" src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Cover: Petit Colibri – Henri Bellieu">
             <div class="teaser__meta">
               <div class="teaser__artist">Henri Bellieu</div>
@@ -174,7 +173,8 @@
           </div>
         </div>
       </article>
-     <!-- === SKANK SCHABLONSKI === -->
+
+      <!-- === SKANK SCHABLONSKI === -->
       <article class="card artist" id="skank">
         <img src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski" class="artist-photo" />
 
@@ -229,8 +229,19 @@
 
   <!-- ===== Inline Script ===== -->
   <script>
-    // Helper
+    // Utils
     const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
+
+    // Burger-Menü
+    (()=>{
+      const btn=document.querySelector('.burger');
+      const menu=document.getElementById('mainmenu');
+      if(!btn||!menu) return;
+      btn.addEventListener('click', ()=>{
+        const open = menu.classList.toggle('menu--open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
 
     // Nur ein Audio gleichzeitig
     const audios=$$('audio');
@@ -255,7 +266,7 @@
     // Bios aus einer Datei laden
     (async ()=>{
       try{
-        const res = await fetch('assets/data/bios.html?v=5', {cache:'no-store'});
+        const res = await fetch('assets/data/bios.html?v=7', {cache:'no-store'});
         const html = await res.text();
         const doc  = new DOMParser().parseFromString(html, 'text/html');
 
@@ -271,7 +282,7 @@
           const previewEl = block.querySelector('.bio-preview');
           const fullEl    = block.querySelector('.bio-full');
 
-          // Headline „Biografie:“ + Vorschau + Link
+          // Headline „Biografie:“ + Vorschau + Link (Link bleibt visuell sandfarben)
           if(previewEl){
             previewEl.innerHTML = `<strong class="bio-head">Biografie:</strong> ${previewText} <a href="#" class="bio-more-inline" aria-expanded="false">… zum Weiterlesen bitte ausklappen</a>`;
           }
@@ -305,4 +316,3 @@
   </script>
 </body>
 </html>
-
