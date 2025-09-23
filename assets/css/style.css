@@ -248,3 +248,30 @@ input:focus, textarea:focus {
   cursor: pointer;
   text-decoration: underline dotted;
 }
+
+/* ---- Ergänzungen (Video & Ton-Button) ---- */
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* füllt den Hero ohne Verzerrung */
+}
+
+.sound-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 12px;
+  font: 700 13px/1 system-ui;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.sound-btn:hover {
+  background: rgba(0,0,0,.6);
+}
