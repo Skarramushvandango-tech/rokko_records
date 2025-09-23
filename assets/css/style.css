@@ -1,6 +1,6 @@
 :root{
   /* Farben */
-  --outer:#FF8C00;           /* dunkelorange Außenblock */
+  --outer:#F5F3BB;           /* Sand Außenblock */
   --navy:#04151F;            /* blauer Innenrahmen */
   --sand:#F5F3BB;            /* Sand (Text/Trenner) */
   --deep:#0A1218;            /* tiefer Hintergrundton für Kontrast */
@@ -18,7 +18,7 @@ img{display:block;max-width:100%;height:auto}
 
 body{
   background:var(--sand);
-  color:#111;
+  color:#696969;
   font:400 16px/1.6 ui-sans-serif,system-ui,Arial;
 }
 
