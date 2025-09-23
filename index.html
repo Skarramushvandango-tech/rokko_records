@@ -75,6 +75,7 @@
         <hr class="sandline"/>
         <div class="music-intro"><span class="music-label">Musik</span></div>
 
+        <!-- Thumbs (Klick => Panel unten in dieser Section) -->
         <div class="track-list">
           <button class="track" data-release="lafemme">
             <div class="thumb"><img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Cover: La Femme"></div>
@@ -86,6 +87,7 @@
           </button>
         </div>
 
+        <!-- Ausklapp-Panel -->
         <div class="album-panel" hidden>
           <div class="album-panel__inner">
             <div class="cover-frame square">
@@ -96,7 +98,8 @@
         </div>
       </div>
     </section>
-      <!-- ERLING -->
+
+    <!-- ERLING -->
     <section id="erling" class="card artist" data-artist="ERLING">
       <div class="inner-block">
         <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling"/>
@@ -209,7 +212,8 @@
         </div>
       </div>
     </section>
-       <!-- SKARAMUSH VANDANGO -->
+
+    <!-- SKARAMUSH VANDANGO -->
     <section id="skaramush" class="card artist" data-artist="SKARAMUSH_VANDANGO">
       <div class="inner-block">
         <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango"/>
@@ -266,7 +270,7 @@
   </main>
 
   <footer class="footer">
-    &copy; 2025 ROKKO! Records. Made in Ruhrpott.
+    &copy; 2025 ROKKO! Records. Made with ❤️ im Ruhrpott.
   </footer>
 
   <!-- ======= Skript: alles in einem Block ======= -->
@@ -409,7 +413,7 @@
       }
     };
 
-    // ===== Custom-Player: nur 1 gleichzeitig, Play/Pause, Fortschritt/Seek =====
+    // ===== Nur 1 Player gleichzeitig =====
     let currentAudio = null;
     function stopCurrent() {
       if (currentAudio) {
@@ -421,7 +425,7 @@
       }
     }
 
-    // Ausklappen (kein Popup) + Player bauen
+    // ===== Panel-Logik (kein Popup) + Custom-Player =====
     document.addEventListener('click', function(e){
       const btn = e.target.closest('.track');
       if (!btn) return;
@@ -439,25 +443,47 @@
       coverEl.src = data.cover;
       coverEl.alt = btn.querySelector('.track-title')?.textContent || 'Album Cover';
 
+      // Playerliste neu aufbauen
       playersEl.innerHTML = '';
       data.tracks.forEach(t=>{
-        const row = document.createElement('div'); row.className = 'player';
+        // Zeile
+        const row = document.createElement('div');
+        row.className = 'player';
 
-        const title = document.createElement('div'); title.className = 'player-title'; title.textContent = t.name;
+        // Titel (Pill oben)
+        const title = document.createElement('div');
+        title.className = 'player-title';
+        title.textContent = t.name;
 
-        const controls = document.createElement('div'); controls.className = 'player-controls';
+        // Button + Progress
+        const controls = document.createElement('div');
+        controls.className = 'player-controls';
 
-        const playBtn = document.createElement('button'); playBtn.className = 'player-btn'; playBtn.type = 'button'; playBtn.dataset.state = 'play';
+        const playBtn = document.createElement('button');
+        playBtn.className = 'player-btn';
+        playBtn.type = 'button';
+        playBtn.dataset.state = 'play'; // play | pause
 
-        const bar = document.createElement('div'); bar.className = 'player-progress';
-        const fill = document.createElement('div'); fill.className = 'player-progress__fill'; bar.appendChild(fill);
+        const bar = document.createElement('div');
+        bar.className = 'player-progress';
+        const fill = document.createElement('div');
+        fill.className = 'player-progress__fill';
+        bar.appendChild(fill);
 
-        controls.appendChild(playBtn); controls.appendChild(bar);
-        row.appendChild(title); row.appendChild(controls);
+        controls.appendChild(playBtn);
+        controls.appendChild(bar);
 
-        const audio = new Audio(); audio.src = encodeURI(t.src); audio.preload = 'none';
-        audio._button = playBtn; audio._fill = fill;
+        row.appendChild(title);
+        row.appendChild(controls);
 
+        // Audio (unsichtbar)
+        const audio = new Audio();
+        audio.src = encodeURI(t.src); // exakte Pfade, inkl. Leerzeichen/Diakritik
+        audio.preload = 'none';
+        audio._button = playBtn;
+        audio._fill = fill;
+
+        // Play/Pause
         playBtn.addEventListener('click', () => {
           if (audio.paused) {
             stopCurrent();
@@ -469,6 +495,8 @@
             playBtn.dataset.state = 'play';
           }
         });
+
+        // Fortschritt
         audio.addEventListener('timeupdate', () => {
           if (!isFinite(audio.duration) || audio.duration === 0) return;
           const p = (audio.currentTime / audio.duration) * 100;
@@ -480,24 +508,34 @@
           if (currentAudio === audio) currentAudio = null;
         });
         audio.addEventListener('error', () => {
-          const err = document.createElement('div'); err.className = 'track-error';
+          // kleine Fehlermeldung
+          const err = document.createElement('div');
+          err.className = 'track-error';
           err.textContent = 'Datei konnte nicht geladen werden (Pfad exakt prüfen).';
           row.appendChild(err);
         });
+
+        // Seek durch Klick in die Leiste
         bar.addEventListener('click', (ev) => {
           const rect = bar.getBoundingClientRect();
           const x = ev.clientX - rect.left;
           const ratio = Math.min(Math.max(x / rect.width, 0), 1);
-          if (isFinite(audio.duration)) audio.currentTime = ratio * audio.duration;
+          if (isFinite(audio.duration)) {
+            audio.currentTime = ratio * audio.duration;
+          }
         });
 
         playersEl.appendChild(row);
       });
 
-      document.querySelectorAll('.album-panel').forEach(p=>{ if (p!==panel) p.hidden = true; });
+      // Nur dieses Panel öffnen, andere schließen
+      document.querySelectorAll('.album-panel').forEach(p=>{
+        if (p !== panel) p.hidden = true;
+      });
+
       panel.hidden = !panel.hidden;
       if (!panel.hidden) panel.scrollIntoView({behavior:'smooth', block:'start'});
     });
   </script>
 </body>
-</html> 
+</html>
