@@ -17,8 +17,8 @@ html,body{margin:0;padding:0}
 img{display:block;max-width:100%;height:auto}
 
 body{
-  background:var(--sand);
-  color:#696969;
+  background:#696969;
+  color:#111;
   font:400 16px/1.6 ui-sans-serif,system-ui,Arial;
 }
 
