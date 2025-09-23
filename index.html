@@ -1,239 +1,541 @@
-:root {
-  --sand: #E6D6B8;
-  --inner: #04151F;
-  --text: #E6D6B8;
-  --accent: #FF8C00;
-  --radius: 22px;
-  --max-card-width: 700px;
-  --min-card-width: 320px;
-  --outline: 10px;
-  --track-thumb: 56px;
-}
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>ROKKO! Records</title>
+  <meta name="description" content="ROKKO! Records – Das kreative Musiklabel aus dem Ruhrpott. Künstler, Musik und mehr." />
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="assets/Images/Logo.png"/>
+</head>
+<body>
 
-/* Links IMMER orange */
-a, a:visited, a:hover, a:active { color: var(--accent) !important; text-decoration-color: var(--accent); }
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/Images/Logo.png" alt="ROKKO Logo" class="brand__logo"/>
+      <div class="brand__title">
+        <span class="brand__top">ROKKO!</span>
+        <span class="brand__bottom">RECORDS</span>
+      </div>
+    </div>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Hauptmenü">
+      <a href="#about">Wir sind ROKKO</a>
+      <a href="#henri">Henri</a>
+      <a href="#erling">Erling</a>
+      <a href="#fleur">Fleur</a>
+      <a href="#skank">Skank</a>
+      <a href="#skaramush">Skaramush</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
 
-body {
-  background: var(--sand);
-  color: var(--text);
-  font: 400 17px/1.6 'Segoe UI', system-ui, Arial, Helvetica, sans-serif;
-  margin: 0;
-}
+  <!-- Hero-Video -->
+  <section class="hero" aria-label="Intro">
+    <video id="introVideo" class="hero__video" autoplay muted loop playsinline
+           src="assets/movies/Intro_movie.mp4"></video>
+    <button id="soundBtn" class="sound-btn" aria-pressed="true" aria-label="Ton umschalten">Ton: Aus</button>
+  </section>
 
-/* Header */
-.site-header {
-  position: sticky; top: 0; z-index: 80;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 12px; padding: 12px 18px;
-  background: var(--inner); color: var(--text);
-  border-bottom: 2px solid var(--accent);
-  box-shadow: 0 4px 14px rgba(0,0,0,.35);
-}
+  <main>
 
-.brand { display: flex; align-items: center; gap: 12px; }
-.brand__logo { width: 52px; height: auto; }
-.brand__title { line-height: 1; }
-.brand__top { display: block; font: 800 22px/1.05 system-ui;}
-.brand__bottom { display: block; font: 800 14px/1.05 system-ui; letter-spacing: 1.8px; }
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <div class="inner-block">
+        <h2 class="section-title">Wir sind ROKKO! Records — und Du „noch“ nicht …</h2>
+        <div class="card__text">
+          <p>Tach, wir sind die Neuen in der Szene. Und wir sind ein bisschen anders, das ist auch gut so. Wir jagen nicht den Fame und sonnen uns nicht im Applaus. Wir haben kein Genre, wir engen uns nicht ein. Die Songs und Artists sind jeglicher Couleur und eines ist sicher:</p>
+          <ul><li>Es wird auf keinen Fall langweilig.</li></ul>
+          <p>ROKKOS! Herz schlägt im Ruhrpott, doch die Musik reicht weiter. Rokko ist kein Genre, keine Sprache oder Farbe. ROKKO! ist geballte kreative Freiheit, die ins Ohr geht und von dort nicht mehr wegzubekommen ist.</p>
+          <p>Also kloppt Euch den Schmalz aus den Ohren, hier kommt der Honig …</p>
+        </div>
+      </div>
+    </section>
 
-.burger { background: transparent; border: 0; display: grid; gap: 4px; padding: 8px; cursor: pointer; }
-.burger span { width: 26px; height: 2px; background: var(--text); border-radius: 2px; }
-.menu {
-  position: fixed; right: 14px; top: 64px; z-index: 120;
-  background: #0E0E0E; color: #fff;
-  border: 1px solid #262626; border-radius: 14px; padding: 10px 0; display: none; min-width: 240px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.45); backdrop-filter: blur(6px);
-}
-.menu--open { display: block; }
-.menu a { display: block; padding: 12px 16px; font: 600 14px system-ui; color: #fff; }
-.menu a:hover { background: rgba(255,140,0,.08); }
+    <!-- Artists-Wallpaper (ohne Logo) – HALBE Höhe -->
+    <div class="separator separator--thin framed-separator" aria-hidden="true">
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Artists"/>
+      <span class="separator__label">ARTISTS</span>
+    </div>
 
-/* Hero */
-.hero {
-  width: 100vw; max-width: 100vw;
-  margin-left: 50%; transform: translateX(-50%);
-  height: 38vh; min-height: 240px;
-  position: relative; overflow: hidden;
-  background: var(--inner);
-  border-radius: 0;
-  border-bottom: 2px solid var(--accent);
-  box-shadow: none;
-}
-.hero__video { width: 100%; height: 100%; display: block; object-fit: cover; }
-.sound-btn {
-  position: absolute; right: 12px; bottom: 12px;
-  padding: 8px 12px; font: 700 13px/1 system-ui;
-  background: rgba(0,0,0,.45); color: #fff;
-  border: 1px solid rgba(255,255,255,.35); border-radius: 8px;
-  backdrop-filter: blur(4px); cursor: pointer;
-}
-.sound-btn:hover { background: rgba(0,0,0,.6); }
+    <!-- HENRI -->
+    <section id="henri" class="card artist" data-artist="HENRI">
+      <div class="inner-block">
+        <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu"/>
 
-/* Cards + Separator */
-.card, .separator {
-  max-width: var(--max-card-width);
-  min-width: var(--min-card-width);
-  width: 90vw;
-  margin: 32px auto;
-  background: var(--inner);
-  border-radius: var(--radius);
-  box-shadow: 0 0 0 var(--outline) var(--accent), 0 8px 20px rgba(0,0,0,.10);
-  border: none;
-  overflow: hidden;
-}
+        <h3 class="subhead">Biografie</h3>
+        <div class="bio" data-bio-id="bio-henri">
+          <p class="bio-text collapsed">Henri Bellieu – schon sein Name klingt wie ein altes Chanson …</p>
+          <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
+        </div>
 
-.inner-block {
-  background: var(--inner); color: var(--text);
-  padding: 22px 24px;
-  border-radius: calc(var(--radius) - 8px);
-}
+        <hr class="sandline"/>
+        <div class="music-intro"><span class="music-label">Musik</span></div>
 
-.section-title { margin: 18px 18px 12px; font: 900 2.1rem/1.2 system-ui; letter-spacing: .3px; }
-.subhead { margin: 14px 0 8px; font: 800 1.05rem/1.2 system-ui; }
+        <!-- Thumbs (Klick => Panel unten in dieser Section) -->
+        <div class="track-list">
+          <button class="track" data-release="lafemme">
+            <div class="thumb"><img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Cover: La Femme"></div>
+            <div class="track-meta"><span class="track-title">La Femme</span></div>
+          </button>
+          <button class="track" data-release="colibri">
+            <div class="thumb"><img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Cover: Petite Colibri"></div>
+            <div class="track-meta"><span class="track-title">Petite Colibri</span></div>
+          </button>
+        </div>
 
-.sandline { border: 0; border-top: 1px solid var(--text); opacity: .55; margin: 16px 0; }
+        <!-- Ausklapp-Panel -->
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <div class="cover-frame square">
+              <img class="album-panel__cover" alt="Album Cover">
+            </div>
+            <div class="album-panel__players"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* Wallpaper-Trenner */
-.separator {
-  display: flex; align-items: center; justify-content: center;
-  background: transparent; border: none; box-shadow: none;
-  position: relative; margin: 40px auto 16px auto; padding: 0;
-}
-.separator img {
-  width: 100%;
-  border-radius: 10px;
-  opacity: 0.8;
-  object-fit: cover;
-}
-.separator__label {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-  background: var(--inner); color: var(--accent);
-  font: 900 1.2rem system-ui; padding: 0 18px; border-radius: 14px; z-index: 2;
-  border: 2px solid var(--accent); box-shadow: 0 2px 6px rgba(0,0,0,.14);
-}
-.separator--thin img { height: 19vh; }  /* halb */
-.separator--logo img { height: 38vh; }  /* voll */
-.separator img { max-width: none; }
-.framed-separator { box-shadow: 0 0 0 8px var(--accent); border-radius: 16px; }
+    <!-- ERLING -->
+    <section id="erling" class="card artist" data-artist="ERLING">
+      <div class="inner-block">
+        <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling"/>
 
-/* Artist */
-.artist__photo {
-  width: 100%; border: none; border-radius: 16px; background: #222; object-fit: cover;
-  display: block;
-}
+        <h3 class="subhead">Biografie</h3>
+        <div class="bio" data-bio-id="bio-erling">
+          <p class="bio-text collapsed">Markus Erling zieht seine Songs direkt aus dem eigenen Leben …</p>
+          <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
+        </div>
 
-/* Thumbs */
-.thumb{
-  width: var(--track-thumb); height: var(--track-thumb);
-  border-radius: 12px; overflow: hidden;
-  border: 2px solid var(--accent); background: #000; flex: 0 0 auto;
-}
-.thumb > img{ width:100%; height:100%; object-fit: cover; object-position:center; display:block; }
+        <hr class="sandline"/>
+        <div class="music-intro"><span class="music-label">Musik</span></div>
 
-/* Track-Thumb-Zeilen */
-.track-list { display: grid; gap: 14px; margin-top: 12px; }
-.track {
-  display: flex; align-items: center; gap: 14px;
-  background: transparent; border: none; cursor: pointer; padding: 0;
-}
-.track .track-meta { display: flex; flex-direction: column; gap: 2px; }
-.track .track-title { font-weight: 900; font-size: 15px; }
+        <div class="track-list">
+          <button class="track" data-release="schlafen">
+            <div class="thumb"><img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Cover: Endlich schlafen"></div>
+            <div class="track-meta"><span class="track-title">Endlich schlafen</span></div>
+          </button>
+          <button class="track" data-release="regen">
+            <div class="thumb"><img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Cover: Der Tag an dem es regnet"></div>
+            <div class="track-meta"><span class="track-title">Der Tag an dem es regnet</span></div>
+          </button>
+        </div>
 
-/* Album-Panel (kein zusätzlicher schwarzer Rahmen) */
-.album-panel { margin-top: 14px; }
-.album-panel[hidden] { display: none; }
-.album-panel__inner { padding: 0; background: transparent; border: 0; }
-.cover-frame{
-  border-radius: 22px;
-  overflow: hidden;
-  background: #000;
-  display: block;
-  max-width: 100%;
-  margin-bottom: 12px;
-}
-.cover-frame.square{ aspect-ratio: 1 / 1; }
-.cover-frame > img{ width:100%; height:100%; object-fit: cover; object-position:center; display:block; }
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <div class="cover-frame square">
+              <img class="album-panel__cover" alt="Album Cover">
+            </div>
+            <div class="album-panel__players"></div>
+          </div>
+        </div>
 
-/* Custom-Player */
-.player { margin: 12px 0 16px; }
-.player-title{
-  display: inline-block;
-  font: 800 14px/1.2 system-ui;
-  color: var(--text);
-  background: transparent;
-  border: 2px solid var(--accent);
-  border-radius: 999px;
-  padding: 6px 12px;
-  margin-bottom: 8px;
-}
-.player-controls{
-  display: flex; align-items: center; gap: 12px;
-}
-.player-btn{
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 2px solid var(--accent); background: transparent; color: var(--text);
-  font: 900 14px/1 system-ui; display: grid; place-items: center; cursor: pointer;
-}
-.player-btn::before{
-  content: "►"; /* Play */
-  transform: translateX(1px);
-}
-.player-btn[data-state="pause"]::before{
-  content: "❚❚"; transform: none;
-}
-.player-progress{
-  position: relative; flex: 1 1 auto; height: 8px;
-  background: #1f2326; border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,.15);
-  cursor: pointer;
-}
-.player-progress__fill{
-  position: absolute; inset: 0 100% 0 0; width: 0%;
-  background: var(--accent);
-}
+        <hr class="sandline"/>
+        <div class="youtube">
+          <div class="youtube__wrap">
+            <iframe src="https://www.youtube.com/embed/Rh53YVgsfJ4?rel=0&modestbranding=1&playsinline=1"
+                    title="Markus Erling – Video" allow="autoplay; encrypted-media"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* YouTube */
-.youtube { width: 100%; display: flex; justify-content: center; margin: 30px 0; }
-.youtube__wrap {
-  width: 100%; max-width: 540px; aspect-ratio: 16 / 9; background: #000; border-radius: 10px; overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,.18); margin: 0 auto;
-}
-.youtube__wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    <!-- Logo-Wallpaper – VOLLE Höhe -->
+    <div class="separator separator--logo framed-separator" aria-hidden="true">
+      <img src="assets/wallpaper/Wallpaper_logi.PNG" alt="Wallpaper Logo"/>
+    </div>
 
-/* Form */
-.contact__form { display: flex; flex-direction: column; gap: 16px; }
-.field { display: flex; flex-direction: column; gap: 5px; }
-input, textarea {
-  background: #1f2326; color: var(--text); border: 1.5px solid var(--accent); border-radius: 7px;
-  padding: 8px 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border-color .2s;
-}
-input:focus, textarea:focus { border-color: #ffaf33; }
-.btn-send {
-  background: var(--accent); color: #fff; border: none; border-radius: 8px;
-  padding: 10px 22px; font: 800 1.1rem system-ui; cursor: pointer; transition: background .2s;
-}
-.btn-send:hover { background: #ffaf33; }
+    <!-- FLEUR -->
+    <section id="fleur" class="card artist" data-artist="FLEURBENUINE">
+      <div class="inner-block">
+        <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur"/>
 
-/* Footer */
-.footer {
-  margin: 48px 0 0; padding: 22px 0 10px 0; text-align: center;
-  color: #bcae97; font-size: 15px; background: none; border: none;
-}
+        <h3 class="subhead">Biografie</h3>
+        <div class="bio" data-bio-id="bio-fleur">
+          <p class="bio-text collapsed">Fleur ist die Stimme, die bleibt …</p>
+          <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
+        </div>
 
-/* Bio (Teaser/Expand) */
-.bio { padding: 0; margin: 0 0 6px 0; }
-.bio-text.collapsed {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;      /* 3 Teaser-Zeilen */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-}
-.bio.expanded .bio-text { -webkit-line-clamp: initial; max-height: none; }
-.bio-toggle {
-  display: inline-block; font-size: 13px; color: var(--accent); margin-top: 3px;
-  user-select: none; cursor: pointer; text-decoration: underline dotted;
-}
+        <hr class="sandline"/>
+        <div class="music-intro"><span class="music-label">Musik</span></div>
 
-/* Optionale Fehlermeldung für Audio */
-.track-error { color:#ffb3b3; font-weight:700; font-size:12px; margin-top:6px; }
+        <div class="track-list">
+          <button class="track" data-release="feu">
+            <div class="thumb"><img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Cover: Feu Léger"></div>
+            <div class="track-meta"><span class="track-title">Feu Léger</span></div>
+          </button>
+        </div>
+
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <div class="cover-frame square">
+              <img class="album-panel__cover" alt="Album Cover">
+            </div>
+            <div class="album-panel__players"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKANK SCHABLONSKI -->
+    <section id="skank" class="card artist" data-artist="SKANK_SCHABLONSKI">
+      <div class="inner-block">
+        <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski"/>
+
+        <h3 class="subhead">Biografie</h3>
+        <div class="bio" data-bio-id="bio-schablonski">
+          <p class="bio-text collapsed">Skank bringt das Lebensgefühl Jamaikas ins Ruhrgebiet …</p>
+          <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
+        </div>
+
+        <hr class="sandline"/>
+        <div class="music-intro"><span class="music-label">Musik</span></div>
+
+        <div class="track-list">
+          <button class="track" data-release="merz">
+            <div class="thumb"><img src="artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG" alt="Cover: Der Merz kommt"></div>
+            <div class="track-meta"><span class="track-title">Der Merz kommt</span></div>
+          </button>
+        </div>
+
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <div class="cover-frame square">
+              <img class="album-panel__cover" alt="Album Cover">
+            </div>
+            <div class="album-panel__players"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKARAMUSH VANDANGO -->
+    <section id="skaramush" class="card artist" data-artist="SKARAMUSH_VANDANGO">
+      <div class="inner-block">
+        <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango"/>
+
+        <h3 class="subhead">Biografie</h3>
+        <div class="bio" data-bio-id="bio-skaramush">
+          <p class="bio-text collapsed">Skaramush ist die wilde Energie auf der Bühne …</p>
+          <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
+        </div>
+
+        <hr class="sandline"/>
+        <div class="music-intro"><span class="music-label">Musik</span></div>
+
+        <div class="track-list">
+          <button class="track" data-release="fire">
+            <div class="thumb"><img src="artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG" alt="Cover: Set the World on fire"></div>
+            <div class="track-meta"><span class="track-title">Set the World on fire</span></div>
+          </button>
+        </div>
+
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <div class="cover-frame square">
+              <img class="album-panel__cover" alt="Album Cover">
+            </div>
+            <div class="album-panel__players"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact" class="card">
+      <div class="inner-block">
+        <h2 class="section-title">Kontakt</h2>
+        <form class="contact__form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button class="btn-send" type="submit">Abschicken</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2025 ROKKO! Records. Made with ❤️ im Ruhrpott.
+  </footer>
+
+  <!-- ======= Skript: alles in einem Block ======= -->
+  <script>
+    // Menü
+    document.querySelector('.burger').addEventListener('click', function() {
+      var menu = document.getElementById('menu');
+      menu.classList.toggle('menu--open');
+      this.setAttribute('aria-expanded', menu.classList.contains('menu--open'));
+    });
+
+    // Hero-Sound
+    (function(){
+      var introVideo = document.getElementById('introVideo');
+      var soundBtn = document.getElementById('soundBtn');
+      var isMuted = true;
+      soundBtn.addEventListener('click', function() {
+        isMuted = !isMuted;
+        introVideo.muted = isMuted;
+        soundBtn.textContent = isMuted ? 'Ton: Aus' : 'Ton: An';
+        soundBtn.setAttribute('aria-pressed', !isMuted);
+      });
+    })();
+
+    // Bio: Teaser (1. Absatz, mit …) + Toggle
+    (function(){
+      function trimTeaser(text, max) {
+        const clean = (text||'').replace(/\s+/g,' ').trim();
+        if (clean.length <= max) return clean;
+        const cut = clean.lastIndexOf(' ', max-1);
+        return (cut>0? clean.slice(0,cut) : clean.slice(0,max)).trim() + ' …';
+      }
+      function firstParagraphHTML(html) {
+        const t = document.createElement('div'); t.innerHTML = html;
+        const p = t.querySelector('p'); return p ? p.innerHTML : t.textContent || '';
+      }
+      fetch('assets/data/bios.html')
+        .then(r=>r.text())
+        .then(html=>{
+          const src = document.createElement('div'); src.innerHTML = html;
+          document.querySelectorAll('.bio').forEach(bio=>{
+            const id = bio.getAttribute('data-bio-id');
+            const node = src.querySelector('#'+id);
+            if (!node) return;
+            const fullHTML = node.innerHTML.trim();
+            const firstP = firstParagraphHTML(fullHTML);
+            const teaser = trimTeaser(firstP.replace(/<[^>]+>/g,'').replace(/\u00A0/g,' '), 260);
+
+            let textEl = bio.querySelector('.bio-text');
+            if (!textEl) { textEl = document.createElement('p'); textEl.className='bio-text'; bio.prepend(textEl); }
+            textEl.textContent = teaser;
+            textEl.classList.add('collapsed');
+            bio.classList.remove('expanded');
+
+            const toggle = bio.querySelector('.bio-toggle');
+            if (toggle) {
+              toggle.textContent = 'Text erweitern';
+              toggle.addEventListener('click', (e)=>{
+                e.stopPropagation();
+                const expanded = bio.classList.toggle('expanded');
+                if (expanded) {
+                  textEl.classList.remove('collapsed');
+                  textEl.innerHTML = fullHTML;
+                  toggle.textContent = 'Text einklappen';
+                } else {
+                  textEl.classList.add('collapsed');
+                  textEl.textContent = teaser;
+                  toggle.textContent = 'Text erweitern';
+                }
+              });
+            }
+          });
+        });
+    })();
+
+    // ===== Audio-Daten (exakte Pfade; Anzeige = nur Songname) =====
+    const RELEASES = {
+      "HENRI": {
+        "lafemme": {
+          cover: "artists/HENRI/Cover/henri_la_femme.PNG",
+          tracks: [
+            { name: "La Femme – Main",   src: "artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a" },
+            { name: "La Femme – V deux", src: "artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" }
+          ]
+        },
+        "colibri": {
+          cover: "artists/HENRI/Cover/henri_petite_colibri.PNG",
+          tracks: [
+            { name: "Petite Colibri – Main",           src: "artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite Colibri_Main.m4a" },
+            { name: "Petite Colibri – Ennio Mix",      src: "artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite Colibri_Ennio_Mix.m4a" },
+            { name: "Petite Colibri – Nocturne Mix",   src: "artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite Colibri_Nocturne Mix.m4a" }
+          ]
+        }
+      },
+      "ERLING": {
+        "schlafen": {
+          cover: "artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG",
+          tracks: [
+            { name: "Endlich schlafen – Main",         src: "artists/ERLING/MP3_ERLING/schlafen/Erling_ endlich schlafen.m4a" },
+            { name: "Endlich schlafen – MonoToni Rmx", src: "artists/ERLING/MP3_ERLING/schlafen/Erling_ schlafen MonoToni Rmx.m4a" }
+          ]
+        },
+        "regen": {
+          cover: "artists/ERLING/Cover/erling_regen_cover.PNG",
+          tracks: [
+            { name: "Der Tag an dem es regnet – Main", src: "artists/ERLING/MP3_ERLING/tagregnet/Markus_Erling_Tag_an_dem_es_regnet_Main.m4a" },
+            { name: "Der Tag an dem es regnet – V2",   src: "artists/ERLING/MP3_ERLING/tagregnet/Markus_Erling_Tag_an_dem_es_regnet_V2.m4a" }
+          ]
+        }
+      },
+      "FLEURBENUINE": {
+        "feu": {
+          cover: "artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG",
+          tracks: [
+            { name: "Feu Léger – Original",        src: "artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(Original).m4a" },
+            { name: "Feu Léger – Sundown Mix",     src: "artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(SundownMix).m4a" },
+            { name: "Feu Léger – House Mix",       src: "artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(HouseMix).m4a" },
+            { name: "Feu Léger – French Classic",  src: "artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(FrenchClassicMix).m4a" },
+            { name: "Feu Léger – Club Mix",        src: "artists/FLEURBENUINE/MP3_FLEUR/Feu_Léger(ClubMix).m4a" }
+          ]
+        }
+      },
+      "SKANK_SCHABLONSKI": {
+        "merz": {
+          cover: "artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG",
+          tracks: [
+            { name: "Der Merz kommt – Main",  src: "artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_Main.m4a" },
+            { name: "Der Merz kommt – RMX",   src: "artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_RMX.m4a" }
+          ]
+        }
+      },
+      "SKARAMUSH_VANDANGO": {
+        "fire": {
+          cover: "artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG",
+          tracks: [
+            { name: "Set the World on fire",            src: "artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/Set_fire/SkaRamush_Vandango_Set_the_World_on_fire.m4a" },
+            { name: "Set the World on fire – Original", src: "artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/Set_fire/SkaRamush_Vandango__Set_the_World_on_fire_Original_Mix_.m4a" }
+          ]
+        }
+      }
+    };
+
+    // ===== Nur 1 Player gleichzeitig =====
+    let currentAudio = null;
+    function stopCurrent() {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        const btn = currentAudio._button;
+        if (btn) btn.dataset.state = 'play';
+        currentAudio = null;
+      }
+    }
+
+    // ===== Panel-Logik (kein Popup) + Custom-Player =====
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.track');
+      if (!btn) return;
+
+      const section = btn.closest('.artist');
+      const artistKey = section.getAttribute('data-artist');
+      const releaseKey = btn.getAttribute('data-release');
+      const data = (RELEASES[artistKey] || {})[releaseKey];
+      if (!data) return;
+
+      const panel = section.querySelector('.album-panel');
+      const coverEl = section.querySelector('.album-panel .album-panel__cover');
+      const playersEl = section.querySelector('.album-panel .album-panel__players');
+
+      coverEl.src = data.cover;
+      coverEl.alt = btn.querySelector('.track-title')?.textContent || 'Album Cover';
+
+      // Playerliste neu aufbauen
+      playersEl.innerHTML = '';
+      data.tracks.forEach(t=>{
+        // Zeile
+        const row = document.createElement('div');
+        row.className = 'player';
+
+        // Titel (Pill oben)
+        const title = document.createElement('div');
+        title.className = 'player-title';
+        title.textContent = t.name;
+
+        // Button + Progress
+        const controls = document.createElement('div');
+        controls.className = 'player-controls';
+
+        const playBtn = document.createElement('button');
+        playBtn.className = 'player-btn';
+        playBtn.type = 'button';
+        playBtn.dataset.state = 'play'; // play | pause
+
+        const bar = document.createElement('div');
+        bar.className = 'player-progress';
+        const fill = document.createElement('div');
+        fill.className = 'player-progress__fill';
+        bar.appendChild(fill);
+
+        controls.appendChild(playBtn);
+        controls.appendChild(bar);
+
+        row.appendChild(title);
+        row.appendChild(controls);
+
+        // Audio (unsichtbar)
+        const audio = new Audio();
+        audio.src = encodeURI(t.src); // exakte Pfade, inkl. Leerzeichen/Diakritik
+        audio.preload = 'none';
+        audio._button = playBtn;
+        audio._fill = fill;
+
+        // Play/Pause
+        playBtn.addEventListener('click', () => {
+          if (audio.paused) {
+            stopCurrent();
+            audio.play().catch(()=>{});
+            currentAudio = audio;
+            playBtn.dataset.state = 'pause';
+          } else {
+            audio.pause();
+            playBtn.dataset.state = 'play';
+          }
+        });
+
+        // Fortschritt
+        audio.addEventListener('timeupdate', () => {
+          if (!isFinite(audio.duration) || audio.duration === 0) return;
+          const p = (audio.currentTime / audio.duration) * 100;
+          fill.style.width = p + '%';
+        });
+        audio.addEventListener('ended', () => {
+          playBtn.dataset.state = 'play';
+          fill.style.width = '0%';
+          if (currentAudio === audio) currentAudio = null;
+        });
+        audio.addEventListener('error', () => {
+          // kleine Fehlermeldung
+          const err = document.createElement('div');
+          err.className = 'track-error';
+          err.textContent = 'Datei konnte nicht geladen werden (Pfad exakt prüfen).';
+          row.appendChild(err);
+        });
+
+        // Seek durch Klick in die Leiste
+        bar.addEventListener('click', (ev) => {
+          const rect = bar.getBoundingClientRect();
+          const x = ev.clientX - rect.left;
+          const ratio = Math.min(Math.max(x / rect.width, 0), 1);
+          if (isFinite(audio.duration)) {
+            audio.currentTime = ratio * audio.duration;
+          }
+        });
+
+        playersEl.appendChild(row);
+      });
+
+      // Nur dieses Panel öffnen, andere schließen
+      document.querySelectorAll('.album-panel').forEach(p=>{
+        if (p !== panel) p.hidden = true;
+      });
+
+      panel.hidden = !panel.hidden;
+      if (!panel.hidden) panel.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  </script>
+</body>
+</html>
