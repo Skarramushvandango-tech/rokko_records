@@ -55,7 +55,7 @@
       </div>
     </section>
 
-    <!-- Artists-Wallpaper (ohne Logo) -> halbe Höhe -->
+    <!-- Artists-Wallpaper (ohne Logo) -> halbe Höhe (per CSS-Fix-Pack) -->
     <div class="separator separator--thin framed-separator" aria-hidden="true">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Artists"/>
       <span class="separator__label">ARTISTS</span>
@@ -88,6 +88,14 @@
             </div>
           </div>
         </div>
+
+        <!-- Ausklapp-Panel für HENRI -->
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <img class="album-panel__cover" alt="Album Cover">
+            <div class="album-panel__players"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -118,18 +126,18 @@
             </div>
           </div>
         </div>
-        <hr class="sandline"/>
-        <div class="youtube">
-          <div class="youtube__wrap">
-            <iframe src="https://www.youtube.com/embed/Rh53YVgsfJ4?rel=0&modestbranding=1&playsinline=1"
-                    title="Markus Erling – Video" allow="autoplay; encrypted-media"
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+
+        <!-- Ausklapp-Panel für ERLING -->
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <img class="album-panel__cover" alt="Album Cover">
+            <div class="album-panel__players"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Logo-Wallpaper-Kachel (VOLLE Höhe) -->
+    <!-- Logo-Wallpaper-Kachel (volle Höhe per CSS-Fix-Pack) -->
     <div class="separator separator--logo framed-separator" aria-hidden="true">
       <img src="assets/wallpaper/Wallpaper_logo.PNG" alt="Wallpaper Logo"/>
     </div>
@@ -147,11 +155,19 @@
         <div class="music-intro"><span class="music-label">Musik</span></div>
         <div class="track-list">
           <div class="track">
-            <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Cover: Feu Léger (Original)">
+            <img src="artists/FLEURBENUINE/Cover/fleur_leger_cover.PNG" alt="Cover: Feu Léger">
             <div class="track-meta">
               <span class="track-artist">Fleur</span>
               <span class="track-title">Feu Léger</span>
             </div>
+          </div>
+        </div>
+
+        <!-- Ausklapp-Panel für FLEUR -->
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <img class="album-panel__cover" alt="Album Cover">
+            <div class="album-panel__players"></div>
           </div>
         </div>
       </div>
@@ -177,6 +193,14 @@
             </div>
           </div>
         </div>
+
+        <!-- Ausklapp-Panel für SKANK -->
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <img class="album-panel__cover" alt="Album Cover">
+            <div class="album-panel__players"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -198,6 +222,14 @@
               <span class="track-artist">SkaRamush Vandango</span>
               <span class="track-title">Set the World on fire</span>
             </div>
+          </div>
+        </div>
+
+        <!-- Ausklapp-Panel für SKARAMUSH -->
+        <div class="album-panel" hidden>
+          <div class="album-panel__inner">
+            <img class="album-panel__cover" alt="Album Cover">
+            <div class="album-panel__players"></div>
           </div>
         </div>
       </div>
@@ -230,15 +262,6 @@
   <footer class="footer">
     &copy; 2025 ROKKO! Records. Made with ❤️ in der Ruhrpott.
   </footer>
-
-  <!-- Overlay für Album -->
-  <div id="albumOverlay" class="overlay" hidden>
-    <div class="overlay-content">
-      <button id="overlayClose" class="overlay-close" aria-label="Schließen">×</button>
-      <img id="overlayCover" class="overlay-cover" src="" alt="Album Cover">
-      <div id="overlayTracks" class="overlay-tracks"></div>
-    </div>
-  </div>
 
   <script>
     // Menü-Button
@@ -294,7 +317,7 @@
       });
     })();
 
-    // Mapping: Artist -> alle .m4a-Dateien (exakt wie bei dir im Projekt)
+    // Artist -> alle .m4a-Dateien (exakt wie in deinen Ordnern)
     var AUDIO_MAP = {
       "HENRI": [
         "artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a",
@@ -326,67 +349,57 @@
       ]
     };
 
-    // Overlay-Logik: Klick auf irgendeine Miniatur eines Artists
+    // Ausklappen unter dem Artist-Block (kein Overlay)
     (function(){
-      var overlay = document.getElementById('albumOverlay');
-      var coverEl = document.getElementById('overlayCover');
-      var tracksEl = document.getElementById('overlayTracks');
-      var closeBtn = document.getElementById('overlayClose');
-
-      // tracks klicken
       document.addEventListener('click', function(e){
         var track = e.target.closest('.track');
         if (!track) return;
-        var artistSection = track.closest('.artist');
-        if (!artistSection) return;
+        var section = track.closest('.artist');
+        if (!section) return;
 
-        var artistKey = artistSection.getAttribute('data-artist');
-        var files = AUDIO_MAP[artistKey] || [];
-        // großes Cover aus der angeklickten Miniatur
+        var panel = section.querySelector('.album-panel');
+        var coverEl = panel.querySelector('.album-panel__cover');
+        var playersEl = panel.querySelector('.album-panel__players');
+
+        // Cover aus angeklickter Miniatur übernehmen
         var mini = track.querySelector('img');
         coverEl.src = mini ? mini.src : '';
+        coverEl.alt = mini ? mini.alt : 'Album Cover';
 
-        // Liste bauen
-        tracksEl.innerHTML = '';
+        // Playerliste bauen
+        var key = section.getAttribute('data-artist');
+        var files = AUDIO_MAP[key] || [];
+        playersEl.innerHTML = '';
         files.forEach(function(path){
-          var wrap = document.createElement('div');
           var label = document.createElement('div');
-          label.textContent = path.split('/').slice(-1)[0]; // Dateiname anzeigen (exakt)
+          label.textContent = path.split('/').slice(-1)[0]; // Dateiname anzeigen
           var audio = document.createElement('audio');
           audio.controls = true;
-          audio.src = encodeURI(path); // Pfade mit Leerzeichen/Klammern
-          wrap.appendChild(label);
-          wrap.appendChild(audio);
-          tracksEl.appendChild(wrap);
+          audio.src = encodeURI(path);
+          playersEl.appendChild(label);
+          playersEl.appendChild(audio);
         });
 
-        overlay.hidden = false;
-      });
-
-      // schließen
-      closeBtn.addEventListener('click', function(){
-        overlay.hidden = true;
-        tracksEl.innerHTML = '';
-      });
-      overlay.addEventListener('click', function(e){
-        if (e.target === overlay) {
-          overlay.hidden = true;
-          tracksEl.innerHTML = '';
+        // Toggle: auf/zu
+        var isHidden = panel.hasAttribute('hidden');
+        document.querySelectorAll('.album-panel').forEach(function(p){
+          p.setAttribute('hidden',''); // alle anderen zu
+        });
+        if (isHidden) {
+          panel.removeAttribute('hidden'); // diesen öffnen
         }
       });
     })();
   </script>
 
-  <!-- Overlay CSS (kleiner Inline-Block, damit du style.css nicht anfassen musst) -->
+  <!-- Mini-Styles nur für das Ausklapp-Panel (damit style.css nicht angefasst werden muss) -->
   <style>
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;justify-content:center;align-items:center;z-index:2000}
-    .overlay[hidden]{display:none}
-    .overlay-content{position:relative;background:#0E0E0E;padding:20px;border-radius:14px;max-width:600px;width:90%;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.6);text-align:center}
-    .overlay-close{position:absolute;top:8px;right:10px;background:transparent;border:none;color:#fff;font-size:28px;cursor:pointer;opacity:.85}
-    .overlay-close:hover{opacity:1}
-    .overlay-cover{width:100%;max-height:300px;object-fit:contain;margin-bottom:16px;border-radius:10px;border:2px solid rgba(255,255,255,.25)}
-    .overlay-tracks audio{width:100%;margin:8px 0;display:block}
-    .overlay-tracks div{margin-top:6px;margin-bottom:2px;font:600 14px system-ui;color:#ffd8a6}
+    .album-panel { margin-top: 14px; }
+    .album-panel[hidden] { display: none; }
+    .album-panel__inner { background: #0e0e0e; border: 1px solid #262626; border-radius: 12px; padding: 12px; }
+    .album-panel__cover { width: 100%; max-height: 300px; object-fit: contain; display: block; border-radius: 10px; border: 2px solid rgba(255,255,255,.18); margin-bottom: 10px; }
+    .album-panel__players audio { width: 100%; display: block; margin: 8px 0; }
+    .album-panel__players div { font: 600 13px system-ui; color: #ffd8a6; margin-top: 6px; }
   </style>
 
 </body>
