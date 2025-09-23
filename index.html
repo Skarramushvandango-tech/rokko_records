@@ -65,17 +65,14 @@
     <section id="henri" class="card artist" data-artist="HENRI">
       <div class="inner-block">
         <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu"/>
-
         <h3 class="subhead">Biografie</h3>
         <div class="bio" data-bio-id="bio-henri">
           <p class="bio-text collapsed">Henri Bellieu – schon sein Name klingt wie ein altes Chanson …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
-
         <hr class="sandline"/>
         <div class="music-intro"><span class="music-label">Musik</span></div>
 
-        <!-- Thumbs (Klick => Panel unten in dieser Section) -->
         <div class="track-list">
           <button class="track" data-release="lafemme">
             <div class="thumb"><img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Cover: La Femme"></div>
@@ -87,7 +84,6 @@
           </button>
         </div>
 
-        <!-- Ausklapp-Panel -->
         <div class="album-panel" hidden>
           <div class="album-panel__inner">
             <div class="cover-frame square">
@@ -103,20 +99,18 @@
     <section id="erling" class="card artist" data-artist="ERLING">
       <div class="inner-block">
         <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling"/>
-
         <h3 class="subhead">Biografie</h3>
         <div class="bio" data-bio-id="bio-erling">
           <p class="bio-text collapsed">Markus Erling zieht seine Songs direkt aus dem eigenen Leben …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
-
         <hr class="sandline"/>
         <div class="music-intro"><span class="music-label">Musik</span></div>
 
         <div class="track-list">
           <button class="track" data-release="schlafen">
-            <div class="thumb"><img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Cover: Endlich schlafen"></div>
-            <div class="track-meta"><span class="track-title">Endlich schlafen</span></div>
+            <div class="thumb"><img src="artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG" alt="Cover: Endlich Schlafen"></div>
+            <div class="track-meta"><span class="track-title">Endlich Schlafen</span></div>
           </button>
           <button class="track" data-release="regen">
             <div class="thumb"><img src="artists/ERLING/Cover/erling_regen_cover.PNG" alt="Cover: Der Tag an dem es regnet"></div>
@@ -146,20 +140,18 @@
 
     <!-- Logo-Wallpaper – VOLLE Höhe -->
     <div class="separator separator--logo framed-separator" aria-hidden="true">
-      <img src="assets/wallpaper/Wallpaper_logi.PNG" alt="Wallpaper Logo"/>
+      <img src="assets/wallpaper/Wallpaper_logo.PNG" alt="Wallpaper Logo"/>
     </div>
 
     <!-- FLEUR -->
     <section id="fleur" class="card artist" data-artist="FLEURBENUINE">
       <div class="inner-block">
         <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur"/>
-
         <h3 class="subhead">Biografie</h3>
         <div class="bio" data-bio-id="bio-fleur">
           <p class="bio-text collapsed">Fleur ist die Stimme, die bleibt …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
-
         <hr class="sandline"/>
         <div class="music-intro"><span class="music-label">Musik</span></div>
 
@@ -185,13 +177,11 @@
     <section id="skank" class="card artist" data-artist="SKANK_SCHABLONSKI">
       <div class="inner-block">
         <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski"/>
-
         <h3 class="subhead">Biografie</h3>
         <div class="bio" data-bio-id="bio-schablonski">
           <p class="bio-text collapsed">Skank bringt das Lebensgefühl Jamaikas ins Ruhrgebiet …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
-
         <hr class="sandline"/>
         <div class="music-intro"><span class="music-label">Musik</span></div>
 
@@ -217,13 +207,11 @@
     <section id="skaramush" class="card artist" data-artist="SKARAMUSH_VANDANGO">
       <div class="inner-block">
         <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango"/>
-
         <h3 class="subhead">Biografie</h3>
         <div class="bio" data-bio-id="bio-skaramush">
           <p class="bio-text collapsed">Skaramush ist die wilde Energie auf der Bühne …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
-
         <hr class="sandline"/>
         <div class="music-intro"><span class="music-label">Musik</span></div>
 
@@ -270,10 +258,10 @@
   </main>
 
   <footer class="footer">
-    &copy; 2025 ROKKO! Records. Made with ❤️ im Ruhrpott.
+    &copy; 2025 ROKKO! Records. Made in Ruhrpott.
   </footer>
 
-  <!-- ======= Skript: alles in einem Block ======= -->
+  <!-- ======= Skript ======= -->
   <script>
     // Menü
     document.querySelector('.burger').addEventListener('click', function() {
@@ -295,7 +283,7 @@
       });
     })();
 
-    // Bio: Teaser (1. Absatz, mit …) + Toggle
+    // Bio aus assets/data/bios.html laden + Teaser/Expand
     (function(){
       function trimTeaser(text, max) {
         const clean = (text||'').replace(/\s+/g,' ').trim();
@@ -346,22 +334,19 @@
         });
     })();
 
-    // ===== Audio-Daten (exakte Pfade; Anzeige = nur Songname) =====
+    // ===== Audio-Pfade exakt nach deiner ROOT =====
     const RELEASES = {
       "HENRI": {
         "lafemme": {
           cover: "artists/HENRI/Cover/henri_la_femme.PNG",
           tracks: [
-            { name: "La Femme – Main",   src: "artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_Main.m4a" },
-            { name: "La Femme – V deux", src: "artists/HENRI/MP3_HENRI/Lafemme/Henri_Bellieu_La_Femme_(V_deux).m4a" }
+            { name: "La Femme", src: "artists/HENRI/MP3_HENRI/henri_la_femme.m4a" }
           ]
         },
         "colibri": {
           cover: "artists/HENRI/Cover/henri_petite_colibri.PNG",
           tracks: [
-            { name: "Petite Colibri – Main",           src: "artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite Colibri_Main.m4a" },
-            { name: "Petite Colibri – Ennio Mix",      src: "artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite Colibri_Ennio_Mix.m4a" },
-            { name: "Petite Colibri – Nocturne Mix",   src: "artists/HENRI/MP3_HENRI/petite_colibri/Henri_Bellieu_petite Colibri_Nocturne Mix.m4a" }
+            { name: "Petite Colibri", src: "artists/HENRI/MP3_HENRI/henri_petite_colibri.m4a" }
           ]
         }
       },
@@ -369,8 +354,7 @@
         "schlafen": {
           cover: "artists/ERLING/Cover/erling_endlich_schlafen_cover.PNG",
           tracks: [
-            { name: "Endlich schlafen – Main",         src: "artists/ERLING/MP3_ERLING/schlafen/Erling_ endlich schlafen.m4a" },
-            { name: "Endlich schlafen – MonoToni Rmx", src: "artists/ERLING/MP3_ERLING/schlafen/Erling_ schlafen MonoToni Rmx.m4a" }
+            { name: "Endlich Schlafen – Main",         src: "artists/ERLING/MP3_ERLING/schlafen/Erling_ endlich schlafen.m4a" }
           ]
         },
         "regen": {
@@ -397,8 +381,8 @@
         "merz": {
           cover: "artists/SKANK_SCHABLONSKI/Cover/schablonski_maerz_cover.PNG",
           tracks: [
-            { name: "Der Merz kommt – Main",  src: "artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_Main.m4a" },
-            { name: "Der Merz kommt – RMX",   src: "artists/SKANK_SCHABLONSKI/MP3_SCHABLONSKI/Kohle_raus/Skank_Schablonski_Der_Merz_kommt_RMX.m4a" }
+            { name: "Der Merz kommt – Main",  src: "artists/SKANK_SCHABLONSKI/MP3_SKANK/skank_kohle_raus_main.m4a" },
+            { name: "Der Merz kommt – RMX",   src: "artists/SKANK_SCHABLONSKI/MP3_SKANK/skank_kohle_raus_rmx.m4a" }
           ]
         }
       },
@@ -406,14 +390,14 @@
         "fire": {
           cover: "artists/SKARAMUSH_VANDANGO/Cover/cover_fire.PNG",
           tracks: [
-            { name: "Set the World on fire",            src: "artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/Set_fire/SkaRamush_Vandango_Set_the_World_on_fire.m4a" },
-            { name: "Set the World on fire – Original", src: "artists/SKARAMUSH_VANDANGO/MP3_VANDANGO/Set_fire/SkaRamush_Vandango__Set_the_World_on_fire_Original_Mix_.m4a" }
+            { name: "Set the World on fire – Main", src: "artists/SKARAMUSH_VANDANGO/MP3_SKARAMUSH/skaramush_settheworld_main.m4a" },
+            { name: "Set the World on fire – RMX",  src: "artists/SKARAMUSH_VANDANGO/MP3_SKARAMUSH/skaramush_settheworld_rmx.m4a" }
           ]
         }
       }
     };
 
-    // ===== Nur 1 Player gleichzeitig =====
+    // ===== Custom-Player: nur 1 gleichzeitig, Play/Pause, Fortschritt/Seek =====
     let currentAudio = null;
     function stopCurrent() {
       if (currentAudio) {
@@ -425,7 +409,7 @@
       }
     }
 
-    // ===== Panel-Logik (kein Popup) + Custom-Player =====
+    // Ausklappen (kein Popup) + Player bauen
     document.addEventListener('click', function(e){
       const btn = e.target.closest('.track');
       if (!btn) return;
@@ -443,47 +427,25 @@
       coverEl.src = data.cover;
       coverEl.alt = btn.querySelector('.track-title')?.textContent || 'Album Cover';
 
-      // Playerliste neu aufbauen
       playersEl.innerHTML = '';
       data.tracks.forEach(t=>{
-        // Zeile
-        const row = document.createElement('div');
-        row.className = 'player';
+        const row = document.createElement('div'); row.className = 'player';
 
-        // Titel (Pill oben)
-        const title = document.createElement('div');
-        title.className = 'player-title';
-        title.textContent = t.name;
+        const title = document.createElement('div'); title.className = 'player-title'; title.textContent = t.name;
 
-        // Button + Progress
-        const controls = document.createElement('div');
-        controls.className = 'player-controls';
+        const controls = document.createElement('div'); controls.className = 'player-controls';
 
-        const playBtn = document.createElement('button');
-        playBtn.className = 'player-btn';
-        playBtn.type = 'button';
-        playBtn.dataset.state = 'play'; // play | pause
+        const playBtn = document.createElement('button'); playBtn.className = 'player-btn'; playBtn.type = 'button'; playBtn.dataset.state = 'play';
 
-        const bar = document.createElement('div');
-        bar.className = 'player-progress';
-        const fill = document.createElement('div');
-        fill.className = 'player-progress__fill';
-        bar.appendChild(fill);
+        const bar = document.createElement('div'); bar.className = 'player-progress';
+        const fill = document.createElement('div'); fill.className = 'player-progress__fill'; bar.appendChild(fill);
 
-        controls.appendChild(playBtn);
-        controls.appendChild(bar);
+        controls.appendChild(playBtn); controls.appendChild(bar);
+        row.appendChild(title); row.appendChild(controls);
 
-        row.appendChild(title);
-        row.appendChild(controls);
+        const audio = new Audio(); audio.src = encodeURI(t.src); audio.preload = 'none';
+        audio._button = playBtn; audio._fill = fill;
 
-        // Audio (unsichtbar)
-        const audio = new Audio();
-        audio.src = encodeURI(t.src); // exakte Pfade, inkl. Leerzeichen/Diakritik
-        audio.preload = 'none';
-        audio._button = playBtn;
-        audio._fill = fill;
-
-        // Play/Pause
         playBtn.addEventListener('click', () => {
           if (audio.paused) {
             stopCurrent();
@@ -495,8 +457,6 @@
             playBtn.dataset.state = 'play';
           }
         });
-
-        // Fortschritt
         audio.addEventListener('timeupdate', () => {
           if (!isFinite(audio.duration) || audio.duration === 0) return;
           const p = (audio.currentTime / audio.duration) * 100;
@@ -508,31 +468,21 @@
           if (currentAudio === audio) currentAudio = null;
         });
         audio.addEventListener('error', () => {
-          // kleine Fehlermeldung
-          const err = document.createElement('div');
-          err.className = 'track-error';
+          const err = document.createElement('div'); err.className = 'track-error';
           err.textContent = 'Datei konnte nicht geladen werden (Pfad exakt prüfen).';
           row.appendChild(err);
         });
-
-        // Seek durch Klick in die Leiste
         bar.addEventListener('click', (ev) => {
           const rect = bar.getBoundingClientRect();
           const x = ev.clientX - rect.left;
           const ratio = Math.min(Math.max(x / rect.width, 0), 1);
-          if (isFinite(audio.duration)) {
-            audio.currentTime = ratio * audio.duration;
-          }
+          if (isFinite(audio.duration)) audio.currentTime = ratio * audio.duration;
         });
 
         playersEl.appendChild(row);
       });
 
-      // Nur dieses Panel öffnen, andere schließen
-      document.querySelectorAll('.album-panel').forEach(p=>{
-        if (p !== panel) p.hidden = true;
-      });
-
+      document.querySelectorAll('.album-panel').forEach(p=>{ if (p!==panel) p.hidden = true; });
       panel.hidden = !panel.hidden;
       if (!panel.hidden) panel.scrollIntoView({behavior:'smooth', block:'start'});
     });
