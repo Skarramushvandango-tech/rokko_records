@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Header: schwarz, volle Breite -->
+  <!-- Header -->
   <header class="site-header">
     <div class="brand">
       <img src="assets/Images/Logo.png" alt="ROKKO Logo" class="brand__logo"/>
@@ -17,25 +17,27 @@
         <span class="brand__bottom">RECORDS</span>
       </div>
     </div>
+
     <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu">
       <span></span><span></span><span></span>
     </button>
-    <nav class="menu" id="menu">
+
+    <nav class="menu" id="menu" aria-label="Hauptmenü">
       <a href="#about">Wir sind ROKKO</a>
-      <a href="#henri">Henri Bellieu</a>
-      <a href="#erling">Markus Erling</a>
-      <a href="#fleur">Fleur et Beunié</a>
-      <a href="#skank">Skank Schablonski</a>
-      <a href="#skaramush">SkaRamush Vandango</a>
+      <a href="#henri">Henri</a>
+      <a href="#erling">Erling</a>
+      <a href="#fleur">Fleur</a>
+      <a href="#skank">Skank</a>
+      <a href="#skaramush">Skaramush</a>
       <a href="#contact">Kontakt</a>
     </nav>
   </header>
 
-  <!-- Hero-Video: full-bleed bis zum Rand -->
-  <section class="hero">
+  <!-- Hero-Video -->
+  <section class="hero" aria-label="Intro">
     <video id="introVideo" class="hero__video" autoplay muted loop playsinline
            src="assets/movies/Intro_movie.mp4"></video>
-    <button id="soundBtn" class="sound-btn" aria-label="Sound umschalten">Ton: Aus</button>
+    <button id="soundBtn" class="sound-btn" aria-pressed="true" aria-label="Ton umschalten">Ton: Aus</button>
   </section>
 
   <main>
@@ -54,7 +56,7 @@
     </section>
 
     <!-- Label: ARTISTS -->
-    <div class="separator separator--thin separator--label framed-separator">
+    <div class="separator separator--thin separator--label framed-separator" aria-hidden="true">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Artists"/>
       <span class="separator__label">ARTISTS</span>
     </div>
@@ -65,10 +67,8 @@
         <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu"/>
 
         <h3 class="subhead">Biografie</h3>
-        <div class="bio" data-artist="henri">
-          <p class="bio-text collapsed">
-            Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn …
-          </p>
+        <div class="bio" data-bio-id="bio-henri">
+          <p class="bio-text collapsed">Henri Bellieu – schon sein Name klingt wie ein altes Chanson …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
 
@@ -127,10 +127,8 @@
         <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling"/>
 
         <h3 class="subhead">Biografie</h3>
-        <div class="bio" data-artist="erling">
-          <p class="bio-text collapsed">
-            Markus Erling zieht seine Songs direkt aus dem eigenen Leben …
-          </p>
+        <div class="bio" data-bio-id="bio-erling">
+          <p class="bio-text collapsed">Markus Erling zieht seine Songs direkt aus dem eigenen Leben …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
 
@@ -186,7 +184,7 @@
           </div>
         </div>
 
-        <!-- YouTube-Clip -->
+        <!-- YouTube unterhalb der Songs -->
         <hr class="sandline"/>
         <div class="youtube">
           <div class="youtube__wrap">
@@ -199,7 +197,7 @@
     </section>
 
     <!-- Logo-Wallpaper-Kachel -->
-    <div class="separator separator--logo framed-separator">
+    <div class="separator separator--logo framed-separator" aria-hidden="true">
       <img src="assets/wallpaper/Wallpaper_logi.PNG" alt="ROKKO Wallpaper Logo"/>
     </div>
 
@@ -209,10 +207,8 @@
         <img class="artist__photo" src="artists/FLEURBENUINE/Fotos/Fleurbenuie_main.PNG" alt="Fleur et Beunié"/>
 
         <h3 class="subhead">Biografie</h3>
-        <div class="bio" data-artist="fleur">
-          <p class="bio-text collapsed">
-            Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille …
-          </p>
+        <div class="bio" data-bio-id="bio-fleur">
+          <p class="bio-text collapsed">Fleur &amp; Beunié – Jet-Set-Liebespaar aus Marseille …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
 
@@ -269,7 +265,7 @@
         <img class="artist__photo" src="artists/SKANK_SCHABLONSKI/Fotos/skank_main.PNG" alt="Skank Schablonski"/>
 
         <h3 class="subhead">Biografie</h3>
-        <div class="bio" data-artist="schablonski">
+        <div class="bio" data-bio-id="bio-schablonski">
           <p class="bio-text collapsed">Skank Schablonski – der Assi aus Iserlohn …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
@@ -312,7 +308,7 @@
         <img class="artist__photo" src="artists/SKARAMUSH_VANDANGO/Fotos/skaramush_main.PNG" alt="SkaRamush Vandango"/>
 
         <h3 class="subhead">Biografie</h3>
-        <div class="bio" data-artist="skaramush">
+        <div class="bio" data-bio-id="bio-skaramush">
           <p class="bio-text collapsed">SkaRamush Vandango ist Label-Chef …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
@@ -350,7 +346,7 @@
     </section>
 
     <!-- Label: KOMMENTAR -->
-    <div class="separator separator--thin separator--label framed-separator">
+    <div class="separator separator--thin separator--label framed-separator" aria-hidden="true">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Kommentar"/>
       <span class="separator__label">KOMMENTAR</span>
     </div>
@@ -386,11 +382,21 @@
   // Burger
   const burger = document.querySelector('.burger');
   const menu = document.getElementById('menu');
+  const closeMenu = () => {
+    if (menu && menu.classList.contains('menu--open')) {
+      menu.classList.remove('menu--open');
+      burger?.setAttribute('aria-expanded','false');
+    }
+  };
   if (burger && menu) {
     burger.addEventListener('click', () => {
       const open = menu.classList.toggle('menu--open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+    // zu beim Link-Klick / Outside / Escape
+    menu.addEventListener('click', e => { if (e.target.tagName === 'A') closeMenu(); });
+    document.addEventListener('click', e => { if (!menu.contains(e.target) && !burger.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
   }
 
   // Video-Sound Button
@@ -398,20 +404,19 @@
     const v = document.getElementById('introVideo');
     const btn = document.getElementById('soundBtn');
     if(!v || !btn) return;
-    btn.addEventListener('click', ()=>{
-      v.muted = !v.muted;
-      btn.textContent = 'Ton: ' + (v.muted ? 'Aus' : 'An');
-    });
+    function updateLabel(){ btn.textContent = 'Ton: ' + (v.muted ? 'Aus' : 'An'); btn.setAttribute('aria-pressed', v.muted ? 'true':'false'); }
+    updateLabel();
+    btn.addEventListener('click', ()=>{ v.muted = !v.muted; updateLabel(); });
   })();
 
-  // Nur EIN Audio gleichzeitig
+  // Nur EIN Audio gleichzeitig & Video stumm bei Audio
   (function(){
     const audios = Array.from(document.querySelectorAll('audio'));
     audios.forEach(a => {
       a.addEventListener('play', ()=>{
         audios.forEach(other => { if(other !== a){ other.pause(); other.currentTime = 0; }});
         const v = document.getElementById('introVideo');
-        if(v){ v.muted = true; const b=document.getElementById('soundBtn'); if(b) b.textContent='Ton: Aus'; }
+        if(v){ v.muted = true; const b=document.getElementById('soundBtn'); if(b){ b.textContent='Ton: Aus'; b.setAttribute('aria-pressed','true'); } }
       });
     });
   })();
@@ -435,7 +440,7 @@
     });
   })();
 
-  // Track-Previews: Toggle
+  // Track-Previews: auf/zu
   (function(){
     document.querySelectorAll('.track').forEach(track=>{
       const btn = track.querySelector('.track__preview');
@@ -447,6 +452,27 @@
         detail.hidden = open;
       });
     });
+  })();
+
+  // BIOS per fetch() laden und einsetzen (optional, falls Datei vorhanden)
+  (async function(){
+    try{
+      const res = await fetch('assets/data/bios.html', {cache:'no-store'});
+      if(!res.ok) return;
+      const html = await res.text();
+      const tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      document.querySelectorAll('.bio[data-bio-id]').forEach(container=>{
+        const id = container.getAttribute('data-bio-id');
+        const source = tmp.querySelector('#'+CSS.escape(id));
+        const target = container.querySelector('.bio-text');
+        if(source && target){
+          // nur Inhalt des ersten <p> übernehmen
+          const p = source.querySelector('p');
+          if(p) target.innerHTML = p.innerHTML;
+        }
+      });
+    }catch(e){ /* still bleiben, Fallback-Texte bleiben */ }
   })();
   </script>
 </body>
