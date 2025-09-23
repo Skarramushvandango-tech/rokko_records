@@ -139,7 +139,7 @@ body {
 .track .track-meta { display: flex; flex-direction: column; gap: 2px; }
 .track .track-title { font-weight: 900; font-size: 15px; }
 
-/* Album-Panel (kein extr. schwarzer Rahmen) */
+/* Album-Panel */
 .album-panel { margin-top: 14px; }
 .album-panel[hidden] { display: none; }
 .album-panel__inner { padding: 0; background: transparent; border: 0; }
@@ -166,9 +166,7 @@ body {
   padding: 6px 12px;
   margin-bottom: 8px;
 }
-.player-controls{
-  display: flex; align-items: center; gap: 12px;
-}
+.player-controls{ display: flex; align-items: center; gap: 12px; }
 .player-btn{
   width: 36px; height: 36px; border-radius: 50%;
   border: 2px solid var(--accent); background: transparent; color: var(--text);
@@ -185,6 +183,7 @@ body {
   position: absolute; inset: 0 100% 0 0; width: 0%;
   background: var(--accent);
 }
+
 /* YouTube */
 .youtube { width: 100%; display: flex; justify-content: center; margin: 30px 0; }
 .youtube__wrap {
@@ -229,11 +228,10 @@ input:focus, textarea:focus { border-color: #ffaf33; }
   user-select: none; cursor: pointer; text-decoration: underline dotted;
 }
 
-/* Optionale Fehlermeldung für Audio */
+/* Fehlermeldung Audio */
 .track-error { color:#ffb3b3; font-weight:700; font-size:12px; margin-top:6px; }
 
 /* ========== Responsive ========== */
-/* Mobile Portrait */
 @media (max-width: 480px){
   :root { --track-thumb: 64px; --max-card-width: 640px; }
   .hero { height: 34vh; }
@@ -241,22 +239,16 @@ input:focus, textarea:focus { border-color: #ffaf33; }
   .separator--logo img { height: 32vh; }
   .player-btn{ width:34px; height:34px; }
 }
-
-/* Mobile Landscape / Small Tablet */
 @media (min-width: 481px) and (max-width: 768px){
   :root { --track-thumb: 70px; --max-card-width: 760px; }
   .hero { height: 36vh; }
   .separator--thin img { height: 18vh; }
   .separator--logo img { height: 36vh; }
 }
-
-/* Normal PC */
 @media (min-width: 769px) and (max-width: 1199px){
   :root { --max-card-width: 820px; }
   .hero { height: 38vh; }
 }
-
-/* Widescreen PC */
 @media (min-width: 1200px){
   :root { --max-card-width: 980px; }
   .hero { height: 40vh; }
