@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header: schwarz, volle Breite -->
   <header class="site-header">
     <div class="brand">
       <img src="assets/Images/Logo.png" alt="ROKKO Logo" class="brand__logo"/>
@@ -31,7 +31,7 @@
     </nav>
   </header>
 
-  <!-- Intro-Video (folgt Inhaltsbreite) -->
+  <!-- Hero-Video: immer full-bleed bis an den Rand -->
   <section class="hero">
     <video id="introVideo" class="hero__video" autoplay muted loop playsinline
            src="assets/movies/Intro_movie.mp4"></video>
@@ -39,7 +39,8 @@
   </section>
 
   <main>
-    <!-- ABOUT: Doppelrahmen -->
+
+    <!-- ABOUT: Orange Außenfläche + schwarzer Innenblock -->
     <section id="about" class="card">
       <div class="inner-block">
         <h2 class="section-title">Wir sind ROKKO! Records — und Du „noch“ nicht …</h2>
@@ -52,7 +53,7 @@
       </div>
     </section>
 
-    <!-- Label: ARTISTS -->
+    <!-- Label: ARTISTS (Wallpaper-Kachel mit orangem Rahmen bleibt) -->
     <div class="separator separator--thin separator--label framed-separator">
       <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Artists"/>
       <span class="separator__label">ARTISTS</span>
@@ -66,7 +67,7 @@
         <h3 class="subhead">Biografie</h3>
         <div class="bio" data-artist="henri">
           <p class="bio-text collapsed">
-            Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: ziellos, die Straßen von Paris entlang wandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic. Am Piano saß Henri, mit rauchiger Stimme und Melodien, die den Raum zum Leuchten brachten. Eine Nacht voller Rotwein, Gespräche über Liebe, Leid und das Leben – und aus dieser Begegnung wuchs eine Freundschaft, die sie bis heute trägt. Mit Petit Colibri singt Henri von einer Frau, die längst aus seinem Leben verschwunden ist und doch bis heute in seinem Herzen verweilt. Jeder seiner Songs trägt diese Ehrlichkeit: mal ist er der, dem das Herz gebrochen wurde, mal der, der selbst Narben hinterlassen hat. Henris Chansons sind keine Pose – sie sind gelebte Geschichten. Mal zart, mal schmerzlich, immer voller Wahrheit.
+            Henri Bellieu – schon sein Name klingt wie ein altes Chanson, gesungen in einer verrauchten Pariser Kneipe. Genau dort traf Markus Erling auf ihn: ziellos, die Straßen von Paris entlang wandernd, auf der Suche nach Schöngeist, Musik und einem Hauch französischem Chic …
           </p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
@@ -125,9 +126,7 @@
 
         <h3 class="subhead">Biografie</h3>
         <div class="bio" data-artist="erling">
-          <p class="bio-text collapsed">
-            Markus Erling zieht seine Songs direkt aus dem eigenen Leben …
-          </p>
+          <p class="bio-text collapsed">Markus Erling zieht seine Songs direkt aus dem eigenen Leben …</p>
           <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
         </div>
 
@@ -183,7 +182,7 @@
       </div>
     </section>
 
-    <!-- Logo-Wallpaper -->
+    <!-- Logo-Wallpaper-Kachel -->
     <div class="separator separator--logo framed-separator">
       <img src="assets/wallpaper/Wallpaper_logi.PNG" alt="ROKKO Wallpaper Logo"/>
     </div>
@@ -399,7 +398,7 @@
     });
   })();
 
-  // Bio: auf/zu
+  // Bio Toggle
   (function(){
     document.querySelectorAll('.bio').forEach(b=>{
       const p = b.querySelector('.bio-text');
@@ -418,7 +417,7 @@
     });
   })();
 
-  // Track-Previews: Toggle auf/zu
+  // Track-Previews: Toggle
   (function(){
     document.querySelectorAll('.track').forEach(track=>{
       const btn = track.querySelector('.track__preview');
