@@ -1,1 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>ROKKO Records</title>
+  <meta name="description" content="ROKKO Records – Das kreative Musiklabel aus dem Ruhrpott. Künstler, Musik und mehr." />
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="assets/Images/Logo.png"/>
+</head>
+<body>
 
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/Images/Logo.png" alt="ROKKO Logo" class="brand__logo"/>
+      <div class="brand__title">
+        <span class="brand__top">ROKKO!</span>
+        <span class="brand__bottom">RECORDS</span>
+      </div>
+    </div>
+    <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Hauptmenü">
+      <a href="#about">Wir sind ROKKO</a>
+      <a href="#henri">Henri</a>
+      <a href="#erling">Erling</a>
+      <a href="#fleur">Fleur</a>
+      <a href="#skank">Skank</a>
+      <a href="#skaramush">Skaramush</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- Hero-Video -->
+  <section class="hero" aria-label="Intro">
+    <video id="introVideo" class="hero__video" autoplay muted loop playsinline
+           src="assets/movies/Intro_movie.mp4"></video>
+    <button id="soundBtn" class="sound-btn" aria-pressed="true" aria-label="Ton umschalten">Ton: Aus</button>
+  </section>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <div class="inner-block">
+        <h2 class="section-title">Wir sind ROKKO! Records — und Du „noch“ nicht …</h2>
+        <div class="card__text">
+          <p>Tach, wir sind die Neuen in der Szene. Und wir sind ein bisschen anders, das ist auch gut so. Wir jagen nicht den Fame und sonnen uns nicht im Applaus. Wir haben kein Genre, wir engen uns nicht ein. Die Songs und Artists sind jeglicher Couleur und eines ist sicher:</p>
+          <ul><li>Es wird auf keinen Fall langweilig.</li></ul>
+          <p>ROKKOS! Herz schlägt im Ruhrpott, doch die Musik reicht weiter. Rokko ist kein Genre, keine Sprache oder Farbe. ROKKO! ist geballte kreative Freiheit, die ins Ohr geht und von dort nicht mehr wegzubekommen ist.</p>
+          <p>Also kloppt Euch den Schmalz aus den Ohren, hier kommt der Honig …</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artists-Wallpaper (ohne Logo) -> halbe Höhe -->
+    <div class="separator separator--thin framed-separator" aria-hidden="true">
+      <img src="assets/wallpaper/Wallpaper_two.PNG" alt="Wallpaper Artists"/>
+      <span class="separator__label">ARTISTS</span>
+    </div>
+
+    <!-- HENRI -->
+    <section id="henri" class="card artist" data-artist="HENRI">
+      <div class="inner-block">
+        <img class="artist__photo" src="artists/HENRI/Fotos/henri_main.PNG" alt="Henri Bellieu"/>
+        <h3 class="subhead">Biografie</h3>
+        <div class="bio" data-bio-id="bio-henri">
+          <p class="bio-text collapsed">…</p>
+          <span class="bio-toggle" aria-hidden="true">Text erweitern</span>
+        </div>
+        <hr class="sandline"/>
+        <div class="music-intro"><span class="music-label">Musik</span></div>
+        <div class="track-list">
+          <div class="track">
+            <img src="artists/HENRI/Cover/henri_la_femme.PNG" alt="Cover: La Femme">
+            <div class="track-meta">
+              <span class="track-artist">Henri Bellieu</span>
+              <span class="track-title">La Femme</span>
+            </div>
+          </div>
+          <div class="track">
+            <img src="artists/HENRI/Cover/henri_petite_colibri.PNG" alt="Cover: Petite Colibri">
+            <div class="track-meta">
+              <span class="track-artist">Henri Bellieu</span>
+              <span class="track-title">Petite Colibri</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ERLING -->
+    <section id="erling" class="card artist" data-artist="ERLING">
+      <div class="inner-block">
+        <img class="artist__photo" src="artists/ERLING/Foto/erling_main.PNG" alt="Markus Erling"/>
+        <h3 class="subhead">Biografie</h3>
+        <div class="bio" data-bio-id="bio-erling">
+          <p class
